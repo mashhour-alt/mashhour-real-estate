@@ -1,6 +1,7 @@
 "use client";
 
 import { FormEvent, useEffect, useMemo, useState } from "react";
+import ProjectMap, { type MapProject } from "./ProjectMap";
 
 type Project = {
   "Project Name | اسم المشروع": string;
@@ -41,7 +42,7 @@ type Lang = "en" | "ar" | "it";
 
 const copy = {
   en: {
-    nav: ["Projects", "Compare", "Market", "Developers"],
+    nav: ["Map", "Projects", "Compare", "Market", "Developers"],
     eyebrow: "Dubai off-plan intelligence",
     titleA: "See the deal.",
     titleB: "Not the sales pitch.",
@@ -67,9 +68,14 @@ const copy = {
     leadSub: "Share the basics and Mashhour Real Estate will prepare a focused comparison.",
     send: "Request a shortlist",
     success: "Thank you — your request is ready for follow-up.",
+    mapTitle: "Dubai project map",
+    mapSub: "Explore mapped communities, then open any project for the complete record.",
+    mapMapped: "SELECTED AREA",
+    mapHint: "Select a project cluster on the map.",
+    mapEmpty: "Pins use community centres and are indicative, not plot boundaries.",
   },
   ar: {
-    nav: ["المشاريع", "المقارنة", "السوق", "المطورون"],
+    nav: ["الخريطة", "المشاريع", "المقارنة", "السوق", "المطورون"],
     eyebrow: "مرجع الأوف بلان في دبي",
     titleA: "شوف الصفقة.",
     titleB: "مش كلام المبيعات.",
@@ -94,9 +100,14 @@ const copy = {
     leadSub: "سيب بياناتك وMashhour Real Estate يجهز لك مقارنة مركزة.",
     send: "اطلب القائمة",
     success: "شكرًا — طلبك جاهز للمتابعة.",
+    mapTitle: "خريطة مشاريع دبي",
+    mapSub: "استكشف المناطق واضغط على أي مشروع لفتح كل بياناته.",
+    mapMapped: "المنطقة المختارة",
+    mapHint: "اختار تجمع مشاريع من الخريطة.",
+    mapEmpty: "النقاط في مراكز المناطق استرشادية وليست حدود قطع الأراضي.",
   },
   it: {
-    nav: ["Progetti", "Confronta", "Mercato", "Developer"],
+    nav: ["Mappa", "Progetti", "Confronta", "Mercato", "Developer"],
     eyebrow: "Intelligence off-plan a Dubai",
     titleA: "Vedi l’affare.",
     titleB: "Non il discorso di vendita.",
@@ -121,6 +132,11 @@ const copy = {
     leadSub: "Condividi i dettagli e Mashhour Real Estate preparerà il confronto.",
     send: "Richiedi shortlist",
     success: "Grazie — la tua richiesta è pronta.",
+    mapTitle: "Mappa progetti Dubai",
+    mapSub: "Esplora le comunità e apri ogni progetto per tutti i dettagli.",
+    mapMapped: "ZONA SELEZIONATA",
+    mapHint: "Seleziona un gruppo di progetti sulla mappa.",
+    mapEmpty: "I punti indicano il centro della comunità, non i confini del lotto.",
   },
 };
 
@@ -310,7 +326,7 @@ export default function Home() {
         </a>
         <nav>
           {t.nav.map((item, index) => (
-            <a key={item} href={["#projects", "#compare", "#market", "#developers"][index]}>
+            <a key={item} href={["#map", "#projects", "#compare", "#market", "#developers"][index]}>
               {item}
             </a>
           ))}
@@ -352,9 +368,20 @@ export default function Home() {
         </div>
       </section>
 
+      <section className="section map-section" id="map">
+        <div className="section-head">
+          <div><span className="section-number">01</span><p>LOCATION INTELLIGENCE</p><h2>{t.mapTitle}</h2><small>{t.mapSub}</small></div>
+        </div>
+        <ProjectMap
+          projects={filtered as MapProject[]}
+          onSelect={(project) => setSelectedProject(project as Project)}
+          labels={{ mapped: t.mapMapped, projects: t.projects, hint: t.mapHint, empty: t.mapEmpty }}
+        />
+      </section>
+
       <section className="section light" id="projects">
         <div className="section-head">
-          <div><span className="section-number">01</span><p>PROJECT DATABASE</p><h2>{t.explore}</h2></div>
+          <div><span className="section-number">02</span><p>PROJECT DATABASE</p><h2>{t.explore}</h2></div>
           <span className="result-count">{filtered.length.toLocaleString()} results</span>
         </div>
         <div className="filters">
@@ -420,7 +447,7 @@ export default function Home() {
 
       <section className="section dark" id="compare">
         <div className="section-head inverse">
-          <div><span className="section-number">02</span><p>DECISION TOOL</p><h2>{t.comparison}</h2><small>{t.comparisonSub}</small></div>
+          <div><span className="section-number">03</span><p>DECISION TOOL</p><h2>{t.comparison}</h2><small>{t.comparisonSub}</small></div>
           <span className="compare-count">{compare.length}/5</span>
         </div>
         {compare.length === 0 ? (
@@ -444,7 +471,7 @@ export default function Home() {
       </section>
 
       <section className="section warm" id="market">
-        <div className="section-head"><div><span className="section-number">03</span><p>AREA INTELLIGENCE</p><h2>{t.market}</h2><small>{t.marketSub}</small></div></div>
+        <div className="section-head"><div><span className="section-number">04</span><p>AREA INTELLIGENCE</p><h2>{t.market}</h2><small>{t.marketSub}</small></div></div>
         <div className="area-grid">
           {(data?.areas || []).filter((item) => item["PSF Benchmark"]).slice(0, 8).map((item, index) => (
             <article className="area-card" key={`${item.Area}-${item["Asset Type"]}`}>
@@ -458,7 +485,7 @@ export default function Home() {
       </section>
 
       <section className="section light" id="developers">
-        <div className="section-head"><div><span className="section-number">04</span><p>TRACK RECORD</p><h2>{t.developerTitle}</h2><small>{t.developerSub}</small></div></div>
+        <div className="section-head"><div><span className="section-number">05</span><p>TRACK RECORD</p><h2>{t.developerTitle}</h2><small>{t.developerSub}</small></div></div>
         <div className="developer-list">
           {(data?.developers || []).filter((item) => item["Overall /10"]).sort((a, b) => (b["Overall /10"] || 0) - (a["Overall /10"] || 0)).slice(0, 10).map((item, index) => (
             <article key={item.Developer}>
