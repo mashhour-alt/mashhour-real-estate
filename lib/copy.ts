@@ -4,7 +4,7 @@ export const ROUTES = [
   { href: "/map", key: "map" },
   { href: "/projects", key: "projects" },
   { href: "/compare", key: "compare" },
-  { href: "/market", key: "market" },
+  { href: "/areas", key: "market" },
   { href: "/developers", key: "developers" },
   { href: "/roi", key: "roi" },
 ] as const;
@@ -111,6 +111,11 @@ export const copy = {
     articlesProjects: "Project insights",
     articlesDevelopers: "Developer insights",
     articlesAreas: "Area insights",
+    areasTitle: "Dubai communities",
+    areasSub: "Open any community for its benchmarks and projects.",
+    areaNotFound: "Community not found",
+    viewAreaProjects: "View area projects",
+    areaSegments: "By asset type",
   },
   ar: {
     nav: ["الخريطة", "المشاريع", "المقارنة", "السوق", "المطورون", "الحاسبة"],
@@ -212,6 +217,11 @@ export const copy = {
     articlesProjects: "مقالات عن المشاريع",
     articlesDevelopers: "مقالات عن المطورين",
     articlesAreas: "مقالات عن المناطق",
+    areasTitle: "مناطق دبي",
+    areasSub: "افتح أي منطقة لعرض مؤشراتها ومشاريعها.",
+    areaNotFound: "المنطقة غير موجودة",
+    viewAreaProjects: "شوف مشاريع المنطقة",
+    areaSegments: "حسب نوع الأصل",
   },
   it: {
     nav: ["Mappa", "Progetti", "Confronta", "Mercato", "Developer", "Calcolatore"],
@@ -313,6 +323,11 @@ export const copy = {
     articlesProjects: "Approfondimenti sui progetti",
     articlesDevelopers: "Approfondimenti sui developer",
     articlesAreas: "Approfondimenti sulle zone",
+    areasTitle: "Zone di Dubai",
+    areasSub: "Apri una zona per benchmark e progetti.",
+    areaNotFound: "Zona non trovata",
+    viewAreaProjects: "Vedi i progetti della zona",
+    areaSegments: "Per tipo di asset",
   },
 } satisfies Record<Lang, Record<string, unknown>>;
 

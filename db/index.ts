@@ -2,6 +2,12 @@ import { drizzle } from "drizzle-orm/d1";
 import * as schema from "./schema";
 
 /**
+ * Minimal shape of the D1 binding we rely on. Using a local type avoids adding
+ * the full @cloudflare/workers-types dependency just for one interface.
+ */
+type D1Like = Parameters<typeof drizzle>[0];
+
+/**
  * Returns a Drizzle client bound to the Cloudflare D1 database.
  *
  * The `cloudflare:workers` module only exists inside the Workers runtime, so it
@@ -10,7 +16,7 @@ import * as schema from "./schema";
  */
 export async function getDb() {
   const { env } = (await import("cloudflare:workers")) as {
-    env: { DB?: D1Database };
+    env: { DB?: D1Like };
   };
 
   if (!env.DB) {

@@ -585,6 +585,45 @@ footer p, footer > span { color: #777; font-size: 10px; letter-spacing: .08em; }
 .admin-list-actions button:hover { border-color: var(--ink); }
 .admin-list-actions .danger { color: var(--red); }
 
+/* --- Areas listing & detail ------------------------------------ */
+.areas-grid { max-width: 1500px; margin: 0 auto; display: grid; grid-template-columns: repeat(3,1fr); gap: 1px; background: var(--line); border: 1px solid var(--line); }
+.area-tile { position: relative; min-height: 210px; padding: 24px; background: #fff; display: flex; flex-direction: column; gap: 8px; transition: background .2s, color .2s; }
+.area-tile-index { color: var(--red); font-size: 9px; font-weight: 900; letter-spacing: .12em; }
+.area-tile h3 { margin: 0; font-size: 23px; letter-spacing: -.045em; line-height: 1.05; }
+.area-tile > p { margin: 0; color: #8a857d; font-size: 11px; font-weight: 800; text-transform: uppercase; letter-spacing: .06em; }
+.area-tile dl { margin: auto 0 0; display: grid; grid-template-columns: repeat(3,1fr); gap: 8px; }
+.area-tile dl > div { display: flex; flex-direction: column; gap: 3px; }
+.area-tile dt { color: #8a857d; font-size: 7px; font-weight: 900; letter-spacing: .1em; }
+.area-tile dd { margin: 0; font-size: 13px; font-weight: 800; letter-spacing: -.02em; }
+.area-tile-arrow { position: absolute; top: 22px; inset-inline-end: 22px; color: var(--red); font-size: 20px; transition: transform .2s; }
+.area-tile:hover { background: var(--ink); color: #fff; }
+.area-tile:hover > p, .area-tile:hover dt { color: #9a948b; }
+.area-tile:hover .area-tile-arrow { transform: translateX(5px); }
+[dir="rtl"] .area-tile:hover .area-tile-arrow { transform: translateX(-5px); }
+
+.area-breadcrumb { max-width: 1500px; margin: 0 auto 20px; }
+.area-breadcrumb a { color: var(--red); font-size: 11px; font-weight: 900; letter-spacing: .06em; }
+.area-breadcrumb a:hover { text-decoration: underline; }
+.area-projects-cta { min-width: 0; }
+.area-headline { max-width: 1500px; margin: 0 auto; display: grid; grid-template-columns: repeat(4,1fr); gap: 1px; background: var(--line); border: 1px solid var(--line); }
+.area-headline > div { min-height: 120px; padding: 20px; background: #fff; display: flex; flex-direction: column; justify-content: space-between; }
+.area-headline > div:first-child { background: var(--ink); color: #fff; }
+.area-headline small { font-size: 8px; font-weight: 900; letter-spacing: .1em; text-transform: uppercase; color: #8a857d; }
+.area-headline > div:first-child small { color: #9a948b; }
+.area-headline strong { font-size: 26px; letter-spacing: -.05em; }
+
+.area-segments { max-width: 1500px; margin: 40px auto 0; }
+.area-segment-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 14px; margin-top: 18px; }
+.area-segment-grid article { border: 1px solid var(--line); background: #fff; padding: 18px 20px; }
+.area-segment-grid p { margin: 0 0 14px; font-size: 12px; font-weight: 800; text-transform: uppercase; letter-spacing: .04em; color: #4a4842; }
+.area-segment-grid dl { margin: 0; display: grid; grid-template-columns: repeat(3,1fr); gap: 10px; }
+.area-segment-grid dt { color: #8a857d; font-size: 8px; font-weight: 900; letter-spacing: .08em; text-transform: uppercase; }
+.area-segment-grid dd { margin: 4px 0 0; font-size: 13px; font-weight: 800; }
+
+.area-cta-row { max-width: 1500px; margin: 40px auto 0; display: flex; gap: 12px; flex-wrap: wrap; }
+.admin-note { max-width: 760px; margin: 0 auto; }
+.admin-note p { margin: 0; color: #4a4842; font-size: 14px; line-height: 1.7; }
+
 
 /* === Responsive overrides (must stay last in this file) === */
 
@@ -677,4 +716,9 @@ footer p, footer > span { color: #777; font-size: 10px; letter-spacing: .08em; }
   .admin-panel { padding: 18px 16px; }
   .admin-actions { flex-direction: column; }
   .admin-list article { flex-direction: column; align-items: flex-start; }
+  .areas-grid { grid-template-columns: 1fr; }
+  .area-headline { grid-template-columns: 1fr 1fr; }
+  .area-segment-grid { grid-template-columns: 1fr; }
+  .area-cta-row { flex-direction: column; }
+  .area-cta-row .button { width: 100%; }
 }

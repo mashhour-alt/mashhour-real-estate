@@ -202,9 +202,17 @@ export default function AdminPage() {
   if (status === "error") {
     return (
       <section className="section light">
-        <SectionHead number="!" eyebrow="ADMIN" title="Database not ready" />
-        <div className="admin-panel admin-error">
-          <p>{dbError}</p>
+        <SectionHead
+          number="00"
+          eyebrow="ADMIN"
+          title="Coming soon"
+          sub="The content dashboard will be available once the database is connected."
+        />
+        <div className="admin-panel admin-note">
+          <p>
+            This area is being set up. Article management goes live as soon as the
+            database is enabled on the hosting platform.
+          </p>
         </div>
       </section>
     );
