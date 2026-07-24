@@ -2,6 +2,7 @@
 
 import { Suspense, useMemo, useState } from "react";
 import { useSearchParams } from "next/navigation";
+import Articles from "@/components/Articles";
 import ProjectCard from "@/components/ProjectCard";
 import ProjectModal from "@/components/ProjectModal";
 import SectionHead from "@/components/SectionHead";
@@ -134,6 +135,8 @@ function ProjectsView() {
           )}
         </>
       )}
+
+      <Articles scope="project" heading={t.articlesProjects} />
 
       <ProjectModal project={selectedProject} onClose={() => setSelectedProject(null)} />
     </section>

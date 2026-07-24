@@ -2,6 +2,7 @@
 
 import { useMemo, useState } from "react";
 import Link from "next/link";
+import Articles from "@/components/Articles";
 import SectionHead from "@/components/SectionHead";
 import { developerUrl } from "@/lib/format";
 import { useLang, useSiteData } from "@/lib/site-context";
@@ -77,6 +78,8 @@ export default function DevelopersPage() {
           ))}
         </div>
       )}
+
+      <Articles scope="developer" heading={t.articlesDevelopers} />
     </section>
   );
 }

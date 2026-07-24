@@ -108,6 +108,9 @@ export const copy = {
     calcF4: "ROE = Net rent ÷ Paid equity",
     calcF5: "Payback = Paid equity ÷ Net rent",
     calcNote: "Indicative modelling only. Verify prices, rents and payment terms with the developer before advising a client.",
+    articlesProjects: "Project insights",
+    articlesDevelopers: "Developer insights",
+    articlesAreas: "Area insights",
   },
   ar: {
     nav: ["الخريطة", "المشاريع", "المقارنة", "السوق", "المطورون", "الحاسبة"],
@@ -206,6 +209,9 @@ export const copy = {
     calcF4: "ROE = صافي الإيجار ÷ رأس المال المدفوع",
     calcF5: "فترة الاسترداد = رأس المال المدفوع ÷ صافي الإيجار",
     calcNote: "أرقام استرشادية فقط. راجع الأسعار والإيجارات وشروط الدفع مع المطور قبل تقديم أي نصيحة للعميل.",
+    articlesProjects: "مقالات عن المشاريع",
+    articlesDevelopers: "مقالات عن المطورين",
+    articlesAreas: "مقالات عن المناطق",
   },
   it: {
     nav: ["Mappa", "Progetti", "Confronta", "Mercato", "Developer", "Calcolatore"],
@@ -304,6 +310,9 @@ export const copy = {
     calcF4: "ROE = Affitto netto ÷ Capitale versato",
     calcF5: "Rientro = Capitale versato ÷ Affitto netto",
     calcNote: "Solo stime indicative. Verifica prezzi, affitti e condizioni di pagamento con il developer.",
+    articlesProjects: "Approfondimenti sui progetti",
+    articlesDevelopers: "Approfondimenti sui developer",
+    articlesAreas: "Approfondimenti sulle zone",
   },
 } satisfies Record<Lang, Record<string, unknown>>;
 

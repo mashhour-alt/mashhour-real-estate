@@ -2,6 +2,7 @@
 
 import { useMemo, useState } from "react";
 import Link from "next/link";
+import Articles from "@/components/Articles";
 import SectionHead from "@/components/SectionHead";
 import { useLang, useSiteData } from "@/lib/site-context";
 
@@ -77,6 +78,8 @@ export default function MarketPage() {
           ))}
         </div>
       )}
+
+      <Articles scope="area" heading={t.articlesAreas} />
     </section>
   );
 }
