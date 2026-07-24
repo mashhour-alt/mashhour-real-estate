@@ -68,7 +68,8 @@ a { color: inherit; text-decoration: none; }
 .section.warm { background: var(--warm); }
 .section.dark { background: var(--ink); color: #fff; }
 .map-section { background: #e8e2d8; padding-bottom: 110px; }
-.map-experience { max-width: 1500px; height: min(720px, 76vh); min-height: 570px; margin: 0 auto; position: relative; overflow: hidden; border: 1px solid #aaa49a; background: #d9d5ce; }
+.map-experience { max-width: 1500px; margin: 0 auto; }
+.map-frame { position: relative; height: min(720px, 76vh); min-height: 570px; overflow: hidden; border: 1px solid #aaa49a; background: #d9d5ce; }
 .map-canvas { position: absolute; inset: 0; z-index: 1; }
 .map-experience .leaflet-container { font-family: Arial, Helvetica, sans-serif; background: #d9d5ce; }
 .map-experience .leaflet-tile-pane { filter: grayscale(1) contrast(.88) brightness(1.08); }
@@ -248,51 +249,221 @@ footer p, footer > span { color: #777; font-size: 10px; letter-spacing: .08em; }
 
 @media (max-width: 1050px) {
   .topbar nav { display: none; }
+  .nav-toggle { display: flex; }
   .hero-grid { grid-template-columns: 1fr; padding-top: 30px; }
   .hero-visual { height: 400px; }
   .project-grid { grid-template-columns: repeat(2,1fr); }
   .area-grid { grid-template-columns: repeat(2,1fr); }
+  .hub-grid { grid-template-columns: repeat(2,1fr); }
+}
+
+@media (max-width: 780px) {
+  .compare-table-wrap { display: none; }
+  .compare-stack { display: grid; }
 }
 
 @media (max-width: 680px) {
   .topbar { padding: 0 18px; height: 72px; }
-  .brand { width: 170px; }
+  .brand { width: auto; }
   .brand > span:last-child { display: none; }
-  .logo-window { width: 145px; }
-  .logo-window img { width: 145px; top: -95px; }
-  .lang-switch button { padding: 6px; }
-  .hero { padding: 65px 20px 0; }
-  .hero h1 { font-size: 56px; }
+  .logo-window { width: 132px; height: 42px; }
+  .logo-window img { width: 132px; top: -87px; }
+  .lang-switch { display: none; }
+  .hero { padding: 58px 20px 0; min-height: auto; }
+  .hero h1 { font-size: clamp(40px, 12vw, 56px); }
   .hero-intro { font-size: 15px; }
   .hero-actions { flex-direction: column; }
-  .hero-visual { height: 350px; transform: scale(.85); margin: 0 -40px; }
+  .hero-actions .button { width: 100%; min-width: 0; }
+  .hero-visual { height: 300px; transform: scale(.78); margin: 0 -40px; }
   .stats { grid-template-columns: 1fr 1fr; }
   .stats div { padding: 18px 8px; flex-direction: column; }
-  .section { padding: 70px 20px; }
+  .stats div:nth-child(2) { border-right: 0; }
+  .section { padding: 56px 20px; }
+  .section-head { flex-direction: column; align-items: flex-start; gap: 14px; }
   .map-section { padding-left: 0; padding-right: 0; }
   .map-section .section-head { padding: 0 20px; }
-  .map-experience { border-left: 0; border-right: 0; height: 680px; }
-  .map-drawer { left: 12px; right: 12px; top: auto; bottom: 12px; width: auto; height: 260px; }
-  [dir="rtl"] .map-drawer { left: 12px; right: 12px; }
-  .map-drawer.open { height: 340px; }
-  .map-coverage { top: 12px; right: 12px; }
-  [dir="rtl"] .map-coverage { left: 12px; right: auto; }
-  .section-head { align-items: flex-start; }
+  .map-frame { border-left: 0; border-right: 0; height: 62vh; min-height: 380px; }
+  .map-coverage { top: 10px; right: 10px; padding: 9px 11px; }
+  [dir="rtl"] .map-coverage { left: 10px; right: auto; }
   .filters { grid-template-columns: 1fr; }
   .filters label, .filters select { border: 0; border-bottom: 1px solid var(--line); }
-  .project-grid, .area-grid { grid-template-columns: 1fr; }
-  .developer-list article { grid-template-columns: 35px 1fr 45px 26px; }
+  .project-grid, .area-grid, .hub-grid { grid-template-columns: 1fr; }
+  .developer-list article { grid-template-columns: 32px 1fr auto 22px; gap: 10px; }
   .score-bar { display: none; }
-  .lead-section { padding: 70px 20px; grid-template-columns: 1fr; }
+  .lead-section { padding: 56px 20px; grid-template-columns: 1fr; }
   .lead-section form { grid-template-columns: 1fr; }
   .lead-section button, .success { grid-column: 1; }
   footer { align-items: flex-start; flex-direction: column; gap: 18px; }
-  .modal-hero { height: 310px; }
-  .modal-title { left: 22px; right: 55px; bottom: 22px; }
-  .modal-content { padding: 24px 20px 40px; }
+  .modal-panel { width: 100%; }
+  .modal-hero { height: 250px; }
+  .modal-title { left: 20px; right: 52px; bottom: 20px; }
+  [dir="rtl"] .modal-title { left: 52px; right: 20px; }
+  .modal-content { padding: 22px 20px 40px; }
   .detail-summary { grid-template-columns: 1fr 1fr; }
   .detail-grid { grid-template-columns: 1fr; }
   .detail-grid div:nth-child(odd), .detail-grid div:nth-child(even) { padding: 16px 0; border-right: 0; }
   .intelligence-grid { grid-template-columns: 1fr 1fr; }
   .source-actions { grid-template-columns: 1fr; }
+  .payment-plan { flex-wrap: wrap; }
+  .payment-plan div { min-width: 30%; }
+}
+
+/* ================================================================
+   Phase 1 additions — multi-page navigation & mobile experience
+   ================================================================ */
+
+/* --- Top bar / navigation ------------------------------------- */
+.topbar-end { display: flex; align-items: center; gap: 12px; }
+.topbar nav a.active:after { width: 100%; }
+.nav-badge {
+  display: inline-flex; align-items: center; justify-content: center;
+  min-width: 17px; height: 17px; margin-inline-start: 6px; padding: 0 4px;
+  background: var(--red); color: #fff; border-radius: 9px;
+  font-size: 9px; font-weight: 900; font-style: normal; line-height: 1;
+}
+.nav-toggle {
+  display: none; position: relative; width: 46px; height: 46px;
+  flex-direction: column; align-items: center; justify-content: center; gap: 5px;
+  border: 1px solid #cac6bf; background: transparent; cursor: pointer;
+}
+.nav-toggle i { display: block; width: 20px; height: 2px; background: var(--ink); }
+.nav-toggle .nav-badge { position: absolute; top: -7px; inset-inline-end: -7px; margin: 0; }
+
+/* --- Mobile drawer -------------------------------------------- */
+.mobile-nav { position: fixed; inset: 0; z-index: 90; pointer-events: none; }
+.mobile-nav.open { pointer-events: auto; }
+.mobile-nav-backdrop {
+  position: absolute; inset: 0; width: 100%; border: 0; cursor: pointer;
+  background: rgba(9,9,9,.62); backdrop-filter: blur(4px);
+  opacity: 0; transition: opacity .25s ease;
+}
+.mobile-nav.open .mobile-nav-backdrop { opacity: 1; }
+.mobile-nav-panel {
+  position: absolute; top: 0; bottom: 0; inset-inline-end: 0;
+  width: min(340px, 86vw); background: var(--paper);
+  border-inline-start: 1px solid var(--line);
+  display: flex; flex-direction: column;
+  transform: translateX(105%); transition: transform .28s ease;
+}
+[dir="rtl"] .mobile-nav-panel { transform: translateX(-105%); }
+.mobile-nav.open .mobile-nav-panel { transform: translateX(0); }
+.mobile-nav-head {
+  min-height: 72px; padding: 0 20px; border-bottom: 1px solid var(--line);
+  display: flex; align-items: center; justify-content: space-between;
+}
+.mobile-nav-head span { font-size: 10px; font-weight: 900; letter-spacing: .2em; }
+.mobile-nav-head button {
+  width: 42px; height: 42px; border: 0; background: var(--ink);
+  color: #fff; font-size: 25px; line-height: 1; cursor: pointer;
+}
+.mobile-nav-links { flex: 1; overflow-y: auto; }
+.mobile-nav-links a {
+  min-height: 66px; padding: 0 20px; border-bottom: 1px solid var(--line);
+  display: flex; align-items: center; gap: 14px;
+}
+.mobile-nav-links a > span { color: var(--red); font-size: 9px; font-weight: 900; }
+.mobile-nav-links a > strong { font-size: 17px; letter-spacing: -.03em; }
+.mobile-nav-links a.active { background: var(--ink); color: #fff; }
+.mobile-nav-links a.active > span { color: var(--red); }
+.mobile-nav-foot { padding: 20px; border-top: 1px solid var(--line); }
+.mobile-nav-foot small {
+  display: block; margin-bottom: 10px;
+  color: #77726b; font-size: 8px; font-weight: 900; letter-spacing: .18em;
+}
+.mobile-nav-foot .lang-switch { display: flex; }
+.mobile-nav-foot .lang-switch button { flex: 1; padding: 11px 9px; }
+
+/* --- Home hub cards ------------------------------------------- */
+.hub-grid {
+  max-width: 1500px; margin: 0 auto;
+  display: grid; grid-template-columns: repeat(3,1fr); gap: 1px;
+  background: var(--line); border: 1px solid var(--line);
+}
+.hub-card {
+  position: relative; min-height: 190px; padding: 26px 24px;
+  background: #fff; display: flex; flex-direction: column; gap: 9px;
+  transition: background .2s, color .2s;
+}
+.hub-card > span { color: var(--red); font-size: 9px; font-weight: 900; letter-spacing: .12em; }
+.hub-card h3 { margin: 0; font-size: 25px; letter-spacing: -.045em; }
+.hub-card p { margin: 0; color: #6c6861; font-size: 13px; line-height: 1.6; }
+.hub-card > b {
+  margin-top: auto; color: var(--red); font-size: 21px;
+  transition: transform .2s;
+}
+.hub-card:hover { background: var(--ink); color: #fff; }
+.hub-card:hover p { color: #b3aea6; }
+.hub-card:hover > b { transform: translateX(6px); }
+[dir="rtl"] .hub-card:hover > b { transform: translateX(-6px); }
+
+/* --- Loading / utility ---------------------------------------- */
+.page-loading {
+  max-width: 1500px; margin: 0 auto; padding: 60px 0;
+  color: #77726b; font-size: 13px; letter-spacing: .04em;
+}
+.filters.single { grid-template-columns: 1fr; }
+.inverse-button { display: inline-flex; margin-top: 18px; background: var(--red) !important; color: #fff; }
+.area-link, .developer-projects-link {
+  display: inline-block; margin-top: 10px;
+  color: var(--red); font-size: 10px; font-weight: 900; letter-spacing: .08em;
+}
+.area-link:hover, .developer-projects-link:hover { text-decoration: underline; }
+
+/* --- Compare: stacked cards for small screens ------------------ */
+.compare-stack { display: none; max-width: 1500px; margin: 0 auto; gap: 14px; }
+.compare-card { border: 1px solid #2f2f2f; background: #131313; }
+.compare-card header {
+  padding: 16px; border-bottom: 1px solid #2f2f2f;
+  display: flex; align-items: flex-start; justify-content: space-between; gap: 12px;
+}
+.compare-card header strong { display: block; font-size: 15px; letter-spacing: -.03em; }
+.compare-card header small {
+  display: block; margin-top: 6px;
+  color: var(--red); font-size: 9px; letter-spacing: .06em; text-transform: uppercase;
+}
+.compare-card header button {
+  width: 32px; height: 32px; flex: 0 0 auto; border: 0;
+  background: transparent; color: var(--red); font-size: 22px; cursor: pointer;
+}
+.compare-card dl { margin: 0; }
+.compare-card dl > div {
+  padding: 13px 16px; border-bottom: 1px solid #232323;
+  display: flex; align-items: center; justify-content: space-between; gap: 16px;
+}
+.compare-card dl > div:last-child { border-bottom: 0; }
+.compare-card dt {
+  color: #8d8b87; font-size: 9px; text-transform: uppercase; letter-spacing: .1em;
+}
+.compare-card dd { margin: 0; font-size: 12px; font-weight: 800; text-align: end; }
+
+/* --- Map: mobile bottom sheet & below-map guidance ------------- */
+.map-sheet {
+  position: absolute; z-index: 500; left: 0; right: 0; bottom: 0;
+  max-height: 58%; background: rgba(247,244,239,.98);
+  border-top: 1px solid #bbb5aa; box-shadow: 0 -14px 44px rgba(0,0,0,.22);
+  display: flex; flex-direction: column;
+  transform: translateY(100%); transition: transform .26s ease;
+}
+.map-sheet.open { transform: translateY(0); }
+.map-sheet-grip {
+  display: block; width: 44px; height: 4px; margin: 9px auto 3px;
+  border-radius: 3px; background: #bdb7ac;
+}
+.map-sheet .map-drawer-head { min-height: 62px; padding: 12px 18px; }
+.map-sheet .map-drawer-head strong { font-size: 17px; }
+.map-sheet .map-project-list { overflow-y: auto; -webkit-overflow-scrolling: touch; }
+.map-hint-below {
+  max-width: 1500px; margin: 0 auto; padding: 22px 20px 0; text-align: center;
+}
+.map-hint-below > span { display: block; color: var(--red); font-size: 34px; }
+.map-hint-below p { margin: 8px 0 6px; font-size: 16px; font-weight: 800; line-height: 1.3; }
+.map-hint-below small { color: #746f67; font-size: 11px; line-height: 1.55; }
+
+/* Larger touch targets for map pins on coarse pointers. */
+@media (pointer: coarse) {
+  .map-pin { min-height: 52px; padding: 9px 6px; }
+  .map-pin b { font-size: 15px; }
+  .map-cluster { width: 68px; height: 68px; }
+  .map-project-list button { min-height: 86px; }
+  .details-button, .compare-button, .load-more { min-height: 48px; }
 }
