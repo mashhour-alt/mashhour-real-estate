@@ -142,6 +142,27 @@ export default function ProjectMap({
   const mapRef = useRef<any>(null);
   const layerRef = useRef<any>(null);
   const [activeArea, setActiveArea] = useState<string>("");
+  const [isMobile, setIsMobile] = useState(false);
+
+  // Track viewport so the drawer can become a bottom sheet on small screens.
+  useEffect(() => {
+    const media = window.matchMedia("(max-width: 780px)");
+    const sync = () => setIsMobile(media.matches);
+    sync();
+    media.addEventListener("change", sync);
+    return () => media.removeEventListener("change", sync);
+  }, []);
+
+  // Leaflet needs an explicit resize signal when its container changes size.
+  useEffect(() => {
+    const onResize = () => mapRef.current?.invalidateSize();
+    window.addEventListener("resize", onResize);
+    window.addEventListener("orientationchange", onResize);
+    return () => {
+      window.removeEventListener("resize", onResize);
+      window.removeEventListener("orientationchange", onResize);
+    };
+  }, []);
 
   const groups = useMemo(() => {
     const result = new Map<string, MapProject[]>();
@@ -206,7 +227,16 @@ export default function ProjectMap({
             iconAnchor: [37, 25],
           }),
         });
-        marker.on("click", () => setActiveArea(area));
+        marker.on("click", () => {
+          setActiveArea(area);
+          // On phones the sheet covers the lower half, so lift the pin above it.
+          if (window.matchMedia("(max-width: 780px)").matches && mapRef.current) {
+            const [lat, lng] = AREA_COORDINATES[area];
+            mapRef.current.setView([lat - 0.012, lng], Math.max(mapRef.current.getZoom(), 12), {
+              animate: true,
+            });
+          }
+        });
         marker.addTo(layer);
       });
       layer.addTo(mapRef.current);
@@ -220,29 +250,86 @@ export default function ProjectMap({
   const activeProjects = groups.find(([area]) => area === activeArea)?.[1] || [];
   const mappedCount = groups.reduce((sum, [, items]) => sum + items.length, 0);
 
-  return (
-    <div className="map-experience">
-      <div className="map-canvas" ref={mapNode} aria-label="Interactive Dubai off-plan project map" />
-      <aside className={activeArea ? "map-drawer open" : "map-drawer"}>
-        <div className="map-drawer-head">
-          <div><span>{labels.mapped}</span><strong>{activeArea || `${mappedCount.toLocaleString()} ${labels.projects}`}</strong></div>
-          {activeArea && <button onClick={() => setActiveArea("")} aria-label="Close area projects">×</button>}
-        </div>
-        {activeArea ? (
-          <div className="map-project-list">
-            {activeProjects.slice(0, 50).map((project, index) => (
-              <button key={`${project["Project Name | اسم المشروع"]}-${index}`} onClick={() => onSelect(project)}>
-                <span>{String(index + 1).padStart(2, "0")}</span>
-                <div><strong>{project["Project Name | اسم المشروع"]}</strong><small>{project["Developer | المطور"]}</small></div>
-                <b>{money(project["Starting Price AED | السعر المبدئي"])}</b>
-              </button>
-            ))}
+  const projectList = (
+    <div className="map-project-list">
+      {activeProjects.slice(0, 50).map((project, index) => (
+        <button
+          key={`${project["Project Name | اسم المشروع"]}-${index}`}
+          onClick={() => onSelect(project)}
+        >
+          <span>{String(index + 1).padStart(2, "0")}</span>
+          <div>
+            <strong>{project["Project Name | اسم المشروع"]}</strong>
+            <small>{project["Developer | المطور"]}</small>
           </div>
-        ) : (
-          <div className="map-instructions"><span>⌖</span><p>{labels.hint}</p><small>{labels.empty}</small></div>
+          <b>{money(project["Starting Price AED | السعر المبدئي"])}</b>
+        </button>
+      ))}
+    </div>
+  );
+
+  const drawerHead = (
+    <div className="map-drawer-head">
+      <div>
+        <span>{labels.mapped}</span>
+        <strong>{activeArea || `${mappedCount.toLocaleString()} ${labels.projects}`}</strong>
+      </div>
+      {activeArea && (
+        <button onClick={() => setActiveArea("")} aria-label="Close area projects">
+          ×
+        </button>
+      )}
+    </div>
+  );
+
+  return (
+    <div className={isMobile ? "map-experience mobile" : "map-experience"}>
+      <div className="map-frame">
+        <div
+          className="map-canvas"
+          ref={mapNode}
+          aria-label="Interactive Dubai off-plan project map"
+        />
+
+        {/* Desktop: persistent side drawer overlaying the map. */}
+        {!isMobile && (
+          <aside className={activeArea ? "map-drawer open" : "map-drawer"}>
+            {drawerHead}
+            {activeArea ? (
+              projectList
+            ) : (
+              <div className="map-instructions">
+                <span>⌖</span>
+                <p>{labels.hint}</p>
+                <small>{labels.empty}</small>
+              </div>
+            )}
+          </aside>
         )}
-      </aside>
-      <div className="map-coverage"><b>{mappedCount.toLocaleString()}</b> / {projects.length.toLocaleString()} {labels.projects}</div>
+
+        {/* Mobile: bottom sheet that only appears once an area is tapped. */}
+        {isMobile && activeArea && (
+          <aside className="map-sheet open">
+            <i className="map-sheet-grip" aria-hidden="true" />
+            {drawerHead}
+            {projectList}
+          </aside>
+        )}
+
+        <div className="map-coverage">
+          <b>{mappedCount.toLocaleString()}</b> / {projects.length.toLocaleString()}{" "}
+          {labels.projects}
+        </div>
+      </div>
+
+      {/* Mobile: guidance sits below the map instead of covering it. */}
+      {isMobile && !activeArea && (
+        <div className="map-hint-below">
+          <span>⌖</span>
+          <p>{labels.hint}</p>
+          <small>{labels.empty}</small>
+        </div>
+      )}
     </div>
   );
 }
