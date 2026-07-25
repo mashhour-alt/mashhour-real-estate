@@ -84,7 +84,7 @@ export default function VoiceAssistant() {
     directionRef.current = direction;
   }, [direction]);
 
-  const [fromLang, toLang] = direction === "ar-en" ? ["ar", "en"] : ["en", "ar"];
+  const toLang = direction === "ar-en" ? "en" : "ar";
 
   const getSR = () =>
     (window as unknown as { SpeechRecognition?: new () => SpeechRecognitionLike })
@@ -224,11 +224,6 @@ export default function VoiceAssistant() {
               </p>
             ) : (
               <p className="subtitle-waiting">{heard || ui.waiting}</p>
-            )}
-            {translated && heard && (
-              <p className="subtitle-source" dir={fromLang === "ar" ? "rtl" : "ltr"}>
-                {heard}
-              </p>
             )}
           </div>
         </div>
