@@ -11,47 +11,44 @@ type SpeechRecognitionLike = {
   interimResults: boolean;
   start: () => void;
   stop: () => void;
-  onresult: ((event: { results: ArrayLike<ArrayLike<{ transcript: string }>> }) => void) | null;
+  onresult:
+    | ((event: {
+        resultIndex: number;
+        results: ArrayLike<
+          ArrayLike<{ transcript: string }> & { isFinal: boolean }
+        >;
+      }) => void)
+    | null;
   onerror: ((event: { error?: string }) => void) | null;
   onend: (() => void) | null;
 };
 
 const LABELS = {
   ar: {
-    open: "المساعد الصوتي",
-    close: "إغلاق",
-    title: "الترجمة الصوتية",
+    open: "الترجمة الحية",
+    subtitles: "ترجمة حية",
     arToEn: "عربي ← إنجليزي",
     enToAr: "إنجليزي ← عربي",
-    swap: "بدّل الاتجاه",
-    tapToTalk: "اضغط وتكلم",
+    start: "ابدأ الترجمة",
+    stop: "إيقاف",
+    swap: "بدّل",
     listening: "بستمع…",
-    translating: "بترجم…",
-    speak: "انطق الترجمة",
-    youSaid: "قلت",
-    translation: "الترجمة",
-    noSpeech: "مسمعتش صوت، حاول تاني",
-    micDenied: "لازم تسمح باستخدام المايك من إعدادات المتصفح",
-    notSupported: "المتصفح ده مش بيدعم التعرف على الصوت. جرّب Chrome أو Safari.",
-    error: "حصل خطأ، حاول تاني",
+    waiting: "اتكلم وهتظهر الترجمة هنا",
+    micDenied: "لازم تسمح باستخدام المايك",
+    notSupported: "المتصفح مش بيدعم التعرف على الصوت. جرّب Chrome أو Safari.",
   },
   en: {
-    open: "Voice assistant",
-    close: "Close",
-    title: "Voice translation",
+    open: "Live translation",
+    subtitles: "Live translation",
     arToEn: "Arabic → English",
     enToAr: "English → Arabic",
-    swap: "Swap direction",
-    tapToTalk: "Tap and speak",
+    start: "Start translating",
+    stop: "Stop",
+    swap: "Swap",
     listening: "Listening…",
-    translating: "Translating…",
-    speak: "Play translation",
-    youSaid: "You said",
-    translation: "Translation",
-    noSpeech: "No speech detected, try again",
-    micDenied: "Please allow microphone access in your browser settings",
+    waiting: "Speak and the translation appears here",
+    micDenied: "Please allow microphone access",
     notSupported: "This browser doesn't support speech recognition. Try Chrome or Safari.",
-    error: "Something went wrong, try again",
   },
 };
 
@@ -71,112 +68,134 @@ export default function VoiceAssistant() {
   const { lang } = useLang();
   const ui = LABELS[lang === "ar" ? "ar" : "en"];
 
-  const [open, setOpen] = useState(false);
+  const [active, setActive] = useState(false);
   const [direction, setDirection] = useState<Direction>("ar-en");
-  const [state, setState] = useState<"idle" | "listening" | "translating">("idle");
-  const [heard, setHeard] = useState("");
-  const [result, setResult] = useState("");
-  const [error, setError] = useState("");
   const [supported, setSupported] = useState(true);
+  const [error, setError] = useState("");
+  const [heard, setHeard] = useState("");
+  const [translated, setTranslated] = useState("");
 
   const recognitionRef = useRef<SpeechRecognitionLike | null>(null);
+  const activeRef = useRef(false);
+  const directionRef = useRef<Direction>(direction);
+
+  // Keep the ref in sync so async recognition callbacks read the latest direction.
+  useEffect(() => {
+    directionRef.current = direction;
+  }, [direction]);
 
   const [fromLang, toLang] = direction === "ar-en" ? ["ar", "en"] : ["en", "ar"];
 
+  const getSR = () =>
+    (window as unknown as { SpeechRecognition?: new () => SpeechRecognitionLike })
+      .SpeechRecognition ||
+    (window as unknown as { webkitSpeechRecognition?: new () => SpeechRecognitionLike })
+      .webkitSpeechRecognition;
+
   useEffect(() => {
-    const SR =
-      (window as unknown as { SpeechRecognition?: unknown; webkitSpeechRecognition?: unknown })
-        .SpeechRecognition ||
-      (window as unknown as { webkitSpeechRecognition?: unknown }).webkitSpeechRecognition;
-    // window is only available after mount, so this check cannot run earlier.
     // eslint-disable-next-line react-hooks/set-state-in-effect
-    if (!SR) setSupported(false);
+    if (!getSR()) setSupported(false);
   }, []);
 
-  const speak = useCallback((text: string, langCode: string) => {
-    if (!text || !("speechSynthesis" in window)) return;
-    const utterance = new SpeechSynthesisUtterance(text);
-    utterance.lang = langCode === "ar" ? "ar-SA" : "en-US";
-    window.speechSynthesis.cancel();
-    window.speechSynthesis.speak(utterance);
+  const stop = useCallback(() => {
+    activeRef.current = false;
+    setActive(false);
+    recognitionRef.current?.stop();
+    recognitionRef.current = null;
   }, []);
 
   const start = useCallback(() => {
-    setError("");
-    setHeard("");
-    setResult("");
-
-    const SR =
-      (window as unknown as { SpeechRecognition?: new () => SpeechRecognitionLike })
-        .SpeechRecognition ||
-      (window as unknown as { webkitSpeechRecognition?: new () => SpeechRecognitionLike })
-        .webkitSpeechRecognition;
+    const SR = getSR();
     if (!SR) {
       setSupported(false);
       return;
     }
+    setError("");
+    setHeard("");
+    setTranslated("");
 
     const recognition = new SR();
-    recognition.lang = fromLang === "ar" ? "ar-EG" : "en-US";
-    recognition.continuous = false;
-    recognition.interimResults = false;
+    const [from] = directionRef.current === "ar-en" ? ["ar", "en"] : ["en", "ar"];
+    recognition.lang = from === "ar" ? "ar-EG" : "en-US";
+    recognition.continuous = true; // keep listening like film subtitles
+    recognition.interimResults = true; // show words as they are spoken
     recognitionRef.current = recognition;
 
     recognition.onresult = async (event) => {
-      const transcript = event.results?.[0]?.[0]?.transcript?.trim() || "";
-      if (!transcript) {
-        setError(ui.noSpeech);
-        setState("idle");
-        return;
+      let finalText = "";
+      let interimText = "";
+      for (let i = event.resultIndex; i < event.results.length; i += 1) {
+        const chunk = event.results[i];
+        const transcript = chunk[0]?.transcript || "";
+        if (chunk.isFinal) finalText += transcript;
+        else interimText += transcript;
       }
-      setHeard(transcript);
-      setState("translating");
-      try {
-        const translated = await translate(transcript, fromLang, toLang);
-        setResult(translated);
-        speak(translated, toLang);
-      } catch {
-        setError(ui.error);
-      } finally {
-        setState("idle");
+
+      if (interimText) setHeard(interimText);
+
+      if (finalText.trim()) {
+        setHeard(finalText.trim());
+        const [f, t] = directionRef.current === "ar-en" ? ["ar", "en"] : ["en", "ar"];
+        try {
+          const result = await translate(finalText.trim(), f, t);
+          setTranslated(result);
+        } catch {
+          /* keep the last good translation on a transient failure */
+        }
       }
     };
 
     recognition.onerror = (event) => {
-      setError(event.error === "not-allowed" ? ui.micDenied : ui.error);
-      setState("idle");
+      if (event.error === "not-allowed") {
+        setError(ui.micDenied);
+        stop();
+      }
+      // "no-speech" and similar are transient — onend will restart.
     };
 
     recognition.onend = () => {
-      setState((current) => (current === "listening" ? "idle" : current));
+      // Chrome stops after a pause; restart while the user keeps it active.
+      if (activeRef.current) {
+        try {
+          recognition.start();
+        } catch {
+          /* ignore double-start */
+        }
+      }
     };
 
     try {
       recognition.start();
-      setState("listening");
+      activeRef.current = true;
+      setActive(true);
     } catch {
-      setError(ui.error);
-      setState("idle");
+      setError(ui.micDenied);
     }
-  }, [fromLang, toLang, speak, ui]);
+  }, [stop, ui]);
 
-  const stop = useCallback(() => {
-    recognitionRef.current?.stop();
-    setState("idle");
-  }, []);
-
+  // Restart cleanly when the direction changes mid-session.
   const swap = () => {
-    setDirection((current) => (current === "ar-en" ? "en-ar" : "ar-en"));
+    const next: Direction = direction === "ar-en" ? "en-ar" : "ar-en";
+    setDirection(next);
     setHeard("");
-    setResult("");
-    setError("");
+    setTranslated("");
+    if (activeRef.current) {
+      recognitionRef.current?.stop();
+      recognitionRef.current = null;
+      // onend won't restart because we null the ref; kick off fresh shortly.
+      activeRef.current = false;
+      setActive(false);
+      setTimeout(() => start(), 150);
+    }
   };
+
+  useEffect(() => () => stop(), [stop]);
 
   return (
     <>
       <button
-        className="voice-fab"
-        onClick={() => setOpen(true)}
+        className={active ? "voice-fab active" : "voice-fab"}
+        onClick={active ? stop : start}
         aria-label={ui.open}
         title={ui.open}
       >
@@ -188,69 +207,36 @@ export default function VoiceAssistant() {
         </svg>
       </button>
 
-      {open && (
-        <div className="voice-panel" role="dialog" aria-modal="true" aria-label={ui.title}>
-          <button className="voice-backdrop" aria-label={ui.close} onClick={() => setOpen(false)} />
-          <div className="voice-card">
-            <div className="voice-head">
-              <strong>{ui.title}</strong>
-              <button onClick={() => setOpen(false)} aria-label={ui.close}>
-                ×
-              </button>
-            </div>
-
-            {!supported ? (
-              <p className="voice-error">{ui.notSupported}</p>
+      {active && (
+        <div className="subtitle-bar" role="status" aria-live="polite">
+          <div className="subtitle-controls">
+            <button className="subtitle-swap" onClick={swap}>
+              {direction === "ar-en" ? ui.arToEn : ui.enToAr} <b>⇄</b>
+            </button>
+            <button className="subtitle-stop" onClick={stop} aria-label={ui.stop}>
+              ×
+            </button>
+          </div>
+          <div className="subtitle-text">
+            {translated ? (
+              <p className="subtitle-translated" dir={toLang === "ar" ? "rtl" : "ltr"}>
+                {translated}
+              </p>
             ) : (
-              <>
-                <button className="voice-direction" onClick={swap}>
-                  <span>{direction === "ar-en" ? ui.arToEn : ui.enToAr}</span>
-                  <b>⇄</b>
-                </button>
-
-                <button
-                  className={state === "listening" ? "voice-mic active" : "voice-mic"}
-                  onClick={state === "listening" ? stop : start}
-                  disabled={state === "translating"}
-                >
-                  <svg viewBox="0 0 24 24" width="30" height="30" aria-hidden="true">
-                    <path
-                      fill="currentColor"
-                      d="M12 15a3 3 0 0 0 3-3V6a3 3 0 1 0-6 0v6a3 3 0 0 0 3 3Zm5-3a5 5 0 0 1-10 0H5a7 7 0 0 0 6 6.92V22h2v-3.08A7 7 0 0 0 19 12h-2Z"
-                    />
-                  </svg>
-                </button>
-
-                <p className="voice-state">
-                  {state === "listening"
-                    ? ui.listening
-                    : state === "translating"
-                      ? ui.translating
-                      : ui.tapToTalk}
-                </p>
-
-                {heard && (
-                  <div className="voice-line">
-                    <small>{ui.youSaid}</small>
-                    <p dir={fromLang === "ar" ? "rtl" : "ltr"}>{heard}</p>
-                  </div>
-                )}
-
-                {result && (
-                  <div className="voice-line result">
-                    <small>{ui.translation}</small>
-                    <p dir={toLang === "ar" ? "rtl" : "ltr"}>{result}</p>
-                    <button className="voice-replay" onClick={() => speak(result, toLang)}>
-                      🔊 {ui.speak}
-                    </button>
-                  </div>
-                )}
-
-                {error && <p className="voice-error">{error}</p>}
-              </>
+              <p className="subtitle-waiting">{heard || ui.waiting}</p>
+            )}
+            {translated && heard && (
+              <p className="subtitle-source" dir={fromLang === "ar" ? "rtl" : "ltr"}>
+                {heard}
+              </p>
             )}
           </div>
         </div>
+      )}
+
+      {error && active && <div className="subtitle-error">{error}</div>}
+      {!supported && (
+        <div className="subtitle-error subtitle-error-static">{ui.notSupported}</div>
       )}
     </>
   );
