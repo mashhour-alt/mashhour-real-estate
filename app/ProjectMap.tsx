@@ -145,8 +145,21 @@ export default function ProjectMap({
   const [activeArea, setActiveArea] = useState<string>("");
   const [isMobile, setIsMobile] = useState(false);
   const [showLandmarks, setShowLandmarks] = useState(true);
+  const [exactCoords, setExactCoords] = useState<Record<string, { lat: number; lng: number }>>({});
   const metroLayerRef = useRef<any>(null);
   const landmarkLayerRef = useRef<any>(null);
+
+  // Load verified project coordinates (grows over time as they are collected).
+  useEffect(() => {
+    fetch("/data/coordinates.json")
+      .then((response) => (response.ok ? response.json() : { projects: {} }))
+      .then((payload: { projects?: Record<string, { lat: number; lng: number }> }) => {
+        setExactCoords(payload.projects || {});
+      })
+      .catch(() => {
+        // No coordinates file yet — everything stays at area level.
+      });
+  }, []);
 
   // Track viewport so the drawer can become a bottom sheet on small screens.
   useEffect(() => {
@@ -171,12 +184,25 @@ export default function ProjectMap({
   const groups = useMemo(() => {
     const result = new Map<string, MapProject[]>();
     projects.forEach((project) => {
+      const name = project["Project Name | اسم المشروع"];
+      // Projects with verified coordinates are drawn individually, so skip them here.
+      if (name && exactCoords[name]) return;
       const area = areaFrom(project["Location / Community | المنطقة"]);
       if (!AREA_COORDINATES[area]) return;
       result.set(area, [...(result.get(area) || []), project]);
     });
     return [...result.entries()].sort((a, b) => b[1].length - a[1].length);
-  }, [projects]);
+  }, [projects, exactCoords]);
+
+  // Projects that have a verified precise location.
+  const exactProjects = useMemo(
+    () =>
+      projects.filter((project) => {
+        const name = project["Project Name | اسم المشروع"];
+        return name && exactCoords[name];
+      }),
+    [projects, exactCoords],
+  );
 
   useEffect(() => {
     if (!mapNode.current || mapRef.current) return;
@@ -292,13 +318,33 @@ export default function ProjectMap({
         });
         marker.addTo(layer);
       });
+
+      // Precise pins for verified projects.
+      exactProjects.forEach((project) => {
+        const name = project["Project Name | اسم المشروع"];
+        const coord = exactCoords[name];
+        if (!coord) return;
+        const marker = L.marker([coord.lat, coord.lng], {
+          title: "1",
+          icon: L.divIcon({
+            className: "map-exact-shell",
+            html: `<span class="map-exact-pin" title="${name}"></span>`,
+            iconSize: [16, 16],
+            iconAnchor: [8, 8],
+          }),
+        });
+        marker.bindTooltip(name, { direction: "top" });
+        marker.on("click", () => onSelect(project));
+        marker.addTo(layer);
+      });
+
       layer.addTo(mapRef.current);
       layerRef.current = layer;
     });
     return () => {
       cancelled = true;
     };
-  }, [groups, activeArea]);
+  }, [groups, activeArea, exactProjects, exactCoords, onSelect]);
 
   // Show/hide the landmark layer without rebuilding the map.
   useEffect(() => {
@@ -310,7 +356,8 @@ export default function ProjectMap({
   }, [showLandmarks]);
 
   const activeProjects = groups.find(([area]) => area === activeArea)?.[1] || [];
-  const mappedCount = groups.reduce((sum, [, items]) => sum + items.length, 0);
+  const mappedCount =
+    groups.reduce((sum, [, items]) => sum + items.length, 0) + exactProjects.length;
 
   const projectList = (
     <div className="map-project-list">
@@ -381,6 +428,12 @@ export default function ProjectMap({
         <div className="map-coverage">
           <b>{mappedCount.toLocaleString()}</b> / {projects.length.toLocaleString()}{" "}
           {labels.projects}
+          {exactProjects.length > 0 && (
+            <span className="map-coverage-exact">
+              {" · "}
+              {exactProjects.length.toLocaleString()} exact
+            </span>
+          )}
         </div>
 
         <div className="map-legend">
