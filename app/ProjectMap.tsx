@@ -204,6 +204,17 @@ export default function ProjectMap({
     [projects, exactCoords],
   );
 
+  // Deterministic scatter so each project keeps a stable spot inside its area,
+  // giving a full GPS-style map without inventing exact street addresses.
+  const scatterFor = (seed: string, center: [number, number], index: number): [number, number] => {
+    let hash = 0;
+    for (let i = 0; i < seed.length; i += 1) hash = (hash * 31 + seed.charCodeAt(i)) & 0xffffffff;
+    const golden = 2.399963; // golden-angle spiral spreads points evenly
+    const angle = index * golden + (hash % 360) * (Math.PI / 180);
+    const radius = 0.0025 + Math.sqrt(index + 1) * 0.0022;
+    return [center[0] + Math.sin(angle) * radius, center[1] + Math.cos(angle) * radius * 1.3];
+  };
+
   useEffect(() => {
     if (!mapNode.current || mapRef.current) return;
     let cancelled = false;
@@ -281,42 +292,38 @@ export default function ProjectMap({
       if (cancelled || !mapRef.current) return;
       layerRef.current?.remove();
       const layer = L.markerClusterGroup({
-        maxClusterRadius: 58,
+        maxClusterRadius: 50,
         showCoverageOnHover: false,
         spiderfyOnMaxZoom: true,
         iconCreateFunction: (cluster: any) => {
-          const total = cluster
-            .getAllChildMarkers()
-            .reduce((sum: number, marker: any) => sum + Number(marker.options.title || 1), 0);
+          const count = cluster.getChildCount();
+          const size = count > 100 ? 64 : count > 25 ? 56 : 46;
           return L.divIcon({
             className: "map-cluster-shell",
-            html: `<span class="map-cluster"><b>${total}</b><i>${cluster.getChildCount()} areas</i></span>`,
-            iconSize: [64, 64],
+            html: `<span class="map-cluster"><b>${count}</b></span>`,
+            iconSize: [size, size],
           });
         },
       });
+
       groups.forEach(([area, items]) => {
-        const count = items.length;
-        const marker = L.marker(AREA_COORDINATES[area], {
-          title: String(count),
-          icon: L.divIcon({
-            className: "map-pin-shell",
-            html: `<span class="map-pin${activeArea === area ? " active" : ""}"><b>${count}</b><i>${area}</i></span>`,
-            iconSize: [74, 50],
-            iconAnchor: [37, 25],
-          }),
+        const center = AREA_COORDINATES[area];
+        items.forEach((project, index) => {
+          const name = project["Project Name | اسم المشروع"] || area;
+          const [lat, lng] = scatterFor(name, center, index);
+          const marker = L.marker([lat, lng], {
+            title: "1",
+            icon: L.divIcon({
+              className: "map-dot-shell",
+              html: `<span class="map-dot"></span>`,
+              iconSize: [12, 12],
+              iconAnchor: [6, 6],
+            }),
+          });
+          marker.bindTooltip(name, { direction: "top" });
+          marker.on("click", () => onSelect(project));
+          marker.addTo(layer);
         });
-        marker.on("click", () => {
-          setActiveArea(area);
-          // On phones the sheet covers the lower half, so lift the pin above it.
-          if (window.matchMedia("(max-width: 780px)").matches && mapRef.current) {
-            const [lat, lng] = AREA_COORDINATES[area];
-            mapRef.current.setView([lat - 0.012, lng], Math.max(mapRef.current.getZoom(), 12), {
-              animate: true,
-            });
-          }
-        });
-        marker.addTo(layer);
       });
 
       // Precise pins for verified projects.
@@ -344,7 +351,7 @@ export default function ProjectMap({
     return () => {
       cancelled = true;
     };
-  }, [groups, activeArea, exactProjects, exactCoords, onSelect]);
+  }, [groups, exactProjects, exactCoords, onSelect]);
 
   // Show/hide the landmark layer without rebuilding the map.
   useEffect(() => {
