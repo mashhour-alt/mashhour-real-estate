@@ -716,6 +716,38 @@ footer p, footer > span { color: #777; font-size: 10px; letter-spacing: .08em; }
 .calc-projection strong { font-size: 16px; letter-spacing: -.03em; }
 .calc-projection span { color: #18733b; font-size: 11px; font-weight: 800; }
 
+/* --- Map: landmarks & metro legend ----------------------------- */
+.landmark-pin {
+  display: flex; align-items: center; gap: 4px; white-space: nowrap;
+  transform: translateY(-2px);
+}
+.landmark-pin i {
+  color: #b8860b; font-size: 13px; font-style: normal;
+  text-shadow: 0 0 3px #fff, 0 0 3px #fff;
+}
+.landmark-pin b {
+  font-size: 9px; font-weight: 800; color: #3a3a3a; letter-spacing: -.01em;
+  background: rgba(255,255,255,.82); padding: 1px 4px; border-radius: 3px;
+}
+.landmark-pin.construction { opacity: .5; }
+.landmark-pin.construction i { color: #888; }
+.landmark-pin.construction b { font-style: italic; }
+
+.map-legend {
+  position: absolute; z-index: 500; left: 12px; bottom: 12px;
+  background: rgba(255,255,255,.94); border: 1px solid #cdc8bf; border-radius: 8px;
+  padding: 9px 11px; display: flex; flex-direction: column; gap: 8px;
+  box-shadow: 0 6px 18px rgba(0,0,0,.14); backdrop-filter: blur(4px);
+}
+[dir="rtl"] .map-legend { left: auto; right: 12px; }
+.map-legend-lines { display: flex; flex-direction: column; gap: 4px; }
+.map-legend-lines span { display: flex; align-items: center; gap: 6px; font-size: 10px; font-weight: 700; color: #4a4842; }
+.map-legend-lines i { width: 16px; height: 3px; border-radius: 2px; display: inline-block; }
+.map-legend-lines i.dashed { background-image: none; opacity: .7; }
+.map-legend-toggle { display: flex; align-items: center; gap: 6px; cursor: pointer; padding-top: 7px; border-top: 1px solid #e5e0d8; }
+.map-legend-toggle input { width: 15px; height: 15px; accent-color: #b8860b; }
+.map-legend-toggle span { font-size: 10px; font-weight: 800; color: #b8860b; }
+
 
 /* === Responsive overrides (must stay last in this file) === */
 
@@ -762,6 +794,9 @@ footer p, footer > span { color: #777; font-size: 10px; letter-spacing: .08em; }
   .map-section .section-head { padding: 0 20px; }
   .map-frame { border-left: 0; border-right: 0; height: 62vh; min-height: 380px; }
   .map-coverage { top: 10px; right: 10px; padding: 9px 11px; }
+  .map-legend { left: 8px; bottom: 8px; padding: 7px 9px; }
+  [dir="rtl"] .map-legend { right: 8px; left: auto; }
+  .landmark-pin b { font-size: 8px; }
   [dir="rtl"] .map-coverage { left: 10px; right: auto; }
   .filters { grid-template-columns: 1fr; }
   .filters label, .filters select { border: 0; border-bottom: 1px solid var(--line); }

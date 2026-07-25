@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useMemo, useRef, useState } from "react";
+import { LANDMARKS, METRO_LINES } from "@/lib/dubai-transit";
 
 declare global {
   interface Window {
@@ -143,6 +144,9 @@ export default function ProjectMap({
   const layerRef = useRef<any>(null);
   const [activeArea, setActiveArea] = useState<string>("");
   const [isMobile, setIsMobile] = useState(false);
+  const [showLandmarks, setShowLandmarks] = useState(true);
+  const metroLayerRef = useRef<any>(null);
+  const landmarkLayerRef = useRef<any>(null);
 
   // Track viewport so the drawer can become a bottom sheet on small screens.
   useEffect(() => {
@@ -187,6 +191,55 @@ export default function ProjectMap({
       }).addTo(map);
       mapRef.current = map;
       setTimeout(() => map.invalidateSize(), 0);
+
+      // --- Metro lines (always visible) ---
+      const metroLayer = L.layerGroup();
+      METRO_LINES.forEach((line) => {
+        const path = line.stations.map((s) => s.pos);
+        L.polyline(path, {
+          color: line.color,
+          weight: line.status === "construction" ? 3 : 4,
+          opacity: line.status === "construction" ? 0.55 : 0.9,
+          dashArray: line.status === "construction" ? "8 8" : undefined,
+        }).addTo(metroLayer);
+
+        line.stations.forEach((station) => {
+          L.circleMarker(station.pos, {
+            radius: 3.5,
+            color: "#fff",
+            weight: 1.5,
+            fillColor: line.color,
+            fillOpacity: line.status === "construction" ? 0.6 : 1,
+          })
+            .bindTooltip(`${station.name} · ${line.name}`, { direction: "top" })
+            .addTo(metroLayer);
+        });
+      });
+      metroLayer.addTo(map);
+      metroLayerRef.current = metroLayer;
+
+      // --- Landmarks (toggleable) ---
+      const landmarkLayer = L.layerGroup();
+      LANDMARKS.forEach((landmark) => {
+        L.marker(landmark.pos, {
+          icon: L.divIcon({
+            className: "landmark-shell",
+            html: `<span class="landmark-pin${
+              landmark.construction ? " construction" : ""
+            }"><i>◆</i><b>${landmark.name}</b></span>`,
+            iconSize: [16, 16],
+            iconAnchor: [8, 8],
+          }),
+          interactive: true,
+        })
+          .bindTooltip(
+            landmark.construction ? `${landmark.name} (under construction)` : landmark.name,
+            { direction: "top" },
+          )
+          .addTo(landmarkLayer);
+      });
+      landmarkLayer.addTo(map);
+      landmarkLayerRef.current = landmarkLayer;
     });
     return () => {
       cancelled = true;
@@ -246,6 +299,15 @@ export default function ProjectMap({
       cancelled = true;
     };
   }, [groups, activeArea]);
+
+  // Show/hide the landmark layer without rebuilding the map.
+  useEffect(() => {
+    const map = mapRef.current;
+    const layer = landmarkLayerRef.current;
+    if (!map || !layer) return;
+    if (showLandmarks) layer.addTo(map);
+    else layer.remove();
+  }, [showLandmarks]);
 
   const activeProjects = groups.find(([area]) => area === activeArea)?.[1] || [];
   const mappedCount = groups.reduce((sum, [, items]) => sum + items.length, 0);
@@ -319,6 +381,22 @@ export default function ProjectMap({
         <div className="map-coverage">
           <b>{mappedCount.toLocaleString()}</b> / {projects.length.toLocaleString()}{" "}
           {labels.projects}
+        </div>
+
+        <div className="map-legend">
+          <div className="map-legend-lines">
+            <span><i style={{ background: "#e53935" }} />Red</span>
+            <span><i style={{ background: "#43a047" }} />Green</span>
+            <span><i className="dashed" style={{ background: "#1e88e5" }} />Blue (soon)</span>
+          </div>
+          <label className="map-legend-toggle">
+            <input
+              type="checkbox"
+              checked={showLandmarks}
+              onChange={(event) => setShowLandmarks(event.target.checked)}
+            />
+            <span>◆ Landmarks</span>
+          </label>
         </div>
       </div>
 
