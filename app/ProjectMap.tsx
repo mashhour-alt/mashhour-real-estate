@@ -146,6 +146,7 @@ export default function ProjectMap({
   const [isMobile, setIsMobile] = useState(false);
   const [showLandmarks, setShowLandmarks] = useState(true);
   const [exactCoords, setExactCoords] = useState<Record<string, { lat: number; lng: number }>>({});
+  const [devDomains, setDevDomains] = useState<Record<string, string>>({});
   const metroLayerRef = useRef<any>(null);
   const landmarkLayerRef = useRef<any>(null);
 
@@ -158,6 +159,16 @@ export default function ProjectMap({
       })
       .catch(() => {
         // No coordinates file yet — everything stays at area level.
+      });
+  }, []);
+
+  // Load developer domains so each pin can show the developer's logo (favicon).
+  useEffect(() => {
+    fetch("/data/developer-domains.json")
+      .then((response) => (response.ok ? response.json() : {}))
+      .then((payload: Record<string, string>) => setDevDomains(payload || {}))
+      .catch(() => {
+        // Without domains, pins fall back to plain dots.
       });
   }, []);
 
@@ -310,17 +321,24 @@ export default function ProjectMap({
         const center = AREA_COORDINATES[area];
         items.forEach((project, index) => {
           const name = project["Project Name | اسم المشروع"] || area;
+          const developer = project["Developer | المطور"] || "";
+          const domain = devDomains[developer];
           const [lat, lng] = scatterFor(name, center, index);
+
+          const html = domain
+            ? `<span class="map-logo"><img src="https://www.google.com/s2/favicons?domain=${domain}&sz=64" loading="lazy" alt="" onerror="this.parentNode.classList.add('map-logo-fallback')"/></span>`
+            : `<span class="map-dot"></span>`;
+
           const marker = L.marker([lat, lng], {
             title: "1",
             icon: L.divIcon({
               className: "map-dot-shell",
-              html: `<span class="map-dot"></span>`,
-              iconSize: [12, 12],
-              iconAnchor: [6, 6],
+              html,
+              iconSize: domain ? [26, 26] : [12, 12],
+              iconAnchor: domain ? [13, 13] : [6, 6],
             }),
           });
-          marker.bindTooltip(name, { direction: "top" });
+          marker.bindTooltip(`${name}${developer ? ` · ${developer}` : ""}`, { direction: "top" });
           marker.on("click", () => onSelect(project));
           marker.addTo(layer);
         });
@@ -351,7 +369,7 @@ export default function ProjectMap({
     return () => {
       cancelled = true;
     };
-  }, [groups, exactProjects, exactCoords, onSelect]);
+  }, [groups, exactProjects, exactCoords, devDomains, onSelect]);
 
   // Show/hide the landmark layer without rebuilding the map.
   useEffect(() => {

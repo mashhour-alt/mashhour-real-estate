@@ -767,6 +767,18 @@ footer p, footer > span { color: #777; font-size: 10px; letter-spacing: .08em; }
 }
 .map-dot:hover { transform: scale(1.4); background: #1a1a1a; }
 
+/* --- Developer logo pins --------------------------------------- */
+.map-logo {
+  display: block; width: 26px; height: 26px; border-radius: 50%;
+  background: #fff; border: 2px solid #fff; overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0,0,0,.3); cursor: pointer; transition: transform .12s;
+}
+.map-logo:hover { transform: scale(1.35); z-index: 1000; }
+.map-logo img { width: 100%; height: 100%; object-fit: contain; display: block; }
+/* When the favicon fails to load, show a small branded dot instead. */
+.map-logo-fallback { background: #c8102e; border-color: #fff; }
+.map-logo-fallback img { display: none; }
+
 
 /* === Responsive overrides (must stay last in this file) === */
 
