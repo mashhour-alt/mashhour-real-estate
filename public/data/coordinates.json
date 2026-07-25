@@ -5,5 +5,7 @@
     "lat": 25.1858,
     "lng": 55.2620
   },
-  "projects": {}
+"projects": {
+    "Le Chateau Piétrus": { "lat": 25.2340, "lng": 55.3050 }
+}
 }
