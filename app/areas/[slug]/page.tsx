@@ -70,14 +70,42 @@ export default function AreaDetailPage() {
           <strong>{area.yield ? `${(area.yield * 100).toFixed(1)}%` : "—"}</strong>
         </div>
         <div>
-          <small>DEMAND</small>
-          <strong>{area.demand != null ? `${area.demand}/10` : "—"}</strong>
+          <small>{t.areaAppreciation.toUpperCase()}</small>
+          <strong>
+            {area.appreciation != null ? `${(area.appreciation * 100).toFixed(1)}%` : "—"}
+          </strong>
         </div>
         <div>
           <small>{t.projects.toUpperCase()}</small>
           <strong>{area.projectCount}</strong>
         </div>
       </div>
+
+      {/* Projected PSF over time, driven by the area's expected appreciation */}
+      {area.psf && area.appreciation != null && (
+        <div className="area-projection">
+          <div className="detail-heading">
+            <span>↗</span>
+            <h3>{t.areaProjection}</h3>
+          </div>
+          <div className="projection-grid">
+            {[1, 3, 5, 10].map((years) => {
+              const projected = area.psf! * Math.pow(1 + area.appreciation!, years);
+              const growth = (projected / area.psf! - 1) * 100;
+              return (
+                <div key={years}>
+                  <small>
+                    {years} {years === 1 ? t.calcYears.replace("سنة", "سنة") : t.calcYears}
+                  </small>
+                  <strong>AED {Math.round(projected).toLocaleString()}</strong>
+                  <span className="projection-growth">+{growth.toFixed(0)}%</span>
+                </div>
+              );
+            })}
+          </div>
+          <p className="source-note">{t.areaProjectionNote}</p>
+        </div>
+      )}
 
       {/* Segment breakdown when the area has more than one asset type */}
       {area.segments.length > 1 && (

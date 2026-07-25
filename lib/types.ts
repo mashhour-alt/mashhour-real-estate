@@ -29,6 +29,7 @@ export type Area = {
   "PSF Benchmark": number | null;
   "Gross Yield": number | null;
   "Demand /10": number | null;
+  "Appreciation p.a."?: number | null;
   Tier: string | null;
 };
 

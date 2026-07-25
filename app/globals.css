@@ -699,6 +699,21 @@ footer p, footer > span { color: #777; font-size: 10px; letter-spacing: .08em; }
 }
 .card-whatsapp:hover { background: #1ebe5a; }
 
+/* --- Area projection & calculator appreciation ----------------- */
+.area-projection { max-width: 1500px; margin: 40px auto 0; }
+.projection-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: 1px; margin-top: 18px; background: var(--line); border: 1px solid var(--line); }
+.projection-grid > div { padding: 20px; background: #fff; display: flex; flex-direction: column; gap: 6px; }
+.projection-grid small { color: #8a857d; font-size: 9px; font-weight: 900; letter-spacing: .08em; text-transform: uppercase; }
+.projection-grid strong { font-size: 20px; letter-spacing: -.04em; }
+.projection-growth { color: #18733b; font-size: 12px; font-weight: 800; }
+.area-projection .source-note { margin-top: 14px; }
+
+.calc-projection { display: grid; grid-template-columns: repeat(2,1fr); gap: 1px; background: var(--line); border: 1px solid var(--line); }
+.calc-projection > div { padding: 14px 16px; background: #fff; display: flex; flex-direction: column; gap: 4px; }
+.calc-projection small { color: #8a857d; font-size: 8px; font-weight: 900; letter-spacing: .08em; text-transform: uppercase; }
+.calc-projection strong { font-size: 16px; letter-spacing: -.03em; }
+.calc-projection span { color: #18733b; font-size: 11px; font-weight: 800; }
+
 
 /* === Responsive overrides (must stay last in this file) === */
 
@@ -796,6 +811,7 @@ footer p, footer > span { color: #777; font-size: 10px; letter-spacing: .08em; }
   .area-segment-grid { grid-template-columns: 1fr; }
   .area-cta-row { flex-direction: column; }
   .area-cta-row .button { width: 100%; }
+  .projection-grid { grid-template-columns: 1fr 1fr; }
   .voice-fab { inset-inline-end: 16px; bottom: 16px; width: 52px; height: 52px; }
   .subtitle-bar { bottom: 80px; width: calc(100vw - 24px); padding: 10px 12px 12px; }
   .subtitle-translated { font-size: 19px; }

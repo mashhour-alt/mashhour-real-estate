@@ -321,6 +321,25 @@ export default function RoiPage() {
               </div>
             </dl>
           </div>
+
+          <div className="calc-result-block">
+            <h4>{t.calcAppreciationTitle}</h4>
+            <div className="calc-projection">
+              {[1, 3, 5, 10].map((years) => {
+                const value = price * Math.pow(1 + inputs.appreciation / 100, years);
+                const gain = value - price;
+                return (
+                  <div key={years}>
+                    <small>
+                      {years} {t.calcYears}
+                    </small>
+                    <strong>{aed(value)}</strong>
+                    <span>+{aed(gain)}</span>
+                  </div>
+                );
+              })}
+            </div>
+          </div>
         </aside>
       </div>
     </section>

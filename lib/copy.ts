@@ -94,6 +94,7 @@ export const copy = {
     calcProjected: "Projected value (1Y)",
     calcGain: "Capital gain",
     calcReturns: "Returns & projection",
+    calcAppreciationTitle: "Capital appreciation",
     calcRoi: "ROI — rental yield",
     calcEquityPaid: "Paid equity",
     calcRoe: "ROE — return on equity",
@@ -116,6 +117,9 @@ export const copy = {
     areaNotFound: "Community not found",
     viewAreaProjects: "View area projects",
     areaSegments: "By asset type",
+    areaAppreciation: "Appreciation p.a.",
+    areaProjection: "Projected price per sq ft",
+    areaProjectionNote: "Projection applies the area's expected annual appreciation to the current PSF benchmark. Indicative only — not a guarantee of future prices.",
   },
   ar: {
     nav: ["الخريطة", "المشاريع", "المقارنة", "السوق", "المطورون", "الحاسبة"],
@@ -200,6 +204,7 @@ export const copy = {
     calcProjected: "السعر المتوقع بعد سنة",
     calcGain: "الزيادة الرأسمالية",
     calcReturns: "العوائد والتوقعات",
+    calcAppreciationTitle: "نمو رأس المال",
     calcRoi: "ROI — عائد الإيجار",
     calcEquityPaid: "رأس المال المدفوع",
     calcRoe: "ROE — عائد رأس المال",
@@ -222,6 +227,9 @@ export const copy = {
     areaNotFound: "المنطقة غير موجودة",
     viewAreaProjects: "شوف مشاريع المنطقة",
     areaSegments: "حسب نوع الأصل",
+    areaAppreciation: "النمو السنوي",
+    areaProjection: "السعر المتوقع للقدم",
+    areaProjectionNote: "التوقع بيطبّق نسبة النمو السنوي المتوقعة للمنطقة على سعر القدم الحالي. أرقام استرشادية فقط — مش ضمان لأسعار المستقبل.",
   },
   it: {
     nav: ["Mappa", "Progetti", "Confronta", "Mercato", "Developer", "Calcolatore"],
@@ -306,6 +314,7 @@ export const copy = {
     calcProjected: "Valore previsto (1 anno)",
     calcGain: "Plusvalenza",
     calcReturns: "Rendimenti e proiezione",
+    calcAppreciationTitle: "Rivalutazione del capitale",
     calcRoi: "ROI — rendimento locativo",
     calcEquityPaid: "Capitale versato",
     calcRoe: "ROE — rendimento sul capitale",
@@ -328,6 +337,9 @@ export const copy = {
     areaNotFound: "Zona non trovata",
     viewAreaProjects: "Vedi i progetti della zona",
     areaSegments: "Per tipo di asset",
+    areaAppreciation: "Rivalutazione annua",
+    areaProjection: "Prezzo previsto al piede²",
+    areaProjectionNote: "La proiezione applica la rivalutazione annua attesa al prezzo attuale. Solo indicativo.",
   },
 } satisfies Record<Lang, Record<string, unknown>>;
 

@@ -9,6 +9,7 @@ export type AreaSummary = {
   psf: number | null;
   yield: number | null;
   demand: number | null;
+  appreciation: number | null;
   tier: string | null;
 };
 
@@ -42,6 +43,7 @@ export function buildAreaSummaries(
         psf: primary["PSF Benchmark"],
         yield: primary["Gross Yield"],
         demand: primary["Demand /10"],
+        appreciation: primary["Appreciation p.a."] ?? null,
         tier: primary.Tier,
       };
     })
