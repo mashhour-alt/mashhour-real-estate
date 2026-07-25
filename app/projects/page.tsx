@@ -21,8 +21,13 @@ function ProjectsView() {
   const [query, setQuery] = useState("");
   const [area, setArea] = useState(() => searchParams.get("area") || "");
   const [developer, setDeveloper] = useState(() => searchParams.get("developer") || "");
+  const [price, setPrice] = useState("");
+  const [handover, setHandover] = useState("");
+  const [sort, setSort] = useState("");
   const [visible, setVisible] = useState(PAGE_SIZE);
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
+
+  const resetPage = () => setVisible(PAGE_SIZE);
 
   const projects = useMemo(() => data?.projects || [], [data]);
 
@@ -42,9 +47,34 @@ function ProjectsView() {
     [projects],
   );
 
+  const handoverYears = useMemo(
+    () =>
+      Array.from(
+        new Set(
+          projects
+            .map((p) => {
+              const match = /(20\d{2})/.exec(String(p["Handover | التسليم"] || ""));
+              return match ? match[1] : "";
+            })
+            .filter(Boolean),
+        ),
+      ).sort(),
+    [projects],
+  );
+
+  // Price brackets in AED, chosen from the data distribution.
+  const priceBands: Record<string, [number, number]> = {
+    "0-1m": [0, 1_000_000],
+    "1m-2m": [1_000_000, 2_000_000],
+    "2m-5m": [2_000_000, 5_000_000],
+    "5m+": [5_000_000, Infinity],
+  };
+
   const filtered = useMemo(() => {
     const needle = query.toLowerCase().trim();
-    return projects.filter((project) => {
+    const band = price ? priceBands[price] : null;
+
+    const result = projects.filter((project) => {
       const projectArea = areaFrom(project["Location / Community | المنطقة"]);
       const haystack = [
         project["Project Name | اسم المشروع"],
@@ -53,13 +83,38 @@ function ProjectsView() {
       ]
         .join(" ")
         .toLowerCase();
+
+      const projectPrice = project["Starting Price AED | السعر المبدئي"];
+      const projectYear = /(20\d{2})/.exec(String(project["Handover | التسليم"] || ""))?.[1] || "";
+
       return (
         (!needle || haystack.includes(needle)) &&
         (!area || projectArea === area) &&
-        (!developer || project["Developer | المطور"] === developer)
+        (!developer || project["Developer | المطور"] === developer) &&
+        (!band || (projectPrice != null && projectPrice >= band[0] && projectPrice < band[1])) &&
+        (!handover || projectYear === handover)
       );
     });
-  }, [projects, query, area, developer]);
+
+    // Sorting: nulls always sink to the bottom so empty prices don't lead.
+    if (sort === "price-asc" || sort === "price-desc") {
+      result.sort((a, b) => {
+        const pa = a["Starting Price AED | السعر المبدئي"];
+        const pb = b["Starting Price AED | السعر المبدئي"];
+        if (pa == null) return 1;
+        if (pb == null) return -1;
+        return sort === "price-asc" ? pa - pb : pb - pa;
+      });
+    } else if (sort === "handover") {
+      result.sort((a, b) => {
+        const ya = /(20\d{2})/.exec(String(a["Handover | التسليم"] || ""))?.[1] || "9999";
+        const yb = /(20\d{2})/.exec(String(b["Handover | التسليم"] || ""))?.[1] || "9999";
+        return ya.localeCompare(yb);
+      });
+    }
+
+    return result;
+  }, [projects, query, area, developer, price, handover, sort]);
 
   return (
     <section className="section light">
@@ -111,6 +166,45 @@ function ProjectsView() {
           {developers.map((item) => (
             <option key={item}>{item}</option>
           ))}
+        </select>
+        <select
+          value={price}
+          onChange={(event) => {
+            setPrice(event.target.value);
+            resetPage();
+          }}
+        >
+          <option value="">{t.allPrices}</option>
+          <option value="0-1m">{t.priceUnder1m}</option>
+          <option value="1m-2m">AED 1M – 2M</option>
+          <option value="2m-5m">AED 2M – 5M</option>
+          <option value="5m+">{t.price5mPlus}</option>
+        </select>
+        <select
+          value={handover}
+          onChange={(event) => {
+            setHandover(event.target.value);
+            resetPage();
+          }}
+        >
+          <option value="">{t.allHandover}</option>
+          {handoverYears.map((year) => (
+            <option key={year} value={year}>
+              {year}
+            </option>
+          ))}
+        </select>
+        <select
+          value={sort}
+          onChange={(event) => {
+            setSort(event.target.value);
+            resetPage();
+          }}
+        >
+          <option value="">{t.sortDefault}</option>
+          <option value="price-asc">{t.sortPriceAsc}</option>
+          <option value="price-desc">{t.sortPriceDesc}</option>
+          <option value="handover">{t.sortHandover}</option>
         </select>
       </div>
 

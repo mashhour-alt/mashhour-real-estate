@@ -120,7 +120,9 @@ a { color: inherit; text-decoration: none; }
 .result-count, .compare-count { font-size: 11px; font-weight: 800; text-transform: uppercase; letter-spacing: .12em; }
 .compare-count { font-size: 28px; color: var(--red); }
 
-.filters { max-width: 1500px; margin: 0 auto 30px; display: grid; grid-template-columns: 2fr 1fr 1fr; border: 1px solid var(--line); background: white; }
+.filters { max-width: 1500px; margin: 0 auto 30px; display: grid; grid-template-columns: 2fr repeat(5, 1fr); border: 1px solid var(--line); background: white; }
+.filters .search { grid-column: 1 / -1; }
+@media (min-width: 981px) { .filters .search { grid-column: auto; } }
 .filters label, .filters select { min-height: 58px; border: 0; border-right: 1px solid var(--line); background: transparent; }
 .filters select:last-child { border: 0; }
 .search { display: flex; align-items: center; padding: 0 18px; gap: 12px; }
