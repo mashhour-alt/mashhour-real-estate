@@ -83,3 +83,38 @@ export const developerWebsites: Record<string, string> = {
 export const developerUrl = (name: string) =>
   developerWebsites[name] ||
   `https://www.google.com/search?q=${encodeURIComponent(`${name} official website Dubai developer`)}`;
+
+/**
+ * WhatsApp lead configuration.
+ * Replace WHATSAPP_NUMBER with the agency's number in full international format,
+ * digits only (no +, spaces or leading zeros). Example: "971501234567".
+ */
+export const WHATSAPP_NUMBER = "971582239619"; // Mashhour Real Estate
+
+/** Builds a wa.me link with a message prefilled from the project details. */
+export function whatsappLink(project: Project, lang: "en" | "ar" | "it" = "en") {
+  const name = project["Project Name | اسم المشروع"];
+  const developer = project["Developer | المطور"];
+  const price = project["Starting Price AED | السعر المبدئي"];
+  const priceText = price
+    ? new Intl.NumberFormat("en-AE", {
+        style: "currency",
+        currency: "AED",
+        maximumFractionDigits: 0,
+      }).format(price)
+    : "";
+
+  const templates = {
+    en: `Hi Mashhour Real Estate, I'm interested in *${name}* by ${developer}${
+      priceText ? ` (from ${priceText})` : ""
+    }. Could you share the latest availability, payment plan and floor plans?`,
+    ar: `مرحبًا Mashhour Real Estate، أنا مهتم بمشروع *${name}* من ${developer}${
+      priceText ? ` (يبدأ من ${priceText})` : ""
+    }. ممكن تبعتلي آخر توافر وخطة الدفع ومخططات الوحدات؟`,
+    it: `Salve Mashhour Real Estate, sono interessato a *${name}* di ${developer}${
+      priceText ? ` (da ${priceText})` : ""
+    }. Potete inviarmi disponibilità, piano di pagamento e planimetrie?`,
+  };
+
+  return `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(templates[lang])}`;
+}

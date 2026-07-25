@@ -147,7 +147,7 @@ a { color: inherit; text-decoration: none; }
 .card-body dl { display: grid; grid-template-columns: 1.5fr 1fr; border-top: 1px solid #e5e1da; margin: 18px 0 14px; padding-top: 14px; gap: 8px; }
 .card-body dt { font-size: 8px; color: #88837c; letter-spacing: .1em; }
 .card-body dd { margin: 5px 0 0; font-size: 11px; font-weight: 800; }
-.card-actions { display: grid; grid-template-columns: 1fr 1fr; gap: 7px; }
+.card-actions { display: grid; grid-template-columns: 1fr 1fr auto; gap: 7px; }
 .details-button, .compare-button { width: 100%; border: 1px solid #c7c2ba; background: transparent; padding: 11px 5px; font-size: 9px; font-weight: 900; cursor: pointer; }
 .details-button { background: var(--ink); color: #fff; border-color: var(--ink); }
 .details-button:hover { background: var(--red); border-color: var(--red); }
@@ -682,6 +682,22 @@ footer p, footer > span { color: #777; font-size: 10px; letter-spacing: .08em; }
   font-size: 12px; font-weight: 800; max-width: calc(100vw - 32px);
 }
 .subtitle-error-static { bottom: 22px; inset-inline-end: 92px; left: auto; transform: none; }
+
+/* --- WhatsApp lead buttons ------------------------------------- */
+.whatsapp-cta {
+  display: flex; align-items: center; justify-content: center; gap: 10px;
+  width: 100%; min-height: 54px; margin: 4px 0 18px;
+  background: #25d366; color: #052e14; border: 0;
+  font-size: 14px; font-weight: 900; letter-spacing: -.01em;
+  transition: background .2s;
+}
+.whatsapp-cta:hover { background: #1ebe5a; }
+.card-whatsapp {
+  display: inline-flex; align-items: center; justify-content: center;
+  width: 44px; flex: 0 0 auto; background: #25d366; color: #052e14;
+  border: 1px solid #25d366; transition: background .2s;
+}
+.card-whatsapp:hover { background: #1ebe5a; }
 
 
 /* === Responsive overrides (must stay last in this file) === */

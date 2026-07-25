@@ -8,8 +8,9 @@ import {
   money,
   projectImageSrc,
   propertyFinderUrl,
+  whatsappLink,
 } from "@/lib/format";
-import { useSiteData } from "@/lib/site-context";
+import { useLang, useSiteData } from "@/lib/site-context";
 import type { Project } from "@/lib/types";
 
 const percent = (value: number | null) => (value != null ? `${value * 100}%` : "—");
@@ -22,6 +23,7 @@ export default function ProjectModal({
   onClose: () => void;
 }) {
   const { data } = useSiteData();
+  const { lang } = useLang();
 
   useEffect(() => {
     if (!project) return;
@@ -185,6 +187,25 @@ export default function ProjectModal({
               </div>
             </div>
           </section>
+
+          <a
+            className="whatsapp-cta"
+            href={whatsappLink(project, lang)}
+            target="_blank"
+            rel="noreferrer"
+          >
+            <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true">
+              <path
+                fill="currentColor"
+                d="M17.5 14.4c-.3-.1-1.8-.9-2-1s-.5-.1-.7.2c-.2.3-.7 1-.9 1.1-.2.2-.3.2-.6.1-.3-.2-1.3-.5-2.4-1.5-.9-.8-1.5-1.8-1.7-2.1-.2-.3 0-.5.1-.6.1-.1.3-.3.4-.5.1-.2.2-.3.3-.5.1-.2 0-.4 0-.5 0-.1-.7-1.6-.9-2.2-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.5s1.1 2.9 1.2 3.1c.2.2 2.1 3.2 5.1 4.5.7.3 1.3.5 1.7.6.7.2 1.4.2 1.9.1.6-.1 1.8-.7 2-1.5.3-.7.3-1.4.2-1.5-.1-.1-.3-.2-.6-.3M12 2a10 10 0 0 0-8.6 15l-1.3 4.8 4.9-1.3A10 10 0 1 0 12 2"
+              />
+            </svg>
+            {lang === "ar"
+              ? "استفسر على واتساب"
+              : lang === "it"
+                ? "Chiedi su WhatsApp"
+                : "Enquire on WhatsApp"}
+          </a>
 
           <section className="source-actions">
             <a href={propertyFinderUrl(project)} target="_blank" rel="noreferrer">
