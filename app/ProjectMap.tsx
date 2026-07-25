@@ -120,6 +120,48 @@ const AREA_COORDINATES: Record<string, [number, number]> = {
   "Jabal Ali First": [25.0112, 55.1127],
   "Palm Jebel Ali": [25.0052, 54.9871],
   "Dubai Industrial City": [24.8468, 55.0991],
+  "Wadi Al Safa 2": [25.0760, 55.3050],
+  "Wadi Al Safa 3": [25.0680, 55.3150],
+  "Wadi Al Safa 4": [25.0620, 55.3080],
+  "Wadi Al Safa 5": [25.0560, 55.2980],
+  "Wadi Al Safa 6": [25.0700, 55.2900],
+  "Wadi Al Safa 7": [25.0640, 55.2820],
+  "Al Yelayiss 1": [25.0130, 55.2760],
+  "Al Yelayiss 2": [25.0050, 55.2680],
+  "Al Yelayiss 5": [24.9950, 55.2600],
+  "Saih Shuaib 2": [24.8300, 55.0400],
+  "Al Barshaa South Third": [25.0560, 55.2180],
+  "Al Barsha South Third": [25.0560, 55.2180],
+  "Jabal Ali Industrial Second": [24.9700, 55.0850],
+  "Madinat Dubai Almelaheyah": [25.2792, 55.2761],
+  "Nad Al Shiba First": [25.1700, 55.3300],
+  "Nad Al Sheba First": [25.1700, 55.3300],
+  "Al Hebiah First": [25.0450, 55.2560],
+  "Al Hebiah Second": [25.0380, 55.2480],
+  "Al Hebiah Fourth": [25.0300, 55.2620],
+  "Al Hebiah Fifth": [25.0230, 55.2700],
+  "Sheikh Zayed Road": [25.2000, 55.2700],
+  "Al Thanyah Fifth": [25.0698, 55.1438],
+  "Al Thanyah Third": [25.0900, 55.1560],
+  "Al Yufrah 1": [24.9200, 55.2400],
+  "Al Yufrah 2": [24.9100, 55.2300],
+  "Living Legends": [25.0450, 55.3050],
+  "Al Warsan First": [25.1649, 55.4208],
+  "Me'Aisem Second": [25.0300, 55.1950],
+  "Al Safouh First": [25.1050, 55.1620],
+  "Al Safouh Second": [25.1000, 55.1550],
+  "Al Merkadh": [25.1900, 55.3050],
+  "Al Kifaf": [25.2350, 55.3000],
+  "Jumeirah Second": [25.2100, 55.2550],
+  "Umm Suqeim Third": [25.1400, 55.1950],
+  "Al Wasl": [25.2027, 55.2565],
+  "Palm Jebel Ali": [25.0052, 54.9871],
+  "Emaar South": [24.8900, 55.1450],
+  "The Valley": [25.0100, 55.4200],
+  "Tilal Al Ghaf": [25.0250, 55.2650],
+  "Al Rashidiya": [25.2280, 55.3970],
+  "Mirdif": [25.2170, 55.4180],
+  "Al Mizhar": [25.2250, 55.4400],
 };
 
 const areaFrom = (value: string | null) => {
@@ -233,9 +275,11 @@ export default function ProjectMap({
       if (cancelled || !mapNode.current) return;
       const map = L.map(mapNode.current, { zoomControl: false, minZoom: 9 }).setView([25.135, 55.235], 10);
       L.control.zoom({ position: "bottomright" }).addTo(map);
-      L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
-        attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>',
-        maxZoom: 18,
+      L.tileLayer("https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png", {
+        attribution:
+          '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> &copy; <a href="https://carto.com/attributions">CARTO</a>',
+        subdomains: "abcd",
+        maxZoom: 20,
       }).addTo(map);
       mapRef.current = map;
       setTimeout(() => map.invalidateSize(), 0);
