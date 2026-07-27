@@ -1,0 +1,913 @@
+{
+  "99 Park Place": {
+    "coordinates": {
+      "lat": 25.0608609,
+      "lng": 55.2088007
+    },
+    "matchTitle": "99 PARKPLACE by TABEER Developments",
+    "verifiedAt": "2026-07-26",
+    "source": "Google Maps"
+  },
+  "A 99": {
+    "coordinates": {
+      "lat": 25.09554017692,
+      "lng": 55.38019305027
+    },
+    "matchTitle": "A99",
+    "verifiedAt": "2026-07-26",
+    "source": "Existing marketplace alias match"
+  },
+  "AG 9INE": {
+    "coordinates": {
+      "lat": 25.0874014,
+      "lng": 55.3786515
+    },
+    "matchTitle": "AG 9INE PROJECT",
+    "verifiedAt": "2026-07-26",
+    "source": "Google Maps"
+  },
+  "Alma Gardens": {
+    "coordinates": {
+      "lat": 25.1035065,
+      "lng": 55.3714653
+    },
+    "matchTitle": "ALMA Gardens",
+    "verifiedAt": "2026-07-26",
+    "source": "Google Maps"
+  },
+  "Arancia Yards By Beyond": {
+    "coordinates": {
+      "lat": 25.0859397,
+      "lng": 55.3235915
+    },
+    "matchTitle": "ARANCIA Yard by Beyond",
+    "verifiedAt": "2026-07-26",
+    "source": "Google Maps"
+  },
+  "AVA AT PALM JUMEIRAH BY OMNIYAT": {
+    "coordinates": {
+      "lat": 25.1033482,
+      "lng": 55.1507309
+    },
+    "matchTitle": "AVA at Palm Jumeirah, Dorchester Collection, Dubai",
+    "verifiedAt": "2026-07-26",
+    "source": "Google Maps"
+  },
+  "Beachgate by Address": {
+    "coordinates": {
+      "lat": 25.1020236,
+      "lng": 55.1440954
+    },
+    "matchTitle": "Beachgate by Address",
+    "verifiedAt": "2026-07-26",
+    "source": "Google Maps"
+  },
+  "Biltmore Sufouh": {
+    "coordinates": {
+      "lat": 25.1090961,
+      "lng": 55.179504
+    },
+    "matchTitle": "The Biltmore Hotel & Residences",
+    "verifiedAt": "2026-07-26",
+    "source": "Google Maps"
+  },
+  "Binghatti Ghost": {
+    "coordinates": {
+      "lat": 25.2141469,
+      "lng": 55.3183547
+    },
+    "matchTitle": "Binghatti Ghost",
+    "verifiedAt": "2026-07-26",
+    "source": "Google Maps"
+  },
+  "Bottega Nove by Lalav": {
+    "coordinates": {
+      "lat": 25.0942732,
+      "lng": 55.321201
+    },
+    "matchTitle": "Bottega Nove Premium Residences",
+    "verifiedAt": "2026-07-26",
+    "source": "Google Maps"
+  },
+  "EATON SQUARE": {
+    "coordinates": {
+      "lat": 25.1831667,
+      "lng": 55.3275
+    },
+    "matchTitle": "Eaton Square By Ellington",
+    "verifiedAt": "2026-07-26",
+    "source": "Google Maps"
+  },
+  "FALA BY KASCO": {
+    "coordinates": {
+      "lat": 25.2270556,
+      "lng": 55.3367455
+    },
+    "matchTitle": "Fala by Kasco",
+    "verifiedAt": "2026-07-26",
+    "source": "Google Maps"
+  },
+  "Haus of Tenet": {
+    "coordinates": {
+      "lat": 25.1783611,
+      "lng": 55.2693889
+    },
+    "matchTitle": "Haus of Tenet by Irth",
+    "verifiedAt": "2026-07-26",
+    "source": "Google Maps"
+  },
+  "Iridian Park 2": {
+    "coordinates": {
+      "lat": 25.0493125,
+      "lng": 55.2121875
+    },
+    "matchTitle": "IR1DIAN PARK 2",
+    "verifiedAt": "2026-07-26",
+    "source": "Google Maps"
+  },
+  "LAYA COURTYARD": {
+    "coordinates": {
+      "lat": 25.0333273,
+      "lng": 55.2349284
+    },
+    "matchTitle": "Laya Courtyard",
+    "verifiedAt": "2026-07-26",
+    "source": "Google Maps"
+  },
+  "LAYA CREST": {
+    "coordinates": {
+      "lat": 25.0583532,
+      "lng": 55.1973838
+    },
+    "matchTitle": "Laya Crest",
+    "verifiedAt": "2026-07-26",
+    "source": "Google Maps"
+  },
+  "Mackerel Tower": {
+    "coordinates": {
+      "lat": 25.2965366,
+      "lng": 55.3152606
+    },
+    "matchTitle": "Mackerel Tower By Tarrad Development",
+    "verifiedAt": "2026-07-26",
+    "source": "Google Maps"
+  },
+  "Mira Villas designed by Bentley Home": {
+    "coordinates": {
+      "lat": 25.1340262,
+      "lng": 55.3483523
+    },
+    "matchTitle": "Mira Villas Designed By Bentley Home",
+    "verifiedAt": "2026-07-26",
+    "source": "Google Maps"
+  },
+  "Natuzzi Harmony Residences by Peace Homes": {
+    "coordinates": {
+      "lat": 25.2900956,
+      "lng": 55.3032437
+    },
+    "matchTitle": "Natuzzi Harmony Residences by Peace Homes",
+    "verifiedAt": "2026-07-26",
+    "source": "Google Maps"
+  },
+  "Nuve By Zoya": {
+    "coordinates": {
+      "lat": 25.0845625,
+      "lng": 55.3810625
+    },
+    "matchTitle": "Nuvé by Zoya",
+    "verifiedAt": "2026-07-26",
+    "source": "Google Maps"
+  },
+  "PELaGOS By IGO": {
+    "coordinates": {
+      "lat": 25.083596,
+      "lng": 55.1441185
+    },
+    "matchTitle": "Pelagos by IGO",
+    "verifiedAt": "2026-07-26",
+    "source": "Google Maps"
+  },
+  "Prestige Gardens by Prestige One": {
+    "coordinates": {
+      "lat": 25.2190977,
+      "lng": 55.2746877
+    },
+    "matchTitle": "Prestige Gardens by Prestige One",
+    "verifiedAt": "2026-07-26",
+    "source": "Google Maps"
+  },
+  "Rabdan Square": {
+    "coordinates": {
+      "lat": 25.1523093,
+      "lng": 55.287897
+    },
+    "matchTitle": "Rabdan Square",
+    "verifiedAt": "2026-07-26",
+    "source": "Google Maps"
+  },
+  "Roma Residences by JRP": {
+    "coordinates": {
+      "lat": 25.0670851,
+      "lng": 55.2126595
+    },
+    "matchTitle": "Roma Residences by JRP",
+    "verifiedAt": "2026-07-26",
+    "source": "Google Maps"
+  },
+  "SEA LEGEND ONE BY MVS REAL ESTATE": {
+    "coordinates": {
+      "lat": 25.299339,
+      "lng": 55.2973874
+    },
+    "matchTitle": "Sea Legend One By MVS Real Estate",
+    "verifiedAt": "2026-07-26",
+    "source": "Google Maps"
+  },
+  "Soho The Berkeley": {
+    "coordinates": {
+      "lat": 25.1112032,
+      "lng": 55.2511584
+    },
+    "matchTitle": "Berkeley by SOHO",
+    "verifiedAt": "2026-07-26",
+    "source": "Google Maps"
+  },
+  "77 Boulevard By Bam": {
+    "coordinates": {
+      "lat": 25.0472542,
+      "lng": 55.1997472
+    },
+    "verifiedAt": "2026-07-26",
+    "source": "Google Maps",
+    "googleMapsQuery": "77 Boulevard By Bam Al Barsha South Fourth Dubai",
+    "googleMapsName": "77 Boulevard",
+    "googleMapsAddress": "26X2+33H 77 Boulevard - Al Barsha South Fourth - Jumeirah Village Circle - Dubai"
+  },
+  "Almaara Residences": {
+    "coordinates": {
+      "lat": 25.01983,
+      "lng": 55.148488
+    },
+    "verifiedAt": "2026-07-26",
+    "source": "Google Maps",
+    "googleMapsQuery": "Almaara Residences Jabal Ali First Dubai",
+    "googleMapsName": "Almaara Residences by Hamara Home",
+    "googleMapsAddress": "Almaara Residences by Hamara Home - Jabal Ali First - Al Furjan - Dubai"
+  },
+  "AMALI RESIDENCES": {
+    "coordinates": {
+      "lat": 25.1869242,
+      "lng": 55.2520057
+    },
+    "verifiedAt": "2026-07-26",
+    "source": "Google Maps",
+    "googleMapsQuery": "AMALI RESIDENCES Al Wasl Dubai",
+    "googleMapsName": "Amali Residences",
+    "googleMapsAddress": "57P2+JVG Amali Residences - Al Wasl - Dubai"
+  },
+  "Anwa Aria by Omniyat": {
+    "coordinates": {
+      "lat": 25.2692005,
+      "lng": 55.269924
+    },
+    "verifiedAt": "2026-07-26",
+    "source": "Google Maps",
+    "googleMapsQuery": "Anwa Aria by Omniyat Madinat Dubai Almelaheyah Dubai",
+    "googleMapsName": "Anwa Aria by Omniyat",
+    "googleMapsAddress": "Anwa Aria by Omniyat, Anwa - Al Mina St - Madinat Dubai Al Melaheyah - Dubai"
+  },
+  "Arabian Ranches lll - Anya 2": {
+    "coordinates": {
+      "lat": 25.0743046,
+      "lng": 55.3331348
+    },
+    "verifiedAt": "2026-07-26",
+    "source": "Google Maps",
+    "googleMapsQuery": "Arabian Ranches lll - Anya 2 Wadi Al Safa 5 Dubai",
+    "googleMapsName": "Anya 2 at Arabian Ranches III",
+    "googleMapsAddress": "38FM+P7C Anya 2 at Arabian Ranches III - Sheikh Zayed Bin Hamdan Al Nahyan Street - Wadi Al Safa 5 - Dubai"
+  },
+  "ARYAM TOWER BY ABU ALNAGA": {
+    "coordinates": {
+      "lat": 25.0307906,
+      "lng": 55.1388131
+    },
+    "verifiedAt": "2026-07-26",
+    "source": "Google Maps",
+    "googleMapsQuery": "ARYAM TOWER BY ABU ALNAGA Jabal Ali First Dubai",
+    "googleMapsName": "Aryam Tower by Abu Alnaga Development",
+    "googleMapsAddress": "Aryam Tower by Abu Alnaga Development - Jabal Ali First - Al Furjan - Dubai"
+  },
+  "AVENEW888-LOOM": {
+    "coordinates": {
+      "lat": 24.9447048,
+      "lng": 55.2196589
+    },
+    "verifiedAt": "2026-07-26",
+    "source": "Google Maps",
+    "googleMapsQuery": "AVENEW888-LOOM Madinat Al Mataar Dubai",
+    "googleMapsName": "Avenew888",
+    "googleMapsAddress": "Avenew888 - Madinat Al Mataar - Dubai South - Dubai"
+  },
+  "Avion 100": {
+    "coordinates": {
+      "lat": 24.9444575,
+      "lng": 55.2133844
+    },
+    "verifiedAt": "2026-07-26",
+    "source": "Google Maps",
+    "googleMapsQuery": "Avion 100 Madinat Al Mataar Dubai",
+    "googleMapsName": "Avion 100 by Sky View Development L.L.C.",
+    "googleMapsAddress": "W6V7+Q9J Avion 100 by Sky View Development L.L.C. - Madinat Al Mataar - Dubai South Residential District - Dubai"
+  },
+  "Avior": {
+    "coordinates": {
+      "lat": 25.1953351,
+      "lng": 55.2613341
+    },
+    "verifiedAt": "2026-07-26",
+    "source": "Google Maps",
+    "googleMapsQuery": "Avior Al Wasl Dubai",
+    "googleMapsName": "AVIOR, Acube Real Estate Development Center",
+    "googleMapsAddress": "57W6+4GP AVIOR, Acube Real Estate Development Center - Al Wasl - Dubai"
+  },
+  "Azizi Rose": {
+    "coordinates": {
+      "lat": 24.9727782,
+      "lng": 55.0902598
+    },
+    "verifiedAt": "2026-07-26",
+    "source": "Google Maps",
+    "googleMapsQuery": "Azizi Rose Jabal Ali Industrial Second Dubai",
+    "googleMapsName": "Azizi Rose",
+    "googleMapsAddress": "Azizi Rose - 2 Downtown Street - Jabal Ali Industrial Second - Dubai"
+  },
+  "Beverly Residence": {
+    "coordinates": {
+      "lat": 25.0502178,
+      "lng": 55.2135276
+    },
+    "verifiedAt": "2026-07-26",
+    "source": "Google Maps",
+    "googleMapsQuery": "Beverly Residence JVC Dubai",
+    "googleMapsName": "Beverly Residence",
+    "googleMapsAddress": "Beverly Residence - Al Barsha South Fourth - Jumeirah Village Circle - Dubai"
+  },
+  "Bianca": {
+    "coordinates": {
+      "lat": 25.0856408,
+      "lng": 55.3437993
+    },
+    "verifiedAt": "2026-07-26",
+    "source": "Google Maps",
+    "googleMapsQuery": "Bianca Wadi Al Safa 2 Dubai",
+    "googleMapsName": "BIANCA",
+    "googleMapsAddress": "38PV+7G BIANCA - Wadi Al Safa 2 - Falconcity of Wonders - Dubai"
+  },
+  "Binghatti Spectre": {
+    "coordinates": {
+      "lat": 25.2228602,
+      "lng": 55.3385505
+    },
+    "verifiedAt": "2026-07-26",
+    "source": "Google Maps",
+    "googleMapsQuery": "Binghatti Spectre Al Jadaf Dubai",
+    "googleMapsName": "Binghatti Spectre",
+    "googleMapsAddress": "Binghatti Spectre - Al Jadaf - Jaddaf Waterfront - Dubai"
+  },
+  "Bonds Avenue Residences": {
+    "coordinates": {
+      "lat": 25.290599,
+      "lng": 55.3055452
+    },
+    "verifiedAt": "2026-07-26",
+    "source": "Google Maps",
+    "googleMapsQuery": "Bonds Avenue Residences Palm Deira Dubai",
+    "googleMapsName": "Bonds Avenue Residences by Amirah Development",
+    "googleMapsAddress": "78R4+66M Bonds Avenue Residences by Amirah Development - Nakhlat Deira - Front - Dubai"
+  },
+  "Casa Vista Residence": {
+    "coordinates": {
+      "lat": 25.0516695,
+      "lng": 55.2159047
+    },
+    "verifiedAt": "2026-07-26",
+    "source": "Google Maps",
+    "googleMapsQuery": "Casa Vista Residence JVC Dubai",
+    "googleMapsName": "Casa Vista Residence By Golden Woods",
+    "googleMapsAddress": "3628+M9F Casa Vista Residence By Golden Woods - Al Barsha South Fourth - Jumeirah Village Circle - Dubai"
+  },
+  "Casa Vista Residence By Golden Woods": {
+    "coordinates": {
+      "lat": 25.0516695,
+      "lng": 55.2159047
+    },
+    "verifiedAt": "2026-07-26",
+    "source": "Google Maps",
+    "googleMapsQuery": "Casa Vista Residence By Golden Woods Al Barsha South Fourth Dubai",
+    "googleMapsName": "Casa Vista Residence By Golden Woods",
+    "googleMapsAddress": "3628+M9F Casa Vista Residence By Golden Woods - Al Barsha South Fourth - Jumeirah Village Circle - Dubai"
+  },
+  "Cresswell Homes": {
+    "coordinates": {
+      "lat": 24.9419512,
+      "lng": 55.2168144
+    },
+    "verifiedAt": "2026-07-26",
+    "source": "Google Maps",
+    "googleMapsQuery": "Cresswell Homes Madinat Al Mataar Dubai",
+    "googleMapsName": "Cresswell Homes",
+    "googleMapsAddress": "Cresswell Homes - Madinat Al Mataar - Dubai South Residential District - Dubai"
+  },
+  "Cresswell Views II": {
+    "coordinates": {
+      "lat": 24.937078,
+      "lng": 55.216851
+    },
+    "verifiedAt": "2026-07-26",
+    "source": "Google Maps",
+    "googleMapsQuery": "Cresswell Views II Madinat Al Mataar Dubai",
+    "googleMapsName": "Cresswell Views",
+    "googleMapsAddress": "W6P8+XV6 Cresswell Views - Madinat Al Mataar - Dubai South - Dubai"
+  },
+  "ELEGANCE TOWER": {
+    "coordinates": {
+      "lat": 25.1956669,
+      "lng": 55.2843431
+    },
+    "verifiedAt": "2026-07-26",
+    "source": "Google Maps",
+    "googleMapsQuery": "ELEGANCE TOWER Burj Khalifa Dubai",
+    "googleMapsName": "DAMAC ELEGANCE TOWER",
+    "googleMapsAddress": "57WM+RH9 DAMAC ELEGANCE TOWER - Sheikh Mohammed bin Rashid Blvd - Burj Khalifa - Downtown Dubai - Dubai"
+  },
+  "ELYRA RESIDENCES BY ENAAM": {
+    "coordinates": {
+      "lat": 25.1247401,
+      "lng": 55.40131969999999
+    },
+    "verifiedAt": "2026-07-26",
+    "source": "Google Maps",
+    "googleMapsQuery": "ELYRA RESIDENCES BY ENAAM Nadd Hessa Dubai",
+    "googleMapsName": "Elyra Residences By ENAAM",
+    "googleMapsAddress": "Elyra Residences By ENAAM - 10-010 - Nadd Hessa - Dubai Silicon Oasis - Dubai"
+  },
+  "Garden Arena": {
+    "coordinates": {
+      "lat": 25.0602475,
+      "lng": 55.2424577
+    },
+    "verifiedAt": "2026-07-26",
+    "source": "Google Maps",
+    "googleMapsQuery": "Garden Arena Al Barshaa South Third Dubai",
+    "googleMapsName": "Garden Arena",
+    "googleMapsAddress": "366R+3XW Garden Arena - Al Barsha South Third - Al Barsha South - Dubai"
+  },
+  "Hearth Heights By ENAWT REAL ESTATE DEVELOPMENT": {
+    "coordinates": {
+      "lat": 25.0608609,
+      "lng": 55.2088007
+    },
+    "verifiedAt": "2026-07-26",
+    "source": "Google Maps",
+    "googleMapsQuery": "Hearth Heights By ENAWT REAL ESTATE DEVELOPMENT Al Barsha South Fourth Dubai",
+    "googleMapsName": "Hearth Heights by ENAWT Real Estate Development",
+    "googleMapsAddress": "3665+8GV Hearth Heights by ENAWT Real Estate Development - Al Barsha South Fourth - Jumeirah Village Circle - Dubai"
+  },
+  "HILLMONT RESIDENCES BY ELLINGTON": {
+    "coordinates": {
+      "lat": 25.0598889,
+      "lng": 55.2030556
+    },
+    "verifiedAt": "2026-07-26",
+    "source": "Google Maps",
+    "googleMapsQuery": "HILLMONT RESIDENCES BY ELLINGTON Al Barsha South Fourth Dubai",
+    "googleMapsName": "Hillmont Residences by Ellington",
+    "googleMapsAddress": "Hillmont Residences by Ellington, Autumn Cluster - Al Barsha South Fourth - Seasons Community - Dubai"
+  },
+  "Isla Residences by Chaimaa Holding": {
+    "coordinates": {
+      "lat": 25.300615,
+      "lng": 55.3008879
+    },
+    "verifiedAt": "2026-07-26",
+    "source": "Google Maps",
+    "googleMapsQuery": "Isla Residences by Chaimaa Holding Palm Deira Dubai",
+    "googleMapsName": "Isla by Chaimaa",
+    "googleMapsAddress": "8822+69R Isla by Chaimaa - Nakhlat Deira - Dubai Islands - Dubai"
+  },
+  "Kyomi Residences": {
+    "coordinates": {
+      "lat": 25.1513125,
+      "lng": 55.4009375
+    },
+    "verifiedAt": "2026-07-26",
+    "source": "Google Maps",
+    "googleMapsQuery": "Kyomi Residences Warsan Fourth Dubai",
+    "googleMapsName": "KYOMI Residences by ANAX",
+    "googleMapsAddress": "5C22+G9P KYOMI Residences by ANAX - Warsan Fourth - Dubai"
+  },
+  "Le Blanc Residence by Imtiaz": {
+    "coordinates": {
+      "lat": 25.0868916,
+      "lng": 55.3801982
+    },
+    "verifiedAt": "2026-07-26",
+    "source": "Google Maps",
+    "googleMapsQuery": "Le Blanc Residence by Imtiaz Wadi Al Safa 5 Dubai",
+    "googleMapsName": "Le Blanc by Imtiaz",
+    "googleMapsAddress": "Le Blanc by Imtiaz - Wadi Al Safa 5 - Dubai Land Residence Complex - Dubai"
+  },
+  "Lincoln Star Residence IV": {
+    "coordinates": {
+      "lat": 24.9445114,
+      "lng": 55.2249527
+    },
+    "verifiedAt": "2026-07-26",
+    "source": "Google Maps",
+    "googleMapsQuery": "Lincoln Star Residence IV Dubai South Dubai",
+    "googleMapsName": "Lincoln Star Residence IV",
+    "googleMapsAddress": "W6VF+VR7 Lincoln Star Residence IV - Madinat Al Mataar - Dubai South Residential District - Dubai"
+  },
+  "Lusin Residences by Ermax Development": {
+    "coordinates": {
+      "lat": 25.1526875,
+      "lng": 55.4119241
+    },
+    "verifiedAt": "2026-07-26",
+    "source": "Google Maps",
+    "googleMapsQuery": "Lusin Residences by Ermax Development Al Warsan First Dubai",
+    "googleMapsName": "Lusin Residences by Ermax Development",
+    "googleMapsAddress": "5C36+3QF Lusin Residences by Ermax Development - Warsan First - Dubai International City - Dubai"
+  },
+  "Ocean Tower": {
+    "coordinates": {
+      "lat": 25.2853554,
+      "lng": 55.2969969
+    },
+    "verifiedAt": "2026-07-26",
+    "source": "Google Maps",
+    "googleMapsQuery": "Ocean Tower Palm Deira Dubai",
+    "googleMapsName": "Ocean Tower (AAA Real Estate Development LLC)",
+    "googleMapsAddress": "Ocean Tower (AAA Real Estate Development LLC) - Nakhlat Deira - Front - Dubai"
+  },
+  "Orchid Residence 1": {
+    "coordinates": {
+      "lat": 24.948088,
+      "lng": 55.2260238
+    },
+    "verifiedAt": "2026-07-26",
+    "source": "Google Maps",
+    "googleMapsQuery": "Orchid Residence 1 Madinat Al Mataar Dubai",
+    "googleMapsName": "Orchid residence 1",
+    "googleMapsAddress": "W6XG+53H Orchid residence 1 - Madinat Al Mataar - Dubai South - Dubai"
+  },
+  "PURE TOWN": {
+    "coordinates": {
+      "lat": 25.0610526,
+      "lng": 55.215064
+    },
+    "verifiedAt": "2026-07-26",
+    "source": "Google Maps",
+    "googleMapsQuery": "PURE TOWN Al Barsha South Fourth Dubai",
+    "googleMapsName": "Pure Town by LiveX",
+    "googleMapsAddress": "Pure Town by LiveX - Al Barsha South Fourth - Jumeirah Village Circle - Dubai"
+  },
+  "Samana Business Hub": {
+    "coordinates": {
+      "lat": 24.97478,
+      "lng": 55.0914364
+    },
+    "verifiedAt": "2026-07-26",
+    "source": "Google Maps",
+    "googleMapsQuery": "Samana Business Hub Jabal Ali Industrial Second Dubai",
+    "googleMapsName": "SAMANA Business Hub",
+    "googleMapsAddress": "SAMANA Business Hub - Jabal Ali Central St - Jabal Ali Industrial Second - Dubai"
+  },
+  "Samana Business Park 2": {
+    "coordinates": {
+      "lat": 25.0945453,
+      "lng": 55.32019409999999
+    },
+    "verifiedAt": "2026-07-26",
+    "source": "Google Maps",
+    "googleMapsQuery": "Samana Business Park 2 Wadi Al Safa 3 Dubai",
+    "googleMapsName": "Samana Business Park 2",
+    "googleMapsAddress": "Samana Business Park 2 - Wadi Al Safa 3 - Majan - Dubai"
+  },
+  "Shahrukhz by Danube": {
+    "coordinates": {
+      "lat": 25.1084375,
+      "lng": 55.1791875
+    },
+    "verifiedAt": "2026-07-26",
+    "source": "Google Maps",
+    "googleMapsQuery": "Shahrukhz by Danube Al Safouh First Dubai",
+    "googleMapsName": "Shahrukhz by Danube",
+    "googleMapsAddress": "455H+9M7 Shahrukhz by Danube - Al Sufouh - Al Sufouh 1 - Dubai"
+  },
+  "SKYON": {
+    "coordinates": {
+      "lat": 24.9420315,
+      "lng": 55.2182524
+    },
+    "verifiedAt": "2026-07-26",
+    "source": "Google Maps",
+    "googleMapsQuery": "SKYON Madinat Al Mataar Dubai",
+    "googleMapsName": "Calgary Skyon",
+    "googleMapsAddress": "W6V9+2CP Calgary Skyon - Madinat Al Mataar - Dubai South Residential District - Dubai"
+  },
+  "SquareX One": {
+    "coordinates": {
+      "lat": 25.0513125,
+      "lng": 55.21868749999999
+    },
+    "verifiedAt": "2026-07-26",
+    "source": "Google Maps",
+    "googleMapsQuery": "SquareX One Al Barsha South Fourth Dubai",
+    "googleMapsName": "Squarex One",
+    "googleMapsAddress": "3629+GF9 Squarex One - Al Barsha South Fourth - Jumeirah Village Circle - Dubai"
+  },
+  "Sunbliss Residences by Purvanchal Real Estate Developers": {
+    "coordinates": {
+      "lat": 25.0303734,
+      "lng": 55.1507796
+    },
+    "verifiedAt": "2026-07-26",
+    "source": "Google Maps",
+    "googleMapsQuery": "Sunbliss Residences by Purvanchal Real Estate Developers Jabal Ali First Dubai",
+    "googleMapsName": "Sunbliss Residences",
+    "googleMapsAddress": "Sunbliss Residences, Jabel Ali First - Jabal Ali First - Al Furjan - Dubai"
+  },
+  "Tabeer 1": {
+    "coordinates": {
+      "lat": 25.1720461,
+      "lng": 55.41079879999999
+    },
+    "verifiedAt": "2026-07-26",
+    "source": "Google Maps",
+    "googleMapsQuery": "Tabeer 1 International City Dubai",
+    "googleMapsName": "Tabeer 1",
+    "googleMapsAddress": "Dubai, Tabeer 1"
+  },
+  "The Corner": {
+    "coordinates": {
+      "lat": 25.0870093,
+      "lng": 55.3885248
+    },
+    "verifiedAt": "2026-07-26",
+    "source": "Google Maps",
+    "googleMapsQuery": "The Corner DLRC Dubai",
+    "googleMapsName": "The Corner",
+    "googleMapsAddress": "39QQ+49J The Corner - Wadi Al Safa 5 - Dubai"
+  },
+  "The Gyld": {
+    "coordinates": {
+      "lat": 25.226516,
+      "lng": 55.27837
+    },
+    "verifiedAt": "2026-07-26",
+    "source": "Google Maps",
+    "googleMapsQuery": "The Gyld Al Satwa Dubai",
+    "googleMapsName": "Homedge Real Estate Development - The Gyld",
+    "googleMapsAddress": "Homedge Real Estate Development - The Gyld - 63 18A St - Al Satwa - Dubai"
+  },
+  "The Valley - Avelia": {
+    "coordinates": {
+      "lat": 25.0131416,
+      "lng": 55.4334415
+    },
+    "verifiedAt": "2026-07-26",
+    "source": "Google Maps",
+    "googleMapsQuery": "The Valley - Avelia Al Yufrah 1 Dubai",
+    "googleMapsName": "Avelia at The Valley",
+    "googleMapsAddress": "2C7M+794 Avelia at The Valley - Al Yufrah 1 - Dubai"
+  },
+  "The Valley - Ovelle": {
+    "coordinates": {
+      "lat": 25.0089302,
+      "lng": 55.4308852
+    },
+    "verifiedAt": "2026-07-26",
+    "source": "Google Maps",
+    "googleMapsQuery": "The Valley - Ovelle Al Yufrah 1 Dubai",
+    "googleMapsName": "Ovelle At The Valley",
+    "googleMapsAddress": "2C5J+H9C Ovelle At The Valley - Al Yufrah 1 - Dubai"
+  },
+  "Tomorrow Commercial Tower": {
+    "coordinates": {
+      "lat": 25.1617241,
+      "lng": 55.40640399999999
+    },
+    "verifiedAt": "2026-07-26",
+    "source": "Google Maps",
+    "googleMapsQuery": "Tomorrow Commercial Tower Al Warsan First Dubai",
+    "googleMapsName": "TOMORROW COMMERCIAL TOWER",
+    "googleMapsAddress": "TOMORROW COMMERCIAL TOWER - Warsan First - Dubai International City - Dubai"
+  },
+  "Trinity By Karma": {
+    "coordinates": {
+      "lat": 25.0601927,
+      "lng": 55.23504
+    },
+    "verifiedAt": "2026-07-26",
+    "source": "Google Maps",
+    "googleMapsQuery": "Trinity By Karma Al Barshaa South Third Dubai",
+    "googleMapsName": "Trinity Residences",
+    "googleMapsAddress": "366P+32F Trinity Residences - Al Barsha South Third - Al Barsha South - Dubai"
+  },
+  "Unique One": {
+    "coordinates": {
+      "lat": 24.9385862,
+      "lng": 55.2232736
+    },
+    "verifiedAt": "2026-07-26",
+    "source": "Google Maps",
+    "googleMapsQuery": "Unique One Madinat Al Mataar Dubai",
+    "googleMapsName": "Unique One",
+    "googleMapsAddress": "W6QF+6CF Unique One - Madinat Al Mataar - Dubai South Residential District - Dubai"
+  },
+  "V2": {
+    "coordinates": {
+      "lat": 25.0370667,
+      "lng": 55.2052793
+    },
+    "verifiedAt": "2026-07-26",
+    "source": "Google Maps",
+    "googleMapsQuery": "V2 Dubai Sports City Dubai",
+    "googleMapsName": "V2. Residence",
+    "googleMapsAddress": "V2. Residence, Dubai Sports City - Al Hebiah Fourth - Dubai Sports City - Dubai"
+  },
+  "Verdana 5": {
+    "coordinates": {
+      "lat": 24.9887675,
+      "lng": 55.1766829
+    },
+    "verifiedAt": "2026-07-26",
+    "source": "Google Maps",
+    "googleMapsQuery": "Verdana 5 Dubai Investment Park First Dubai",
+    "googleMapsName": "Verdana 5",
+    "googleMapsAddress": "X5QG+GM Verdana 5 - Dubai Investment Park First - Dubai"
+  },
+  "Versailles Tower": {
+    "coordinates": {
+      "lat": 25.0964533,
+      "lng": 55.3817951
+    },
+    "verifiedAt": "2026-07-26",
+    "source": "Google Maps",
+    "googleMapsQuery": "Versailles Tower DLRC Dubai",
+    "googleMapsName": "Versailles Tower by Abu Alnaga Development",
+    "googleMapsAddress": "Versailles Tower by Abu Alnaga Development - Wadi Al Safa 5 - Dubai Land Residence Complex - Dubai"
+  },
+  "Vertex Pointe": {
+    "coordinates": {
+      "lat": 25.0634778,
+      "lng": 55.2440332
+    },
+    "verifiedAt": "2026-07-26",
+    "source": "Google Maps",
+    "googleMapsQuery": "Vertex Pointe Al Barshaa South Third Dubai",
+    "googleMapsName": "Vertex Pointe (VXP) by AUM Development",
+    "googleMapsAddress": "Vertex Pointe (VXP) by AUM Development - Al Barsha South Third - Arjan - Dubai"
+  },
+  "Viewz 1 By Danube": {
+    "coordinates": {
+      "lat": 25.0656697,
+      "lng": 55.1409217
+    },
+    "verifiedAt": "2026-07-26",
+    "source": "Google Maps",
+    "googleMapsQuery": "Viewz 1 By Danube Al Thanyah Fifth Dubai",
+    "googleMapsName": "Viewz by Danube 1",
+    "googleMapsAddress": "Viewz by Danube 1 - First Al Khail St - Al Thanyah Fifth - JLT Cluster K - Dubai"
+  },
+  "Wadi Villas by Arista": {
+    "coordinates": {
+      "lat": 25.124743,
+      "lng": 55.3443297
+    },
+    "verifiedAt": "2026-07-26",
+    "source": "Google Maps",
+    "googleMapsQuery": "Wadi Villas by Arista Wadi Al Safa 3 Dubai",
+    "googleMapsName": "Wadi Villas by Arista Properties",
+    "googleMapsAddress": "48FV+VP Wadi Villas by Arista Properties - Wadi Al Safa 3 - Dubai"
+  },
+  "Wedyan": {
+    "coordinates": {
+      "lat": 25.1829878,
+      "lng": 55.262939
+    },
+    "verifiedAt": "2026-07-26",
+    "source": "Google Maps",
+    "googleMapsQuery": "Wedyan Business Bay Dubai",
+    "googleMapsName": "Wedyan - The Canal by Al Ghurair Collection",
+    "googleMapsAddress": "Wedyan - The Canal by Al Ghurair Collection, The Dubai Canal - Business Bay - Dubai"
+  },
+  "Whitestone Residence": {
+    "coordinates": {
+      "lat": 25.2200897,
+      "lng": 55.2735449
+    },
+    "verifiedAt": "2026-07-26",
+    "source": "Google Maps",
+    "googleMapsQuery": "Whitestone Residence Al Satwa Dubai",
+    "googleMapsName": "Whitestone Residence",
+    "googleMapsAddress": "67CF+3C4 Whitestone Residence - Al Satwa - Dubai"
+  },
+  "Zenith Tower J1": {
+    "coordinates": {
+      "lat": 25.0618391,
+      "lng": 55.2019503
+    },
+    "verifiedAt": "2026-07-26",
+    "source": "Google Maps",
+    "googleMapsQuery": "Zenith Tower J1 Al Barsha South Fourth Dubai",
+    "googleMapsName": "Zenith J1",
+    "googleMapsAddress": "3662+PQP Zenith J1 - Al Barsha South Fourth - Jumeirah Village Circle - Dubai"
+  },
+  "ZYRA HILLS": {
+    "coordinates": {
+      "lat": 25.1486945,
+      "lng": 55.3920217
+    },
+    "verifiedAt": "2026-07-26",
+    "source": "Google Maps",
+    "googleMapsQuery": "ZYRA HILLS Warsan Fourth Dubai",
+    "googleMapsName": "ZYRA HILLS RESIDENCE BY LARAIX DEVELOPERS",
+    "googleMapsAddress": "ZYRA HILLS RESIDENCE BY LARAIX DEVELOPERS - Warsan Fourth - WARSAN 4 - Dubai"
+  },
+  "Dragon Views": {
+    "coordinates": {
+      "lat": 25.1718735,
+      "lng": 55.4125276
+    },
+    "verifiedAt": "2026-07-26",
+    "source": "Google Maps",
+    "googleMapsQuery": "Dragon Views International City Dubai",
+    "googleMapsName": "Dragon View",
+    "googleMapsAddress": "Dragon View - 25°10'19. 55°24'45. - 8 7 St - Dubai",
+    "manualReview": "Name variation confirmed against developer and community"
+  },
+  "Luxur Tower By Imtiaz": {
+    "coordinates": {
+      "lat": 25.0548023,
+      "lng": 55.2042764
+    },
+    "verifiedAt": "2026-07-26",
+    "source": "Google Maps",
+    "googleMapsQuery": "Luxur Tower By Imtiaz Al Barsha South Fourth Dubai",
+    "googleMapsName": "Luxor by Imtiaz",
+    "googleMapsAddress": "Luxor by Imtiaz - Al Barsha South Fourth - Jumeirah Village Circle - Dubai",
+    "manualReview": "Name variation confirmed against developer and community"
+  },
+  "Oasis Loft": {
+    "coordinates": {
+      "lat": 25.1205012,
+      "lng": 55.3733018
+    },
+    "verifiedAt": "2026-07-26",
+    "source": "Google Maps",
+    "googleMapsQuery": "Oasis Loft Nadd Hessa Dubai",
+    "googleMapsName": "Oasis Lofts - Uniestate",
+    "googleMapsAddress": "49CF+588 Oasis Lofts - Uniestate - Nadd Hessa - Industrial Area - Dubai",
+    "manualReview": "Name variation confirmed against developer and community"
+  },
+  "Ocean Pearl By SD": {
+    "coordinates": {
+      "lat": 25.2998125,
+      "lng": 55.3148125
+    },
+    "verifiedAt": "2026-07-26",
+    "source": "Google Maps",
+    "googleMapsQuery": "Ocean Pearl By SD Palm Deira Dubai",
+    "googleMapsName": "Ocean Pearl by Samana",
+    "googleMapsAddress": "78X7+WWV Ocean Pearl by Samana - Nakhlat Deira - Dubai Islands - Dubai",
+    "manualReview": "Name variation confirmed against developer and community"
+  },
+  "Tavora Grand by JHK": {
+    "coordinates": {
+      "lat": 25.1522211,
+      "lng": 55.3954548
+    },
+    "verifiedAt": "2026-07-26",
+    "source": "Google Maps",
+    "googleMapsQuery": "Tavora Grand by JHK Warsan Fourth Dubai",
+    "googleMapsName": "Tavora Residences by JHK Developments",
+    "googleMapsAddress": "Tavora Residences by JHK Developments - Warsan Fourth - Dubai",
+    "manualReview": "Name variation confirmed against developer and community"
+  },
+  "The Cube Quarter Residences": {
+    "coordinates": {
+      "lat": 25.1274328,
+      "lng": 55.3565759
+    },
+    "verifiedAt": "2026-07-26",
+    "source": "Google Maps",
+    "googleMapsQuery": "The Cube Quarter Residences Wadi Al Safa 3 Dubai",
+    "googleMapsName": "The Cube Residences - District 11by Amwaj Development",
+    "googleMapsAddress": "The Cube Residences - District 11by Amwaj Development, District 11 - Wadi Al Safa 3 - Meydan - Dubai",
+    "manualReview": "Name variation confirmed against developer and community"
+  }
+}

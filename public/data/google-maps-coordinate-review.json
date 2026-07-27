@@ -1,0 +1,1794 @@
+{
+  "reviewedAt": "2026-07-26",
+  "reviewedCount": 209,
+  "verifiedAdditions": 61,
+  "results": [
+    {
+      "name": "24HC",
+      "area": "Um Hurair Second",
+      "status": "not_found"
+    },
+    {
+      "name": "31 Above By Beyond",
+      "area": "Madinat Dubai Almelaheyah",
+      "status": "not_found"
+    },
+    {
+      "name": "77 Boulevard By Bam",
+      "area": "Al Barsha South Fourth",
+      "status": "verified",
+      "googleName": "77 Boulevard",
+      "address": "26X2+33H 77 Boulevard - Al Barsha South Fourth - Jumeirah Village Circle - Dubai",
+      "coordinates": {
+        "lat": 25.0472542,
+        "lng": 55.1997472
+      },
+      "nameScore": 1,
+      "query": "77 Boulevard By Bam Al Barsha South Fourth Dubai"
+    },
+    {
+      "name": "77S",
+      "area": "Business Bay",
+      "status": "not_found"
+    },
+    {
+      "name": "Abu Al Naga in Al Jaddaf",
+      "area": "Al Jaddaf",
+      "status": "potential",
+      "googleName": "Abu Alnaga Development - 12",
+      "address": "Abu Alnaga Development - 12 - Al Jadaf - Dubai",
+      "coordinates": {
+        "lat": 25.2186955,
+        "lng": 55.3282053
+      },
+      "nameScore": 0.3333333333333333,
+      "query": "Abu Al Naga in Al Jaddaf Al Jaddaf Dubai"
+    },
+    {
+      "name": "Abu Al Naga in Meydan Horizon",
+      "area": "Meydan",
+      "status": "not_found"
+    },
+    {
+      "name": "Abu Al Naga in Production City",
+      "area": "Dubai Production City",
+      "status": "potential",
+      "googleName": "Aryam Tower by Abu Alnaga Development",
+      "address": "Aryam Tower by Abu Alnaga Development - Jabal Ali First - Al Furjan - Dubai",
+      "coordinates": {
+        "lat": 25.0307906,
+        "lng": 55.1388131
+      },
+      "nameScore": 0.3333333333333333,
+      "query": "Abu Al Naga in Production City Dubai Production City Dubai"
+    },
+    {
+      "name": "ABU ALNAGA TOWER",
+      "area": "Al Jadaf",
+      "status": "rejected",
+      "googleName": "Abu Alnaga Development - 12",
+      "address": "Abu Alnaga Development - 12 - Al Jadaf - Dubai",
+      "coordinates": {
+        "lat": 25.2186955,
+        "lng": 55.3282053
+      },
+      "nameScore": 1,
+      "query": "ABU ALNAGA TOWER Al Jadaf Dubai",
+      "manualReview": "Returned a generic community, developer office, different phase, or unrelated business"
+    },
+    {
+      "name": "AD Residences",
+      "area": "Al Satwa",
+      "status": "potential",
+      "googleName": "Al Badaa Residence's",
+      "address": "Al Badaa Residence's - 59 35B St - Al Satwa - Dubai",
+      "coordinates": {
+        "lat": 25.2201534,
+        "lng": 55.27721709999999
+      },
+      "nameScore": 0,
+      "query": "AD Residences Al Satwa Dubai"
+    },
+    {
+      "name": "AJWAN RESIDENCES",
+      "area": "Madinat Al Mataar",
+      "status": "potential",
+      "googleName": "Ajwan Residences",
+      "address": "Ajwan Residences - Hay Al Gharb - Sharjah",
+      "coordinates": {
+        "lat": 25.3496678,
+        "lng": 56.3606682
+      },
+      "nameScore": 1,
+      "query": "AJWAN RESIDENCES Madinat Al Mataar Dubai"
+    },
+    {
+      "name": "Al Aiham Homes",
+      "area": "Warsan Fourth",
+      "status": "not_found"
+    },
+    {
+      "name": "AL EZZ TOWER BY ABU ALNAGA",
+      "area": "Me'Aisem First",
+      "status": "not_found"
+    },
+    {
+      "name": "Al Ghaf Janoub",
+      "area": "Madinat Al Mataar",
+      "status": "potential",
+      "googleName": "Madinat Al Mataar",
+      "address": "W5RF+8GC Madinat Al Mataar - Dubai South - Dubai",
+      "coordinates": {
+        "lat": 24.9408083,
+        "lng": 55.1737651
+      },
+      "nameScore": 0.3333333333333333,
+      "query": "Al Ghaf Janoub Madinat Al Mataar Dubai"
+    },
+    {
+      "name": "Almaara Residences",
+      "area": "Jabal Ali First",
+      "status": "verified",
+      "googleName": "Almaara Residences by Hamara Home",
+      "address": "Almaara Residences by Hamara Home - Jabal Ali First - Al Furjan - Dubai",
+      "coordinates": {
+        "lat": 25.01983,
+        "lng": 55.148488
+      },
+      "nameScore": 1,
+      "query": "Almaara Residences Jabal Ali First Dubai"
+    },
+    {
+      "name": "AMALI RESIDENCES",
+      "area": "Al Wasl",
+      "status": "verified",
+      "googleName": "Amali Residences",
+      "address": "57P2+JVG Amali Residences - Al Wasl - Dubai",
+      "coordinates": {
+        "lat": 25.1869242,
+        "lng": 55.2520057
+      },
+      "nameScore": 1,
+      "query": "AMALI RESIDENCES Al Wasl Dubai"
+    },
+    {
+      "name": "Amis & GPD Presents Fleur De Jardin Villas",
+      "area": "Wadi Al Safa 3",
+      "status": "not_found"
+    },
+    {
+      "name": "Anwa Aria by Omniyat",
+      "area": "Madinat Dubai Almelaheyah",
+      "status": "verified",
+      "googleName": "Anwa Aria by Omniyat",
+      "address": "Anwa Aria by Omniyat, Anwa - Al Mina St - Madinat Dubai Al Melaheyah - Dubai",
+      "coordinates": {
+        "lat": 25.2692005,
+        "lng": 55.269924
+      },
+      "nameScore": 1,
+      "query": "Anwa Aria by Omniyat Madinat Dubai Almelaheyah Dubai"
+    },
+    {
+      "name": "Arabian Ranches lll - Anya",
+      "area": "Wadi Al Safa 5",
+      "status": "not_found"
+    },
+    {
+      "name": "Arabian Ranches lll - Anya 2",
+      "area": "Wadi Al Safa 5",
+      "status": "verified",
+      "googleName": "Anya 2 at Arabian Ranches III",
+      "address": "38FM+P7C Anya 2 at Arabian Ranches III - Sheikh Zayed Bin Hamdan Al Nahyan Street - Wadi Al Safa 5 - Dubai",
+      "coordinates": {
+        "lat": 25.0743046,
+        "lng": 55.3331348
+      },
+      "nameScore": 0.8,
+      "query": "Arabian Ranches lll - Anya 2 Wadi Al Safa 5 Dubai"
+    },
+    {
+      "name": "Arancia Yards 2 By Beyond",
+      "area": "Wadi Al Safa 4",
+      "status": "not_found"
+    },
+    {
+      "name": "Arja Vista Residences",
+      "area": "Madinat Al Mataar",
+      "status": "potential",
+      "googleName": "Madinat Al Mataar",
+      "address": "W5RF+8GC Madinat Al Mataar - Dubai South - Dubai",
+      "coordinates": {
+        "lat": 24.9408083,
+        "lng": 55.1737651
+      },
+      "nameScore": 0,
+      "query": "Arja Vista Residences Madinat Al Mataar Dubai"
+    },
+    {
+      "name": "ARYAM TOWER BY ABU ALNAGA",
+      "area": "Jabal Ali First",
+      "status": "verified",
+      "googleName": "Aryam Tower by Abu Alnaga Development",
+      "address": "Aryam Tower by Abu Alnaga Development - Jabal Ali First - Al Furjan - Dubai",
+      "coordinates": {
+        "lat": 25.0307906,
+        "lng": 55.1388131
+      },
+      "nameScore": 1,
+      "query": "ARYAM TOWER BY ABU ALNAGA Jabal Ali First Dubai"
+    },
+    {
+      "name": "Aura Heights",
+      "area": "Al Barsha South Fourth",
+      "status": "not_found"
+    },
+    {
+      "name": "Aveline Residences by Citi Developers",
+      "area": "Al Barsha South Fourth",
+      "status": "not_found"
+    },
+    {
+      "name": "AVENEW888-LOOM",
+      "area": "Madinat Al Mataar",
+      "status": "verified",
+      "googleName": "Avenew888",
+      "address": "Avenew888 - Madinat Al Mataar - Dubai South - Dubai",
+      "coordinates": {
+        "lat": 24.9447048,
+        "lng": 55.2196589
+      },
+      "nameScore": 1,
+      "query": "AVENEW888-LOOM Madinat Al Mataar Dubai"
+    },
+    {
+      "name": "Avenue Park Towers II",
+      "area": "Al Kifaf",
+      "status": "not_found"
+    },
+    {
+      "name": "Avion 100",
+      "area": "Madinat Al Mataar",
+      "status": "verified",
+      "googleName": "Avion 100 by Sky View Development L.L.C.",
+      "address": "W6V7+Q9J Avion 100 by Sky View Development L.L.C. - Madinat Al Mataar - Dubai South Residential District - Dubai",
+      "coordinates": {
+        "lat": 24.9444575,
+        "lng": 55.2133844
+      },
+      "nameScore": 1,
+      "query": "Avion 100 Madinat Al Mataar Dubai"
+    },
+    {
+      "name": "Avior",
+      "area": "Al Wasl",
+      "status": "verified",
+      "googleName": "AVIOR, Acube Real Estate Development Center",
+      "address": "57W6+4GP AVIOR, Acube Real Estate Development Center - Al Wasl - Dubai",
+      "coordinates": {
+        "lat": 25.1953351,
+        "lng": 55.2613341
+      },
+      "nameScore": 1,
+      "query": "Avior Al Wasl Dubai"
+    },
+    {
+      "name": "Axilla",
+      "area": "Al Satwa",
+      "status": "not_found"
+    },
+    {
+      "name": "Azizi Rose",
+      "area": "Jabal Ali Industrial Second",
+      "status": "verified",
+      "googleName": "Azizi Rose",
+      "address": "Azizi Rose - 2 Downtown Street - Jabal Ali Industrial Second - Dubai",
+      "coordinates": {
+        "lat": 24.9727782,
+        "lng": 55.0902598
+      },
+      "nameScore": 1,
+      "query": "Azizi Rose Jabal Ali Industrial Second Dubai"
+    },
+    {
+      "name": "BARARIGATE by ADE",
+      "area": "Wadi Al Safa 3",
+      "status": "not_found"
+    },
+    {
+      "name": "Bay Residences Dubai Islands",
+      "area": "Palm Deira",
+      "status": "not_found"
+    },
+    {
+      "name": "BEST TOWN VILLAS",
+      "area": "Al Barsha South Fifth",
+      "status": "not_found"
+    },
+    {
+      "name": "Beverly Residence",
+      "area": "JVC",
+      "status": "verified",
+      "googleName": "Beverly Residence",
+      "address": "Beverly Residence - Al Barsha South Fourth - Jumeirah Village Circle - Dubai",
+      "coordinates": {
+        "lat": 25.0502178,
+        "lng": 55.2135276
+      },
+      "nameScore": 1,
+      "query": "Beverly Residence JVC Dubai"
+    },
+    {
+      "name": "Bianca",
+      "area": "Wadi Al Safa 2",
+      "status": "verified",
+      "googleName": "BIANCA",
+      "address": "38PV+7G BIANCA - Wadi Al Safa 2 - Falconcity of Wonders - Dubai",
+      "coordinates": {
+        "lat": 25.0856408,
+        "lng": 55.3437993
+      },
+      "nameScore": 1,
+      "query": "Bianca Wadi Al Safa 2 Dubai"
+    },
+    {
+      "name": "Bild Alve",
+      "area": "Al Safouh First",
+      "status": "potential",
+      "googleName": "Emirates Cooperative Society Al Safouh",
+      "address": "Emirates Cooperative Society Al Safouh - Al Safouh 1 - Dubai",
+      "coordinates": {
+        "lat": 25.1126188,
+        "lng": 55.17380989999999
+      },
+      "nameScore": 0,
+      "query": "Bild Alve Al Safouh First Dubai"
+    },
+    {
+      "name": "Binghatti Spectre",
+      "area": "Al Jadaf",
+      "status": "verified",
+      "googleName": "Binghatti Spectre",
+      "address": "Binghatti Spectre - Al Jadaf - Jaddaf Waterfront - Dubai",
+      "coordinates": {
+        "lat": 25.2228602,
+        "lng": 55.3385505
+      },
+      "nameScore": 1,
+      "query": "Binghatti Spectre Al Jadaf Dubai"
+    },
+    {
+      "name": "Binghatti Square 1",
+      "area": "Wadi Al Safa 3",
+      "status": "not_found"
+    },
+    {
+      "name": "Binghatti Square 2",
+      "area": "Wadi Al Safa 3",
+      "status": "not_found"
+    },
+    {
+      "name": "Binghatti Square 3",
+      "area": "Wadi Al Safa 3",
+      "status": "not_found"
+    },
+    {
+      "name": "Binghatti Starfall",
+      "area": "Al Jadaf",
+      "status": "not_found"
+    },
+    {
+      "name": "Bonds Avenue Residences",
+      "area": "Palm Deira",
+      "status": "verified",
+      "googleName": "Bonds Avenue Residences by Amirah Development",
+      "address": "78R4+66M Bonds Avenue Residences by Amirah Development - Nakhlat Deira - Front - Dubai",
+      "coordinates": {
+        "lat": 25.290599,
+        "lng": 55.3055452
+      },
+      "nameScore": 1,
+      "query": "Bonds Avenue Residences Palm Deira Dubai"
+    },
+    {
+      "name": "Breva",
+      "area": "Palm Deira",
+      "status": "not_found"
+    },
+    {
+      "name": "Bureau Lamar",
+      "area": "Business Bay",
+      "status": "not_found"
+    },
+    {
+      "name": "California 2 by SD",
+      "area": "Jabal Ali First",
+      "status": "not_found"
+    },
+    {
+      "name": "Casa Vista Residence",
+      "area": "JVC",
+      "status": "verified",
+      "googleName": "Casa Vista Residence By Golden Woods",
+      "address": "3628+M9F Casa Vista Residence By Golden Woods - Al Barsha South Fourth - Jumeirah Village Circle - Dubai",
+      "coordinates": {
+        "lat": 25.0516695,
+        "lng": 55.2159047
+      },
+      "nameScore": 1,
+      "query": "Casa Vista Residence JVC Dubai"
+    },
+    {
+      "name": "Casa Vista Residence By Golden Woods",
+      "area": "Al Barsha South Fourth",
+      "status": "verified",
+      "googleName": "Casa Vista Residence By Golden Woods",
+      "address": "3628+M9F Casa Vista Residence By Golden Woods - Al Barsha South Fourth - Jumeirah Village Circle - Dubai",
+      "coordinates": {
+        "lat": 25.0516695,
+        "lng": 55.2159047
+      },
+      "nameScore": 1,
+      "query": "Casa Vista Residence By Golden Woods Al Barsha South Fourth Dubai"
+    },
+    {
+      "name": "Cedarwood Estates-South",
+      "area": "Me'Aisem First",
+      "status": "potential",
+      "googleName": "City Centre Me'aisem",
+      "address": "City Centre Me'aisem - E311 - Me'aisem First - Dubai Production City - Dubai",
+      "coordinates": {
+        "lat": 25.0403413,
+        "lng": 55.19681569999999
+      },
+      "nameScore": 0,
+      "query": "Cedarwood Estates-South Me'Aisem First Dubai"
+    },
+    {
+      "name": "Celesto Tower 2",
+      "area": "Wadi Al Safa 5",
+      "status": "not_found"
+    },
+    {
+      "name": "Celesto Two",
+      "area": "Dubai",
+      "status": "not_found"
+    },
+    {
+      "name": "City Center Residences",
+      "area": "Burj Khalifa",
+      "status": "not_found"
+    },
+    {
+      "name": "City Walk Crestlane 4",
+      "area": "Al Wasl",
+      "status": "rejected",
+      "googleName": "City Walk Crestlane",
+      "address": "6754+GR5 City Walk Crestlane - Al Wasl - Dubai",
+      "coordinates": {
+        "lat": 25.2064464,
+        "lng": 55.2570348
+      },
+      "nameScore": 1,
+      "query": "City Walk Crestlane 4 Al Wasl Dubai",
+      "manualReview": "Returned a generic community, developer office, different phase, or unrelated business"
+    },
+    {
+      "name": "CITYVIEW RESIDENCES",
+      "area": "Burj Khalifa",
+      "status": "not_found"
+    },
+    {
+      "name": "Coventry Curve 2",
+      "area": "Saih Shuaib 2",
+      "status": "not_found"
+    },
+    {
+      "name": "Cresswell Homes",
+      "area": "Madinat Al Mataar",
+      "status": "verified",
+      "googleName": "Cresswell Homes",
+      "address": "Cresswell Homes - Madinat Al Mataar - Dubai South Residential District - Dubai",
+      "coordinates": {
+        "lat": 24.9419512,
+        "lng": 55.2168144
+      },
+      "nameScore": 1,
+      "query": "Cresswell Homes Madinat Al Mataar Dubai"
+    },
+    {
+      "name": "Cresswell Views II",
+      "area": "Madinat Al Mataar",
+      "status": "verified",
+      "googleName": "Cresswell Views",
+      "address": "W6P8+XV6 Cresswell Views - Madinat Al Mataar - Dubai South - Dubai",
+      "coordinates": {
+        "lat": 24.937078,
+        "lng": 55.216851
+      },
+      "nameScore": 1,
+      "query": "Cresswell Views II Madinat Al Mataar Dubai"
+    },
+    {
+      "name": "DAMAC HILLS - GEMS ESTATES 1",
+      "area": "Al Hebiah Third",
+      "status": "not_found"
+    },
+    {
+      "name": "DAMAC ISLANDS - THE TROPICS 1 & 3 & 5",
+      "area": "Al Yelayiss 1",
+      "status": "rejected",
+      "googleName": "Damac Islands",
+      "address": "27FW+6C Damac Islands - Al Yalayis 1 - Dubai",
+      "coordinates": {
+        "lat": 25.023074,
+        "lng": 55.296122
+      },
+      "nameScore": 1,
+      "query": "DAMAC ISLANDS - THE TROPICS 1 & 3 & 5 Al Yelayiss 1 Dubai",
+      "manualReview": "Returned a generic community, developer office, different phase, or unrelated business"
+    },
+    {
+      "name": "DAMAC ISLANDS - THE TROPICS 2 & 4 & 6",
+      "area": "Al Yelayiss 1",
+      "status": "not_found"
+    },
+    {
+      "name": "DAMAC ISLANDS 2 - ANTIGUA 1",
+      "area": "Al Yelayiss 1",
+      "status": "not_found"
+    },
+    {
+      "name": "DAMAC ISLANDS 2 - CUBA",
+      "area": "Al Yelayiss 1",
+      "status": "not_found"
+    },
+    {
+      "name": "DAMAC ISLANDS 2 - MAUI",
+      "area": "Al Yelayiss 1",
+      "status": "not_found"
+    },
+    {
+      "name": "DAMAC ISLANDS 2 - TAHITI 1",
+      "area": "Al Yelayiss 1",
+      "status": "not_found"
+    },
+    {
+      "name": "DAMAC RIVERLINK",
+      "area": "Dubai Investment Park Second",
+      "status": "not_found"
+    },
+    {
+      "name": "DELLA X",
+      "area": "Palm Jumeirah",
+      "status": "not_found"
+    },
+    {
+      "name": "DISTRICT 53",
+      "area": "Madinat Al Mataar",
+      "status": "not_found"
+    },
+    {
+      "name": "Divine Haven",
+      "area": "Madinat Al Mataar",
+      "status": "potential",
+      "googleName": "Divine Elements",
+      "address": "W6WC+GJG Divine Elements - Madinat Al Mataar - Dubai South Residential District - Dubai",
+      "coordinates": {
+        "lat": 24.9463191,
+        "lng": 55.2215807
+      },
+      "nameScore": 0.5,
+      "query": "Divine Haven Madinat Al Mataar Dubai"
+    },
+    {
+      "name": "Dragon Views",
+      "area": "International City",
+      "status": "verified",
+      "googleName": "Dragon View",
+      "address": "Dragon View - 25°10'19. 55°24'45. - 8 7 St - Dubai",
+      "coordinates": {
+        "lat": 25.1718735,
+        "lng": 55.4125276
+      },
+      "nameScore": 0.5,
+      "query": "Dragon Views International City Dubai",
+      "manualReview": "Name variation confirmed against developer and community"
+    },
+    {
+      "name": "ECO HARMONY TOWER",
+      "area": "Al Barsha South Fourth",
+      "status": "not_found"
+    },
+    {
+      "name": "ELEGANCE TOWER",
+      "area": "Burj Khalifa",
+      "status": "verified",
+      "googleName": "DAMAC ELEGANCE TOWER",
+      "address": "57WM+RH9 DAMAC ELEGANCE TOWER - Sheikh Mohammed bin Rashid Blvd - Burj Khalifa - Downtown Dubai - Dubai",
+      "coordinates": {
+        "lat": 25.1956669,
+        "lng": 55.2843431
+      },
+      "nameScore": 1,
+      "query": "ELEGANCE TOWER Burj Khalifa Dubai"
+    },
+    {
+      "name": "ELLE Residences Dubai Islands",
+      "area": "Dubai Islands",
+      "status": "not_found"
+    },
+    {
+      "name": "ELYRA RESIDENCES BY ENAAM",
+      "area": "Nadd Hessa",
+      "status": "verified",
+      "googleName": "Elyra Residences By ENAAM",
+      "address": "Elyra Residences By ENAAM - 10-010 - Nadd Hessa - Dubai Silicon Oasis - Dubai",
+      "coordinates": {
+        "lat": 25.1247401,
+        "lng": 55.40131969999999
+      },
+      "nameScore": 1,
+      "query": "ELYRA RESIDENCES BY ENAAM Nadd Hessa Dubai"
+    },
+    {
+      "name": "Fay Residence",
+      "area": "Al Jadaf",
+      "status": "not_found"
+    },
+    {
+      "name": "Fern",
+      "area": "Al Wasl",
+      "status": "not_found"
+    },
+    {
+      "name": "Fior 1",
+      "area": "Madinat Dubai Almelaheyah",
+      "status": "potential",
+      "googleName": "Madinat Jumeirah",
+      "address": "Madinat Jumeirah - Al Sufouh 1 - Dubai",
+      "coordinates": {
+        "lat": 25.1330986,
+        "lng": 55.183466
+      },
+      "nameScore": 0,
+      "query": "Fior 1 Madinat Dubai Almelaheyah Dubai"
+    },
+    {
+      "name": "FLUID ONE",
+      "area": "Palm Deira",
+      "status": "not_found"
+    },
+    {
+      "name": "Garden Arena",
+      "area": "Al Barshaa South Third",
+      "status": "verified",
+      "googleName": "Garden Arena",
+      "address": "366R+3XW Garden Arena - Al Barsha South Third - Al Barsha South - Dubai",
+      "coordinates": {
+        "lat": 25.0602475,
+        "lng": 55.2424577
+      },
+      "nameScore": 1,
+      "query": "Garden Arena Al Barshaa South Third Dubai"
+    },
+    {
+      "name": "GOLF TERRACES",
+      "area": "Me'Aisem First",
+      "status": "potential",
+      "googleName": "Golf Terrace Residences by ASAK",
+      "address": "25HV+2F Golf Terrace Residences by ASAK - Me'aisem First - Dubai Production City - Dubai",
+      "coordinates": {
+        "lat": 25.0262294,
+        "lng": 55.1942726
+      },
+      "nameScore": 0.5,
+      "query": "GOLF TERRACES Me'Aisem First Dubai"
+    },
+    {
+      "name": "Grand Polo - Chevalia Estate 2",
+      "area": "Dubai Investment Park Second",
+      "status": "potential",
+      "googleName": "Grand Polo Club \\u0026 Resort",
+      "address": "Grand Polo Club \\u0026 Resort, Emaar polo club and resorts - Emirates Rd - Dubai Investment Park Second - Dubai",
+      "coordinates": {
+        "lat": 24.9659171,
+        "lng": 55.2279389
+      },
+      "nameScore": 0.4,
+      "query": "Grand Polo - Chevalia Estate 2 Dubai Investment Park Second Dubai"
+    },
+    {
+      "name": "Grand Polo - Equestra",
+      "area": "Dubai Investment Park Second",
+      "status": "not_found"
+    },
+    {
+      "name": "Grand Polo - Equiterra",
+      "area": "Dubai Investment Park Second",
+      "status": "potential",
+      "googleName": "Grand Polo Club \\u0026 Resort",
+      "address": "Grand Polo Club \\u0026 Resort, Emaar polo club and resorts - Emirates Rd - Dubai Investment Park Second - Dubai",
+      "coordinates": {
+        "lat": 24.9659171,
+        "lng": 55.2279389
+      },
+      "nameScore": 0.6666666666666666,
+      "query": "Grand Polo - Equiterra Dubai Investment Park Second Dubai"
+    },
+    {
+      "name": "Grand Polo - Equiterra 2",
+      "area": "Dubai Investment Park Second",
+      "status": "potential",
+      "googleName": "Grand Polo Club \\u0026 Resort",
+      "address": "Grand Polo Club \\u0026 Resort, Emaar polo club and resorts - Emirates Rd - Dubai Investment Park Second - Dubai",
+      "coordinates": {
+        "lat": 24.9659171,
+        "lng": 55.2279389
+      },
+      "nameScore": 0.5,
+      "query": "Grand Polo - Equiterra 2 Dubai Investment Park Second Dubai"
+    },
+    {
+      "name": "Greenfield 2 by Samana Developers",
+      "area": "Warsan Fourth",
+      "status": "not_found"
+    },
+    {
+      "name": "Hayat 1",
+      "area": "Madinat Al Mataar",
+      "status": "not_found"
+    },
+    {
+      "name": "Hearth Heights By ENAWT REAL ESTATE DEVELOPMENT",
+      "area": "Al Barsha South Fourth",
+      "status": "verified",
+      "googleName": "Hearth Heights by ENAWT Real Estate Development",
+      "address": "3665+8GV Hearth Heights by ENAWT Real Estate Development - Al Barsha South Fourth - Jumeirah Village Circle - Dubai",
+      "coordinates": {
+        "lat": 25.0608609,
+        "lng": 55.2088007
+      },
+      "nameScore": 1,
+      "query": "Hearth Heights By ENAWT REAL ESTATE DEVELOPMENT Al Barsha South Fourth Dubai"
+    },
+    {
+      "name": "HILLMONT RESIDENCES BY ELLINGTON",
+      "area": "Al Barsha South Fourth",
+      "status": "verified",
+      "googleName": "Hillmont Residences by Ellington",
+      "address": "Hillmont Residences by Ellington, Autumn Cluster - Al Barsha South Fourth - Seasons Community - Dubai",
+      "coordinates": {
+        "lat": 25.0598889,
+        "lng": 55.2030556
+      },
+      "nameScore": 1,
+      "query": "HILLMONT RESIDENCES BY ELLINGTON Al Barsha South Fourth Dubai"
+    },
+    {
+      "name": "HQA By Arista",
+      "area": "Jabal Ali First",
+      "status": "not_found"
+    },
+    {
+      "name": "Isla Residences by Chaimaa Holding",
+      "area": "Palm Deira",
+      "status": "verified",
+      "googleName": "Isla by Chaimaa",
+      "address": "8822+69R Isla by Chaimaa - Nakhlat Deira - Dubai Islands - Dubai",
+      "coordinates": {
+        "lat": 25.300615,
+        "lng": 55.3008879
+      },
+      "nameScore": 1,
+      "query": "Isla Residences by Chaimaa Holding Palm Deira Dubai"
+    },
+    {
+      "name": "Jasmine Residence",
+      "area": "Al Barsha South Fifth",
+      "status": "not_found"
+    },
+    {
+      "name": "JVT Tower",
+      "area": "Al Barsha South Fifth",
+      "status": "not_found"
+    },
+    {
+      "name": "KAL CAPITAL TOWER",
+      "area": "Burj Khalifa",
+      "status": "not_found"
+    },
+    {
+      "name": "Kamellia by Beyond",
+      "area": "Madinat Dubai Almelaheyah",
+      "status": "not_found"
+    },
+    {
+      "name": "Kyomi Residences",
+      "area": "Warsan Fourth",
+      "status": "verified",
+      "googleName": "KYOMI Residences by ANAX",
+      "address": "5C22+G9P KYOMI Residences by ANAX - Warsan Fourth - Dubai",
+      "coordinates": {
+        "lat": 25.1513125,
+        "lng": 55.4009375
+      },
+      "nameScore": 1,
+      "query": "Kyomi Residences Warsan Fourth Dubai"
+    },
+    {
+      "name": "Le Blanc Residence by Imtiaz",
+      "area": "Wadi Al Safa 5",
+      "status": "verified",
+      "googleName": "Le Blanc by Imtiaz",
+      "address": "Le Blanc by Imtiaz - Wadi Al Safa 5 - Dubai Land Residence Complex - Dubai",
+      "coordinates": {
+        "lat": 25.0868916,
+        "lng": 55.3801982
+      },
+      "nameScore": 1,
+      "query": "Le Blanc Residence by Imtiaz Wadi Al Safa 5 Dubai"
+    },
+    {
+      "name": "LEGACY HEIGHTS",
+      "area": "Madinat Al Mataar",
+      "status": "potential",
+      "googleName": "The Legacy Homes LLC.",
+      "address": "The Legacy Homes LLC., Al Shafar Tower 1 - 806 - Barsha Heights - Dubai",
+      "coordinates": {
+        "lat": 25.0984491,
+        "lng": 55.174338
+      },
+      "nameScore": 0.5,
+      "query": "LEGACY HEIGHTS Madinat Al Mataar Dubai"
+    },
+    {
+      "name": "LENJAWI DIAMOND",
+      "area": "Warsan Fourth",
+      "status": "not_found"
+    },
+    {
+      "name": "Lincoln Star Residence I",
+      "area": "Dubai South",
+      "status": "not_found"
+    },
+    {
+      "name": "Lincoln Star Residence II",
+      "area": "Dubai South",
+      "status": "not_found"
+    },
+    {
+      "name": "Lincoln Star Residence III",
+      "area": "Madinat Al Mataar",
+      "status": "potential",
+      "googleName": "Lincoln Star Residence IV",
+      "address": "W6VF+VR7 Lincoln Star Residence IV - Madinat Al Mataar - Dubai South Residential District - Dubai",
+      "coordinates": {
+        "lat": 24.9445114,
+        "lng": 55.2249527
+      },
+      "nameScore": 0.6666666666666666,
+      "query": "Lincoln Star Residence III Madinat Al Mataar Dubai"
+    },
+    {
+      "name": "Lincoln Star Residence IV",
+      "area": "Dubai South",
+      "status": "verified",
+      "googleName": "Lincoln Star Residence IV",
+      "address": "W6VF+VR7 Lincoln Star Residence IV - Madinat Al Mataar - Dubai South Residential District - Dubai",
+      "coordinates": {
+        "lat": 24.9445114,
+        "lng": 55.2249527
+      },
+      "nameScore": 1,
+      "query": "Lincoln Star Residence IV Dubai South Dubai"
+    },
+    {
+      "name": "Longfor International Center",
+      "area": "Al Warsan First",
+      "status": "not_found"
+    },
+    {
+      "name": "Lucent Rise Residences",
+      "area": "Warsan Fourth",
+      "status": "not_found"
+    },
+    {
+      "name": "Lumena Alta by Omniyat",
+      "area": "Business Bay",
+      "status": "rejected",
+      "googleName": "LUMENA by OMNIYAT",
+      "address": "LUMENA by OMNIYAT - Business Bay - Dubai",
+      "coordinates": {
+        "lat": 25.1907673,
+        "lng": 55.26070679999999
+      },
+      "nameScore": 1,
+      "query": "Lumena Alta by Omniyat Business Bay Dubai",
+      "manualReview": "Returned a generic community, developer office, different phase, or unrelated business"
+    },
+    {
+      "name": "Luminar Tower 1",
+      "area": "Al Barsha South Fifth",
+      "status": "not_found"
+    },
+    {
+      "name": "Luminar Tower 2",
+      "area": "Al Barsha South Fifth",
+      "status": "not_found"
+    },
+    {
+      "name": "Lusin Residences by Ermax Development",
+      "area": "Al Warsan First",
+      "status": "verified",
+      "googleName": "Lusin Residences by Ermax Development",
+      "address": "5C36+3QF Lusin Residences by Ermax Development - Warsan First - Dubai International City - Dubai",
+      "coordinates": {
+        "lat": 25.1526875,
+        "lng": 55.4119241
+      },
+      "nameScore": 1,
+      "query": "Lusin Residences by Ermax Development Al Warsan First Dubai"
+    },
+    {
+      "name": "Luxur Tower By Imtiaz",
+      "area": "Al Barsha South Fourth",
+      "status": "verified",
+      "googleName": "Luxor by Imtiaz",
+      "address": "Luxor by Imtiaz - Al Barsha South Fourth - Jumeirah Village Circle - Dubai",
+      "coordinates": {
+        "lat": 25.0548023,
+        "lng": 55.2042764
+      },
+      "nameScore": 0.5,
+      "query": "Luxur Tower By Imtiaz Al Barsha South Fourth Dubai",
+      "manualReview": "Name variation confirmed against developer and community"
+    },
+    {
+      "name": "Mangrove 2",
+      "area": "Wadi Al Safa 3",
+      "status": "not_found"
+    },
+    {
+      "name": "Manhattan 2 by SD",
+      "area": "Al Barsha South Fourth",
+      "status": "not_found"
+    },
+    {
+      "name": "MARAVELLE FAMILY COMPLEX",
+      "area": "Madinat Al Mataar",
+      "status": "not_found"
+    },
+    {
+      "name": "Maserati Island by Samana",
+      "area": "World Islands",
+      "status": "potential",
+      "googleName": "Samana Headquarters",
+      "address": "Samana Headquarters - 3rd, 4th, 6th floor Building 7 - Business Bay - Bay Square - Dubai",
+      "coordinates": {
+        "lat": 25.1854719,
+        "lng": 55.280084
+      },
+      "nameScore": 0.5,
+      "query": "Maserati Island by Samana World Islands Dubai"
+    },
+    {
+      "name": "MIAMI BY SD",
+      "area": "Al Barsha South Fifth",
+      "status": "potential",
+      "googleName": "Miami-1 @JVC by Samana Developers",
+      "address": "26W3+GM4 Miami-1 @JVC by Samana Developers - Al Barsha South Fourth - Jumeirah Village Circle - Dubai",
+      "coordinates": {
+        "lat": 25.0463125,
+        "lng": 55.2041875
+      },
+      "nameScore": 0.5,
+      "query": "MIAMI BY SD Al Barsha South Fifth Dubai"
+    },
+    {
+      "name": "Monarch",
+      "area": "Al Hebiah First",
+      "status": "not_found"
+    },
+    {
+      "name": "MONTCLAIR",
+      "area": "Al Yelayiss 2",
+      "status": "not_found"
+    },
+    {
+      "name": "Nad Al Sheba Gardens Phase 3",
+      "area": "Nad Al Shiba First",
+      "status": "not_found"
+    },
+    {
+      "name": "NIKI LAUDA TOWER",
+      "area": "Business Bay",
+      "status": "not_found"
+    },
+    {
+      "name": "Nine Collective",
+      "area": "Al Kifaf",
+      "status": "not_found"
+    },
+    {
+      "name": "Nionis Residences - Interiors by Karl Lagerfeld Maison",
+      "area": "Palm Deira",
+      "status": "potential",
+      "googleName": "Natuzzi Harmony Residences by Peace Homes",
+      "address": "Natuzzi Harmony Residences by Peace Homes, Natuzzi Harmony Homes by Peace Homes - Nakhlat Deira - Dubai Islands - Dubai",
+      "coordinates": {
+        "lat": 25.2900956,
+        "lng": 55.3032437
+      },
+      "nameScore": 0,
+      "query": "Nionis Residences - Interiors by Karl Lagerfeld Maison Palm Deira Dubai"
+    },
+    {
+      "name": "O1NE District - Dawn",
+      "area": "Al Hebiah First",
+      "status": "not_found"
+    },
+    {
+      "name": "Oasis Loft",
+      "area": "Nadd Hessa",
+      "status": "verified",
+      "googleName": "Oasis Lofts - Uniestate",
+      "address": "49CF+588 Oasis Lofts - Uniestate - Nadd Hessa - Industrial Area - Dubai",
+      "coordinates": {
+        "lat": 25.1205012,
+        "lng": 55.3733018
+      },
+      "nameScore": 0.5,
+      "query": "Oasis Loft Nadd Hessa Dubai",
+      "manualReview": "Name variation confirmed against developer and community"
+    },
+    {
+      "name": "Ocean Pearl By SD",
+      "area": "Palm Deira",
+      "status": "verified",
+      "googleName": "Ocean Pearl by Samana",
+      "address": "78X7+WWV Ocean Pearl by Samana - Nakhlat Deira - Dubai Islands - Dubai",
+      "coordinates": {
+        "lat": 25.2998125,
+        "lng": 55.3148125
+      },
+      "nameScore": 0.6666666666666666,
+      "query": "Ocean Pearl By SD Palm Deira Dubai",
+      "manualReview": "Name variation confirmed against developer and community"
+    },
+    {
+      "name": "Ocean Tower",
+      "area": "Palm Deira",
+      "status": "verified",
+      "googleName": "Ocean Tower (AAA Real Estate Development LLC)",
+      "address": "Ocean Tower (AAA Real Estate Development LLC) - Nakhlat Deira - Front - Dubai",
+      "coordinates": {
+        "lat": 25.2853554,
+        "lng": 55.2969969
+      },
+      "nameScore": 1,
+      "query": "Ocean Tower Palm Deira Dubai"
+    },
+    {
+      "name": "One Central Dubai",
+      "area": "Trade Center Second",
+      "status": "not_found"
+    },
+    {
+      "name": "One Mansory",
+      "area": "Al Hebiah First",
+      "status": "not_found"
+    },
+    {
+      "name": "Orchid Residence 1",
+      "area": "Madinat Al Mataar",
+      "status": "verified",
+      "googleName": "Orchid residence 1",
+      "address": "W6XG+53H Orchid residence 1 - Madinat Al Mataar - Dubai South - Dubai",
+      "coordinates": {
+        "lat": 24.948088,
+        "lng": 55.2260238
+      },
+      "nameScore": 1,
+      "query": "Orchid Residence 1 Madinat Al Mataar Dubai"
+    },
+    {
+      "name": "Orvessa Residences by Michel Adam",
+      "area": "Jabal Ali First",
+      "status": "not_found"
+    },
+    {
+      "name": "Palm Beach Towers -1",
+      "area": "Palm Jumeirah",
+      "status": "not_found"
+    },
+    {
+      "name": "Palm Central Private Residences - Frond M",
+      "area": "Palm Jabal Ali",
+      "status": "not_found"
+    },
+    {
+      "name": "Palm Central Private Residences - Frond N",
+      "area": "Palm Jabal Ali",
+      "status": "not_found"
+    },
+    {
+      "name": "PIAZZA ROMA",
+      "area": "Al Hebiah Fifth",
+      "status": "potential",
+      "googleName": "Al Hebiah 5",
+      "address": "263R+H8 Al Hebiah 5 - Al Hebiah Fifth - Golf City - Dubai",
+      "coordinates": {
+        "lat": 25.0038473,
+        "lng": 55.2408189
+      },
+      "nameScore": 0,
+      "query": "PIAZZA ROMA Al Hebiah Fifth Dubai"
+    },
+    {
+      "name": "PURE TOWN",
+      "area": "Al Barsha South Fourth",
+      "status": "verified",
+      "googleName": "Pure Town by LiveX",
+      "address": "Pure Town by LiveX - Al Barsha South Fourth - Jumeirah Village Circle - Dubai",
+      "coordinates": {
+        "lat": 25.0610526,
+        "lng": 55.215064
+      },
+      "nameScore": 1,
+      "query": "PURE TOWN Al Barsha South Fourth Dubai"
+    },
+    {
+      "name": "RAW DISTRICT BY IMTIAZ CR",
+      "area": "Jabal Ali Industrial Second",
+      "status": "not_found"
+    },
+    {
+      "name": "RAW DISTRICT BY IMTIAZ R",
+      "area": "Jabal Ali Industrial Second",
+      "status": "not_found"
+    },
+    {
+      "name": "Reef 995",
+      "area": "Wadi Al Safa 5",
+      "status": "not_found"
+    },
+    {
+      "name": "Rose Mirage 1",
+      "area": "Madinat Al Mataar",
+      "status": "rejected",
+      "googleName": "Mirage 1 Residence",
+      "address": "Mirage 1 Residence - NADD - 626 شارع حصة - Dubai",
+      "coordinates": {
+        "lat": 25.1266612,
+        "lng": 55.40279
+      },
+      "nameScore": 1,
+      "query": "Rose Mirage 1 Madinat Al Mataar Dubai",
+      "manualReview": "Returned a generic community, developer office, different phase, or unrelated business"
+    },
+    {
+      "name": "Samana Business Hub",
+      "area": "Jabal Ali Industrial Second",
+      "status": "verified",
+      "googleName": "SAMANA Business Hub",
+      "address": "SAMANA Business Hub - Jabal Ali Central St - Jabal Ali Industrial Second - Dubai",
+      "coordinates": {
+        "lat": 24.97478,
+        "lng": 55.0914364
+      },
+      "nameScore": 1,
+      "query": "Samana Business Hub Jabal Ali Industrial Second Dubai"
+    },
+    {
+      "name": "Samana Business Park 2",
+      "area": "Wadi Al Safa 3",
+      "status": "verified",
+      "googleName": "Samana Business Park 2",
+      "address": "Samana Business Park 2 - Wadi Al Safa 3 - Majan - Dubai",
+      "coordinates": {
+        "lat": 25.0945453,
+        "lng": 55.32019409999999
+      },
+      "nameScore": 1,
+      "query": "Samana Business Park 2 Wadi Al Safa 3 Dubai"
+    },
+    {
+      "name": "Sartoria",
+      "area": "Al Hebiah Fourth",
+      "status": "not_found"
+    },
+    {
+      "name": "Seascape Villa by Prestige One",
+      "area": "Dubai",
+      "status": "not_found"
+    },
+    {
+      "name": "Shahrukhz by Danube",
+      "area": "Al Safouh First",
+      "status": "verified",
+      "googleName": "Shahrukhz by Danube",
+      "address": "455H+9M7 Shahrukhz by Danube - Al Sufouh - Al Sufouh 1 - Dubai",
+      "coordinates": {
+        "lat": 25.1084375,
+        "lng": 55.1791875
+      },
+      "nameScore": 1,
+      "query": "Shahrukhz by Danube Al Safouh First Dubai"
+    },
+    {
+      "name": "Shione By Beyond",
+      "area": "Palm Deira",
+      "status": "not_found"
+    },
+    {
+      "name": "SKYON",
+      "area": "Madinat Al Mataar",
+      "status": "verified",
+      "googleName": "Calgary Skyon",
+      "address": "W6V9+2CP Calgary Skyon - Madinat Al Mataar - Dubai South Residential District - Dubai",
+      "coordinates": {
+        "lat": 24.9420315,
+        "lng": 55.2182524
+      },
+      "nameScore": 1,
+      "query": "SKYON Madinat Al Mataar Dubai"
+    },
+    {
+      "name": "Sobha Hartland Waves Opulence",
+      "area": "Al Merkadh",
+      "status": "not_found"
+    },
+    {
+      "name": "Soel",
+      "area": "Al Barshaa South Third",
+      "status": "not_found"
+    },
+    {
+      "name": "SOL BEACH",
+      "area": "Palm Jumeirah",
+      "status": "not_found"
+    },
+    {
+      "name": "SOL TERRA CASA II",
+      "area": "Al Barsha South Fourth",
+      "status": "not_found"
+    },
+    {
+      "name": "South Lofts 2 by Premier Choice",
+      "area": "Saih Shuaib 2",
+      "status": "not_found"
+    },
+    {
+      "name": "South Lofts by Premier Choice",
+      "area": "Saih Shuaib 2",
+      "status": "not_found"
+    },
+    {
+      "name": "SquareX One",
+      "area": "Al Barsha South Fourth",
+      "status": "verified",
+      "googleName": "Squarex One",
+      "address": "3629+GF9 Squarex One - Al Barsha South Fourth - Jumeirah Village Circle - Dubai",
+      "coordinates": {
+        "lat": 25.0513125,
+        "lng": 55.21868749999999
+      },
+      "nameScore": 1,
+      "query": "SquareX One Al Barsha South Fourth Dubai"
+    },
+    {
+      "name": "Stellar Axis by Ajmal Estate Developers",
+      "area": "Warsan Fourth",
+      "status": "not_found"
+    },
+    {
+      "name": "Sunbliss Residences by Purvanchal Real Estate Developers",
+      "area": "Jabal Ali First",
+      "status": "verified",
+      "googleName": "Sunbliss Residences",
+      "address": "Sunbliss Residences, Jabel Ali First - Jabal Ali First - Al Furjan - Dubai",
+      "coordinates": {
+        "lat": 25.0303734,
+        "lng": 55.1507796
+      },
+      "nameScore": 1,
+      "query": "Sunbliss Residences by Purvanchal Real Estate Developers Jabal Ali First Dubai"
+    },
+    {
+      "name": "Sunset Bay One By Imtiaz",
+      "area": "Palm Deira",
+      "status": "not_found"
+    },
+    {
+      "name": "Sunteck MAS",
+      "area": "Burj Khalifa",
+      "status": "potential",
+      "googleName": "Burj Khalifa",
+      "address": "Burj Khalifa - 1 Sheikh Mohammed bin Rashid Blvd - Burj Khalifa - Downtown Dubai - Dubai",
+      "coordinates": {
+        "lat": 25.197197,
+        "lng": 55.27437639999999
+      },
+      "nameScore": 0,
+      "query": "Sunteck MAS Burj Khalifa Dubai"
+    },
+    {
+      "name": "Tabeer 1",
+      "area": "International City",
+      "status": "verified",
+      "googleName": "Tabeer 1",
+      "address": "Dubai, Tabeer 1",
+      "coordinates": {
+        "lat": 25.1720461,
+        "lng": 55.41079879999999
+      },
+      "nameScore": 1,
+      "query": "Tabeer 1 International City Dubai"
+    },
+    {
+      "name": "Taormina Village 2",
+      "area": "Wadi Al Safa 3",
+      "status": "potential",
+      "googleName": "Taormina Village By Reportage Properties",
+      "address": "38V4+4P Taormina Village By Reportage Properties - Wadi Al Safa 3 - Legends - Dubai",
+      "coordinates": {
+        "lat": 25.0923252,
+        "lng": 55.307342
+      },
+      "nameScore": 0.6666666666666666,
+      "query": "Taormina Village 2 Wadi Al Safa 3 Dubai"
+    },
+    {
+      "name": "Tavora Grand by JHK",
+      "area": "Warsan Fourth",
+      "status": "verified",
+      "googleName": "Tavora Residences by JHK Developments",
+      "address": "Tavora Residences by JHK Developments - Warsan Fourth - Dubai",
+      "coordinates": {
+        "lat": 25.1522211,
+        "lng": 55.3954548
+      },
+      "nameScore": 0.6666666666666666,
+      "query": "Tavora Grand by JHK Warsan Fourth Dubai",
+      "manualReview": "Name variation confirmed against developer and community"
+    },
+    {
+      "name": "The 55",
+      "area": "Al Barshaa South Third",
+      "status": "not_found"
+    },
+    {
+      "name": "THE ATELIER",
+      "area": "Business Bay",
+      "status": "rejected",
+      "googleName": "La Maison Atelier Sucré",
+      "address": "La Maison Atelier Sucré - Bay Square Building 3, shop G01 - Dubai",
+      "coordinates": {
+        "lat": 25.185953,
+        "lng": 55.2796707
+      },
+      "nameScore": 1,
+      "query": "THE ATELIER Business Bay Dubai",
+      "manualReview": "Returned a generic community, developer office, different phase, or unrelated business"
+    },
+    {
+      "name": "The Corner",
+      "area": "DLRC",
+      "status": "verified",
+      "googleName": "The Corner",
+      "address": "39QQ+49J The Corner - Wadi Al Safa 5 - Dubai",
+      "coordinates": {
+        "lat": 25.0870093,
+        "lng": 55.3885248
+      },
+      "nameScore": 1,
+      "query": "The Corner DLRC Dubai"
+    },
+    {
+      "name": "The Cube Quarter Residences",
+      "area": "Wadi Al Safa 3",
+      "status": "verified",
+      "googleName": "The Cube Residences - District 11by Amwaj Development",
+      "address": "The Cube Residences - District 11by Amwaj Development, District 11 - Wadi Al Safa 3 - Meydan - Dubai",
+      "coordinates": {
+        "lat": 25.1274328,
+        "lng": 55.3565759
+      },
+      "nameScore": 0.5,
+      "query": "The Cube Quarter Residences Wadi Al Safa 3 Dubai",
+      "manualReview": "Name variation confirmed against developer and community"
+    },
+    {
+      "name": "The EDGE",
+      "area": "Business Bay",
+      "status": "not_found"
+    },
+    {
+      "name": "The Eighty One",
+      "area": "Al Furjan",
+      "status": "not_found"
+    },
+    {
+      "name": "The Gyld",
+      "area": "Al Satwa",
+      "status": "verified",
+      "googleName": "Homedge Real Estate Development - The Gyld",
+      "address": "Homedge Real Estate Development - The Gyld - 63 18A St - Al Satwa - Dubai",
+      "coordinates": {
+        "lat": 25.226516,
+        "lng": 55.27837
+      },
+      "nameScore": 1,
+      "query": "The Gyld Al Satwa Dubai"
+    },
+    {
+      "name": "The Hudson",
+      "area": "Al Barsha South Fourth",
+      "status": "not_found"
+    },
+    {
+      "name": "The Key",
+      "area": "Al Satwa",
+      "status": "not_found"
+    },
+    {
+      "name": "The Lyceum",
+      "area": "Al Barsha South Fifth",
+      "status": "not_found"
+    },
+    {
+      "name": "The Residences at the Dubai Beach Edition",
+      "area": "Marsa Dubai",
+      "status": "not_found"
+    },
+    {
+      "name": "The St. Regis Residences, Downtown Dubai",
+      "area": "Burj Khalifa",
+      "status": "not_found"
+    },
+    {
+      "name": "The Valley - Avelia",
+      "area": "Al Yufrah 1",
+      "status": "verified",
+      "googleName": "Avelia at The Valley",
+      "address": "2C7M+794 Avelia at The Valley - Al Yufrah 1 - Dubai",
+      "coordinates": {
+        "lat": 25.0131416,
+        "lng": 55.4334415
+      },
+      "nameScore": 1,
+      "query": "The Valley - Avelia Al Yufrah 1 Dubai"
+    },
+    {
+      "name": "The Valley - Ovelle",
+      "area": "Al Yufrah 1",
+      "status": "verified",
+      "googleName": "Ovelle At The Valley",
+      "address": "2C5J+H9C Ovelle At The Valley - Al Yufrah 1 - Dubai",
+      "coordinates": {
+        "lat": 25.0089302,
+        "lng": 55.4308852
+      },
+      "nameScore": 1,
+      "query": "The Valley - Ovelle Al Yufrah 1 Dubai"
+    },
+    {
+      "name": "Tomorrow Commercial Tower",
+      "area": "Al Warsan First",
+      "status": "verified",
+      "googleName": "TOMORROW COMMERCIAL TOWER",
+      "address": "TOMORROW COMMERCIAL TOWER - Warsan First - Dubai International City - Dubai",
+      "coordinates": {
+        "lat": 25.1617241,
+        "lng": 55.40640399999999
+      },
+      "nameScore": 1,
+      "query": "Tomorrow Commercial Tower Al Warsan First Dubai"
+    },
+    {
+      "name": "Trinity By Karma",
+      "area": "Al Barshaa South Third",
+      "status": "verified",
+      "googleName": "Trinity Residences",
+      "address": "366P+32F Trinity Residences - Al Barsha South Third - Al Barsha South - Dubai",
+      "coordinates": {
+        "lat": 25.0601927,
+        "lng": 55.23504
+      },
+      "nameScore": 1,
+      "query": "Trinity By Karma Al Barshaa South Third Dubai"
+    },
+    {
+      "name": "Unique One",
+      "area": "Madinat Al Mataar",
+      "status": "verified",
+      "googleName": "Unique One",
+      "address": "W6QF+6CF Unique One - Madinat Al Mataar - Dubai South Residential District - Dubai",
+      "coordinates": {
+        "lat": 24.9385862,
+        "lng": 55.2232736
+      },
+      "nameScore": 1,
+      "query": "Unique One Madinat Al Mataar Dubai"
+    },
+    {
+      "name": "V2",
+      "area": "Dubai Sports City",
+      "status": "verified",
+      "googleName": "V2. Residence",
+      "address": "V2. Residence, Dubai Sports City - Al Hebiah Fourth - Dubai Sports City - Dubai",
+      "coordinates": {
+        "lat": 25.0370667,
+        "lng": 55.2052793
+      },
+      "nameScore": 1,
+      "query": "V2 Dubai Sports City Dubai"
+    },
+    {
+      "name": "VALERIA BY ABU ALNAGA",
+      "area": "Al Jadaf",
+      "status": "rejected",
+      "googleName": "Abu Alnaga Development",
+      "address": "Abu Alnaga Development, Fifty One Tower - 1002 - Marasi Dr - Business Bay - Dubai",
+      "coordinates": {
+        "lat": 25.1898642,
+        "lng": 55.2844382
+      },
+      "nameScore": 1,
+      "query": "VALERIA BY ABU ALNAGA Al Jadaf Dubai",
+      "manualReview": "Returned a generic community, developer office, different phase, or unrelated business"
+    },
+    {
+      "name": "Valoria The Oasis",
+      "area": "Me'Aisem Second",
+      "status": "not_found"
+    },
+    {
+      "name": "Verdana 3",
+      "area": "Dubai Investment Park First",
+      "status": "not_found"
+    },
+    {
+      "name": "Verdana 4",
+      "area": "Dubai Investment Park First",
+      "status": "not_found"
+    },
+    {
+      "name": "Verdana 5",
+      "area": "Dubai Investment Park First",
+      "status": "verified",
+      "googleName": "Verdana 5",
+      "address": "X5QG+GM Verdana 5 - Dubai Investment Park First - Dubai",
+      "coordinates": {
+        "lat": 24.9887675,
+        "lng": 55.1766829
+      },
+      "nameScore": 1,
+      "query": "Verdana 5 Dubai Investment Park First Dubai"
+    },
+    {
+      "name": "Verdana 6",
+      "area": "Dubai Investment Park First",
+      "status": "not_found"
+    },
+    {
+      "name": "Verdana 7",
+      "area": "Dubai Investment Park First",
+      "status": "not_found"
+    },
+    {
+      "name": "Verdana 8",
+      "area": "Dubai Investment Park First",
+      "status": "not_found"
+    },
+    {
+      "name": "Verdana Residence 3",
+      "area": "Dubai Investment Park First",
+      "status": "not_found"
+    },
+    {
+      "name": "Verdana Residence 4",
+      "area": "Dubai Investment Park First",
+      "status": "not_found"
+    },
+    {
+      "name": "Verdana Residence 5",
+      "area": "Dubai Investment Park First",
+      "status": "not_found"
+    },
+    {
+      "name": "Verdana Residence 6",
+      "area": "Dubai Investment Park First",
+      "status": "not_found"
+    },
+    {
+      "name": "Verdana Residence 7",
+      "area": "Dubai Investment Park First",
+      "status": "not_found"
+    },
+    {
+      "name": "Verdana Residence 8",
+      "area": "Dubai Investment Park First",
+      "status": "not_found"
+    },
+    {
+      "name": "Verdana Residence 9",
+      "area": "Dubai Investment Park First",
+      "status": "not_found"
+    },
+    {
+      "name": "VERDANIA 3",
+      "area": "Wadi Al Safa 5",
+      "status": "not_found"
+    },
+    {
+      "name": "Versailles Tower",
+      "area": "DLRC",
+      "status": "verified",
+      "googleName": "Versailles Tower by Abu Alnaga Development",
+      "address": "Versailles Tower by Abu Alnaga Development - Wadi Al Safa 5 - Dubai Land Residence Complex - Dubai",
+      "coordinates": {
+        "lat": 25.0964533,
+        "lng": 55.3817951
+      },
+      "nameScore": 1,
+      "query": "Versailles Tower DLRC Dubai"
+    },
+    {
+      "name": "Vertex Pointe",
+      "area": "Al Barshaa South Third",
+      "status": "verified",
+      "googleName": "Vertex Pointe (VXP) by AUM Development",
+      "address": "Vertex Pointe (VXP) by AUM Development - Al Barsha South Third - Arjan - Dubai",
+      "coordinates": {
+        "lat": 25.0634778,
+        "lng": 55.2440332
+      },
+      "nameScore": 1,
+      "query": "Vertex Pointe Al Barshaa South Third Dubai"
+    },
+    {
+      "name": "Viewz 1 By Danube",
+      "area": "Al Thanyah Fifth",
+      "status": "verified",
+      "googleName": "Viewz by Danube 1",
+      "address": "Viewz by Danube 1 - First Al Khail St - Al Thanyah Fifth - JLT Cluster K - Dubai",
+      "coordinates": {
+        "lat": 25.0656697,
+        "lng": 55.1409217
+      },
+      "nameScore": 1,
+      "query": "Viewz 1 By Danube Al Thanyah Fifth Dubai"
+    },
+    {
+      "name": "Villea East",
+      "area": "Al Satwa",
+      "status": "not_found"
+    },
+    {
+      "name": "Vista Hub by DSI Prestige One",
+      "area": "Wadi Al Safa 3",
+      "status": "not_found"
+    },
+    {
+      "name": "VIVID TOWER",
+      "area": "Al Barsha South Fifth",
+      "status": "not_found"
+    },
+    {
+      "name": "Vivo Residences South By Main Realty",
+      "area": "Saih Shuaib 2",
+      "status": "not_found"
+    },
+    {
+      "name": "VUE DU LAC",
+      "area": "Al Thanyah Fifth",
+      "status": "not_found"
+    },
+    {
+      "name": "W1",
+      "area": "Jabal Ali First",
+      "status": "not_found"
+    },
+    {
+      "name": "Waada - Altura 1",
+      "area": "Madinat Al Mataar",
+      "status": "not_found"
+    },
+    {
+      "name": "Waada - Altura 2",
+      "area": "Madinat Al Mataar",
+      "status": "not_found"
+    },
+    {
+      "name": "Waada - Cascada 2",
+      "area": "Madinat Al Mataar",
+      "status": "not_found"
+    },
+    {
+      "name": "Wadi Villas by Arista",
+      "area": "Wadi Al Safa 3",
+      "status": "verified",
+      "googleName": "Wadi Villas by Arista Properties",
+      "address": "48FV+VP Wadi Villas by Arista Properties - Wadi Al Safa 3 - Dubai",
+      "coordinates": {
+        "lat": 25.124743,
+        "lng": 55.3443297
+      },
+      "nameScore": 1,
+      "query": "Wadi Villas by Arista Wadi Al Safa 3 Dubai"
+    },
+    {
+      "name": "Wedyan",
+      "area": "Business Bay",
+      "status": "verified",
+      "googleName": "Wedyan - The Canal by Al Ghurair Collection",
+      "address": "Wedyan - The Canal by Al Ghurair Collection, The Dubai Canal - Business Bay - Dubai",
+      "coordinates": {
+        "lat": 25.1829878,
+        "lng": 55.262939
+      },
+      "nameScore": 1,
+      "query": "Wedyan Business Bay Dubai"
+    },
+    {
+      "name": "WESTIN RESIDENCES, DUBAI CREEK GARDENS",
+      "area": "Al Jadaf",
+      "status": "not_found"
+    },
+    {
+      "name": "Whitestone Residence",
+      "area": "Al Satwa",
+      "status": "verified",
+      "googleName": "Whitestone Residence",
+      "address": "67CF+3C4 Whitestone Residence - Al Satwa - Dubai",
+      "coordinates": {
+        "lat": 25.2200897,
+        "lng": 55.2735449
+      },
+      "nameScore": 1,
+      "query": "Whitestone Residence Al Satwa Dubai"
+    },
+    {
+      "name": "Zenith Tower J1",
+      "area": "Al Barsha South Fourth",
+      "status": "verified",
+      "googleName": "Zenith J1",
+      "address": "3662+PQP Zenith J1 - Al Barsha South Fourth - Jumeirah Village Circle - Dubai",
+      "coordinates": {
+        "lat": 25.0618391,
+        "lng": 55.2019503
+      },
+      "nameScore": 1,
+      "query": "Zenith Tower J1 Al Barsha South Fourth Dubai"
+    },
+    {
+      "name": "Zeta",
+      "area": "Wadi Al Safa 2",
+      "status": "rejected",
+      "googleName": "ZETA Marketing Services FZCO",
+      "address": "ZETA Marketing Services FZCO - IFZA PROPERTIES - Dubai Silicon Oasis - Dubai",
+      "coordinates": {
+        "lat": 25.1186591,
+        "lng": 55.3777352
+      },
+      "nameScore": 1,
+      "query": "Zeta Wadi Al Safa 2 Dubai",
+      "manualReview": "Returned a generic community, developer office, different phase, or unrelated business"
+    },
+    {
+      "name": "ZYRA HILLS",
+      "area": "Warsan Fourth",
+      "status": "verified",
+      "googleName": "ZYRA HILLS RESIDENCE BY LARAIX DEVELOPERS",
+      "address": "ZYRA HILLS RESIDENCE BY LARAIX DEVELOPERS - Warsan Fourth - WARSAN 4 - Dubai",
+      "coordinates": {
+        "lat": 25.1486945,
+        "lng": 55.3920217
+      },
+      "nameScore": 1,
+      "query": "ZYRA HILLS Warsan Fourth Dubai"
+    }
+  ]
+}

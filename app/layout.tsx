@@ -1,10 +1,6 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
-import Nav from "@/components/Nav";
-import Footer from "@/components/Footer";
-import VoiceAssistant from "@/components/VoiceAssistant";
-import { SiteProviders } from "@/lib/site-context";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -17,9 +13,8 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Mashhour Real Estate — Dubai Off-Plan Intelligence",
-  description:
-    "Search, filter and compare Dubai off-plan projects using one structured market reference.",
+  title: "Starter Project",
+  description: "A clean starting point for building your site.",
   other: {
     "codex-preview": "development",
   },
@@ -35,14 +30,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" dir="ltr">
-      <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
-        <SiteProviders>
-          <Nav />
-          <main>{children}</main>
-          <Footer />
-          <VoiceAssistant />
-        </SiteProviders>
+    <html lang="en">
+      <body
+        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+      >
+        {children}
       </body>
     </html>
   );

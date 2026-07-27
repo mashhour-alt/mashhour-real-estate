@@ -1,0 +1,62 @@
+{
+  "reconciledAt": "2026-07-26T16:00:51.431Z",
+  "method": "Explicit reviewed marketing-name to DLD-record reconciliation",
+  "before": 2608,
+  "after": 2598,
+  "recordsMerged": 10,
+  "pendingBefore": 889,
+  "pendingAfter": 879,
+  "reconciled": [
+    {
+      "marketingName": "Address The Bay",
+      "dldName": "Address Residences The Bay",
+      "developer": "Emaar Properties"
+    },
+    {
+      "marketingName": "Avenue Park Towers 2",
+      "dldName": "Avenue Park Towers II",
+      "developer": "PARK 1 L.L.C"
+    },
+    {
+      "marketingName": "Beach Walk Residences 4 By Imtiaz",
+      "dldName": "Beach Walk Phase 4 by Imtiaz",
+      "developer": "Imtiaz Developments"
+    },
+    {
+      "marketingName": "Emerge Residences",
+      "dldName": "Émerge Residences",
+      "developer": "Elysian Development"
+    },
+    {
+      "marketingName": "Palace Beach Residence",
+      "dldName": "Palace By The Beach",
+      "developer": "Emaar Properties"
+    },
+    {
+      "marketingName": "Royal Regency",
+      "dldName": "Royal Regency Suites",
+      "developer": "Al Seeb Real Estate Development"
+    },
+    {
+      "marketingName": "Sea Mirror",
+      "dldName": "Sea Mirror Residences",
+      "developer": "Lamar Development"
+    },
+    {
+      "marketingName": "Teal",
+      "dldName": "Teal Tower",
+      "developer": "Aldar Properties PJSC"
+    },
+    {
+      "marketingName": "The Biltmore Residences Sufouh",
+      "dldName": "Biltmore Sufouh",
+      "developer": "G J R E REAL ESTATE L.L.C"
+    },
+    {
+      "marketingName": "The Residence By Prestige One",
+      "dldName": "Prestige One Residences",
+      "developer": "Prestige One Developments"
+    }
+  ],
+  "matchesAddedThisRun": 0
+}

@@ -1,117 +1,57 @@
 "use client";
 
-import Link from "next/link";
-import { ROUTES } from "@/lib/copy";
-import { useLang, useSiteData } from "@/lib/site-context";
-import LeadSection from "@/components/LeadSection";
+import { ContactDock, DataNotice, Footer, Header, LeadSection, usePlatformData } from "./components";
+import { projectImages } from "./data";
+
+const destinations = [
+  { href: "/projects", number: "01", title: "Projects", copy: "Search Dubai off-plan inventory with focused filters and complete project pages.", image: projectImages[0] },
+  { href: "/map", number: "02", title: "Interactive map", copy: "Explore projects spatially with verified coordinates and clear mobile controls.", image: projectImages[1] },
+  { href: "/areas", number: "03", title: "Areas", copy: "Understand communities, benchmarks, articles and every linked project.", image: projectImages[2] },
+  { href: "/developers", number: "04", title: "Developers", copy: "Review developer profiles, official links and structured track records.", image: projectImages[3] },
+  { href: "/compare", number: "05", title: "Compare", copy: "Put the numbers, payment plans and handover dates side by side.", image: projectImages[4] },
+  { href: "/calculators", number: "06", title: "ROI / ROE", copy: "Model investment returns using the dedicated calculator workspace.", image: projectImages[5] },
+];
 
 export default function Home() {
-  const { t } = useLang();
-  const { data } = useSiteData();
-
-  const verifiedCount = (data?.projects || []).filter((project) =>
-    project["Escrow Account Status | حالة حساب الضمان"]?.includes("Verified"),
-  ).length;
-
-  const blurbs = t.sectionBlurbs as Record<string, string>;
-
+  const data = usePlatformData();
   return (
-    <>
-      <section className="hero" id="top">
-        <div className="hero-grid">
-          <div className="hero-copy">
-            <p className="eyebrow">
-              <span />
-              {t.eyebrow}
-            </p>
-            <h1>
-              {t.titleA}
-              <br />
-              <em>{t.titleB}</em>
-            </h1>
-            <p className="hero-intro">{t.intro}</p>
-            <div className="hero-actions">
-              <Link className="button primary" href="/projects">
-                {t.explore} <b>↗</b>
-              </Link>
-              <Link className="button ghost" href="/compare">
-                {t.compare} <b>→</b>
-              </Link>
-            </div>
-          </div>
-          <div className="hero-visual" aria-hidden="true">
-            <div className="red-orbit" />
-            <div className="tower tower-one">
-              <i />
-              <i />
-              <i />
-              <i />
-            </div>
-            <div className="tower tower-two">
-              <i />
-              <i />
-              <i />
-            </div>
-            <div className="tower tower-three">
-              <i />
-              <i />
-              <i />
-              <i />
-            </div>
-            <div className="hero-stamp">
-              DUBAI
-              <br />
-              <strong>2026</strong>
-            </div>
-            <p>
-              OFF-PLAN
-              <br />
-              MARKET VIEW
-            </p>
-          </div>
+    <main>
+      <Header />
+      <section className="home-hero">
+        <div className="home-copy">
+          <p className="eyebrow"><span />DUBAI OFF-PLAN INTELLIGENCE</p>
+          <h1>Every decision.<br /><em>In its right place.</em></h1>
+          <p>Projects, developers, areas, map intelligence and investment tools—now separated into focused pages built for desktop and mobile.</p>
+          <div className="hero-actions"><a className="button primary" href="/projects">Explore projects <b>↗</b></a><a className="button ghost" href="/map">Open the map <b>→</b></a></div>
         </div>
-        <div className="stats">
-          <div>
-            <strong>{data?.projects.length.toLocaleString() || "—"}</strong>
-            <span>{t.projects}</span>
-          </div>
-          <div>
-            <strong>{data?.developers.length.toLocaleString() || "—"}</strong>
-            <span>{t.developers}</span>
-          </div>
-          <div>
-            <strong>{data?.areas.length.toLocaleString() || "—"}</strong>
-            <span>{t.areas}</span>
-          </div>
-          <div>
-            <strong>{verifiedCount.toLocaleString()}</strong>
-            <span>{t.verified}</span>
-          </div>
+        <div className="home-visual">
+          <img src={projectImages[0]} alt="Dubai luxury architecture" />
+          <div className="home-visual-shade" />
+          <span>CURATED<br /><strong>DUBAI</strong></span>
+          <div className="hero-property-note"><small>MARKET INTELLIGENCE</small><strong>One clear view of Dubai off-plan.</strong></div>
         </div>
       </section>
-
-      <section className="section light">
-        <div className="section-head">
-          <div>
-            <span className="section-number">01</span>
-            <p>PLATFORM</p>
-            <h2>{t.exploreSections}</h2>
-            <small>{t.exploreSectionsSub}</small>
-          </div>
-        </div>
-        <div className="hub-grid">
-          {ROUTES.map((route, index) => (
-            <Link className="hub-card" key={route.href} href={route.href}>
-              <span>{String(index + 1).padStart(2, "0")}</span>
-              <h3>{t.nav[index]}</h3>
-              <p>{blurbs[route.key]}</p>
-              <b>→</b>
-            </Link>
+      <section className="home-stats">
+        <div><strong>{data?.projects.length.toLocaleString() || "—"}</strong><span>projects</span></div>
+        <div><strong>{data?.developers.length.toLocaleString() || "—"}</strong><span>developers</span></div>
+        <div><strong>{data?.areas.length.toLocaleString() || "—"}</strong><span>area benchmarks</span></div>
+        <div><strong>1</strong><span>structured reference</span></div>
+      </section>
+      <section className="destination-section">
+        <div className="section-kicker"><span>THE PLATFORM</span><h2>Choose your workspace.</h2></div>
+        <div className="destination-grid">
+          {destinations.map((item) => (
+            <a className="destination-card" href={item.href} key={item.href}>
+              <div className="destination-image"><img src={item.image} alt="" loading="lazy" /><span>{item.number}</span></div>
+              <div className="destination-copy"><div><h3>{item.title}</h3><p>{item.copy}</p></div><b>↗</b></div>
+            </a>
           ))}
         </div>
       </section>
-
+      <DataNotice />
       <LeadSection />
-    </>
+      <Footer />
+      <ContactDock />
+    </main>
   );
 }

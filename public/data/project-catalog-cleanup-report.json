@@ -1,0 +1,630 @@
+{
+  "cleanedAt": "2026-07-26T15:37:44.177Z",
+  "method": "Conservative merge: identical marketplace source project ID or identical project name",
+  "before": 2699,
+  "after": 2608,
+  "duplicateRowsRemoved": 91,
+  "mergedGroups": 89,
+  "aliasesCreated": 88,
+  "groups": [
+    {
+      "canonicalName": "1WOOD RESIDENCE 2",
+      "aliases": [
+        "1WOOD Residence Phase 2 By Object 1"
+      ],
+      "sourceProjectId": "5ac4584e-dead-4d7b-b9b6-4e2671fda73f"
+    },
+    {
+      "canonicalName": "368 Park Ln",
+      "aliases": [
+        "368 Park Lane"
+      ],
+      "sourceProjectId": "84eaf9f9-7aff-451a-9679-cda75ad97430"
+    },
+    {
+      "canonicalName": "Zazen Acacia Residences",
+      "aliases": [
+        "Acacia Residences"
+      ],
+      "sourceProjectId": "5aea71e2-0df4-49e7-a4c7-167b03d4211b"
+    },
+    {
+      "canonicalName": "Akala Hotels and Residences",
+      "aliases": [
+        "Akala Hotel & Residences"
+      ],
+      "sourceProjectId": "90ced2b6-b2ed-40fe-9c8a-d1e1ba79097f"
+    },
+    {
+      "canonicalName": "Al Haseen Residence 5",
+      "aliases": [
+        "Al Haseen Residences Phase 5"
+      ],
+      "sourceProjectId": "3c81e798-1b5b-44d7-b101-df6dae07dbc3"
+    },
+    {
+      "canonicalName": "Albero",
+      "aliases": [],
+      "sourceProjectId": "a21b68e0-e0f6-41f6-bd9f-7db681c3918b"
+    },
+    {
+      "canonicalName": "ARLINGTON PARK II BY MAJID",
+      "aliases": [
+        "Arlington Park Phase 2"
+      ],
+      "sourceProjectId": "765a4acb-215d-48b4-80e3-cf88069efe34"
+    },
+    {
+      "canonicalName": "Art House Private Residences By Viva",
+      "aliases": [
+        "Arthouse Private Residences"
+      ],
+      "sourceProjectId": "8777f57a-9779-4cb5-8de2-8ccf726a2fc4"
+    },
+    {
+      "canonicalName": "AYAMI RESIDENCE, BY AYAT DEVELOPMENT",
+      "aliases": [
+        "Ayami Residence"
+      ],
+      "sourceProjectId": "90cf647b-1187-467f-b480-bde02c7a704c"
+    },
+    {
+      "canonicalName": "Jadaf Beach Oasis",
+      "aliases": [
+        "Azizi Jaddaf Beach Oasis"
+      ],
+      "sourceProjectId": "70353543-c5a4-42cd-9043-f78bb2779fe9"
+    },
+    {
+      "canonicalName": "Baccarat Hotel and Residences, Dubai",
+      "aliases": [
+        "Baccarat Hotel & Residences"
+      ],
+      "sourceProjectId": "3f4d547b-25ce-4cbb-bdad-cd0ec751beee"
+    },
+    {
+      "canonicalName": "DAMAC ISLANDS 2 - BAHAMAS 1",
+      "aliases": [
+        "Bahamas"
+      ],
+      "sourceProjectId": "5af6bc9f-8e9a-4522-a0bc-d141c6ca9902"
+    },
+    {
+      "canonicalName": "Barari Parks By Bahat",
+      "aliases": [
+        "Barari Parks"
+      ],
+      "sourceProjectId": "fce10558-239d-465d-8ac0-09124c49f509"
+    },
+    {
+      "canonicalName": "BEACH OASIS 2",
+      "aliases": [
+        "Beach Oasis Phase 2 By Azizi"
+      ],
+      "sourceProjectId": "15a3e114-c777-45d6-9f6e-6f1b3a39fb84"
+    },
+    {
+      "canonicalName": "Beach Walk Residences 2",
+      "aliases": [
+        "Beach Walk Residence Phase 2 By Imtiaz"
+      ],
+      "sourceProjectId": "3425bcdf-b0d0-4beb-86a1-f9511cb2bfd9"
+    },
+    {
+      "canonicalName": "Beachfront Gates 1",
+      "aliases": [
+        "Beachfront Gates By Dubai South"
+      ],
+      "sourceProjectId": "bd45a6e8-a3e3-4246-861c-1fa056634f4e"
+    },
+    {
+      "canonicalName": "Beachfront Gates 2",
+      "aliases": [
+        "Beachfront Gates Phase 2 By Dubai South"
+      ],
+      "sourceProjectId": "d1b88ea6-e297-479d-b790-274d9a58f2f0"
+    },
+    {
+      "canonicalName": "Beverly Residence 2",
+      "aliases": [
+        "Beverly Residence Phase 2 By HMB"
+      ],
+      "sourceProjectId": "f764d458-d3c2-4f90-8a7f-5115f87c6f54"
+    },
+    {
+      "canonicalName": "Binghatti Skyterraces",
+      "aliases": [
+        "Binghatti Sky Terraces"
+      ],
+      "sourceProjectId": "f8863b16-6bc9-4977-831a-1b49ec419b85"
+    },
+    {
+      "canonicalName": "Binghatti Skyflame 1",
+      "aliases": [
+        "Binghatti Skyflame"
+      ],
+      "sourceProjectId": "a25c9134-afd6-4cb7-8af1-ca0897943bf0"
+    },
+    {
+      "canonicalName": "Celesto Tower 3",
+      "aliases": [
+        "Celesto Phase 3",
+        "Celesto Three"
+      ],
+      "sourceProjectId": "69393208-3df1-4224-a59b-1abcb9048f97"
+    },
+    {
+      "canonicalName": "Cove Edition Residence 1 By Imtiaz",
+      "aliases": [
+        "Cove Edition By Imtiaz"
+      ],
+      "sourceProjectId": "f4869971-4088-4221-8570-1eebae3e73ef"
+    },
+    {
+      "canonicalName": "Cove Edition Residence 3 By Imtiaz",
+      "aliases": [
+        "Cove Edition Phase 3 By Imtiaz"
+      ],
+      "sourceProjectId": "9f19980b-3675-4bdd-bd44-3ff659104523"
+    },
+    {
+      "canonicalName": "Coventry Curve",
+      "aliases": [
+        "Coventry Curves"
+      ],
+      "sourceProjectId": "18daef73-2245-49dd-b84e-fb4ae41e3413"
+    },
+    {
+      "canonicalName": "Coventry Residence 3",
+      "aliases": [
+        "Coventry Residences III"
+      ],
+      "sourceProjectId": "f8da211b-e936-4915-8efd-7e6ba859a4e1"
+    },
+    {
+      "canonicalName": "Edgewater Residences 2",
+      "aliases": [
+        "Edgewater Residences Phase 2 By MGS"
+      ],
+      "sourceProjectId": "f54c0b0c-762d-4757-abb8-865c39050ab2"
+    },
+    {
+      "canonicalName": "Elanora by zoya",
+      "aliases": [
+        "Elanora"
+      ],
+      "sourceProjectId": "a06334cb-f14f-4ac5-a87a-9e6fc9a712c0"
+    },
+    {
+      "canonicalName": "ELARIS AXIS",
+      "aliases": [
+        "ELAR1S Axis"
+      ],
+      "sourceProjectId": "b4d4de5c-8943-420e-96c2-f6aa4c3577d8"
+    },
+    {
+      "canonicalName": "Elevia Residences II",
+      "aliases": [
+        "Elevia Residences Phase 2 by Valores"
+      ],
+      "sourceProjectId": "d89e49ca-f4a3-429d-82de-5cfa339d9cd9"
+    },
+    {
+      "canonicalName": "Elinor",
+      "aliases": [
+        "Elinor by Zoya"
+      ],
+      "sourceProjectId": "1038afec-9a87-4809-a14f-c319e455b7dc"
+    },
+    {
+      "canonicalName": "Enchante By GRID",
+      "aliases": [
+        "Enchante"
+      ],
+      "sourceProjectId": "8213b7e6-b25f-44ae-aacf-07bed6d93091"
+    },
+    {
+      "canonicalName": "ENRE RESIDENCE BY IMTIAZ",
+      "aliases": [
+        "Enre Residence"
+      ],
+      "sourceProjectId": "36dd0009-34dc-45bb-a69f-f7eed881a01b"
+    },
+    {
+      "canonicalName": "EVERGRIN HOUSE 2",
+      "aliases": [
+        "Evergrin House Phase 2 By Object 1"
+      ],
+      "sourceProjectId": "a452090f-2864-418c-afc1-7aff829e2065"
+    },
+    {
+      "canonicalName": "Fiori",
+      "aliases": [
+        "Nshama Fiori"
+      ],
+      "sourceProjectId": "89feeff1-354c-464a-b925-46cf031704f8"
+    },
+    {
+      "canonicalName": "Golf Residences by Fortimo",
+      "aliases": [
+        "The Golf Residences"
+      ],
+      "sourceProjectId": "05a9441b-53f8-40ba-8043-83ad70e2bf0e"
+    },
+    {
+      "canonicalName": "Golf Terrace Residences By ASAK",
+      "aliases": [
+        "Golf Terrace Residences"
+      ],
+      "sourceProjectId": "be8f16f7-4513-43d0-b8c1-f4831868c3ff"
+    },
+    {
+      "canonicalName": "HATIMI RESIDENCES BY FAKHRUDDIN",
+      "aliases": [
+        "Hatimi Residences"
+      ],
+      "sourceProjectId": "53f5d139-d379-40ff-9f25-a10833370ce8"
+    },
+    {
+      "canonicalName": "Koyo Residence by Fuji Properties",
+      "aliases": [
+        "Koyo Residence"
+      ],
+      "sourceProjectId": "39dd0cc0-cc7f-40e6-87bb-0f7c20e615ac"
+    },
+    {
+      "canonicalName": "LIA",
+      "aliases": [
+        "Lia Residences"
+      ],
+      "sourceProjectId": "a121d477-eb99-4560-9f6f-7d47a8537065"
+    },
+    {
+      "canonicalName": "Lincoln Star Residence 3",
+      "aliases": [
+        "Lincoln Star Residence III by Wyndham"
+      ],
+      "sourceProjectId": "9f57d4dd-3584-4653-86f9-a7684b15ffa1"
+    },
+    {
+      "canonicalName": "Linea by Holm",
+      "aliases": [
+        "Linea"
+      ],
+      "sourceProjectId": "850f274a-fa33-4e12-8240-bece90f831d4"
+    },
+    {
+      "canonicalName": "Marbella",
+      "aliases": [],
+      "sourceProjectId": "9757741f-8885-4ad8-a77c-e9c3c9da566a"
+    },
+    {
+      "canonicalName": "Maybach Six",
+      "aliases": [
+        "Maybach 6"
+      ],
+      "sourceProjectId": "b7f78289-859d-4f53-9ff1-6fbce5b8d8cd"
+    },
+    {
+      "canonicalName": "MAYFAIR GARDENS BY MAJID",
+      "aliases": [
+        "Mayfair Gardens"
+      ],
+      "sourceProjectId": "2d8ac27c-b060-4ebd-9194-65478b681e76"
+    },
+    {
+      "canonicalName": "Mayfair Nexus by Seven Mayfair",
+      "aliases": [
+        "Mayfair Nexus"
+      ],
+      "sourceProjectId": "6707f406-238c-4feb-9433-9ec13169d147"
+    },
+    {
+      "canonicalName": "MIA TOWER",
+      "aliases": [
+        "Stamn Mia Tower"
+      ],
+      "sourceProjectId": "a23fced9-3227-457c-91e5-0f36dd68020a"
+    },
+    {
+      "canonicalName": "Moonsa Residences 2",
+      "aliases": [
+        "Moonsa Residences Phase 2 By Dugasta"
+      ],
+      "sourceProjectId": "4a6d8783-2eb7-42c6-af55-f15916738ce2"
+    },
+    {
+      "canonicalName": "OCEARA PARKVIEW RESIDENCES",
+      "aliases": [
+        "Oceara Park View Residences"
+      ],
+      "sourceProjectId": "c4b43260-71ae-430a-ae99-80a84dbda30b"
+    },
+    {
+      "canonicalName": "ONAYA RESIDENCES By Kaya",
+      "aliases": [
+        "Onaya Residences"
+      ],
+      "sourceProjectId": "4a0b8b98-4fa1-452a-959a-f1dfad4999b9"
+    },
+    {
+      "canonicalName": "PARKGREEN RESIDENCES BY ALISHAAN",
+      "aliases": [
+        "Parkgreen Residences"
+      ],
+      "sourceProjectId": "19b5db2d-d46e-406d-b08f-fedae6de551c"
+    },
+    {
+      "canonicalName": "PEACE AVENUE BY PEACE HOMES",
+      "aliases": [
+        "Peace Avenue"
+      ],
+      "sourceProjectId": "36b74550-56b4-46a8-bdd5-e0efa73f380d"
+    },
+    {
+      "canonicalName": "Primero Residences by Main Realty",
+      "aliases": [
+        "Primero Residences"
+      ],
+      "sourceProjectId": "9ba58293-8dd8-4168-9239-74890a9b4c74"
+    },
+    {
+      "canonicalName": "Ramada Residences by Wyndham",
+      "aliases": [],
+      "sourceProjectId": "fddc2b09-aa2e-432f-b224-b38596f34516"
+    },
+    {
+      "canonicalName": "REEF 1000",
+      "aliases": [
+        "REFF 1000"
+      ],
+      "sourceProjectId": "44213927-6d78-442d-b1e9-798db3ea5b5a"
+    },
+    {
+      "canonicalName": "Residences Du Port, Dubai Marina, Autograph Collection Residences",
+      "aliases": [
+        "Residences Du Port Autograph Collection"
+      ],
+      "sourceProjectId": "a759fec7-4d0f-4b6a-bda8-70dfc0096fd2"
+    },
+    {
+      "canonicalName": "Rose Gardens 3",
+      "aliases": [
+        "Rose Gardens Phase 3 By Roz Development"
+      ],
+      "sourceProjectId": "559f1ba8-36c6-464b-9713-801a6be69b00"
+    },
+    {
+      "canonicalName": "RYAH LIVING by ALYAKKA",
+      "aliases": [
+        "Ryah Living"
+      ],
+      "sourceProjectId": "6e58780b-2cc1-427e-84c8-0d42968d33f8"
+    },
+    {
+      "canonicalName": "S'VN RESIDENCES",
+      "aliases": [
+        "SVN Residences"
+      ],
+      "sourceProjectId": "daf4516d-13cb-40c6-ab66-46b37163c5dd"
+    },
+    {
+      "canonicalName": "Sakura Gardens by HRE",
+      "aliases": [
+        "Sakura Gardens"
+      ],
+      "sourceProjectId": "52ea5906-ec43-4051-baa5-534191320ab3"
+    },
+    {
+      "canonicalName": "Seacliff by Imtiaz",
+      "aliases": [
+        "Seacliff"
+      ],
+      "sourceProjectId": "ea10e4c0-6e65-4845-948f-770efa9ffca8"
+    },
+    {
+      "canonicalName": "SERA 1",
+      "aliases": [
+        "Sera by Emaar"
+      ],
+      "sourceProjectId": "b813b92c-80f8-4e33-8016-a6d0759e8534"
+    },
+    {
+      "canonicalName": "SERA 2",
+      "aliases": [
+        "Sera Phase 2 By Emaar"
+      ],
+      "sourceProjectId": "df1b3364-c0d9-44a2-ae56-9b75ae207600"
+    },
+    {
+      "canonicalName": "Sera Gardens by Vision",
+      "aliases": [
+        "Sera Gardens"
+      ],
+      "sourceProjectId": "4fd96d42-4826-4761-88b0-025336a2589c"
+    },
+    {
+      "canonicalName": "Serenz by Danube",
+      "aliases": [
+        "Serenz"
+      ],
+      "sourceProjectId": "86ca9896-532a-43e6-b71a-f2662a125239"
+    },
+    {
+      "canonicalName": "Serra Residence By Wujod",
+      "aliases": [
+        "Serra Residence"
+      ],
+      "sourceProjectId": "9dcd4399-b4f5-4b8c-ac86-23d5ce690081"
+    },
+    {
+      "canonicalName": "SKY HARMONY BY PEACE HOMES",
+      "aliases": [
+        "Sky Harmony"
+      ],
+      "sourceProjectId": "e12849f8-a5c7-478f-8678-cb101e45d486"
+    },
+    {
+      "canonicalName": "Sky Line By Peace Homes",
+      "aliases": [
+        "Sky Line"
+      ],
+      "sourceProjectId": "fb1e7672-d4e6-4ed1-992c-26a794ee00b1"
+    },
+    {
+      "canonicalName": "Skyhills II by HRE",
+      "aliases": [
+        "Skyhills Residences 2"
+      ],
+      "sourceProjectId": "a8c05a1a-0ca4-4170-b827-148b977e49be"
+    },
+    {
+      "canonicalName": "Skyhills III by HRE",
+      "aliases": [
+        "Skyhills Residences 3"
+      ],
+      "sourceProjectId": "7aa47cd5-ee3f-4dd6-9b66-cb32a654f61e"
+    },
+    {
+      "canonicalName": "Solaya (1,2,3)",
+      "aliases": [
+        "Solaya 1,2 and 3"
+      ],
+      "sourceProjectId": "ab672669-29cc-44a6-9c55-c2221a5eb239"
+    },
+    {
+      "canonicalName": "Solaya (4,6)",
+      "aliases": [
+        "Solaya 4 and 6"
+      ],
+      "sourceProjectId": "10ec2273-3797-4f8a-8447-6ddd045ed62b"
+    },
+    {
+      "canonicalName": "Solaya (5,7)",
+      "aliases": [
+        "Solaya 5 and 7"
+      ],
+      "sourceProjectId": "792bc2ce-cee4-401c-815f-90af984701a1"
+    },
+    {
+      "canonicalName": "Soulever' By Beyond",
+      "aliases": [
+        "Soulever"
+      ],
+      "sourceProjectId": "7d7822c9-71f1-425c-80c2-b332205ed58c"
+    },
+    {
+      "canonicalName": "STORIES BY MIRFA",
+      "aliases": [
+        "Stories"
+      ],
+      "sourceProjectId": "6b37186a-ab8c-4332-8dab-659cd6b2ebcc"
+    },
+    {
+      "canonicalName": "Talea",
+      "aliases": [
+        "Talea by Beyond"
+      ],
+      "sourceProjectId": "5fc79241-c59e-4e13-8c96-ffe2469a6ce6"
+    },
+    {
+      "canonicalName": "TAVORA RESIDENCES BY JHK HEIGHTS REAL ESTATE DEVELOPMENT",
+      "aliases": [
+        "Tavora Residences"
+      ],
+      "sourceProjectId": "44892ccd-a521-4b63-a0c3-173bc3d0597b"
+    },
+    {
+      "canonicalName": "The Boulevard",
+      "aliases": [
+        "The Boulevard by Prestige One"
+      ],
+      "sourceProjectId": "a2a493c8-5119-4c13-a7bc-0c85bed52fe8"
+    },
+    {
+      "canonicalName": "The Haven II",
+      "aliases": [
+        "The Haven Phase 2 By Meraki"
+      ],
+      "sourceProjectId": "9284dbd2-a1ca-4f16-9527-174704bb6e57"
+    },
+    {
+      "canonicalName": "Trump Tower",
+      "aliases": [
+        "Trump International Hotel & Tower Dubai"
+      ],
+      "sourceProjectId": "0635214e-2cb4-486a-907d-eff8c9feb748"
+    },
+    {
+      "canonicalName": "UH EAST BY ELLINGTON",
+      "aliases": [
+        "UH East"
+      ],
+      "sourceProjectId": "88c92441-464e-4859-a2bd-d1d7ce2bec55"
+    },
+    {
+      "canonicalName": "UH WEST BY ELLINGTON",
+      "aliases": [
+        "UH West"
+      ],
+      "sourceProjectId": "daea6ccb-d1ef-4926-8f6f-7a9dacbac7fa"
+    },
+    {
+      "canonicalName": "Verdana 10",
+      "aliases": [
+        "Verdana Residence 10",
+        "Verdana X"
+      ],
+      "sourceProjectId": "6d4aadb6-310b-4bba-8879-321dd0655013"
+    },
+    {
+      "canonicalName": "VIBE",
+      "aliases": [
+        "Vibe by Arsenal East"
+      ],
+      "sourceProjectId": "ae703c82-d8ba-4834-9118-d91b45421ad1"
+    },
+    {
+      "canonicalName": "Villa dell Arte",
+      "aliases": [
+        "Villa del Arte"
+      ],
+      "sourceProjectId": "9bdc6bd2-129e-45d7-ae92-089fc1f4a0dd"
+    },
+    {
+      "canonicalName": "VITA GRANDE BY METEORA",
+      "aliases": [
+        "Vita Grande"
+      ],
+      "sourceProjectId": "1c700686-e754-49f5-a9a5-8a576d926372"
+    },
+    {
+      "canonicalName": "VOI Residence by HVM Living",
+      "aliases": [
+        "VOI Residence"
+      ],
+      "sourceProjectId": "694e73b8-2885-4149-8e57-b962932756d4"
+    },
+    {
+      "canonicalName": "WAREF residences by sido development",
+      "aliases": [
+        "Waref Residences"
+      ],
+      "sourceProjectId": "f53ad44e-077b-476d-b3fd-f9f0c153c917"
+    },
+    {
+      "canonicalName": "X11",
+      "aliases": [
+        "X11 Residence"
+      ],
+      "sourceProjectId": "396fec3c-1d9d-4f2e-b561-e81c2889d493"
+    },
+    {
+      "canonicalName": "Zyra Vista Residence",
+      "aliases": [
+        "Zyra Vista Residences"
+      ],
+      "sourceProjectId": "d93faa57-2fd3-4172-be5b-8d675f69bfb5"
+    }
+  ]
+}
