@@ -227,7 +227,7 @@ a { color: inherit; text-decoration: none; }
 .project-visual-placeholder strong { position: relative; z-index: 1; margin: 12px 0 7px; max-width: 85%; font-size: 22px; line-height: 1; letter-spacing: -.04em; }
 .project-visual-placeholder span { position: relative; z-index: 1; color: #a8a49e; font-size: 9px; }
 .project-developer-logo { position: absolute; z-index: 4; left: 14px; bottom: 42px; width: 48px; height: 48px; padding: 5px; display: grid; place-items: center; background: rgba(255,255,255,.94); border-radius: 50%; box-shadow: 0 5px 18px rgba(0,0,0,.16); }
-.project-developer-logo img { width: 100%; height: 100%; object-fit: contain; }
+.project-developer-logo img { max-width: 100%; max-height: 100%; width: auto; height: auto; object-fit: contain; }
 .media-count { position: absolute; z-index: 4; right: 12px; bottom: 43px; padding: 6px 8px; background: rgba(0,0,0,.72); color: white; font-size: 7px; letter-spacing: .08em; }
 .project-detail-hero > .detail-project-visual { position: absolute; inset: 0; }
 .detail-project-visual .project-developer-logo, .detail-project-visual .media-count { display: none; }
@@ -285,8 +285,8 @@ a { color: inherit; text-decoration: none; }
 .developer-card-head > span { align-self: start; color: var(--red); font-size: 9px; font-weight: 900; }
 .developer-card-head > strong { font-size: 25px; letter-spacing: -.05em; }
 .developer-card-head > strong small { color: #777; font-size: 8px; }
-.developer-logo { width: 100%; height: 116px; padding: 20px 24px; display: grid; place-items: center; border: 1px solid var(--line); background: white; overflow: hidden; }
-.developer-logo img { max-width: 100%; max-height: 100%; width: auto; height: auto; object-fit: contain; }
+.developer-logo { width: 100%; height: 116px; padding: 22px 28px; display: flex; align-items: center; justify-content: center; border: 1px solid var(--line); background: white; overflow: hidden; box-sizing: border-box; }
+.developer-logo img { max-width: 100%; max-height: 100%; width: auto; height: auto; object-fit: contain; display: block; }
 .developer-logo b { font-size: 28px; letter-spacing: -.08em; }
 .developer-card-copy { min-height: 130px; padding: 24px 0 18px; }
 .developer-card-copy p { margin: 0 0 8px; color: var(--red); font-size: 7px; font-weight: 900; letter-spacing: .13em; }
@@ -941,3 +941,21 @@ footer p, footer > span { color: #777; font-size: 10px; letter-spacing: .08em; }
   background: #c8102e; color: #fff; padding: 12px 18px; border-radius: 10px; font-size: 12px; font-weight: 800; max-width: calc(100vw - 32px);
 }
 .subtitle-error-static { bottom: 22px; inset-inline-end: 92px; left: auto; transform: none; }
+
+/* --- Article page ---------------------------------------------- */
+.article-page { max-width: 760px; margin: 0 auto; padding: 40px 22px 80px; }
+.article-back { display: inline-block; margin-bottom: 24px; color: var(--red); font-size: 11px; font-weight: 800; letter-spacing: .05em; }
+.article-category { color: var(--red); font-size: 10px; font-weight: 900; letter-spacing: .15em; margin: 0 0 12px; }
+.article-head h1 { font-size: clamp(28px, 5vw, 46px); line-height: 1.1; letter-spacing: -.03em; margin: 0 0 20px; }
+.article-meta { display: flex; flex-wrap: wrap; gap: 6px 18px; padding-bottom: 28px; border-bottom: 1px solid var(--line); color: #777; font-size: 12px; }
+.article-meta strong { color: var(--ink); }
+.article-cover { margin: 32px 0; border-radius: 4px; overflow: hidden; }
+.article-cover img { width: 100%; height: auto; display: block; }
+.article-body { padding: 32px 0; }
+.article-body p { font-size: 17px; line-height: 1.8; color: #2a2a2a; margin: 0 0 22px; }
+.article-body h2 { font-size: 25px; letter-spacing: -.02em; margin: 40px 0 16px; }
+.article-body ul { margin: 0 0 22px; padding-inline-start: 22px; }
+.article-body li { font-size: 17px; line-height: 1.8; color: #2a2a2a; margin-bottom: 10px; }
+.article-cta { display: flex; flex-wrap: wrap; gap: 12px; padding-top: 32px; border-top: 1px solid var(--line); }
+.article-cta-btn { flex: 1 1 260px; min-height: 52px; display: flex; align-items: center; justify-content: center; background: var(--ink); color: white; font-size: 13px; font-weight: 800; border-radius: 4px; padding: 0 20px; }
+.article-cta-alt { flex: 1 1 200px; min-height: 52px; display: flex; align-items: center; justify-content: center; border: 1px solid var(--line); color: var(--ink); font-size: 13px; font-weight: 800; border-radius: 4px; padding: 0 20px; }
