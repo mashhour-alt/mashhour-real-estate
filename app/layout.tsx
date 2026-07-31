@@ -26,6 +26,9 @@ export const metadata: Metadata = {
     locale: "ar_AE",
   },
   robots: { index: true, follow: true },
+  verification: {
+    google: "QqHbPgg2s2NRKRYWUeva35YUUDKB4ZZl1cYqqWLtBF8",
+  },
   icons: { icon: "/favicon.svg", shortcut: "/favicon.svg" },
 };
 
