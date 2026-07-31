@@ -15,6 +15,7 @@ type Article = {
   excerpt: string;
   author: string;
   authorTitle?: string;
+  authorPhoto?: string;
   authorPhone?: string;
   date: string;
   readMinutes?: number;
@@ -73,9 +74,14 @@ export default function ArticlePage({ params }: { params: { slug: string } }) {
           <a href="/articles" className="article-back">← كل المقالات</a>
           <p className="article-category">{article.category}</p>
           <h1>{article.title}</h1>
-          <div className="article-meta">
-            <span><strong>{article.author}</strong>{article.authorTitle ? ` · ${article.authorTitle}` : ""}</span>
-            <span>{article.date} · {article.readMinutes || 4} دقائق قراءة</span>
+          <div className="article-author">
+            {article.authorPhoto ? (
+              <img className="article-author-photo" src={article.authorPhoto} alt={article.author} />
+            ) : null}
+            <div className="article-meta">
+              <span><strong>{article.author}</strong>{article.authorTitle ? ` · ${article.authorTitle}` : ""}</span>
+              <span>{article.date} · {article.readMinutes || 4} دقائق قراءة</span>
+            </div>
           </div>
         </div>
 
