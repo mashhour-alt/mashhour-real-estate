@@ -1,27 +1,32 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
-
 export const metadata: Metadata = {
-  title: "Starter Project",
-  description: "A clean starting point for building your site.",
-  other: {
-    "codex-preview": "development",
+  metadataBase: new URL("https://mashhour-real-estate.mashhour.workers.dev"),
+  title: {
+    default: "Mashhour Real Estate | عقارات دبي على الخريطة",
+    template: "%s | Mashhour Real Estate",
   },
-  icons: {
-    icon: "/favicon.svg",
-    shortcut: "/favicon.svg",
+  description:
+    "منصة مشهور للعقارات: دليل ذكي لمشاريع دبي على الخريطة (Off-Plan). خريطة تفاعلية بأكثر من 2,400 مشروع، تقييمات المطورين، أدلة المناطق، وحاسبة العائد على الاستثمار.",
+  keywords: [
+    "عقارات دبي",
+    "مشاريع دبي على الخريطة",
+    "استثمار عقاري دبي",
+    "off-plan Dubai",
+    "Dubai real estate",
+    "Mashhour Real Estate",
+  ],
+  authors: [{ name: "Mahmoud Mashhour" }],
+  openGraph: {
+    type: "website",
+    title: "Mashhour Real Estate | عقارات دبي على الخريطة",
+    description: "دليل ذكي لمشاريع دبي على الخريطة: خريطة تفاعلية، تقييمات المطورين، وحاسبة العائد.",
+    siteName: "Mashhour Real Estate",
+    locale: "ar_AE",
   },
+  robots: { index: true, follow: true },
+  icons: { icon: "/favicon.svg", shortcut: "/favicon.svg" },
 };
 
 export default function RootLayout({
@@ -30,12 +35,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
-        {children}
-      </body>
+    <html lang="ar" dir="rtl">
+      <body className="antialiased">{children}</body>
     </html>
   );
 }

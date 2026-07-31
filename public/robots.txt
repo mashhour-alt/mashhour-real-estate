@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://mashhour-real-estate.mashhour.workers.dev/sitemap.xml
