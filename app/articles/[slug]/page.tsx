@@ -24,20 +24,23 @@ type Article = {
   body: Block[];
 };
 
-export default function ArticlePage({ params }: { params: { slug: string } }) {
+export default function ArticlePage() {
   const [article, setArticle] = useState<Article | null>(null);
   const [notFound, setNotFound] = useState(false);
 
   useEffect(() => {
+    // Read the slug from the URL directly for reliable client-side routing.
+    const parts = window.location.pathname.split("/").filter(Boolean);
+    const slug = decodeURIComponent(parts[parts.length - 1] || "");
     fetch("/data/articles.json")
       .then((response) => response.json())
       .then((data: { articles: Article[] }) => {
-        const found = (data.articles || []).find((item) => item.slug === params.slug);
+        const found = (data.articles || []).find((item) => item.slug === slug);
         if (found) setArticle(found);
         else setNotFound(true);
       })
       .catch(() => setNotFound(true));
-  }, [params.slug]);
+  }, []);
 
   if (notFound) {
     return (
