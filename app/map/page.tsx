@@ -224,9 +224,9 @@ export default function MapPage() {
       if (cancelled || !mapElement.current) return;
       const L = leafletModule.default;
       const leafletMap = L.map(mapElement.current, {
-        center: [25.14, 55.25],
-        zoom: 10,
-        minZoom: 8,
+        center: [24.9, 54.9],
+        zoom: 9,
+        minZoom: 7,
         maxZoom: 18,
       });
       map = leafletMap;
