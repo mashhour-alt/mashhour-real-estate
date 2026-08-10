@@ -47,7 +47,8 @@ export default function CalculatorsPage() {
     { name: "Booking", nameAr: "الحجز", percent: 20, equity: true },
     { name: "Construction 1", nameAr: "أثناء البناء 1", percent: 30, equity: true },
     { name: "Construction 2", nameAr: "أثناء البناء 2", percent: 10, equity: true },
-    { name: "Handover", nameAr: "عند التسليم", percent: 40, equity: true },
+    { name: "Handover", nameAr: "عند التسليم", percent: 30, equity: true },
+    { name: "Post-handover", nameAr: "بعد التسليم", percent: 10, equity: true },
   ]);
 
   const areaDisplay = areaUnit === "sqft" ? areaSqFt : areaSqFt / SQFT_PER_SQM;
@@ -102,7 +103,7 @@ export default function CalculatorsPage() {
       <Header />
       <PageIntro
         eyebrow={arabic ? "حاسبة الاستثمار" : "INVESTMENT CALCULATOR"}
-        title={arabic ? "ROI وROE وROA، بالظبط زي شيتك." : "ROI, ROE and ROA, exactly as your sheet."}
+        title={arabic ? "ROI وROE وROA، وأكتر." : "ROI, ROE, ROA and more."}
         intro={arabic ? "غيّر الخلايا الحمراء فقط، وستتحدث كل النتائج تلقائيًا." : "Change the red input fields and every result updates instantly."}
       />
 
