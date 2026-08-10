@@ -70,6 +70,8 @@ export default function CalculatorsPage() {
       0,
     );
     const pricePerSqFt = areaSqFt ? propertyPrice / areaSqFt : 0;
+    const roi = propertyPrice ? (netRent / propertyPrice) * 100 : 0;
+    const capitalAppreciation = propertyPrice ? (capitalGain / propertyPrice) * 100 : 0;
     return {
       propertyPrice,
       pricePerSqFt,
@@ -79,10 +81,11 @@ export default function CalculatorsPage() {
       capitalGain,
       paidEquity,
       planTotal,
-      roa: propertyPrice ? (netRent / propertyPrice) * 100 : 0,
+      roi,
       roe: paidEquity ? (netRent / paidEquity) * 100 : 0,
-      roi: paidEquity ? ((netRent + capitalGain) / paidEquity) * 100 : 0,
-      capitalAppreciation: propertyPrice ? (capitalGain / propertyPrice) * 100 : 0,
+      roa: propertyPrice ? (netRent / propertyPrice) * 100 : 0,
+      capitalAppreciation,
+      totalReturn: roi + capitalAppreciation,
       payback: netRent ? paidEquity / netRent : 0,
     };
   }, [unitPriceAed, areaSqFt, rentPerSqFt, appreciation, expenses, stages]);
@@ -205,11 +208,12 @@ export default function CalculatorsPage() {
 
           <div className="returns-panel">
             <p>{arabic ? "العوائد والتوقعات" : "Returns & projection"}</p>
-            <ReturnCard label={arabic ? "ROA · عائد الأصول" : "ROA · Return on assets"} value={pct(result.roa)} formula={arabic ? "صافي الإيجار ÷ سعر العقار" : "Net rent ÷ property price"} />
+            <ReturnCard label={arabic ? "ROI · العائد على الاستثمار" : "ROI · Return on investment"} value={pct(result.roi)} formula={arabic ? "الربح السنوي ÷ تكلفة الاستثمار" : "Annual profit ÷ investment cost"} />
             <ReturnCard label={arabic ? "رأس المال المدفوع" : "Paid equity"} value={aed(result.paidEquity)} formula={arabic ? "الدفعات المحددة: نعم" : "Stages marked: Yes"} />
-            <ReturnCard label={arabic ? "ROE · عائد رأس المال" : "ROE · Return on equity"} value={pct(result.roe)} formula={arabic ? "صافي الإيجار ÷ رأس المال" : "Net rent ÷ paid equity"} />
-            <ReturnCard label={arabic ? "الزيادة الرأسمالية %" : "Capital appreciation"} value={pct(result.capitalAppreciation)} formula={arabic ? "الزيادة ÷ سعر العقار" : "Capital gain ÷ property price"} />
-            <ReturnCard label={arabic ? "ROI · العائد الكلي" : "ROI · Total return"} value={pct(result.roi)} formula={arabic ? "(الإيجار + الزيادة) ÷ رأس المال" : "(Rent + gain) ÷ paid equity"} />
+            <ReturnCard label={arabic ? "ROE · العائد على حقوق الملكية" : "ROE · Return on equity"} value={pct(result.roe)} formula={arabic ? "الربح السنوي ÷ الـ Equity المدفوع" : "Annual profit ÷ paid equity"} />
+            <ReturnCard label={arabic ? "ROA · عائد الأصول" : "ROA · Return on assets"} value={pct(result.roa)} formula={arabic ? "صافي الربح ÷ قيمة الأصل (= ROI هنا لعدم وجود تمويل منفصل)" : "Net profit ÷ asset value (= ROI here, no separate financing modelled)"} />
+            <ReturnCard label={arabic ? "الزيادة الرأسمالية" : "Capital appreciation"} value={pct(result.capitalAppreciation)} formula={arabic ? "الزيادة في السعر ÷ سعر الشراء" : "Price increase ÷ purchase price"} />
+            <ReturnCard label={arabic ? "العائد الكلي (Total Return)" : "Total return"} value={pct(result.totalReturn)} formula={arabic ? "ROI + الزيادة الرأسمالية" : "ROI + capital appreciation"} />
             <ReturnCard label={arabic ? "فترة استرداد رأس المال" : "Equity payback period"} value={arabic ? `${result.payback.toFixed(1)} سنة` : `${result.payback.toFixed(1)} years`} formula={arabic ? "رأس المال ÷ صافي الإيجار" : "Equity ÷ net rent"} />
           </div>
         </div>
@@ -217,9 +221,9 @@ export default function CalculatorsPage() {
         <aside className="formula-guide">
           <div><span>PRICE</span><strong>{arabic ? "مُدخل مباشر (سعر الوحدة)" : "Direct input (unit price)"}</strong></div>
           <div><span>RENT</span><strong>{arabic ? "المساحة × إيجار القدم" : "Area × annual rent per sq ft"}</strong></div>
-          <div><span>ROA</span><strong>{arabic ? "صافي الإيجار ÷ سعر العقار" : "Net rent ÷ property price"}</strong></div>
-          <div><span>ROE</span><strong>{arabic ? "صافي الإيجار ÷ رأس المال المدفوع" : "Net rent ÷ paid equity"}</strong></div>
-          <div><span>ROI</span><strong>{arabic ? "(صافي الإيجار + الزيادة الرأسمالية) ÷ رأس المال المدفوع" : "(Net rent + capital gain) ÷ paid equity"}</strong></div>
+          <div><span>ROI</span><strong>{arabic ? "الربح السنوي ÷ تكلفة الاستثمار" : "Annual profit ÷ investment cost"}</strong></div>
+          <div><span>ROE</span><strong>{arabic ? "الربح السنوي ÷ الـ Equity" : "Annual profit ÷ equity"}</strong></div>
+          <div><span>ROA</span><strong>{arabic ? "صافي الربح ÷ قيمة الأصل" : "Net profit ÷ asset value"}</strong></div>
         </aside>
 
         <p className="calculator-disclaimer">
