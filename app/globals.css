@@ -491,6 +491,20 @@ a { color: inherit; text-decoration: none; }
 .sheet-input > span:last-child { min-width: 225px; display: flex; align-items: center; background: #fff0ef; border: 1px solid #ff9f99; }
 .sheet-input input { width: 100%; border: 0; background: transparent; padding: 14px; text-align: right; color: #d72626; font-size: 22px; font-weight: 900; outline: 0; }
 .sheet-input b { padding: 0 12px; color: #a84c49; font-size: 8px; }
+.unit-toggle { display: flex; flex-shrink: 0; }
+.unit-toggle button { padding: 8px 12px; border: 0; border-right: 1px solid #ff9f99; background: transparent; color: #a84c49; font-size: 9px; font-weight: 800; cursor: pointer; }
+.unit-toggle button:last-child { border-right: 0; }
+.unit-toggle button.active { background: #d72626; color: #fff; }
+.input-hint { grid-column: 1/-1; margin: -6px 0 4px 18px; color: #a84c49; font-size: 9px; font-weight: 700; }
+.converter-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; margin-top: 20px; }
+.converter-card { padding: 22px; border: 1px solid #ccd3de; background: #f7f9fc; }
+.converter-card > p { margin: 0 0 16px; font-size: 13px; font-weight: 900; }
+.converter-row { display: flex; align-items: flex-end; gap: 14px; }
+.converter-row label { flex: 1; display: flex; flex-direction: column; gap: 6px; }
+.converter-row label span { font-size: 9px; font-weight: 800; color: #6f7889; }
+.converter-row input { border: 1px solid #ff9f99; background: #fff0ef; padding: 12px 14px; color: #d72626; font-size: 18px; font-weight: 900; text-align: center; outline: 0; }
+.converter-row b { padding-bottom: 12px; color: #798292; font-size: 14px; }
+.converter-note { display: block; margin-top: 12px; color: #6f7889; font-size: 10px; }
 .summary-panel { padding: 23px; background: #fff7d9; border-left: 1px solid #e2d5a4; }
 .summary-panel > p, .returns-panel > p { margin: 0 0 10px; font-size: 16px; font-weight: 900; }
 .summary-panel > p span, .returns-panel > p span { margin-left: 8px; color: #777; font-size: 9px; font-weight: 400; text-transform: uppercase; letter-spacing: .06em; }
@@ -522,7 +536,7 @@ a { color: inherit; text-decoration: none; }
 .return-row strong { font-size: 11px; }
 .return-row small { color: #798292; font-size: 8px; }
 .return-row > b { color: #225b25; background: #dff0d7; min-width: 145px; padding: 13px; text-align: right; font-size: 18px; }
-.formula-guide { display: grid; grid-template-columns: repeat(4,1fr); margin-top: 26px; border: 1px solid #d7dce4; }
+.formula-guide { display: grid; grid-template-columns: repeat(5,1fr); margin-top: 26px; border: 1px solid #d7dce4; }
 .formula-guide > div { min-height: 120px; padding: 18px; display: flex; flex-direction: column; gap: 9px; border-right: 1px solid #d7dce4; }
 .formula-guide > div:last-child { border: 0; }
 .formula-guide span { color: var(--red); font-size: 8px; font-weight: 900; letter-spacing: .12em; }
@@ -636,14 +650,14 @@ a { color: inherit; text-decoration: none; }
   .calculator-title-row h2 { font-size: 21px; }
   .calculator-title-row h2 em { display: block; margin: 6px 0 0; }
   .calculator-title-row p { margin: 0; }
-  .investment-top-grid, .payment-return-grid { grid-template-columns: 1fr; }
+  .investment-top-grid, .payment-return-grid, .converter-grid { grid-template-columns: 1fr; }
   .sheet-input { align-items: stretch; flex-direction: column; gap: 10px; }
   .sheet-input > span:last-child { min-width: 0; width: 100%; }
   .summary-panel, .returns-panel { border-left: 0; border-top: 1px solid #d8cfab; padding: 18px; }
   .summary-row > b { font-size: 16px; }
   .plan-head, .plan-row, .plan-total { min-width: 680px; }
   .formula-guide { grid-template-columns: 1fr 1fr; }
-  .formula-guide > div:nth-child(2) { border-right: 0; }
+  .formula-guide > div:nth-child(2n) { border-right: 0; }
   .formula-guide > div { border-bottom: 1px solid #d7dce4; }
 }
 
