@@ -1,6 +1,6 @@
 "use client";
 
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { Footer, Header, PageIntro } from "../components";
 import { useLanguage } from "../language-context";
 
@@ -9,6 +9,18 @@ type Stage = {
   nameAr: string;
   percent: number;
   equity: boolean;
+};
+
+type AreaBenchmark = {
+  cluster: string;
+  area: string;
+  assetMix: string | null;
+  marketStage: string | null;
+  rentPerSqFt: number | null;
+  appreciationLow: number | null;
+  appreciationBase: number | null;
+  appreciationHigh: number | null;
+  confidence: string | null;
 };
 
 const SQFT_PER_SQM = 10.7639;
@@ -34,6 +46,16 @@ const num = (value: number, digits = 2) => (Number.isFinite(value) ? value : 0).
 export default function CalculatorsPage() {
   const { arabic } = useLanguage();
 
+  const [areaBenchmarks, setAreaBenchmarks] = useState<AreaBenchmark[]>([]);
+  const [selectedArea, setSelectedArea] = useState("");
+
+  useEffect(() => {
+    fetch("/data/area-market-benchmarks.json")
+      .then((response) => response.json())
+      .then((data: { areas: AreaBenchmark[] }) => setAreaBenchmarks(data.areas || []))
+      .catch(() => setAreaBenchmarks([]));
+  }, []);
+
   // Canonical values are always stored in sq ft and AED internally; the unit toggles
   // only change what's displayed/typed, so every downstream formula stays simple.
   const [areaUnit, setAreaUnit] = useState<"sqft" | "sqm">("sqft");
@@ -50,6 +72,23 @@ export default function CalculatorsPage() {
     { name: "Handover", nameAr: "عند التسليم", percent: 30, equity: true },
     { name: "Post-handover", nameAr: "بعد التسليم", percent: 10, equity: true },
   ]);
+
+  const sortedAreas = useMemo(
+    () => [...areaBenchmarks].sort((a, b) => a.area.localeCompare(b.area)),
+    [areaBenchmarks],
+  );
+  const activeBenchmark = useMemo(
+    () => areaBenchmarks.find((item) => item.area === selectedArea) || null,
+    [areaBenchmarks, selectedArea],
+  );
+
+  const applyAreaBenchmark = (areaName: string) => {
+    setSelectedArea(areaName);
+    const match = areaBenchmarks.find((item) => item.area === areaName);
+    if (!match) return;
+    if (match.rentPerSqFt != null) setRentPerSqFt(match.rentPerSqFt);
+    if (match.appreciationBase != null) setAppreciation(match.appreciationBase);
+  };
 
   const areaDisplay = areaUnit === "sqft" ? areaSqFt : areaSqFt / SQFT_PER_SQM;
   const setAreaDisplay = (value: number) =>
@@ -118,6 +157,22 @@ export default function CalculatorsPage() {
 
         <div className="investment-top-grid">
           <div className="input-panel">
+            <label className="sheet-input area-select-row">
+              <span><strong>{arabic ? "اختر المنطقة (اختياري)" : "Choose an area (optional)"}</strong></span>
+              <select value={selectedArea} onChange={(event) => applyAreaBenchmark(event.target.value)}>
+                <option value="">{arabic ? "— بدون اختيار —" : "— No selection —"}</option>
+                {sortedAreas.map((item) => (
+                  <option key={item.area} value={item.area}>{item.area}</option>
+                ))}
+              </select>
+            </label>
+            {activeBenchmark ? (
+              <p className="input-hint">
+                {arabic
+                  ? `${activeBenchmark.area}: إيجار ${activeBenchmark.rentPerSqFt ?? "—"} د.إ/قدم² · زيادة متوقعة ${activeBenchmark.appreciationBase ?? "—"}% (نطاق ${activeBenchmark.appreciationLow ?? "—"}–${activeBenchmark.appreciationHigh ?? "—"}%) · ثقة ${activeBenchmark.confidence ?? "—"}`
+                  : `${activeBenchmark.area}: rent ${activeBenchmark.rentPerSqFt ?? "—"} AED/sqft · expected appreciation ${activeBenchmark.appreciationBase ?? "—"}% (range ${activeBenchmark.appreciationLow ?? "—"}–${activeBenchmark.appreciationHigh ?? "—"}%) · confidence ${activeBenchmark.confidence ?? "—"}`}
+              </p>
+            ) : null}
             <CalculatorInputToggle
               label={arabic ? "المساحة" : "Area"}
               value={areaDisplay}
@@ -143,6 +198,7 @@ export default function CalculatorsPage() {
             <p className="input-hint">{arabic ? `≈ ${aed(result.pricePerSqFt)} / قدم²` : `≈ ${aed(result.pricePerSqFt)} / sq ft`}</p>
             <CalculatorInput label={arabic ? "إيجار القدم السنوي" : "Annual rent per sq ft"} value={rentPerSqFt} setValue={setRentPerSqFt} suffix="AED" />
             <CalculatorInput label={arabic ? "نسبة الزيادة المتوقعة" : "Expected appreciation"} value={appreciation} setValue={setAppreciation} suffix="%" step="0.1" />
+            <p className="input-hint">{arabic ? "بتتملي تلقائي من بيانات المنطقة، وتقدر تعدّلها يدوي." : "Auto-filled from area data — you can still edit it manually."}</p>
             <CalculatorInput label={arabic ? "مصاريف سنوية" : "Annual expenses"} value={expenses} setValue={setExpenses} suffix="AED" />
           </div>
 
