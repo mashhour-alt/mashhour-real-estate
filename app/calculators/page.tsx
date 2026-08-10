@@ -2,9 +2,11 @@
 
 import { useMemo, useState } from "react";
 import { Footer, Header, PageIntro } from "../components";
+import { useLanguage } from "../language-context";
 
 type Stage = {
   name: string;
+  nameAr: string;
   percent: number;
   equity: boolean;
 };
@@ -19,16 +21,17 @@ const aed = (value: number) =>
 const pct = (value: number) => `${(Number.isFinite(value) ? value : 0).toFixed(2)}%`;
 
 export default function CalculatorsPage() {
+  const { arabic } = useLanguage();
   const [area, setArea] = useState(880);
   const [pricePerSqFt, setPricePerSqFt] = useState(2400);
   const [rentPerSqFt, setRentPerSqFt] = useState(250);
   const [appreciation, setAppreciation] = useState(13);
   const [expenses, setExpenses] = useState(0);
   const [stages, setStages] = useState<Stage[]>([
-    { name: "الحجز | Booking", percent: 20, equity: true },
-    { name: "أثناء البناء 1 | Construction 1", percent: 30, equity: true },
-    { name: "أثناء البناء 2 | Construction 2", percent: 10, equity: true },
-    { name: "عند التسليم | Handover", percent: 40, equity: true },
+    { name: "Booking", nameAr: "الحجز", percent: 20, equity: true },
+    { name: "Construction 1", nameAr: "أثناء البناء 1", percent: 30, equity: true },
+    { name: "Construction 2", nameAr: "أثناء البناء 2", percent: 10, equity: true },
+    { name: "Handover", nameAr: "عند التسليم", percent: 40, equity: true },
   ]);
 
   const result = useMemo(() => {
@@ -68,60 +71,60 @@ export default function CalculatorsPage() {
     <main>
       <Header />
       <PageIntro
-        eyebrow="INVESTMENT CALCULATOR · حاسبة الاستثمار"
-        title="ROI and ROE, exactly as your sheet."
-        intro="غيّر الخلايا الحمراء فقط، وستتحدث كل النتائج تلقائيًا. Change the red input fields and every result updates instantly."
+        eyebrow={arabic ? "حاسبة الاستثمار" : "INVESTMENT CALCULATOR"}
+        title={arabic ? "العائد على الاستثمار ورأس المال، بالظبط زي شيتك." : "ROI and ROE, exactly as your sheet."}
+        intro={arabic ? "غيّر الخلايا الحمراء فقط، وستتحدث كل النتائج تلقائيًا." : "Change the red input fields and every result updates instantly."}
       />
 
       <section className="investment-calculator">
         <div className="calculator-title-row">
           <div>
             <span>01</span>
-            <h2>بيانات الوحدة <em>Property inputs</em></h2>
+            <h2>{arabic ? "بيانات الوحدة" : "Property inputs"}</h2>
           </div>
-          <p>Based on: real_estate_investment_calculator.xlsx</p>
+          <p>{arabic ? "استناداً إلى: real_estate_investment_calculator.xlsx" : "Based on: real_estate_investment_calculator.xlsx"}</p>
         </div>
 
         <div className="investment-top-grid">
           <div className="input-panel">
-            <CalculatorInput label="المساحة (قدم²)" english="Area (sq ft)" value={area} setValue={setArea} suffix="FT²" />
-            <CalculatorInput label="سعر القدم (درهم)" english="Price per sq ft" value={pricePerSqFt} setValue={setPricePerSqFt} suffix="AED" />
-            <CalculatorInput label="إيجار القدم السنوي" english="Annual rent per sq ft" value={rentPerSqFt} setValue={setRentPerSqFt} suffix="AED" />
-            <CalculatorInput label="نسبة الزيادة المتوقعة" english="Expected appreciation" value={appreciation} setValue={setAppreciation} suffix="%" step="0.1" />
-            <CalculatorInput label="مصاريف سنوية" english="Annual expenses" value={expenses} setValue={setExpenses} suffix="AED" />
+            <CalculatorInput label={arabic ? "المساحة (قدم²)" : "Area (sq ft)"} value={area} setValue={setArea} suffix="FT²" />
+            <CalculatorInput label={arabic ? "سعر القدم (درهم)" : "Price per sq ft"} value={pricePerSqFt} setValue={setPricePerSqFt} suffix="AED" />
+            <CalculatorInput label={arabic ? "إيجار القدم السنوي" : "Annual rent per sq ft"} value={rentPerSqFt} setValue={setRentPerSqFt} suffix="AED" />
+            <CalculatorInput label={arabic ? "نسبة الزيادة المتوقعة" : "Expected appreciation"} value={appreciation} setValue={setAppreciation} suffix="%" step="0.1" />
+            <CalculatorInput label={arabic ? "مصاريف سنوية" : "Annual expenses"} value={expenses} setValue={setExpenses} suffix="AED" />
           </div>
 
           <div className="summary-panel">
-            <p>ملخص الاستثمار <span>Investment summary</span></p>
-            <SummaryRow label="سعر العقار" english="Property price" value={aed(result.propertyPrice)} />
-            <SummaryRow label="الإيجار السنوي" english="Annual rent" value={aed(result.annualRent)} />
-            <SummaryRow label="صافي الإيجار" english="Net annual rent" value={aed(result.netRent)} />
-            <SummaryRow label="السعر المتوقع بعد سنة" english="Projected value (1Y)" value={aed(result.projectedValue)} />
-            <SummaryRow label="الزيادة الرأسمالية" english="Capital gain" value={aed(result.capitalGain)} />
+            <p>{arabic ? "ملخص الاستثمار" : "Investment summary"}</p>
+            <SummaryRow label={arabic ? "سعر العقار" : "Property price"} value={aed(result.propertyPrice)} />
+            <SummaryRow label={arabic ? "الإيجار السنوي" : "Annual rent"} value={aed(result.annualRent)} />
+            <SummaryRow label={arabic ? "صافي الإيجار" : "Net annual rent"} value={aed(result.netRent)} />
+            <SummaryRow label={arabic ? "السعر المتوقع بعد سنة" : "Projected value (1Y)"} value={aed(result.projectedValue)} />
+            <SummaryRow label={arabic ? "الزيادة الرأسمالية" : "Capital gain"} value={aed(result.capitalGain)} />
           </div>
         </div>
 
         <div className="calculator-title-row second">
           <div>
             <span>02</span>
-            <h2>خطة الدفع والعوائد <em>Payment plan & returns</em></h2>
+            <h2>{arabic ? "خطة الدفع والعوائد" : "Payment plan & returns"}</h2>
           </div>
           <strong className={planOk ? "plan-status ok" : "plan-status warning"}>
-            {planOk ? "الخطة 100% · OK ✓" : `راجع النسب · ${result.planTotal.toFixed(1)}%`}
+            {planOk ? (arabic ? "الخطة 100% ✓" : "OK ✓ 100%") : (arabic ? `راجع النسب · ${result.planTotal.toFixed(1)}%` : `Review percentages · ${result.planTotal.toFixed(1)}%`)}
           </strong>
         </div>
 
         <div className="payment-return-grid">
           <div className="plan-editor">
             <div className="plan-head">
-              <span>المرحلة | Stage</span>
-              <span>النسبة | %</span>
-              <span>المبلغ | Amount</span>
-              <span>ضمن رأس المال؟</span>
+              <span>{arabic ? "المرحلة" : "Stage"}</span>
+              <span>{arabic ? "النسبة" : "%"}</span>
+              <span>{arabic ? "المبلغ" : "Amount"}</span>
+              <span>{arabic ? "ضمن رأس المال؟" : "Part of equity?"}</span>
             </div>
             {stages.map((stage, index) => (
               <div className="plan-row" key={stage.name}>
-                <strong>{stage.name}</strong>
+                <strong>{arabic ? stage.nameAr : stage.name}</strong>
                 <label>
                   <input
                     aria-label={`${stage.name} percentage`}
@@ -140,12 +143,12 @@ export default function CalculatorsPage() {
                   onClick={() => updateStage(index, { equity: !stage.equity })}
                   aria-pressed={stage.equity}
                 >
-                  {stage.equity ? "نعم | Yes" : "لا | No"}
+                  {stage.equity ? (arabic ? "نعم" : "Yes") : (arabic ? "لا" : "No")}
                 </button>
               </div>
             ))}
             <div className="plan-total">
-              <strong>الإجمالي | Total</strong>
+              <strong>{arabic ? "الإجمالي" : "Total"}</strong>
               <b>{result.planTotal.toFixed(1)}%</b>
               <b>{aed(result.propertyPrice * (result.planTotal / 100))}</b>
               <span />
@@ -153,25 +156,24 @@ export default function CalculatorsPage() {
           </div>
 
           <div className="returns-panel">
-            <p>العوائد والتوقعات <span>Returns & projection</span></p>
-            <ReturnCard label="ROI · عائد الإيجار" value={pct(result.roi)} formula="صافي الإيجار ÷ سعر العقار" />
-            <ReturnCard label="رأس المال المدفوع" value={aed(result.paidEquity)} formula="الدفعات المحددة: نعم" />
-            <ReturnCard label="ROE · عائد رأس المال" value={pct(result.roe)} formula="صافي الإيجار ÷ رأس المال" />
-            <ReturnCard label="العائد الكلي سنة 1" value={pct(result.totalReturn)} formula="الإيجار + الزيادة ÷ السعر" />
-            <ReturnCard label="فترة استرداد رأس المال" value={`${result.payback.toFixed(1)} سنة`} formula="رأس المال ÷ صافي الإيجار" />
+            <p>{arabic ? "العوائد والتوقعات" : "Returns & projection"}</p>
+            <ReturnCard label={arabic ? "ROI · عائد الإيجار" : "ROI · Rental yield"} value={pct(result.roi)} formula={arabic ? "صافي الإيجار ÷ سعر العقار" : "Net rent ÷ property price"} />
+            <ReturnCard label={arabic ? "رأس المال المدفوع" : "Paid equity"} value={aed(result.paidEquity)} formula={arabic ? "الدفعات المحددة: نعم" : "Stages marked: Yes"} />
+            <ReturnCard label={arabic ? "ROE · عائد رأس المال" : "ROE · Return on equity"} value={pct(result.roe)} formula={arabic ? "صافي الإيجار ÷ رأس المال" : "Net rent ÷ paid equity"} />
+            <ReturnCard label={arabic ? "العائد الكلي سنة 1" : "Total return, Year 1"} value={pct(result.totalReturn)} formula={arabic ? "الإيجار + الزيادة ÷ السعر" : "Rent + gain ÷ price"} />
+            <ReturnCard label={arabic ? "فترة استرداد رأس المال" : "Equity payback period"} value={arabic ? `${result.payback.toFixed(1)} سنة` : `${result.payback.toFixed(1)} years`} formula={arabic ? "رأس المال ÷ صافي الإيجار" : "Equity ÷ net rent"} />
           </div>
         </div>
 
         <aside className="formula-guide">
-          <div><span>PRICE</span><strong>المساحة × سعر القدم</strong><small>Area × price per sq ft</small></div>
-          <div><span>RENT</span><strong>المساحة × إيجار القدم</strong><small>Area × annual rent per sq ft</small></div>
-          <div><span>ROI</span><strong>صافي الإيجار ÷ سعر العقار</strong><small>Net rent ÷ property price</small></div>
-          <div><span>ROE</span><strong>صافي الإيجار ÷ رأس المال المدفوع</strong><small>Net rent ÷ paid equity</small></div>
+          <div><span>PRICE</span><strong>{arabic ? "المساحة × سعر القدم" : "Area × price per sq ft"}</strong></div>
+          <div><span>RENT</span><strong>{arabic ? "المساحة × إيجار القدم" : "Area × annual rent per sq ft"}</strong></div>
+          <div><span>ROI</span><strong>{arabic ? "صافي الإيجار ÷ سعر العقار" : "Net rent ÷ property price"}</strong></div>
+          <div><span>ROE</span><strong>{arabic ? "صافي الإيجار ÷ رأس المال المدفوع" : "Net rent ÷ paid equity"}</strong></div>
         </aside>
 
         <p className="calculator-disclaimer">
-          هذه الحاسبة تقديرية وليست نصيحة مالية. الأسعار والإيجارات والمصاريف ونسب الزيادة يجب التحقق منها قبل اتخاذ قرار استثماري.
-          <span>This calculator is illustrative and does not constitute financial advice.</span>
+          {arabic ? "هذه الحاسبة تقديرية وليست نصيحة مالية. الأسعار والإيجارات والمصاريف ونسب الزيادة يجب التحقق منها قبل اتخاذ قرار استثماري." : "This calculator is illustrative and does not constitute financial advice. Prices, rents, expenses and appreciation rates should be verified before making an investment decision."}
         </p>
       </section>
       <Footer />
@@ -181,14 +183,12 @@ export default function CalculatorsPage() {
 
 function CalculatorInput({
   label,
-  english,
   value,
   setValue,
   suffix,
   step = "1",
 }: {
   label: string;
-  english: string;
   value: number;
   setValue: (value: number) => void;
   suffix: string;
@@ -196,14 +196,14 @@ function CalculatorInput({
 }) {
   return (
     <label className="sheet-input">
-      <span><strong>{label}</strong><small>{english}</small></span>
+      <span><strong>{label}</strong></span>
       <span><input type="number" min="0" step={step} value={value} onChange={(event) => setValue(Number(event.target.value))} /><b>{suffix}</b></span>
     </label>
   );
 }
 
-function SummaryRow({ label, english, value }: { label: string; english: string; value: string }) {
-  return <div className="summary-row"><span><strong>{label}</strong><small>{english}</small></span><b>{value}</b></div>;
+function SummaryRow({ label, value }: { label: string; value: string }) {
+  return <div className="summary-row"><span><strong>{label}</strong></span><b>{value}</b></div>;
 }
 
 function ReturnCard({ label, value, formula }: { label: string; value: string; formula: string }) {
