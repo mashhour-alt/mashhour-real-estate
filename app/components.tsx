@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { VoiceAssistant } from "./voice-assistant";
+import { useLanguage } from "./language-context";
 import type {
   DldReconciliationReport,
   PlatformData,
@@ -28,7 +29,7 @@ const links = [
 
 export function Header() {
   const [open, setOpen] = useState(false);
-  const [arabic, setArabic] = useState(false);
+  const { arabic, setLanguage, toggleLanguage } = useLanguage();
   const pathname = usePathname();
 
   useEffect(() => {
@@ -53,7 +54,7 @@ export function Header() {
           <span>REAL ESTATE</span>
         </Link>
         <div className="header-actions">
-          <button className="language-button" onClick={() => setArabic((value) => !value)}>{arabic ? "EN" : "ع"}</button>
+          <button className="language-button" onClick={toggleLanguage}>{arabic ? "EN" : "ع"}</button>
           <button className="menu-button" aria-label="Open menu" aria-expanded={open} aria-controls="site-menu" onClick={() => setOpen(true)}>
             <span /><span /><span />
           </button>
@@ -77,8 +78,8 @@ export function Header() {
           <div className="drawer-language">
             <span>{arabic ? "اللغة" : "Language"}</span>
             <div>
-              <button className={!arabic ? "active" : ""} onClick={() => setArabic(false)}>EN</button>
-              <button className={arabic ? "active" : ""} onClick={() => setArabic(true)}>AR</button>
+              <button className={!arabic ? "active" : ""} onClick={() => setLanguage("en")}>EN</button>
+              <button className={arabic ? "active" : ""} onClick={() => setLanguage("ar")}>AR</button>
             </div>
           </div>
         </aside>
@@ -88,22 +89,30 @@ export function Header() {
 }
 
 export function Footer() {
+  const { arabic } = useLanguage();
   return (
     <footer className="platform-footer">
-      <div><strong>MASHHOUR REAL ESTATE</strong><p>Dubai off-plan intelligence, made clearer.</p></div>
-      <div className="footer-links"><a href="/projects">Projects</a><a href="/areas">Areas</a><a href="/developers">Developers</a><a href="https://wa.me/971582239619" target="_blank" rel="noreferrer">WhatsApp</a><a href="mailto:mahmoudmashhournasr@gmail.com">Email</a></div>
-      <span>© 2026 Mashhour Real Estate</span>
+      <div><strong>MASHHOUR REAL ESTATE</strong><p>{arabic ? "استكشاف عقارات دبي على الخريطة، بشكل أوضح." : "Dubai off-plan intelligence, made clearer."}</p></div>
+      <div className="footer-links">
+        <a href="/projects">{arabic ? "المشاريع" : "Projects"}</a>
+        <a href="/areas">{arabic ? "المناطق" : "Areas"}</a>
+        <a href="/developers">{arabic ? "المطورون" : "Developers"}</a>
+        <a href="https://wa.me/971582239619" target="_blank" rel="noreferrer">WhatsApp</a>
+        <a href="mailto:mahmoudmashhournasr@gmail.com">{arabic ? "البريد الإلكتروني" : "Email"}</a>
+      </div>
+      <span>{arabic ? "© 2026 مشهور العقارية" : "© 2026 Mashhour Real Estate"}</span>
     </footer>
   );
 }
 
 export function ContactDock() {
+  const { arabic } = useLanguage();
   return (
     <>
       <nav className="contact-dock" aria-label="Direct contact">
-        <a className="whatsapp" href="https://wa.me/971582239619?text=Hello%20Mahmoud%2C%20I%20am%20interested%20in%20Dubai%20off-plan%20property." target="_blank" rel="noreferrer">WhatsApp</a>
-        <a href="tel:+971582239619">Call</a>
-        <a href="mailto:mahmoudmashhournasr@gmail.com?subject=Mashhour%20Real%20Estate%20enquiry">Email</a>
+        <a className="whatsapp" href="https://wa.me/971582239619?text=Hello%20Mahmoud%2C%20I%20am%20interested%20in%20Dubai%20off-plan%20property." target="_blank" rel="noreferrer">{arabic ? "واتساب" : "WhatsApp"}</a>
+        <a href="tel:+971582239619">{arabic ? "اتصال" : "Call"}</a>
+        <a href="mailto:mahmoudmashhournasr@gmail.com?subject=Mashhour%20Real%20Estate%20enquiry">{arabic ? "إيميل" : "Email"}</a>
       </nav>
       <VoiceAssistant />
     </>
@@ -111,6 +120,7 @@ export function ContactDock() {
 }
 
 export function LeadSection() {
+  const { arabic } = useLanguage();
   const [sent, setSent] = useState(false);
 
   function submitLead(event: React.FormEvent<HTMLFormElement>) {
@@ -129,22 +139,22 @@ export function LeadSection() {
   return (
     <section className="lead-section" id="contact">
       <div>
-        <p>DIRECT TO MAHMOUD</p>
-        <h2>Tell me what you’re looking for.</h2>
-        <span>Your enquiry opens as a prepared WhatsApp message, so you stay in control and get a direct response.</span>
+        <p>{arabic ? "تواصل مباشر مع محمود" : "DIRECT TO MAHMOUD"}</p>
+        <h2>{arabic ? "قولّي بتدوّر على إيه." : "Tell me what you're looking for."}</h2>
+        <span>{arabic ? "استفسارك هيتفتح كرسالة واتساب جاهزة، عشان ترد عليك بشكل مباشر وسريع." : "Your enquiry opens as a prepared WhatsApp message, so you stay in control and get a direct response."}</span>
       </div>
       <form onSubmit={submitLead}>
-        <input name="name" required autoComplete="name" placeholder="Your name" aria-label="Your name" />
-        <input name="phone" required autoComplete="tel" inputMode="tel" placeholder="Phone / WhatsApp" aria-label="Phone or WhatsApp" />
-        <select name="interest" required defaultValue="" aria-label="Property interest">
-          <option value="" disabled>What are you looking for?</option>
-          <option>Investment property</option>
-          <option>Home in Dubai</option>
-          <option>Project information</option>
-          <option>Broker collaboration</option>
+        <input name="name" required autoComplete="name" placeholder={arabic ? "الاسم" : "Your name"} aria-label={arabic ? "الاسم" : "Your name"} />
+        <input name="phone" required autoComplete="tel" inputMode="tel" placeholder={arabic ? "رقم الهاتف / واتساب" : "Phone / WhatsApp"} aria-label={arabic ? "رقم الهاتف أو واتساب" : "Phone or WhatsApp"} />
+        <select name="interest" required defaultValue="" aria-label={arabic ? "نوع الاهتمام" : "Property interest"}>
+          <option value="" disabled>{arabic ? "بتدوّر على إيه؟" : "What are you looking for?"}</option>
+          <option>{arabic ? "عقار استثماري" : "Investment property"}</option>
+          <option>{arabic ? "سكن في دبي" : "Home in Dubai"}</option>
+          <option>{arabic ? "معلومات عن مشروع" : "Project information"}</option>
+          <option>{arabic ? "تعاون كوسيط" : "Broker collaboration"}</option>
         </select>
-        <button type="submit">Send on WhatsApp ↗</button>
-        {sent ? <p className="lead-success" role="status">Your WhatsApp message is ready. Press send to complete the enquiry.</p> : null}
+        <button type="submit">{arabic ? "إرسال عبر واتساب ↗" : "Send on WhatsApp ↗"}</button>
+        {sent ? <p className="lead-success" role="status">{arabic ? "رسالة الواتساب جاهزة. اضغط إرسال لإتمام الاستفسار." : "Your WhatsApp message is ready. Press send to complete the enquiry."}</p> : null}
       </form>
     </section>
   );
@@ -289,10 +299,11 @@ export function ProjectVisual({
 }
 
 export function DataNotice() {
+  const { arabic } = useLanguage();
   return (
     <aside className="data-notice">
-      <span>DATA STANDARD</span>
-      <p>Locations, imagery, availability and pricing are published only after source verification. Missing fields stay visibly marked instead of being guessed.</p>
+      <span>{arabic ? "معيار البيانات" : "DATA STANDARD"}</span>
+      <p>{arabic ? "المواقع والصور وحالة التوفر والأسعار بتتنشر بعد التحقق من المصدر بس. أي بيانات ناقصة بتفضل موضّحة بدل ما نخمّنها." : "Locations, imagery, availability and pricing are published only after source verification. Missing fields stay visibly marked instead of being guessed."}</p>
     </aside>
   );
 }
