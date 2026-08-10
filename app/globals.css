@@ -2,6 +2,7 @@
 @import "leaflet/dist/leaflet.css";
 @import "leaflet.markercluster/dist/MarkerCluster.css";
 @import "leaflet.markercluster/dist/MarkerCluster.Default.css";
+@import url("https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800;900&family=Reem+Kufi:wght@400;500;600;700&display=swap");
 
 :root {
   --red: #ff3131;
@@ -14,6 +15,32 @@
 * { box-sizing: border-box; }
 html { scroll-behavior: smooth; }
 body { margin: 0; background: var(--paper); color: var(--ink); font-family: Arial, Helvetica, sans-serif; }
+/* Arabic mode: swap to a proper Arabic typeface. Georgia/serif accents also have no
+   Arabic glyphs, so drop them in RTL. Reem Kufi (geometric Kufic-inspired) carries the
+   heritage / Najdi-Sadu display character on big headings; Tajawal handles body text. */
+[dir="rtl"] body { font-family: "Tajawal", Arial, Helvetica, sans-serif; }
+[dir="rtl"] h1,
+[dir="rtl"] .section-kicker h2,
+[dir="rtl"] .eyebrow,
+[dir="rtl"] .home-articles .section-kicker span,
+[dir="rtl"] .home-mini-map .section-kicker span {
+  font-family: "Reem Kufi", "Tajawal", Arial, sans-serif;
+}
+[dir="rtl"] .home-copy h1 em,
+[dir="rtl"] .hero h1 em { font-family: inherit; font-style: normal; }
+/* Sadu-inspired geometric strip: a repeating triangle motif referencing traditional
+   Najdi Al-Sadu weaving, using the site's existing red/ink palette. */
+.platform-header { position: relative; }
+.platform-header::after {
+  content: "";
+  position: absolute; left: 0; right: 0; bottom: -8px; height: 8px;
+  background-color: var(--red);
+  background-image:
+    linear-gradient(135deg, var(--ink) 25%, transparent 25.5%),
+    linear-gradient(225deg, var(--ink) 25%, transparent 25.5%);
+  background-size: 16px 16px;
+  background-position: 0 0;
+}
 body.modal-open { overflow: hidden; }
 body.menu-open { overflow: hidden; }
 button, input, select { font: inherit; }
