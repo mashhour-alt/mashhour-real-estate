@@ -12,6 +12,7 @@ type Article = {
   excerpt: string;
   author: string;
   authorTitle?: string;
+  authorPhoto?: string;
   date: string;
   readMinutes?: number;
   cover?: string;
@@ -66,8 +67,8 @@ export default function ArticlesPage() {
                 <h2>{item.title}</h2>
                 <p>{item.excerpt}</p>
                 <div>
-                  <strong>{item.author}</strong>
-                  <small>{item.authorTitle || (arabic ? "كاتب" : "Author")}</small>
+                  {item.authorPhoto ? <img className="area-directory-author-photo" src={item.authorPhoto} alt={item.author} /> : null}
+                  <div><strong>{item.author}</strong><small>{item.authorTitle || (arabic ? "كاتب" : "Author")}</small></div>
                 </div>
                 <div>
                   <strong>{item.readMinutes || 4} {arabic ? "دقيقة" : "min"}</strong>

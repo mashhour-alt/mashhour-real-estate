@@ -100,7 +100,9 @@ a { color: inherit; text-decoration: none; }
 .home-article-card p { color: var(--red); font-size: 8px; font-weight: 900; letter-spacing: .13em; text-transform: uppercase; margin: 0; }
 .home-article-card h3 { font-size: 17px; letter-spacing: -.02em; line-height: 1.3; margin: 0; }
 .home-article-card span { font-size: 12.5px; color: #77726a; line-height: 1.55; flex: 1; }
-.home-article-card div { display: flex; flex-direction: column; gap: 2px; padding-top: 10px; border-top: 1px solid var(--line); }
+.home-article-card div { display: flex; align-items: center; gap: 10px; padding-top: 10px; border-top: 1px solid var(--line); }
+.home-article-author-photo { width: 34px; height: 34px; border-radius: 50%; object-fit: cover; flex-shrink: 0; }
+.home-article-card div > div { display: flex; flex-direction: column; gap: 2px; }
 .home-article-card strong { font-size: 12px; }
 .home-article-card small { font-size: 10.5px; color: #999; }
 
@@ -292,6 +294,8 @@ a { color: inherit; text-decoration: none; }
 .area-directory h2 { font-size: 27px; margin: 30px 0 0; letter-spacing: -.04em; }
 .area-directory p { color: #777; font-size: 10px; }
 .area-directory div { display: flex; flex-direction: column; border-top: 1px solid var(--line); padding-top: 15px; }
+.area-directory div:has(.area-directory-author-photo) { flex-direction: row; align-items: center; gap: 10px; }
+.area-directory-author-photo { width: 36px; height: 36px; border-radius: 50%; object-fit: cover; flex-shrink: 0; }
 .area-directory div strong { font-size: 14px; }
 .area-directory div small { color: #777; font-size: 8px; margin-top: 5px; }
 .area-directory > a > b { grid-column: 1/-1; margin-top: 22px; }

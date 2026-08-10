@@ -74,6 +74,7 @@ type ArticleSummary = {
   category: string;
   excerpt: string;
   author: string;
+  authorPhoto?: string;
   date: string;
   readMinutes?: number;
 };
@@ -109,7 +110,10 @@ function HomeArticles() {
             <p>{item.category}</p>
             <h3>{item.title}</h3>
             <span>{item.excerpt}</span>
-            <div><strong>{item.author}</strong><small>{item.date} · {item.readMinutes || 4} {arabic ? "دقائق" : "min"}</small></div>
+            <div>
+              {item.authorPhoto ? <img className="home-article-author-photo" src={item.authorPhoto} alt={item.author} /> : null}
+              <div><strong>{item.author}</strong><small>{item.date} · {item.readMinutes || 4} {arabic ? "دقائق" : "min"}</small></div>
+            </div>
           </a>
         ))}
       </div>
@@ -140,11 +144,11 @@ function HomeMiniMap() {
         zoom: 9,
         minZoom: 8,
         maxZoom: 14,
-        zoomControl: false,
-        dragging: false,
+        zoomControl: true,
+        dragging: true,
         scrollWheelZoom: false,
-        doubleClickZoom: false,
-        touchZoom: false,
+        doubleClickZoom: true,
+        touchZoom: true,
         boxZoom: false,
         keyboard: false,
       });
