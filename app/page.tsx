@@ -1,6 +1,7 @@
 "use client";
 
-import { ContactDock, DataNotice, Footer, Header, LeadSection, usePlatformData } from "./components";
+import { useEffect, useMemo, useRef, useState } from "react";
+import { ContactDock, DataNotice, Footer, Header, LeadSection, usePlatformData, useProjectLiveData } from "./components";
 import { useLanguage } from "./language-context";
 import { projectImages } from "./data";
 
@@ -67,6 +68,128 @@ const destinations = [
   },
 ];
 
+type ArticleSummary = {
+  slug: string;
+  title: string;
+  category: string;
+  excerpt: string;
+  author: string;
+  date: string;
+  readMinutes?: number;
+};
+
+function useLatestArticles(limit: number) {
+  const [articles, setArticles] = useState<ArticleSummary[]>([]);
+  useEffect(() => {
+    fetch("/data/articles.json")
+      .then((response) => response.json())
+      .then((data: { articles: ArticleSummary[] }) => {
+        const sorted = [...(data.articles || [])].sort((a, b) => (a.date < b.date ? 1 : -1));
+        setArticles(sorted.slice(0, limit));
+      })
+      .catch(() => setArticles([]));
+  }, [limit]);
+  return articles;
+}
+
+function HomeArticles() {
+  const { arabic } = useLanguage();
+  const articles = useLatestArticles(5);
+  if (!articles.length) return null;
+  return (
+    <section className="home-articles">
+      <div className="section-kicker">
+        <span>{arabic ? "ذكاء تحريري" : "EDITORIAL INTELLIGENCE"}</span>
+        <h2>{arabic ? "آخر المقالات." : "Latest articles."}</h2>
+        <a href="/articles">{arabic ? "كل المقالات ↗" : "All articles ↗"}</a>
+      </div>
+      <div className="home-articles-grid">
+        {articles.map((item) => (
+          <a href={`/articles/${item.slug}`} key={item.slug} className="home-article-card">
+            <p>{item.category}</p>
+            <h3>{item.title}</h3>
+            <span>{item.excerpt}</span>
+            <div><strong>{item.author}</strong><small>{item.date} · {item.readMinutes || 4} {arabic ? "دقائق" : "min"}</small></div>
+          </a>
+        ))}
+      </div>
+    </section>
+  );
+}
+
+function HomeMiniMap() {
+  const { arabic } = useLanguage();
+  const liveData = useProjectLiveData();
+  const mapElement = useRef<HTMLDivElement | null>(null);
+  const mappedProjects = useMemo(
+    () => Object.entries(liveData).filter(([, live]) => Boolean(live?.coordinates)),
+    [liveData],
+  );
+
+  useEffect(() => {
+    if (!mapElement.current || !mappedProjects.length) return;
+    let map: { remove: () => void } | undefined;
+    let cancelled = false;
+    (async () => {
+      const leafletModule = await import("leaflet");
+      await import("leaflet.markercluster");
+      if (cancelled || !mapElement.current) return;
+      const L = leafletModule.default;
+      const leafletMap = L.map(mapElement.current, {
+        center: [24.95, 55.05],
+        zoom: 9,
+        minZoom: 8,
+        maxZoom: 14,
+        zoomControl: false,
+        dragging: false,
+        scrollWheelZoom: false,
+        doubleClickZoom: false,
+        touchZoom: false,
+        boxZoom: false,
+        keyboard: false,
+      });
+      map = leafletMap;
+      L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
+        attribution: "© OpenStreetMap contributors",
+        subdomains: "abc",
+        maxZoom: 19,
+      }).addTo(leafletMap);
+      const clusters = (L as typeof L & { markerClusterGroup: (options?: object) => L.LayerGroup }).markerClusterGroup({
+        showCoverageOnHover: false,
+        maxClusterRadius: 60,
+      });
+      mappedProjects.forEach(([, live]) => {
+        if (!live?.coordinates) return;
+        clusters.addLayer(L.circleMarker([live.coordinates.lat, live.coordinates.lng], {
+          radius: 5,
+          color: "#c1272d",
+          weight: 2,
+          fillColor: "#ffffff",
+          fillOpacity: 1,
+        }));
+      });
+      leafletMap.addLayer(clusters);
+    })();
+    return () => {
+      cancelled = true;
+      map?.remove();
+    };
+  }, [mappedProjects]);
+
+  return (
+    <section className="home-mini-map">
+      <div className="section-kicker">
+        <span>{arabic ? "ذكاء الخريطة" : "MAP INTELLIGENCE"}</span>
+        <h2>{arabic ? "كل مشروع، فوق الخريطة." : "Every project, on the map."}</h2>
+      </div>
+      <div className="home-mini-map-frame">
+        <div ref={mapElement} className="home-mini-map-canvas" />
+        <a href="/map" className="home-mini-map-cta">{arabic ? "افتح الخريطة الكاملة ↗" : "Open the full interactive map ↗"}</a>
+      </div>
+    </section>
+  );
+}
+
 export default function Home() {
   const data = usePlatformData();
   const { arabic } = useLanguage();
@@ -103,6 +226,8 @@ export default function Home() {
         <div><strong>{data?.areas.length.toLocaleString() || "—"}</strong><span>{arabic ? "منطقة موثّقة" : "area benchmarks"}</span></div>
         <div><strong>1</strong><span>{arabic ? "مرجع موحّد" : "structured reference"}</span></div>
       </section>
+      <HomeArticles />
+      <HomeMiniMap />
       <section className="destination-section">
         <div className="section-kicker"><span>{arabic ? "المنصة" : "THE PLATFORM"}</span><h2>{arabic ? "اختار مساحة عملك." : "Choose your workspace."}</h2></div>
         <div className="destination-grid">
