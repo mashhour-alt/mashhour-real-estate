@@ -2,6 +2,7 @@
 
 import { useEffect, useMemo, useRef, useState } from "react";
 import { DataNotice, Footer, Header, PageIntro, SearchBox, usePlatformData, useProjectLiveData } from "../components";
+import { useLanguage } from "../language-context";
 import { areaFrom } from "../data";
 
 type MapPoint = [number, number];
@@ -185,6 +186,7 @@ const unverifiedMapCoordinateNames = new Set([
 export default function MapPage() {
   const data = usePlatformData();
   const liveData = useProjectLiveData();
+  const { arabic } = useLanguage();
   const [query, setQuery] = useState("");
   const [operatingMetro, setOperatingMetro] = useState<OperatingMetroNetwork | null>(null);
   const mapElement = useRef<HTMLDivElement | null>(null);
@@ -340,19 +342,24 @@ export default function MapPage() {
   };
 
   return <main><Header />
-    <PageIntro eyebrow="PROJECTS + TRANSPORT MAP" title="Projects and Dubai Metro." intro="Search the complete project catalogue and reveal any verified project pin directly on the map. Dashed future transport lines show publicly announced corridors and stations." action={<strong className="page-count">{allProjects.length.toLocaleString()} PROJECTS · {mappedProjects.length.toLocaleString()} EXACT PINS</strong>} />
+    <PageIntro
+      eyebrow={arabic ? "خريطة المشاريع + النقل" : "PROJECTS + TRANSPORT MAP"}
+      title={arabic ? "المشاريع ومترو دبي." : "Projects and Dubai Metro."}
+      intro={arabic ? "ابحث في دليل المشاريع الكامل واعرض أي دبوس مشروع موثّق مباشرة على الخريطة. خطوط النقل المستقبلية المتقطعة بتوضح الممرات والمحطات المُعلنة رسمياً." : "Search the complete project catalogue and reveal any verified project pin directly on the map. Dashed future transport lines show publicly announced corridors and stations."}
+      action={<strong className="page-count">{allProjects.length.toLocaleString()} {arabic ? "مشروع" : "PROJECTS"} · {mappedProjects.length.toLocaleString()} {arabic ? "دبوس دقيق" : "EXACT PINS"}</strong>}
+    />
     <section className="map-workspace">
       <div className="map-panel">
-        <div className="map-summary"><strong>{allProjects.length.toLocaleString()}</strong><span>catalogue projects · {mappedProjects.length.toLocaleString()} sourced pins · {(allProjects.length - mappedProjects.length).toLocaleString()} coordinates pending</span></div>
+        <div className="map-summary"><strong>{allProjects.length.toLocaleString()}</strong><span>{arabic ? "مشروع في الدليل" : "catalogue projects"} · {mappedProjects.length.toLocaleString()} {arabic ? "دبوس موثّق" : "sourced pins"} · {(allProjects.length - mappedProjects.length).toLocaleString()} {arabic ? "إحداثية قيد الانتظار" : "coordinates pending"}</span></div>
         <div className="transport-summary">
-          <span>TRANSPORT OVERLAY · شبكة النقل</span>
-          <strong>Precise operating tracks · مسارات تشغيل دقيقة</strong>
-          <small>Red, Green, Route 2020 and the Blue construction alignment use mapped rail geometry. Gold is announced for 2032, so its dashed corridor remains indicative.</small>
+          <span>{arabic ? "شبكة النقل" : "TRANSPORT OVERLAY"}</span>
+          <strong>{arabic ? "مسارات تشغيل دقيقة" : "Precise operating tracks"}</strong>
+          <small>{arabic ? "الخط الأحمر والأخضر ومسار 2020 ومحاذاة الخط الأزرق تحت الإنشاء بتستخدم هندسة سكة حقيقية. الخط الذهبي مُعلن لـ 2032، يبقى ممره المتقطع لسه إرشادي." : "Red, Green, Route 2020 and the Blue construction alignment use mapped rail geometry. Gold is announced for 2032, so its dashed corridor remains indicative."}</small>
         </div>
-        <SearchBox value={query} onChange={setQuery} placeholder="Search a project, developer or area" />
+        <SearchBox value={query} onChange={setQuery} placeholder={arabic ? "ابحث عن مشروع أو مطور أو منطقة" : "Search a project, developer or area"} />
         <div className="map-results">{matches.map(({ project, live }) => {
           const name = project["Project Name | اسم المشروع"];
-          const developer = live?.developer || project["Developer | المطور"] || "Developer under review";
+          const developer = live?.developer || project["Developer | المطور"] || (arabic ? "مطور قيد المراجعة" : "Developer under review");
           return <a
             href={`/projects/detail?name=${encodeURIComponent(name)}`}
             key={name}
@@ -363,32 +370,32 @@ export default function MapPage() {
             }}
           >
             <span className={live?.developerLogo ? "result-logo" : !live?.coordinates ? "result-pending" : ""}>{live?.developerLogo ? <img src={live.developerLogo} alt="" /> : developer.slice(0, 2).toUpperCase()}</span>
-            <div><strong>{live?.title || name}</strong><small>{areaFrom(live?.location || project["Location / Community | المنطقة"])} · {developer}</small>{live?.coordinates ? <small className="verified-location">SHOW EXACT PIN · اعرض الدبوس المؤكد</small> : <small className="pending-location">MAP COORDINATES UNDER VERIFICATION · الإحداثيات قيد التحقق</small>}</div><b>{live?.coordinates ? "◎" : "→"}</b>
+            <div><strong>{live?.title || name}</strong><small>{areaFrom(live?.location || project["Location / Community | المنطقة"])} · {developer}</small>{live?.coordinates ? <small className="verified-location">{arabic ? "اعرض الدبوس المؤكد" : "SHOW EXACT PIN"}</small> : <small className="pending-location">{arabic ? "الإحداثيات قيد التحقق" : "MAP COORDINATES UNDER VERIFICATION"}</small>}</div><b>{live?.coordinates ? "◎" : "→"}</b>
           </a>;
         })}</div>
       </div>
       <div className="map-canvas live-map-canvas">
         <div ref={mapElement} className="leaflet-project-map" />
         <details className="metro-map-legend">
-          <summary><span>METRO LINES · خطوط المترو</span><b>{metroLines.length}</b></summary>
+          <summary><span>{arabic ? "خطوط المترو" : "METRO LINES"}</span><b>{metroLines.length}</b></summary>
           <div className="metro-legend-list">
             {metroLines.map((line) => <div className="metro-legend-item" key={line.id}>
               <i style={{ backgroundColor: line.color }} className={line.status === "operating" ? "" : "future"} />
-              <span><strong>{line.name}</strong><small>{line.nameAr}</small></span>
+              <span><strong>{arabic ? line.nameAr : line.name}</strong><small>{arabic ? line.name : line.nameAr}</small></span>
               <b>{line.timing}</b>
             </div>)}
           </div>
           <div className="metro-symbol-key">
-            <span><i className="solid" />OPERATING</span>
-            <span><i className="dashed" />FUTURE</span>
-            <span><i className="station" />STATION / LOCATION</span>
+            <span><i className="solid" />{arabic ? "متاح" : "OPERATING"}</span>
+            <span><i className="dashed" />{arabic ? "مستقبلي" : "FUTURE"}</span>
+            <span><i className="station" />{arabic ? "محطة / موقع" : "STATION / LOCATION"}</span>
           </div>
-          <p>Red, Green, Route 2020 and Blue construction geometry are sourced from OpenStreetMap route relations; station names are cross-checked with RTA. Gold remains an announced corridor—not final track geometry. Check RTA before travel.</p>
+          <p>{arabic ? "هندسة الخط الأحمر والأخضر ومسار 2020 والخط الأزرق تحت الإنشاء مصدرها علاقات مسارات OpenStreetMap؛ أسماء المحطات اتراجعت مقابل هيئة الطرق والمواصلات (RTA). الخط الذهبي لسه ممر مُعلن — مش هندسة سكة نهائية. تأكد من RTA قبل السفر." : "Red, Green, Route 2020 and Blue construction geometry are sourced from OpenStreetMap route relations; station names are cross-checked with RTA. Gold remains an announced corridor—not final track geometry. Check RTA before travel."}</p>
           <div className="metro-source-links">
-            <a href="https://www.rta.ae/wps/portal/rta/ae/public-transport/metro-stations-map" target="_blank" rel="noreferrer">RTA NETWORK ↗</a>
-            <a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noreferrer">OSM TRACKS ↗</a>
-            <a href="https://www.mediaoffice.ae/en/news/2025/june/09-06/mohammed-bin-rashid-lays-foundation-stone-for-dubai-metro-blue-line" target="_blank" rel="noreferrer">BLUE LINE ↗</a>
-            <a href="https://www.mediaoffice.ae/en/news/2026/april/22-04/mohammed-bin-rashid-approves-dubai-metro-gold-line" target="_blank" rel="noreferrer">GOLD LINE ↗</a>
+            <a href="https://www.rta.ae/wps/portal/rta/ae/public-transport/metro-stations-map" target="_blank" rel="noreferrer">{arabic ? "شبكة RTA ↗" : "RTA NETWORK ↗"}</a>
+            <a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noreferrer">{arabic ? "مسارات OSM ↗" : "OSM TRACKS ↗"}</a>
+            <a href="https://www.mediaoffice.ae/en/news/2025/june/09-06/mohammed-bin-rashid-lays-foundation-stone-for-dubai-metro-blue-line" target="_blank" rel="noreferrer">{arabic ? "الخط الأزرق ↗" : "BLUE LINE ↗"}</a>
+            <a href="https://www.mediaoffice.ae/en/news/2026/april/22-04/mohammed-bin-rashid-approves-dubai-metro-gold-line" target="_blank" rel="noreferrer">{arabic ? "الخط الذهبي ↗" : "GOLD LINE ↗"}</a>
           </div>
         </details>
       </div>
