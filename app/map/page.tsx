@@ -232,8 +232,8 @@ export default function MapPage() {
       map = leafletMap;
       mapInstance.current = leafletMap;
       markerRegistry.clear();
-      L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
-        attribution: "© OpenStreetMap contributors",
+      L.tileLayer("https://maps.wikimedia.org/osm-intl/{z}/{x}/{y}.png", {
+        attribution: "© OpenStreetMap contributors, Wikimedia",
         maxZoom: 19,
       }).addTo(leafletMap);
 
