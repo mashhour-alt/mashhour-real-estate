@@ -11,6 +11,7 @@ import {
   useProjectEnrichment,
   useProjectLiveData,
 } from "../components";
+import { useLanguage } from "../language-context";
 import { areaFrom, money, type Project } from "../data";
 
 const STORAGE_KEY = "mashhour-comparison";
@@ -28,6 +29,7 @@ export default function ComparePage() {
   const data = usePlatformData();
   const enrichment = useProjectEnrichment();
   const liveData = useProjectLiveData();
+  const { arabic } = useLanguage();
   const [selectedNames, setSelectedNames] = useState<string[]>(() => {
     if (typeof window === "undefined") return [];
     const requested = new URLSearchParams(window.location.search).get("project");
@@ -84,6 +86,9 @@ export default function ComparePage() {
     const booking = project["Booking % | الحجز"];
     const construction = project["During Construction % | أثناء الإنشاء"];
     const handover = project["At Handover % | عند التسليم"];
+    if (arabic) {
+      return [booking != null ? `${booking}% حجز` : "", construction != null ? `${construction}% أثناء الإنشاء` : "", handover != null ? `${handover}% عند التسليم` : ""].filter(Boolean).join(" • ") || "قيد التحقق";
+    }
     return [booking != null ? `${booking}% booking` : "", construction != null ? `${construction}% construction` : "", handover != null ? `${handover}% handover` : ""].filter(Boolean).join(" • ") || "Under verification";
   };
 
@@ -91,34 +96,34 @@ export default function ComparePage() {
     <main>
       <Header />
       <PageIntro
-        eyebrow="DECISION WORKSPACE"
-        title="Compare projects. Choose with confidence."
-        intro="Put up to four Dubai projects side by side. The strongest available value in each decision-critical row is highlighted automatically."
-        action={<strong className="page-count">{projects.length} / {MAX_PROJECTS} SELECTED</strong>}
+        eyebrow={arabic ? "مساحة اتخاذ القرار" : "DECISION WORKSPACE"}
+        title={arabic ? "قارن المشاريع. اختار بثقة." : "Compare projects. Choose with confidence."}
+        intro={arabic ? "حط لحد أربع مشاريع دبي جنب بعض. أقوى قيمة متاحة في كل صف بتتحدد تلقائي." : "Put up to four Dubai projects side by side. The strongest available value in each decision-critical row is highlighted automatically."}
+        action={<strong className="page-count">{projects.length} / {MAX_PROJECTS} {arabic ? "مختار" : "SELECTED"}</strong>}
       />
 
       <section className="compare-workspace">
         <div className="compare-toolbar">
           <div>
-            <span>YOUR SHORTLIST</span>
-            <strong>{projects.length ? `${projects.length} projects ready to compare` : "Start by choosing two projects"}</strong>
+            <span>{arabic ? "قايمتك المختارة" : "YOUR SHORTLIST"}</span>
+            <strong>{projects.length ? (arabic ? `${projects.length} مشروع جاهز للمقارنة` : `${projects.length} projects ready to compare`) : (arabic ? "ابدأ باختيار مشروعين" : "Start by choosing two projects")}</strong>
           </div>
           <button className="compare-add" disabled={projects.length >= MAX_PROJECTS} onClick={() => setPickerOpen((value) => !value)}>
-            {pickerOpen ? "Close selector ×" : "＋ Add project"}
+            {pickerOpen ? (arabic ? "إغلاق ×" : "Close selector ×") : (arabic ? "＋ إضافة مشروع" : "＋ Add project")}
           </button>
         </div>
 
         {pickerOpen && projects.length < MAX_PROJECTS ? (
           <div className="compare-picker">
-            <SearchBox value={query} onChange={setQuery} placeholder="Search by project, developer or area" />
+            <SearchBox value={query} onChange={setQuery} placeholder={arabic ? "ابحث بالمشروع أو المطور أو المنطقة" : "Search by project, developer or area"} />
             <div className="compare-picker-results">
               {choices.map((project) => (
                 <button key={projectName(project)} onClick={() => addProject(projectName(project))}>
-                  <span><strong>{projectName(project)}</strong><small>{project["Developer | المطور"] || "Developer under review"} · {areaFrom(project["Location / Community | المنطقة"])}</small></span>
+                  <span><strong>{projectName(project)}</strong><small>{project["Developer | المطور"] || (arabic ? "مطور قيد المراجعة" : "Developer under review")} · {areaFrom(project["Location / Community | المنطقة"])}</small></span>
                   <b>＋</b>
                 </button>
               ))}
-              {!choices.length && <p>No matching projects found.</p>}
+              {!choices.length && <p>{arabic ? "لا توجد مشاريع مطابقة." : "No matching projects found."}</p>}
             </div>
           </div>
         ) : null}
@@ -126,60 +131,60 @@ export default function ComparePage() {
         {!projects.length ? (
           <section className="empty-workspace compare-empty">
             <span>＋</span>
-            <h2>Your comparison starts here.</h2>
-            <p>Choose projects from the full directory or add one using the selector above.</p>
-            <button className="button primary" onClick={() => setPickerOpen(true)}>Choose projects <b>↗</b></button>
+            <h2>{arabic ? "مقارنتك تبدأ من هنا." : "Your comparison starts here."}</h2>
+            <p>{arabic ? "اختار مشاريع من الدليل الكامل أو ضيف واحد باستخدام أداة الاختيار فوق." : "Choose projects from the full directory or add one using the selector above."}</p>
+            <button className="button primary" onClick={() => setPickerOpen(true)}>{arabic ? "اختار مشاريع" : "Choose projects"} <b>↗</b></button>
           </section>
         ) : (
           <div className="comparison-scroll" aria-label="Project comparison">
             <div className="comparison-grid" style={{ "--compare-columns": projects.length } as React.CSSProperties}>
-              <div className="comparison-label comparison-label-head"><span>PROJECTS</span><small>Swipe horizontally on mobile</small></div>
+              <div className="comparison-label comparison-label-head"><span>{arabic ? "المشاريع" : "PROJECTS"}</span><small>{arabic ? "اسحب أفقياً على الموبايل" : "Swipe horizontally on mobile"}</small></div>
               {projects.map((project) => {
                 const live = liveData[projectName(project)];
                 return (
                   <article className="comparison-project" key={projectName(project)}>
                     <button className="comparison-remove" aria-label={`Remove ${projectName(project)}`} onClick={() => removeProject(projectName(project))}>×</button>
                     <ProjectVisual project={project} live={live} />
-                    <div><small>{areaFrom(live?.location || project["Location / Community | المنطقة"])}</small><h2>{live?.title || projectName(project)}</h2><span>{live?.developer || project["Developer | المطور"] || "Under review"}</span></div>
+                    <div><small>{areaFrom(live?.location || project["Location / Community | المنطقة"])}</small><h2>{live?.title || projectName(project)}</h2><span>{live?.developer || project["Developer | المطور"] || (arabic ? "قيد المراجعة" : "Under review")}</span></div>
                   </article>
                 );
               })}
 
-              <ComparisonRow label="Starting price" hint="Lowest available price">
+              <ComparisonRow label={arabic ? "السعر المبدئي" : "Starting price"} hint={arabic ? "أقل سعر متاح" : "Lowest available price"}>
                 {projects.map((project) => <Metric key={projectName(project)} best={bestPrice != null && priceFor(project) === bestPrice} value={money(priceFor(project))} />)}
               </ComparisonRow>
-              <ComparisonRow label="Location" hint="Community">
+              <ComparisonRow label={arabic ? "الموقع" : "Location"} hint={arabic ? "المنطقة" : "Community"}>
                 {projects.map((project) => <Metric key={projectName(project)} value={enrichment[projectName(project)]?.community || areaFrom(liveData[projectName(project)]?.location || project["Location / Community | المنطقة"])} />)}
               </ComparisonRow>
-              <ComparisonRow label="Developer" hint="Project owner">
-                {projects.map((project) => <Metric key={projectName(project)} value={liveData[projectName(project)]?.developer || project["Developer | المطور"] || "Under review"} />)}
+              <ComparisonRow label={arabic ? "المطور" : "Developer"} hint={arabic ? "مالك المشروع" : "Project owner"}>
+                {projects.map((project) => <Metric key={projectName(project)} value={liveData[projectName(project)]?.developer || project["Developer | المطور"] || (arabic ? "قيد المراجعة" : "Under review")} />)}
               </ComparisonRow>
-              <ComparisonRow label="Handover" hint="Earliest date highlighted">
-                {projects.map((project) => <Metric key={projectName(project)} best={numericHandover(project["Handover | التسليم"]) === bestHandover && Number.isFinite(bestHandover)} value={project["Handover | التسليم"] || liveData[projectName(project)]?.deliveryDate || "TBA"} />)}
+              <ComparisonRow label={arabic ? "التسليم" : "Handover"} hint={arabic ? "أقرب تاريخ محدد" : "Earliest date highlighted"}>
+                {projects.map((project) => <Metric key={projectName(project)} best={numericHandover(project["Handover | التسليم"]) === bestHandover && Number.isFinite(bestHandover)} value={project["Handover | التسليم"] || liveData[projectName(project)]?.deliveryDate || (arabic ? "لم يُحدد بعد" : "TBA")} />)}
               </ComparisonRow>
-              <ComparisonRow label="Payment plan" hint="Published structure">
+              <ComparisonRow label={arabic ? "خطة الدفع" : "Payment plan"} hint={arabic ? "الهيكل المعلن" : "Published structure"}>
                 {projects.map((project) => <Metric key={projectName(project)} value={paymentText(project)} compact />)}
               </ComparisonRow>
-              <ComparisonRow label="Unit types" hint="Available mix">
+              <ComparisonRow label={arabic ? "أنواع الوحدات" : "Unit types"} hint={arabic ? "المزيج المتاح" : "Available mix"}>
                 {projects.map((project) => {
                   const live = liveData[projectName(project)];
-                  const value = live?.bedrooms?.length ? live.bedrooms.join(", ") : live?.propertyTypes?.join(", ") || project["Unit Type | نوع الوحدة"] || "Under verification";
+                  const value = live?.bedrooms?.length ? live.bedrooms.join(", ") : live?.propertyTypes?.join(", ") || project["Unit Type | نوع الوحدة"] || (arabic ? "قيد التحقق" : "Under verification");
                   return <Metric key={projectName(project)} value={value} compact />;
                 })}
               </ComparisonRow>
-              <ComparisonRow label="Amenities" hint="Most complete list">
+              <ComparisonRow label={arabic ? "المرافق" : "Amenities"} hint={arabic ? "أكمل قائمة" : "Most complete list"}>
                 {projects.map((project, index) => {
                   const amenities = liveData[projectName(project)]?.amenities || enrichment[projectName(project)]?.amenities || [];
-                  return <Metric key={projectName(project)} best={bestAmenities > 0 && amenityCounts[index] === bestAmenities} value={amenities.length ? `${amenities.length} verified amenities` : "Under verification"} />;
+                  return <Metric key={projectName(project)} best={bestAmenities > 0 && amenityCounts[index] === bestAmenities} value={amenities.length ? (arabic ? `${amenities.length} مرفق موثّق` : `${amenities.length} verified amenities`) : (arabic ? "قيد التحقق" : "Under verification")} />;
                 })}
               </ComparisonRow>
-              <ComparisonRow label="Explore" hint="Full project record">
-                {projects.map((project) => <a className="comparison-open" key={projectName(project)} href={`/projects/detail?name=${encodeURIComponent(projectName(project))}`}>View full project <b>↗</b></a>)}
+              <ComparisonRow label={arabic ? "استكشاف" : "Explore"} hint={arabic ? "السجل الكامل للمشروع" : "Full project record"}>
+                {projects.map((project) => <a className="comparison-open" key={projectName(project)} href={`/projects/detail?name=${encodeURIComponent(projectName(project))}`}>{arabic ? "عرض المشروع كامل" : "View full project"} <b>↗</b></a>)}
               </ComparisonRow>
             </div>
           </div>
         )}
-        <p className="compare-footnote">Best-value markers use the verified data currently available. Pricing and availability can change and should be reconfirmed before reservation.</p>
+        <p className="compare-footnote">{arabic ? "علامات أفضل قيمة بتستخدم البيانات الموثّقة المتاحة حالياً. الأسعار والتوفر ممكن يتغيروا وينصح بالتأكد منهم قبل الحجز." : "Best-value markers use the verified data currently available. Pricing and availability can change and should be reconfirmed before reservation."}</p>
       </section>
       <Footer />
     </main>
@@ -194,5 +199,6 @@ function ComparisonRow({ label, hint, children }: { label: string; hint: string;
 }
 
 function Metric({ value, best = false, compact = false }: { value: string; best?: boolean; compact?: boolean }) {
-  return <div className={`comparison-metric${best ? " best" : ""}${compact ? " compact" : ""}`}>{best && <span>BEST VALUE</span>}<strong>{value}</strong></div>;
+  const { arabic } = useLanguage();
+  return <div className={`comparison-metric${best ? " best" : ""}${compact ? " compact" : ""}`}>{best && <span>{arabic ? "أفضل قيمة" : "BEST VALUE"}</span>}<strong>{value}</strong></div>;
 }
