@@ -42,11 +42,18 @@ const usd = (value: number) =>
 
 const pct = (value: number) => `${(Number.isFinite(value) ? value : 0).toFixed(2)}%`;
 const num = (value: number, digits = 2) => (Number.isFinite(value) ? value : 0).toFixed(digits);
+const assetMixLabelAr = (mix: string) => {
+  if (mix === "Apartment") return "شقق";
+  if (mix === "Villa/Townhouse") return "فلل/تاون هاوس";
+  if (mix === "Mixed") return "مختلط (شقق وفلل)";
+  return mix;
+};
 
 export default function CalculatorsPage() {
   const { arabic } = useLanguage();
 
   const [areaBenchmarks, setAreaBenchmarks] = useState<AreaBenchmark[]>([]);
+  const [selectedAssetMix, setSelectedAssetMix] = useState("");
   const [selectedArea, setSelectedArea] = useState("");
 
   useEffect(() => {
@@ -73,14 +80,26 @@ export default function CalculatorsPage() {
     { name: "Post-handover", nameAr: "بعد التسليم", percent: 10, equity: true },
   ]);
 
-  const sortedAreas = useMemo(
-    () => [...areaBenchmarks].sort((a, b) => a.area.localeCompare(b.area)),
+  const assetMixOptions = useMemo(
+    () => Array.from(new Set(areaBenchmarks.map((item) => item.assetMix).filter((item): item is string => Boolean(item)))).sort(),
     [areaBenchmarks],
+  );
+  const sortedAreas = useMemo(
+    () => [...areaBenchmarks]
+      .filter((item) => !selectedAssetMix || item.assetMix === selectedAssetMix)
+      .sort((a, b) => a.area.localeCompare(b.area)),
+    [areaBenchmarks, selectedAssetMix],
   );
   const activeBenchmark = useMemo(
     () => areaBenchmarks.find((item) => item.area === selectedArea) || null,
     [areaBenchmarks, selectedArea],
   );
+
+  const applyAssetMix = (assetMix: string) => {
+    setSelectedAssetMix(assetMix);
+    const stillValid = areaBenchmarks.find((item) => item.area === selectedArea && (!assetMix || item.assetMix === assetMix));
+    if (!stillValid) setSelectedArea("");
+  };
 
   const applyAreaBenchmark = (areaName: string) => {
     setSelectedArea(areaName);
@@ -158,20 +177,40 @@ export default function CalculatorsPage() {
         <div className="investment-top-grid">
           <div className="input-panel">
             <label className="sheet-input area-select-row">
+              <span><strong>{arabic ? "نوع الوحدة" : "Unit type"}</strong></span>
+              <select value={selectedAssetMix} onChange={(event) => applyAssetMix(event.target.value)}>
+                <option value="">{arabic ? "— كل الأنواع —" : "— All types —"}</option>
+                {assetMixOptions.map((mix) => (
+                  <option key={mix} value={mix}>{mix}</option>
+                ))}
+              </select>
+            </label>
+            <label className="sheet-input area-select-row">
               <span><strong>{arabic ? "اختر المنطقة (اختياري)" : "Choose an area (optional)"}</strong></span>
               <select value={selectedArea} onChange={(event) => applyAreaBenchmark(event.target.value)}>
                 <option value="">{arabic ? "— بدون اختيار —" : "— No selection —"}</option>
                 {sortedAreas.map((item) => (
-                  <option key={item.area} value={item.area}>{item.area}</option>
+                  <option key={item.area} value={item.area}>
+                    {item.area}{item.assetMix ? ` — ${arabic ? assetMixLabelAr(item.assetMix) : item.assetMix}` : ""}
+                  </option>
                 ))}
               </select>
             </label>
             {activeBenchmark ? (
-              <p className="input-hint">
-                {arabic
-                  ? `${activeBenchmark.area}: إيجار ${activeBenchmark.rentPerSqFt ?? "—"} د.إ/قدم² · زيادة متوقعة ${activeBenchmark.appreciationBase ?? "—"}% (نطاق ${activeBenchmark.appreciationLow ?? "—"}–${activeBenchmark.appreciationHigh ?? "—"}%) · ثقة ${activeBenchmark.confidence ?? "—"}`
-                  : `${activeBenchmark.area}: rent ${activeBenchmark.rentPerSqFt ?? "—"} AED/sqft · expected appreciation ${activeBenchmark.appreciationBase ?? "—"}% (range ${activeBenchmark.appreciationLow ?? "—"}–${activeBenchmark.appreciationHigh ?? "—"}%) · confidence ${activeBenchmark.confidence ?? "—"}`}
-              </p>
+              <>
+                <p className="input-hint">
+                  {arabic
+                    ? `${activeBenchmark.area}: إيجار ${activeBenchmark.rentPerSqFt ?? "—"} د.إ/قدم² · زيادة متوقعة ${activeBenchmark.appreciationBase ?? "—"}% (نطاق ${activeBenchmark.appreciationLow ?? "—"}–${activeBenchmark.appreciationHigh ?? "—"}%) · ثقة ${activeBenchmark.confidence ?? "—"}`
+                    : `${activeBenchmark.area}: rent ${activeBenchmark.rentPerSqFt ?? "—"} AED/sqft · expected appreciation ${activeBenchmark.appreciationBase ?? "—"}% (range ${activeBenchmark.appreciationLow ?? "—"}–${activeBenchmark.appreciationHigh ?? "—"}%) · confidence ${activeBenchmark.confidence ?? "—"}`}
+                </p>
+                {activeBenchmark.assetMix ? (
+                  <p className="input-hint area-asset-warning">
+                    {arabic
+                      ? `⚠️ الرقم ده بيمثل نوع الأصل: ${assetMixLabelAr(activeBenchmark.assetMix)} فقط. لو وحدتك نوع مختلف، الإيجار والزيادة ممكن يفرقوا كتير — راجعهم يدوي.`
+                      : `⚠️ This figure represents asset type: ${activeBenchmark.assetMix} only. If your unit is a different type, rent and appreciation can differ significantly — verify manually.`}
+                  </p>
+                ) : null}
+              </>
             ) : null}
             <CalculatorInputToggle
               label={arabic ? "المساحة" : "Area"}
