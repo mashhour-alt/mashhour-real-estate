@@ -345,11 +345,34 @@ a { color: inherit; text-decoration: none; }
 .developer-filters select { padding: 0 15px; background: transparent; }
 .developer-cards { display: grid; grid-template-columns: repeat(3,1fr); border-top: 1px solid var(--line); border-left: 1px solid var(--line); }
 .developer-cards > article { min-width: 0; min-height: 485px; padding: 22px; display: flex; flex-direction: column; border-right: 1px solid var(--line); border-bottom: 1px solid var(--line); background: rgba(255,255,255,.35); }
-.developer-card-head { min-height: 138px; display: grid; grid-template-columns: 36px 1fr auto; align-items: center; gap: 14px; }
+.developer-card-head { min-height: 138px; display: grid; grid-template-columns: 36px 1fr auto; align-items: center; gap: 14px; text-decoration: none; color: inherit; }
+.developer-card-copy { text-decoration: none; color: inherit; display: block; }
 .developer-card-head > span { align-self: start; color: var(--red); font-size: 9px; font-weight: 900; }
 .developer-card-head > strong { font-size: 25px; letter-spacing: -.05em; }
 .developer-card-head > strong small { color: #777; font-size: 8px; }
 .developer-logo { width: 100%; height: 116px; padding: 22px 28px; display: flex; align-items: center; justify-content: center; border: 1px solid var(--line); background: white; overflow: hidden; box-sizing: border-box; }
+
+/* Individual developer profile page */
+.developer-profile-hero { display: flex; align-items: center; gap: 24px; padding: 60px 4vw 40px; max-width: 1200px; margin: auto; flex-wrap: wrap; }
+.developer-profile-logo { width: 96px; height: 96px; flex-shrink: 0; display: flex; align-items: center; justify-content: center; border: 1px solid var(--line); background: white; overflow: hidden; }
+.developer-profile-logo img { max-width: 100%; max-height: 100%; object-fit: contain; }
+.developer-profile-logo b { font-size: 26px; color: #999; }
+.developer-profile-head { flex: 1; min-width: 240px; }
+.developer-profile-head p { color: var(--red); font-size: 9px; font-weight: 900; letter-spacing: .13em; text-transform: uppercase; margin: 0 0 6px; }
+.developer-profile-head h1 { font-size: clamp(28px, 4vw, 44px); letter-spacing: -.04em; margin: 0 0 10px; }
+.developer-profile-official { flex-shrink: 0; }
+.developer-profile-scores { margin: 0 0 32px; }
+.developer-area-chips { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 20px; }
+.developer-area-chips a { padding: 8px 14px; border: 1px solid var(--line); font-size: 12px; text-decoration: none; color: inherit; border-radius: 3px; }
+.developer-area-chips a:hover { border-color: var(--red); color: var(--red); }
+.developer-claim-cta { display: flex; align-items: center; justify-content: space-between; gap: 20px; flex-wrap: wrap; margin-top: 32px; padding: 26px; border: 1px solid var(--line); background: var(--warm); }
+.developer-claim-cta h3 { margin: 0 0 4px; font-size: 18px; }
+.developer-claim-cta p { margin: 0; color: #666; font-size: 13px; }
+.detail-developer-link { text-decoration: none; }
+.detail-developer-link strong:hover { color: var(--red); }
+@media (max-width: 700px) {
+  .developer-cards { grid-template-columns: 1fr; }
+}
 .developer-logo img { max-width: 100%; max-height: 100%; width: auto; height: auto; object-fit: contain; display: block; }
 .developer-logo b { font-size: 28px; letter-spacing: -.08em; }
 .developer-card-copy { min-height: 130px; padding: 24px 0 18px; }

@@ -12,7 +12,7 @@ import {
   useProjectEnrichment,
   useProjectLiveData,
 } from "../../components";
-import { areaFrom, constructionProgressFromRecord, developerUrl, isDldLinked, money } from "../../data";
+import { areaFrom, constructionProgressFromRecord, developerUrl, isDldLinked, money, slugify } from "../../data";
 
 const humanize = (value: string | null | undefined) =>
   value ? value.replaceAll("_", " ").replace(/\b\w/g, (letter) => letter.toUpperCase()) : "Under review";
@@ -94,7 +94,7 @@ export default function ProjectDetailPage() {
     <main><Header />
       <section className="project-detail-hero">
         <ProjectVisual project={project} live={live} className="detail-project-visual" />
-        <div className="detail-hero-copy"><p>{community}</p><h1>{displayName}</h1><strong>{developer}</strong></div>
+        <div className="detail-hero-copy"><p>{community}</p><h1>{displayName}</h1><a className="detail-developer-link" href={`/developers/${slugify(developer)}`}><strong>{developer}</strong></a></div>
         <span className={enrichment?.verified ? "verification-chip large verified" : live ? "verification-chip large reference-matched" : "verification-chip large"}>
           {enrichment?.verified ? "OFFICIAL RECORD VERIFIED ✓" : live ? "PROJECT SOURCE MATCHED ✓" : "SOURCE MATERIAL PENDING"}
         </span>
@@ -136,7 +136,7 @@ export default function ProjectDetailPage() {
           </div><p className="source-note">Payment milestones are shown from the most detailed matched project record available and must be reconfirmed before reservation.</p></div>
 
           <div className="content-block" id="amenities"><span>03</span><h2>Amenities</h2>
-            {amenities.length ? <div className="amenity-list">{amenities.map((item) => <span key={item}>{item}</span>)}</div> : <div className="gallery-placeholder"><strong>Amenities under review</strong><p>The project’s public amenity list has not been matched yet.</p></div>}
+            {amenities.length ? <div className="amenity-list">{amenities.map((item) => <span key={item}>{item}</span>)}</div> : <div className="gallery-placeholder"><strong>Amenities under review</strong><p>The project's public amenity list has not been matched yet.</p></div>}
           </div>
 
           <div className="content-block" id="gallery"><span>04</span><h2>Full project gallery</h2>
@@ -144,7 +144,7 @@ export default function ProjectDetailPage() {
             {videoMedia.length ? <div className="project-videos">{videoMedia.map((item, index) => <video src={item.url} controls preload="metadata" key={`${item.url}-${index}`}>Project video</video>)}</div> : null}
           </div>
 
-          <div className="content-block" id="layouts"><span>05</span><h2>Layouts & floor plans</h2>
+          <div className="content-block" id="layouts"><span>05</span><h2>Layouts &amp; floor plans</h2>
             {floorPlans.length ? <div className="floor-plan-grid">{floorPlans.map((layout, index) => <a href={layout.url} target="_blank" rel="noreferrer" key={`${layout.url}-${index}`}><img src={layout.url} alt={`${displayName} floor plan ${index + 1}`} loading="lazy" /><div><strong>{layout.layoutType}</strong><span>{layout.bedrooms === 0 ? "Studio" : layout.bedrooms != null ? `${layout.bedrooms} bedroom` : layout.propertyType}</span>{layout.area ? <small>{layout.area.toLocaleString()} sq ft</small> : null}</div></a>)}</div> : <div className="gallery-placeholder"><strong>Floor plans are being sourced</strong><p>Layouts appear here only when a project-level floor-plan file is available.</p></div>}
           </div>
 

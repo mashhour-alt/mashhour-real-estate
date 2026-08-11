@@ -3,7 +3,7 @@
 import { useMemo, useState } from "react";
 import { DataNotice, Footer, Header, PageIntro, SearchBox, usePlatformData, useProjectLiveData } from "../components";
 import { useLanguage } from "../language-context";
-import { areaFrom, developerUrl, money, type Developer } from "../data";
+import { areaFrom, developerUrl, money, slugify, type Developer } from "../data";
 
 export default function DevelopersPage() {
   const data = usePlatformData();
@@ -61,12 +61,12 @@ export default function DevelopersPage() {
         <div className="developer-cards">
           {profiles.map(({ developer, projects, areas, priceFrom, logo }, index) => (
             <article key={developer.Developer}>
-              <div className="developer-card-head">
+              <a className="developer-card-head" href={`/developers/${slugify(developer.Developer)}`}>
                 <span>{String(index + 1).padStart(2, "0")}</span>
                 <div className="developer-logo">{logo ? <img src={logo} alt={`${developer.Developer} logo`} /> : <b>{developer.Developer.slice(0, 2).toUpperCase()}</b>}</div>
                 <strong>{developer["Overall /10"]?.toFixed(1) || "—"}<small>/10</small></strong>
-              </div>
-              <div className="developer-card-copy"><p>{developer.Tier === "PROFILE UNDER REVIEW" ? (arabic ? "الملف قيد المراجعة" : "PROFILE UNDER REVIEW") : developer.Tier}</p><h2>{developer.Developer}</h2><span>{areas.slice(0, 3).join(" · ") || (arabic ? "محفظة دبي" : "Dubai portfolio")}</span></div>
+              </a>
+              <a className="developer-card-copy" href={`/developers/${slugify(developer.Developer)}`}><p>{developer.Tier === "PROFILE UNDER REVIEW" ? (arabic ? "الملف قيد المراجعة" : "PROFILE UNDER REVIEW") : developer.Tier}</p><h2>{developer.Developer}</h2><span>{areas.slice(0, 3).join(" · ") || (arabic ? "محفظة دبي" : "Dubai portfolio")}</span></a>
               <dl>
                 <div><dt>{arabic ? "المشاريع" : "PROJECTS"}</dt><dd>{projects.length}</dd></div>
                 <div><dt>{arabic ? "المناطق" : "AREAS"}</dt><dd>{areas.length}</dd></div>
@@ -76,8 +76,8 @@ export default function DevelopersPage() {
                 {([["Delivery", "التسليم", developer["Delivery /10"]], ["Quality", "الجودة", developer["Quality /10"]], ["Safety", "السلامة", developer["Safety /10"]]] as const).map(([label, labelAr, value]) => <div key={label}><span>{arabic ? labelAr : label}</span><i><b style={{ width: `${(value || 0) * 10}%` }} /></i><strong>{value?.toFixed(1) || "—"}</strong></div>)}
               </div>
               <div className="developer-card-actions">
-                <a className="primary" href={`/projects?developer=${encodeURIComponent(developer.Developer)}`}>{arabic ? `عرض ${projects.length} مشروع` : `View ${projects.length} projects`} <b>→</b></a>
-                {developerUrl(developer.Developer) ? <a href={developerUrl(developer.Developer)} target="_blank" rel="noreferrer" aria-label={`${developer.Developer} official website`}>{arabic ? "الموقع الرسمي ↗" : "Official ↗"}</a> : <span>{arabic ? "الرابط الرسمي قيد المراجعة" : "Official link under review"}</span>}
+                <a className="primary" href={`/developers/${slugify(developer.Developer)}`}>{arabic ? "عرض الملف" : "View profile"} <b>→</b></a>
+                <a href={`/projects?developer=${encodeURIComponent(developer.Developer)}`}>{arabic ? `${projects.length} مشروع` : `${projects.length} projects`}</a>
               </div>
             </article>
           ))}
