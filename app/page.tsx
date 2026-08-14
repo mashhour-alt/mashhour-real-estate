@@ -202,13 +202,13 @@ export default function Home() {
       <Header />
       <section className="home-hero">
         <div className="home-copy">
-          <p className="eyebrow"><span />{arabic ? "ذكاء عقارات دبي على الخريطة" : "DUBAI OFF-PLAN INTELLIGENCE"}</p>
+          <p className="eyebrow"><span />{arabic ? "استثمر في دبي بأرقام، مش بوعود" : "INVEST IN DUBAI ON DATA, NOT PROMISES"}</p>
           {arabic
             ? <h1>كل قرار.<br /><em>في مكانه الصح.</em></h1>
             : <h1>Every decision.<br /><em>In its right place.</em></h1>}
           <p>{arabic
-            ? "المشاريع، المطورون، المناطق، ذكاء الخريطة وأدوات الاستثمار — دلوقتي في صفحات منفصلة ومصممة للديسكتوب والموبايل."
-            : "Projects, developers, areas, map intelligence and investment tools—now separated into focused pages built for desktop and mobile."}</p>
+            ? "قارن أسعار الوحدات، وخطط الدفع، والعائد المتوقع لكل منطقة — قبل ما تحجز، مش بعدها."
+            : "Compare unit prices, payment plans and expected returns area by area — before you reserve, not after."}</p>
           <div className="hero-actions">
             <a className="button primary" href="/projects">{arabic ? "استكشف المشاريع" : "Explore projects"} <b>↗</b></a>
             <a className="button ghost" href="/map">{arabic ? "افتح الخريطة" : "Open the map"} <b>→</b></a>
@@ -220,7 +220,7 @@ export default function Home() {
           <span>{arabic ? <>مختارة بعناية<br /><strong>دبي</strong></> : <>CURATED<br /><strong>DUBAI</strong></>}</span>
           <div className="hero-property-note">
             <small>{arabic ? "ذكاء السوق" : "MARKET INTELLIGENCE"}</small>
-            <strong>{arabic ? "رؤية واحدة واضحة لعقارات دبي على الخريطة." : "One clear view of Dubai off-plan."}</strong>
+            <strong>{arabic ? "سعر القدم الحقيقي لكل مشروع، من مصدره." : "The real price per sq ft, straight from the source."}</strong>
           </div>
         </div>
       </section>

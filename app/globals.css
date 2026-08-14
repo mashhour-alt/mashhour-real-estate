@@ -56,19 +56,7 @@ body { margin: 0; background: var(--paper); color: var(--ink); font-family: Aria
   [dir="rtl"] .project-detail-hero h1,
   [dir="rtl"] .hero h1 { max-width: 14ch; }
 }
-/* Sadu-inspired geometric strip: a repeating triangle motif referencing traditional
-   Najdi Al-Sadu weaving, using the site's existing red/ink palette. */
 .platform-header { position: relative; }
-.platform-header::after {
-  content: "";
-  position: absolute; left: 0; right: 0; bottom: -8px; height: 8px;
-  background-color: var(--red);
-  background-image:
-    linear-gradient(135deg, var(--ink) 25%, transparent 25.5%),
-    linear-gradient(225deg, var(--ink) 25%, transparent 25.5%);
-  background-size: 16px 16px;
-  background-position: 0 0;
-}
 body.modal-open { overflow: hidden; }
 body.menu-open { overflow: hidden; }
 button, input, select { font: inherit; }
