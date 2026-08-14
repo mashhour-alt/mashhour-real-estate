@@ -3,12 +3,14 @@
 import { useMemo, useState } from "react";
 import { DataNotice, Footer, Header, PageIntro, SearchBox, usePlatformData, useProjectLiveData } from "../components";
 import { useLanguage } from "../language-context";
+import { SponsoredLabel, useSponsorship } from "../sponsorship";
 import { areaFrom, developerUrl, money, slugify, type Developer } from "../data";
 
 export default function DevelopersPage() {
   const data = usePlatformData();
   const liveData = useProjectLiveData();
   const { arabic } = useLanguage();
+  const sponsorship = useSponsorship();
   const [query, setQuery] = useState("");
   const [tier, setTier] = useState("");
   const [sort, setSort] = useState("projects");
@@ -67,6 +69,7 @@ export default function DevelopersPage() {
                 <strong>{developer["Overall /10"]?.toFixed(1) || "—"}<small>/10</small></strong>
               </a>
               <a className="developer-card-copy" href={`/developers/${slugify(developer.Developer)}`}><p>{developer.Tier === "PROFILE UNDER REVIEW" ? (arabic ? "الملف قيد المراجعة" : "PROFILE UNDER REVIEW") : developer.Tier}</p><h2>{developer.Developer}</h2><span>{areas.slice(0, 3).join(" · ") || (arabic ? "محفظة دبي" : "Dubai portfolio")}</span></a>
+              {sponsorship.featuredDevelopers.includes(developer.Developer) ? <SponsoredLabel variant="developer" /> : null}
               <dl>
                 <div><dt>{arabic ? "المشاريع" : "PROJECTS"}</dt><dd>{projects.length}</dd></div>
                 <div><dt>{arabic ? "المناطق" : "AREAS"}</dt><dd>{areas.length}</dd></div>

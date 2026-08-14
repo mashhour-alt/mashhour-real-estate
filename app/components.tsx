@@ -98,6 +98,7 @@ export function Footer() {
         <a href="/areas">{arabic ? "المناطق" : "Areas"}</a>
         <a href="/developers">{arabic ? "المطورون" : "Developers"}</a>
         <a href="/data-coverage">{arabic ? "تغطية البيانات" : "Data coverage"}</a>
+        <a href="/partners">{arabic ? "شراكات المطورين" : "Partnerships"}</a>
         <a href="https://wa.me/971582239619" target="_blank" rel="noreferrer">WhatsApp</a>
         <a href="mailto:mahmoudmashhournasr@gmail.com">{arabic ? "البريد الإلكتروني" : "Email"}</a>
       </div>
