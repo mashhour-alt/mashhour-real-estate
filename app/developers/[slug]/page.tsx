@@ -9,6 +9,7 @@ import {
   useProjectLiveData,
 } from "../../components";
 import { useLanguage } from "../../language-context";
+import { CompareButton, ComparisonBar } from "../../comparison";
 import { areaFrom, developerUrl, money, slugify, type Developer } from "../../data";
 
 export default function DeveloperProfilePage() {
@@ -151,6 +152,7 @@ export default function DeveloperProfilePage() {
                     <div><dt>{arabic ? "التسليم" : "HANDOVER"}</dt><dd>{project["Handover | التسليم"] || (arabic ? "لم يُحدد بعد" : "TBA")}</dd></div>
                   </dl>
                   <span className="card-link">{arabic ? "عرض المشروع ↗" : "View project ↗"}</span>
+                  <CompareButton name={project["Project Name | اسم المشروع"]} />
                 </div>
               </a>
             );
@@ -197,6 +199,7 @@ export default function DeveloperProfilePage() {
         </div>
       </section>
       <Footer />
+      <ComparisonBar />
     </main>
   );
 }

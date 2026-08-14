@@ -14,6 +14,7 @@ import {
   useProjectLiveData,
 } from "../components";
 import { useLanguage } from "../language-context";
+import { CompareButton, ComparisonBar } from "../comparison";
 import { areaFrom, constructionProgressFromRecord, isDldLinked, money } from "../data";
 
 export default function ProjectsPage() {
@@ -183,13 +184,13 @@ export default function ProjectsPage() {
                 </span>
                 <strong className="developer-badge">{liveData[project["Project Name | اسم المشروع"]]?.developer || project["Developer | المطور"] || (arabic ? "مطور قيد المراجعة" : "Developer under review")}</strong>
               </div>
-              <div className="card-body"><p>{enrichment[project["Project Name | اسم المشروع"]]?.community || areaFrom(liveData[project["Project Name | اسم المشروع"]]?.location || project["Location / Community | المنطقة"])}</p><h3>{enrichment[project["Project Name | اسم المشروع"]]?.officialName || liveData[project["Project Name | اسم المشروع"]]?.title || project["Project Name | اسم المشروع"]}</h3><div className="developer-name"><small>{arabic ? "المطور" : "DEVELOPER"}</small><strong>{liveData[project["Project Name | اسم المشروع"]]?.developer || project["Developer | المطور"] || (arabic ? "قيد المراجعة" : "Under review")}</strong></div><dl><div><dt>{arabic ? "من" : "FROM"}</dt><dd>{money(enrichment[project["Project Name | اسم المشروع"]]?.officialStartingPrice || liveData[project["Project Name | اسم المشروع"]]?.startingPrice || project["Starting Price AED | السعر المبدئي"])}</dd></div><div><dt>{arabic ? "التسليم" : "HANDOVER"}</dt><dd>{project["Handover | التسليم"] || (arabic ? "لم يُحدد بعد" : "TBA")}</dd></div></dl><div className={projectCoverage(project).complete ? "pack-status complete" : "pack-status"}><span>{projectCoverage(project).complete ? (arabic ? "حزمة مشروع كاملة" : "COMPLETE PROJECT PACK") : (arabic ? `${projectCoverage(project).completed}/6 حقول أساسية` : `${projectCoverage(project).completed}/6 CORE FIELDS`)}</span><i><b style={{ width: `${(projectCoverage(project).completed / 6) * 100}%` }} /></i></div><span className="card-link">{arabic ? "افتح المعرض والبيانات الكاملة" : "Open gallery & full data"} <b>↗</b></span></div>
+              <div className="card-body"><p>{enrichment[project["Project Name | اسم المشروع"]]?.community || areaFrom(liveData[project["Project Name | اسم المشروع"]]?.location || project["Location / Community | المنطقة"])}</p><h3>{enrichment[project["Project Name | اسم المشروع"]]?.officialName || liveData[project["Project Name | اسم المشروع"]]?.title || project["Project Name | اسم المشروع"]}</h3><div className="developer-name"><small>{arabic ? "المطور" : "DEVELOPER"}</small><strong>{liveData[project["Project Name | اسم المشروع"]]?.developer || project["Developer | المطور"] || (arabic ? "قيد المراجعة" : "Under review")}</strong></div><dl><div><dt>{arabic ? "من" : "FROM"}</dt><dd>{money(enrichment[project["Project Name | اسم المشروع"]]?.officialStartingPrice || liveData[project["Project Name | اسم المشروع"]]?.startingPrice || project["Starting Price AED | السعر المبدئي"])}</dd></div><div><dt>{arabic ? "التسليم" : "HANDOVER"}</dt><dd>{project["Handover | التسليم"] || (arabic ? "لم يُحدد بعد" : "TBA")}</dd></div></dl><div className={projectCoverage(project).complete ? "pack-status complete" : "pack-status"}><span>{projectCoverage(project).complete ? (arabic ? "حزمة مشروع كاملة" : "COMPLETE PROJECT PACK") : (arabic ? `${projectCoverage(project).completed}/6 حقول أساسية` : `${projectCoverage(project).completed}/6 CORE FIELDS`)}</span><i><b style={{ width: `${(projectCoverage(project).completed / 6) * 100}%` }} /></i></div><span className="card-link">{arabic ? "افتح المعرض والبيانات الكاملة" : "Open gallery & full data"} <b>↗</b></span><CompareButton name={project["Project Name | اسم المشروع"]} /></div>
             </a>
           ))}
         </div>
         {visible < projects.length && <button className="load-more" onClick={() => setVisible((value) => value + 24)}>{arabic ? "تحميل المزيد ↓" : "Load more ↓"}</button>}
       </section>
-      <DataNotice /><Footer />
+      <DataNotice /><Footer /><ComparisonBar />
     </main>
   );
 }

@@ -12,10 +12,10 @@ import {
   useProjectLiveData,
 } from "../components";
 import { useLanguage } from "../language-context";
+import { MAX_COMPARISON, useComparison } from "../comparison";
 import { areaFrom, money, type Project } from "../data";
 
-const STORAGE_KEY = "mashhour-comparison";
-const MAX_PROJECTS = 4;
+const MAX_PROJECTS = MAX_COMPARISON;
 
 const projectName = (project: Project) => project["Project Name | اسم المشروع"];
 const numericHandover = (value: string | null) => {
@@ -30,24 +30,15 @@ export default function ComparePage() {
   const enrichment = useProjectEnrichment();
   const liveData = useProjectLiveData();
   const { arabic } = useLanguage();
-  const [selectedNames, setSelectedNames] = useState<string[]>(() => {
-    if (typeof window === "undefined") return [];
-    const requested = new URLSearchParams(window.location.search).get("project");
-    let saved: string[] = [];
-    try {
-      saved = JSON.parse(localStorage.getItem(STORAGE_KEY) || "[]");
-    } catch {
-      saved = [];
-    }
-    return Array.from(new Set(requested ? [...saved, requested] : saved)).slice(0, MAX_PROJECTS);
-  });
+  const { names: selectedNames, add, remove: removeFromShortlist } = useComparison();
   const [query, setQuery] = useState("");
   const [pickerOpen, setPickerOpen] = useState(false);
 
   useEffect(() => {
-    if (selectedNames.length) localStorage.setItem(STORAGE_KEY, JSON.stringify(selectedNames));
-    else localStorage.removeItem(STORAGE_KEY);
-  }, [selectedNames]);
+    // A project can be sent here directly from a project page via ?project=…
+    const requested = new URLSearchParams(window.location.search).get("project");
+    if (requested) add(requested);
+  }, [add]);
 
   const projects = useMemo(() => {
     const all = data?.projects || [];
@@ -74,11 +65,11 @@ export default function ComparePage() {
   const bestAmenities = amenityCounts.length ? Math.max(...amenityCounts) : 0;
 
   const addProject = (name: string) => {
-    setSelectedNames((current) => current.includes(name) || current.length >= MAX_PROJECTS ? current : [...current, name]);
+    add(name);
     setQuery("");
     if (selectedNames.length + 1 >= MAX_PROJECTS) setPickerOpen(false);
   };
-  const removeProject = (name: string) => setSelectedNames((current) => current.filter((item) => item !== name));
+  const removeProject = (name: string) => removeFromShortlist(name);
 
   const paymentText = (project: Project) => {
     const live = liveData[projectName(project)];

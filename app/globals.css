@@ -204,6 +204,28 @@ a { color: inherit; text-decoration: none; }
 .verification-chip.reference-matched { background: #173f6b; }
 .verification-chip.large { top: 28px; right: 4vw; }
 .card-link { border-top: 1px solid var(--line); padding-top: 14px; display: flex; justify-content: space-between; font-size: 9px; font-weight: 900; }
+
+/* Comparison shortlist: chip on cards + sticky bar */
+.compare-chip { margin-top: 10px; width: 100%; padding: 9px 12px; border: 1px solid var(--line); background: transparent; color: var(--ink); font-size: 10px; font-weight: 900; letter-spacing: .06em; cursor: pointer; transition: background .18s ease, border-color .18s ease, color .18s ease; }
+.compare-chip:hover:not(:disabled) { border-color: var(--red); color: var(--red); }
+.compare-chip.selected { background: var(--ink); border-color: var(--ink); color: #fff; }
+.compare-chip:disabled { opacity: .4; cursor: not-allowed; }
+.comparison-bar { position: fixed; left: 0; right: 0; bottom: 0; z-index: 900; background: var(--ink); color: #fff; box-shadow: 0 -12px 40px rgba(0,0,0,.28); }
+.comparison-bar-inner { max-width: 1600px; margin: auto; padding: 14px 4vw; display: flex; align-items: center; justify-content: space-between; gap: 18px; flex-wrap: wrap; }
+.comparison-bar-items { display: flex; align-items: center; gap: 16px; flex-wrap: wrap; min-width: 0; }
+.comparison-bar-items > strong { font-size: 12px; white-space: nowrap; }
+.comparison-bar-items > div { display: flex; gap: 8px; flex-wrap: wrap; }
+.comparison-bar-items span { display: inline-flex; align-items: center; gap: 6px; padding: 6px 10px; border: 1px solid rgba(255,255,255,.28); font-size: 11px; max-width: 220px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.comparison-bar-items span button { border: 0; background: transparent; color: rgba(255,255,255,.7); font-size: 14px; line-height: 1; cursor: pointer; padding: 0; }
+.comparison-bar-items span button:hover { color: #fff; }
+.comparison-bar-actions { display: flex; align-items: center; gap: 12px; flex-shrink: 0; }
+.comparison-bar-clear { border: 0; background: transparent; color: rgba(255,255,255,.65); font-size: 11px; font-weight: 800; cursor: pointer; }
+.comparison-bar-clear:hover { color: #fff; }
+@media (max-width: 700px) {
+  .comparison-bar-inner { padding: 12px 16px; }
+  .comparison-bar-items > div { display: none; }
+  .comparison-bar-actions { margin-inline-start: auto; }
+}
 .data-notice { margin: 0; padding: 36px 4vw; background: var(--red); display: grid; grid-template-columns: 200px 1fr; gap: 30px; align-items: center; }
 .data-notice span { font-size: 9px; font-weight: 900; letter-spacing: .16em; }
 .data-notice p { max-width: 900px; margin: 0; line-height: 1.6; font-size: 12px; }
