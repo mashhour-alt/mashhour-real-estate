@@ -19,15 +19,41 @@ body { margin: 0; background: var(--paper); color: var(--ink); font-family: Aria
    Arabic glyphs, so drop them in RTL. Reem Kufi (geometric Kufic-inspired) carries the
    heritage / Najdi-Sadu display character on big headings; Tajawal handles body text. */
 [dir="rtl"] body { font-family: "Tajawal", Arial, Helvetica, sans-serif; }
-[dir="rtl"] h1,
-[dir="rtl"] .section-kicker h2,
-[dir="rtl"] .eyebrow,
-[dir="rtl"] .home-articles .section-kicker span,
-[dir="rtl"] .home-mini-map .section-kicker span {
+/* Display font is reserved for hero headlines and brand moments only. Informational
+   headings (developer names, page states) stay in the readable body face. */
+[dir="rtl"] .home-copy h1,
+[dir="rtl"] .page-intro h1,
+[dir="rtl"] .project-detail-hero h1,
+[dir="rtl"] .hero h1,
+[dir="rtl"] .section-kicker h2 {
   font-family: "Reem Kufi", "Tajawal", Arial, sans-serif;
+  /* Kufi has taller ascenders than Latin display faces: the near-solid Latin
+     line-heights clip Arabic diacritics, so RTL gets its own looser rhythm. */
+  line-height: 1.18;
+  letter-spacing: 0;
+  word-spacing: .04em;
 }
 [dir="rtl"] .home-copy h1 em,
 [dir="rtl"] .hero h1 em { font-family: inherit; font-style: normal; }
+[dir="rtl"] .developer-profile-head h1,
+[dir="rtl"] .loading-page h1 { font-family: "Tajawal", Arial, sans-serif; line-height: 1.3; letter-spacing: 0; }
+/* Arabic display type needs a shorter measure and smaller steps on phones so long
+   headlines wrap cleanly instead of overlapping the sections beneath them. */
+[dir="rtl"] .home-copy h1,
+[dir="rtl"] .page-intro h1,
+[dir="rtl"] .project-detail-hero h1,
+[dir="rtl"] .hero h1 { max-width: 18ch; }
+@media (max-width: 700px) {
+  [dir="rtl"] .home-copy h1,
+  [dir="rtl"] .hero h1 { font-size: clamp(30px, 8.5vw, 40px); }
+  [dir="rtl"] .page-intro h1 { font-size: clamp(28px, 8vw, 38px); }
+  [dir="rtl"] .project-detail-hero h1 { font-size: clamp(26px, 7.5vw, 36px); }
+  [dir="rtl"] .section-kicker h2 { font-size: clamp(24px, 7vw, 32px); }
+  [dir="rtl"] .home-copy h1,
+  [dir="rtl"] .page-intro h1,
+  [dir="rtl"] .project-detail-hero h1,
+  [dir="rtl"] .hero h1 { max-width: 14ch; }
+}
 /* Sadu-inspired geometric strip: a repeating triangle motif referencing traditional
    Najdi Al-Sadu weaving, using the site's existing red/ink palette. */
 .platform-header { position: relative; }

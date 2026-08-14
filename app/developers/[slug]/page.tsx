@@ -11,6 +11,7 @@ import {
 import { useLanguage } from "../../language-context";
 import { CompareButton, ComparisonBar } from "../../comparison";
 import { areaFrom, developerUrl, money, slugify, type Developer } from "../../data";
+import { PageSeo, compact } from "../../seo";
 
 export default function DeveloperProfilePage() {
   const data = usePlatformData();
@@ -94,6 +95,18 @@ export default function DeveloperProfilePage() {
   return (
     <main>
       <Header />
+      <PageSeo
+        title={`${developerName} Projects in Dubai`}
+        description={`${developerName}: ${projects.length} linked project records across ${areas.length} Dubai areas, with prices, handover dates and source references.`}
+        structuredData={compact({
+          "@context": "https://schema.org",
+          "@type": "Organization",
+          name: developerName,
+          url: official || undefined,
+          logo: logo || undefined,
+          areaServed: areas.length ? areas : undefined,
+        })}
+      />
       <section className="developer-profile-hero">
         <div className="developer-profile-logo">
           {logo ? <img src={logo} alt={`${developerName} logo`} /> : <b>{developerName.slice(0, 2).toUpperCase()}</b>}

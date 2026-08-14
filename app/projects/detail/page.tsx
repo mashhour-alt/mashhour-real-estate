@@ -13,6 +13,7 @@ import {
   useProjectLiveData,
 } from "../../components";
 import { areaFrom, constructionProgressFromRecord, developerUrl, isDldLinked, money, slugify } from "../../data";
+import { PageSeo, compact } from "../../seo";
 
 const humanize = (value: string | null | undefined) =>
   value ? value.replaceAll("_", " ").replace(/\b\w/g, (letter) => letter.toUpperCase()) : "Under review";
@@ -92,6 +93,27 @@ export default function ProjectDetailPage() {
 
   return (
     <main><Header />
+      <PageSeo
+        title={`${displayName} | Dubai Off-Plan Project`}
+        description={`${displayName} by ${developer} in ${community}. Starting price, handover, payment plan and source-verified project data.`}
+        structuredData={compact({
+          "@context": "https://schema.org",
+          "@type": "Residence",
+          name: displayName,
+          address: compact({
+            "@type": "PostalAddress",
+            addressLocality: community,
+            addressRegion: "Dubai",
+            addressCountry: "AE",
+          }),
+          // Only emitted when the record actually carries the value.
+          url: enrichment?.officialSource || undefined,
+          image: imageMedia[0]?.url,
+          geo: coordinates
+            ? { "@type": "GeoCoordinates", latitude: coordinates.lat, longitude: coordinates.lng }
+            : undefined,
+        })}
+      />
       <section className="project-detail-hero">
         <ProjectVisual project={project} live={live} className="detail-project-visual" />
         <div className="detail-hero-copy"><p>{community}</p><h1>{displayName}</h1><a className="detail-developer-link" href={`/developers/${slugify(developer)}`}><strong>{developer}</strong></a></div>
