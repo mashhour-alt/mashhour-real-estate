@@ -11,6 +11,7 @@ import {
   useProjectAliases,
   useProjectEnrichment,
   useProjectLiveData,
+  useUnitPricing,
 } from "../../components";
 import { areaFrom, constructionProgressFromRecord, developerUrl, isDldLinked, money, slugify } from "../../data";
 import { PageSeo, compact } from "../../seo";
@@ -23,6 +24,7 @@ export default function ProjectDetailPage() {
   const aliases = useProjectAliases();
   const enrichmentMap = useProjectEnrichment();
   const liveMap = useProjectLiveData();
+  const unitPricing = useUnitPricing();
   const name = typeof window !== "undefined" ? new URLSearchParams(window.location.search).get("name") : "";
   const resolvedName = name ? aliases[name] || name : "";
   const project = useMemo(() => data?.projects.find((item) => item["Project Name | اسم المشروع"] === resolvedName), [data, resolvedName]);
@@ -90,6 +92,7 @@ export default function ProjectDetailPage() {
     ["AVAILABILITY", humanize(sourceDetail?.stockAvailability || live?.stockAvailability)],
   ];
   const detailedPlan = sourceDetail?.paymentPlans?.find((plan) => plan.phases?.length)?.phases;
+  const pricing = unitPricing[project["Project Name | اسم المشروع"]];
 
   return (
     <main><Header />
@@ -129,7 +132,7 @@ export default function ProjectDetailPage() {
       <section className="detail-layout">
         <article>
           <div className="detail-metrics">
-            <div><small>STARTING PRICE</small><strong>{money(enrichment?.officialStartingPrice ?? live?.startingPrice ?? project["Starting Price AED | السعر المبدئي"])}</strong></div>
+            <div><small>STARTING PRICE</small><strong>{money(pricing?.startingPrice ?? enrichment?.officialStartingPrice ?? live?.startingPrice ?? project["Starting Price AED | السعر المبدئي"])}</strong></div>
             <div><small>HANDOVER</small><strong>{sourceDetail?.deliveryDate || live?.deliveryDate || project["Handover | التسليم"] || "TBA"}</strong></div>
             <div><small>UNIT TYPE</small><strong>{enrichment?.unitTypes || humanize(sourceDetail?.propertyTypes?.join(", ") || live?.propertyTypes?.join(", ") || project["Unit Type | نوع الوحدة"])}</strong></div>
             <div><small>DATA STATUS</small><strong>{status}</strong></div>
@@ -147,7 +150,26 @@ export default function ProjectDetailPage() {
             </div>
           </div>
 
-          <div className="content-block" id="payment"><span>02</span><h2>Payment plan</h2><div className="payment-plan">
+          {pricing ? (
+            <div className="content-block" id="pricing"><span>02</span><h2>Starting price by unit type</h2>
+              <div className="unit-price-table">
+                <div className="unit-price-head"><span>Unit type</span><span>Starting price</span><span>AED / sq ft</span></div>
+                {pricing.unitTypes.map((unit) => (
+                  <div className="unit-price-row" key={unit.type}>
+                    <strong>{unit.type}</strong>
+                    <b>{money(unit.startingPrice)}</b>
+                    <span>{unit.avgPricePerSqFt ? `AED ${unit.avgPricePerSqFt.toLocaleString()}` : "Not currently available"}</span>
+                  </div>
+                ))}
+              </div>
+              <p className="source-note">
+                {pricing.source} · {pricing.developer} · inventory dated {pricing.inventoryDate}
+                {pricing.completionDate ? ` · completion ${pricing.completionDate}` : ""}. Prices are point-in-time and must be reconfirmed before reservation.
+              </p>
+            </div>
+          ) : null}
+
+          <div className="content-block" id="payment"><span>{pricing ? "03" : "02"}</span><h2>Payment plan</h2><div className="payment-plan">
             {detailedPlan?.length ? detailedPlan.map((phase, index) => (
               <div key={`${phase.label}-${index}`}><strong>{phase.value != null ? `${phase.value}%` : "—"}</strong><span>{phase.label || `Phase ${index + 1}`}</span></div>
             )) : <>

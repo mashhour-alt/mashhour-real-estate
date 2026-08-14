@@ -207,6 +207,33 @@ export function useProjectEnrichment() {
   return enrichment;
 }
 
+export type UnitTypePrice = {
+  type: string;
+  startingPrice: number;
+  avgPricePerSqFt: number | null;
+};
+
+export type UnitPricingRecord = {
+  developer: string;
+  inventoryDate: string;
+  source: string;
+  completionDate: string | null;
+  startingPrice: number;
+  unitTypes: UnitTypePrice[];
+};
+
+/** Per-unit-type pricing taken straight from developer inventory sheets. */
+export function useUnitPricing() {
+  const [pricing, setPricing] = useState<Record<string, UnitPricingRecord>>({});
+  useEffect(() => {
+    fetch("/data/unit-pricing.json")
+      .then((response) => response.json())
+      .then((data: { projects?: Record<string, UnitPricingRecord> }) => setPricing(data.projects || {}))
+      .catch(() => setPricing({}));
+  }, []);
+  return pricing;
+}
+
 export function useProjectLiveData() {
   const [projects, setProjects] = useState<ProjectLiveDataMap>({});
   useEffect(() => {
