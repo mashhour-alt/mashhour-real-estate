@@ -230,6 +230,9 @@ export default function Home() {
         <div><strong>{data?.areas.length.toLocaleString() || "—"}</strong><span>{arabic ? "منطقة موثّقة" : "area benchmarks"}</span></div>
         <div><strong>1</strong><span>{arabic ? "مرجع موحّد" : "structured reference"}</span></div>
       </section>
+      <p className="home-stats-link">
+        <a href="/data-coverage">{arabic ? "اعرف إزاي بنراجع البيانات ↗" : "See how we review the data ↗"}</a>
+      </p>
       <HomeArticles />
       <HomeMiniMap />
       <section className="destination-section">

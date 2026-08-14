@@ -13,7 +13,7 @@ import {
 } from "../components";
 import { useLanguage } from "../language-context";
 import { MAX_COMPARISON, useComparison } from "../comparison";
-import { areaFrom, money, type Project } from "../data";
+import { areaFrom, isDldLinked, money, type Project } from "../data";
 
 const MAX_PROJECTS = MAX_COMPARISON;
 
@@ -70,6 +70,18 @@ export default function ComparePage() {
     if (selectedNames.length + 1 >= MAX_PROJECTS) setPickerOpen(false);
   };
   const removeProject = (name: string) => removeFromShortlist(name);
+
+  const notAvailable = arabic ? "غير متوفر حالياً" : "Not currently available";
+
+  // Only computed when both a starting price and a smallest published unit area
+  // exist for the same record — never estimated from area averages.
+  const pricePerSqFt = (project: Project) => {
+    const price = priceFor(project);
+    const units = liveData[projectName(project)]?.unitOptions || [];
+    const areas = units.map((unit) => unit.areaFrom).filter((value): value is number => typeof value === "number" && value > 0);
+    if (typeof price !== "number" || price <= 0 || !areas.length) return null;
+    return Math.round(price / Math.min(...areas));
+  };
 
   const paymentText = (project: Project) => {
     const live = liveData[projectName(project)];
@@ -144,6 +156,12 @@ export default function ComparePage() {
               <ComparisonRow label={arabic ? "السعر المبدئي" : "Starting price"} hint={arabic ? "أقل سعر متاح" : "Lowest available price"}>
                 {projects.map((project) => <Metric key={projectName(project)} best={bestPrice != null && priceFor(project) === bestPrice} value={money(priceFor(project))} />)}
               </ComparisonRow>
+              <ComparisonRow label={arabic ? "سعر القدم²" : "AED / sq ft"} hint={arabic ? "السعر ÷ أصغر مساحة منشورة" : "Price ÷ smallest published unit"}>
+                {projects.map((project) => {
+                  const value = pricePerSqFt(project);
+                  return <Metric key={projectName(project)} value={value ? `AED ${value.toLocaleString()}` : notAvailable} />;
+                })}
+              </ComparisonRow>
               <ComparisonRow label={arabic ? "الموقع" : "Location"} hint={arabic ? "المنطقة" : "Community"}>
                 {projects.map((project) => <Metric key={projectName(project)} value={enrichment[projectName(project)]?.community || areaFrom(liveData[projectName(project)]?.location || project["Location / Community | المنطقة"])} />)}
               </ComparisonRow>
@@ -167,6 +185,42 @@ export default function ComparePage() {
                 {projects.map((project, index) => {
                   const amenities = liveData[projectName(project)]?.amenities || enrichment[projectName(project)]?.amenities || [];
                   return <Metric key={projectName(project)} best={bestAmenities > 0 && amenityCounts[index] === bestAmenities} value={amenities.length ? (arabic ? `${amenities.length} مرفق موثّق` : `${amenities.length} verified amenities`) : (arabic ? "قيد التحقق" : "Under verification")} />;
+                })}
+              </ComparisonRow>
+              <ComparisonRow label={arabic ? "سجل DLD" : "DLD record"} hint={arabic ? "رابط مصدر رسمي" : "Official source link"}>
+                {projects.map((project) => (
+                  <Metric
+                    key={projectName(project)}
+                    value={isDldLinked(project) ? (arabic ? "مرتبط بـ DLD ✓" : "DLD linked ✓") : (arabic ? "المطابقة قيد الانتظار" : "Match pending")}
+                  />
+                ))}
+              </ComparisonRow>
+              <ComparisonRow label={arabic ? "حساب الضمان" : "Escrow"} hint={arabic ? "حالة حساب ضمان المشروع" : "Project escrow status"}>
+                {projects.map((project) => {
+                  const verified = project["Escrow Account Status | حالة حساب الضمان"] === "Verified Yes";
+                  return (
+                    <Metric
+                      key={projectName(project)}
+                      value={verified ? (arabic ? "موثّق ✓" : "Verified ✓") : (arabic ? "التحقق قيد الانتظار" : "Verification pending")}
+                    />
+                  );
+                })}
+              </ComparisonRow>
+              <ComparisonRow label={arabic ? "المصدر" : "Source"} hint={arabic ? "مصدر السجل الحالي" : "Origin of this record"}>
+                {projects.map((project) => {
+                  const name = projectName(project);
+                  const value = enrichment[name]?.verified
+                    ? (arabic ? "مادة المطور الرسمية" : "Official developer material")
+                    : isDldLinked(project)
+                      ? (arabic ? "دائرة الأراضي والأملاك" : "Dubai Land Department")
+                      : liveData[name]?.sourceProvider || notAvailable;
+                  return <Metric key={name} value={value} compact />;
+                })}
+              </ComparisonRow>
+              <ComparisonRow label={arabic ? "آخر تحديث" : "Last updated"} hint={arabic ? "تاريخ آخر تحديث للسجل" : "Date this record last refreshed"}>
+                {projects.map((project) => {
+                  const name = projectName(project);
+                  return <Metric key={name} value={liveData[name]?.sourceUpdatedAt || enrichment[name]?.verifiedAt || notAvailable} compact />;
                 })}
               </ComparisonRow>
               <ComparisonRow label={arabic ? "استكشاف" : "Explore"} hint={arabic ? "السجل الكامل للمشروع" : "Full project record"}>
