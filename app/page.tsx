@@ -3,6 +3,7 @@
 import { useEffect, useMemo, useRef, useState } from "react";
 import { ContactDock, DataNotice, Footer, Header, LeadSection, usePlatformData, useProjectLiveData } from "./components";
 import { useLanguage } from "./language-context";
+import { MAPTILER_ATTRIBUTION, tileUrlFor } from "./map-tiles";
 import { projectImages } from "./data";
 
 const destinations = [
@@ -153,10 +154,10 @@ function HomeMiniMap() {
         keyboard: false,
       });
       map = leafletMap;
-      L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
-        attribution: "© OpenStreetMap contributors",
-        subdomains: "abc",
+      L.tileLayer(tileUrlFor(arabic), {
+        attribution: MAPTILER_ATTRIBUTION,
         maxZoom: 19,
+        crossOrigin: true,
       }).addTo(leafletMap);
       const clusters = (L as typeof L & { markerClusterGroup: (options?: object) => L.LayerGroup }).markerClusterGroup({
         showCoverageOnHover: false,
@@ -178,7 +179,7 @@ function HomeMiniMap() {
       cancelled = true;
       map?.remove();
     };
-  }, [mappedProjects]);
+  }, [mappedProjects, arabic]);
 
   return (
     <section className="home-mini-map">

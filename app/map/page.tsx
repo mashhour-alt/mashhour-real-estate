@@ -3,6 +3,7 @@
 import { useEffect, useMemo, useRef, useState } from "react";
 import { DataNotice, Footer, Header, PageIntro, SearchBox, usePlatformData, useProjectLiveData } from "../components";
 import { useLanguage } from "../language-context";
+import { MAPTILER_ATTRIBUTION, tileUrlFor } from "../map-tiles";
 import { areaFrom } from "../data";
 
 type MapPoint = [number, number];
@@ -191,6 +192,7 @@ export default function MapPage() {
   const [operatingMetro, setOperatingMetro] = useState<OperatingMetroNetwork | null>(null);
   const mapElement = useRef<HTMLDivElement | null>(null);
   const mapInstance = useRef<{ flyTo: (point: MapPoint, zoom: number, options?: object) => void } | null>(null);
+  const tileLayer = useRef<{ setUrl: (url: string) => void } | null>(null);
   const projectMarkers = useRef(new Map<string, { openTooltip: () => void }>());
   const allProjects = useMemo(() => (data?.projects || []).map((project) => {
     const name = project["Project Name | اسم المشروع"];
@@ -234,10 +236,10 @@ export default function MapPage() {
       map = leafletMap;
       mapInstance.current = leafletMap;
       markerRegistry.clear();
-      L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
-        attribution: "© OpenStreetMap contributors",
-        subdomains: "abc",
+      tileLayer.current = L.tileLayer(tileUrlFor(arabic), {
+        attribution: MAPTILER_ATTRIBUTION,
         maxZoom: 19,
+        crossOrigin: true,
       }).addTo(leafletMap);
 
       const metroPane = leafletMap.createPane("metroNetworkPane");
@@ -336,6 +338,12 @@ export default function MapPage() {
       map?.remove();
     };
   }, [mappedProjects, operatingMetro]);
+
+  // Language switch only needs new tiles — rebuilding the map would lose the
+  // user's current pan and zoom.
+  useEffect(() => {
+    tileLayer.current?.setUrl(tileUrlFor(arabic));
+  }, [arabic]);
 
   const revealProject = (name: string, point: MapPoint) => {
     mapInstance.current?.flyTo(point, 16, { animate: true, duration: 0.8 });
