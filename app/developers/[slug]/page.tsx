@@ -5,6 +5,7 @@ import {
   Footer,
   Header,
   ProjectVisual,
+  SearchBox,
   usePlatformData,
   useProjectLiveData,
 } from "../../components";
@@ -18,6 +19,7 @@ export default function DeveloperProfilePage() {
   const liveData = useProjectLiveData();
   const { arabic } = useLanguage();
   const [slug, setSlug] = useState("");
+  const [projectQuery, setProjectQuery] = useState("");
 
   useEffect(() => {
     const parts = window.location.pathname.split("/").filter(Boolean);
@@ -50,6 +52,16 @@ export default function DeveloperProfilePage() {
     () => Array.from(new Set(projects.map((p) => areaFrom(p["Location / Community | المنطقة"])).filter(Boolean))),
     [projects],
   );
+  // Search is scoped to this developer's own projects — name or community.
+  const visibleProjects = useMemo(() => {
+    const term = projectQuery.trim().toLowerCase();
+    if (!term) return projects;
+    return projects.filter((p) => {
+      const name = p["Project Name | اسم المشروع"] || "";
+      const location = p["Location / Community | المنطقة"] || "";
+      return name.toLowerCase().includes(term) || location.toLowerCase().includes(term);
+    });
+  }, [projects, projectQuery]);
   const prices = projects
     .map((p) => liveData[p["Project Name | اسم المشروع"]]?.startingPrice || p["Starting Price AED | السعر المبدئي"])
     .filter((v): v is number => typeof v === "number" && v > 0);
@@ -147,9 +159,22 @@ export default function DeveloperProfilePage() {
           </p>
         )}
 
-        <h2 style={{ fontSize: 20, margin: "40px 0 8px" }}>{arabic ? `مشاريع ${developerName}` : `Projects by ${developerName}`}</h2>
+        <h2 style={{ fontSize: 20, margin: "40px 0 12px" }}>
+          {arabic ? `مشاريع ${developerName}` : `Projects by ${developerName}`}
+          <small className="developer-project-count">{visibleProjects.length} / {projects.length}</small>
+        </h2>
+        <SearchBox
+          value={projectQuery}
+          onChange={setProjectQuery}
+          placeholder={arabic ? "ابحث في مشاريع هذا المطور" : "Search this developer's projects"}
+        />
+        {!visibleProjects.length ? (
+          <p className="input-hint" style={{ margin: "18px 0 0" }}>
+            {arabic ? "مفيش مشروع مطابق لبحثك." : "No project matches your search."}
+          </p>
+        ) : null}
         <div className="project-grid platform-project-grid">
-          {projects.map((project, index) => {
+          {visibleProjects.map((project, index) => {
             const live = liveData[project["Project Name | اسم المشروع"]];
             return (
               <a className="project-card" href={`/projects/detail?name=${encodeURIComponent(project["Project Name | اسم المشروع"])}`} key={`${project["Project Name | اسم المشروع"]}-${index}`}>
