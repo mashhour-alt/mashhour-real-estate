@@ -1595,6 +1595,142 @@
      "avgPricePerSqFt": 2153
     }
    ]
+  },
+  "Ivy at Park Five": {
+   "developer": "Deyaar Development",
+   "inventoryDate": "2026-08-12",
+   "source": "Official developer availability sheet",
+   "startingPrice": 720788,
+   "unitTypes": [
+    {
+     "type": "Studio",
+     "startingPrice": 720788,
+     "avgPricePerSqFt": 1687
+    },
+    {
+     "type": "2 Bedroom Duplex",
+     "startingPrice": 2437152,
+     "avgPricePerSqFt": 1339
+    },
+    {
+     "type": "3 Bedroom Duplex",
+     "startingPrice": 3270611,
+     "avgPricePerSqFt": 1190
+    }
+   ]
+  },
+  "Millennium Talia Residences": {
+   "developer": "Deyaar Development",
+   "inventoryDate": "2026-08-12",
+   "source": "Official developer availability sheet",
+   "startingPrice": 1200000,
+   "unitTypes": [
+    {
+     "type": "1 Bedroom",
+     "startingPrice": 1200000,
+     "avgPricePerSqFt": 1500
+    }
+   ]
+  },
+  "Alder at Park Five": {
+   "developer": "Deyaar Development",
+   "inventoryDate": "2026-08-12",
+   "source": "Official developer availability sheet",
+   "startingPrice": 1789072,
+   "unitTypes": [
+    {
+     "type": "2 Bedroom",
+     "startingPrice": 1789072,
+     "avgPricePerSqFt": 1116
+    }
+   ]
+  },
+  "DWTN Residences": {
+   "developer": "Deyaar Development",
+   "inventoryDate": "2026-08-12",
+   "source": "Official developer availability sheet",
+   "startingPrice": 2271477,
+   "unitTypes": [
+    {
+     "type": "1 Bedroom",
+     "startingPrice": 2271477,
+     "avgPricePerSqFt": 2577
+    },
+    {
+     "type": "2 Bedroom",
+     "startingPrice": 3460184,
+     "avgPricePerSqFt": 2772
+    },
+    {
+     "type": "2 Bedroom Duplex",
+     "startingPrice": 4415981,
+     "avgPricePerSqFt": 2573
+    },
+    {
+     "type": "3 Bedroom",
+     "startingPrice": 5073115,
+     "avgPricePerSqFt": 2951
+    },
+    {
+     "type": "3 Bedroom Duplex",
+     "startingPrice": 10289923,
+     "avgPricePerSqFt": 3070
+    },
+    {
+     "type": "3 Bed Penthouse",
+     "startingPrice": 17212069,
+     "avgPricePerSqFt": 3658
+    },
+    {
+     "type": "4 Bed Penthouse",
+     "startingPrice": 19235173,
+     "avgPricePerSqFt": 3675
+    }
+   ]
+  },
+  "Neem at Park Five": {
+   "developer": "Deyaar Development",
+   "inventoryDate": "2026-08-12",
+   "source": "Official developer availability sheet",
+   "startingPrice": 2273522,
+   "unitTypes": [
+    {
+     "type": "3 Bedroom",
+     "startingPrice": 2273522,
+     "avgPricePerSqFt": 1328
+    }
+   ]
+  },
+  "Mar Casa": {
+   "developer": "Deyaar Development",
+   "inventoryDate": "2026-08-12",
+   "source": "Official developer availability sheet",
+   "startingPrice": 2348500,
+   "unitTypes": [
+    {
+     "type": "1 Bedroom",
+     "startingPrice": 2348500,
+     "avgPricePerSqFt": 3050
+    },
+    {
+     "type": "2 Bedroom",
+     "startingPrice": 3534000,
+     "avgPricePerSqFt": 3100
+    }
+   ]
+  },
+  "Ember Park Five": {
+   "developer": "Deyaar Development",
+   "inventoryDate": "2026-08-12",
+   "source": "Official developer availability sheet",
+   "startingPrice": 2249118,
+   "unitTypes": [
+    {
+     "type": "3 Bedroom",
+     "startingPrice": 2249118,
+     "avgPricePerSqFt": 1266
+    }
+   ]
   }
  }
 }
