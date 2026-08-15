@@ -1,10 +1,58 @@
 "use client";
 
 import { useMemo, useState } from "react";
-import { DataNotice, Footer, Header, PageIntro, SearchBox, usePlatformData, useProjectLiveData } from "../components";
+import { DataNotice, Footer, FounderQuoteCarousel, Header, SearchBox, usePlatformData, useProjectLiveData, type FounderQuote } from "../components";
 import { useLanguage } from "../language-context";
 import { SponsoredLabel, useSponsorship } from "../sponsorship";
 import { areaFrom, developerUrl, money, slugify, type Developer } from "../data";
+
+const FOUNDER_QUOTES: FounderQuote[] = [
+  {
+    name: "Hussain Sajwani",
+    nameAr: "حسين سجواني",
+    developer: "Founder & Chairman, DAMAC Properties",
+    developerAr: "المؤسس ورئيس مجلس الإدارة، داماك العقارية",
+    quote: "\u201cMy dream is to have DAMAC towers in important gateway cities around the world.\u201d",
+    quoteAr: "\u201cحلمي إن أشوف أبراج داماك في أهم مدن العالم.\u201d",
+    source: "Arabian Business",
+  },
+  {
+    name: "Mohamed Alabbar",
+    nameAr: "محمد العبار",
+    developer: "Founder & Chairman, Emaar Properties",
+    developerAr: "المؤسس ورئيس مجلس الإدارة، إعمار العقارية",
+    quote: "\u201cMake mistakes. Learn quickly. Develop yourself constantly.\u201d",
+    quoteAr: "\u201cاغلط، اتعلم بسرعة، وطوّر نفسك باستمرار.\u201d",
+    source: "Arageek",
+  },
+  {
+    name: "Farhad Azizi",
+    nameAr: "فرهاد عزيزي",
+    developer: "CEO, Azizi Developments",
+    developerAr: "الرئيس التنفيذي، عزيزي للتطوير العقاري",
+    quote: "\u201cOur goal is to enhance the lives of our customers through world-class properties.\u201d",
+    quoteAr: "\u201cهدفنا إننا نحسّن حياة عملائنا بعقارات بمستوى عالمي.\u201d",
+    source: "UAE Stories",
+  },
+  {
+    name: "Muhammad BinGhatti",
+    nameAr: "محمد بن غاطي",
+    developer: "Chairman, Binghatti Holding",
+    developerAr: "رئيس مجلس الإدارة، بن غاطي القابضة",
+    quote: "\u201cWe are striving to become the Apple of real estate.\u201d",
+    quoteAr: "\u201cبنسعى إننا نبقى Apple صناعة العقارات.\u201d",
+    source: "Sustainable Business Magazine",
+  },
+  {
+    name: "Rizwan Sajan",
+    nameAr: "رضوان سجان",
+    developer: "Founder & Chairman, Danube Properties",
+    developerAr: "المؤسس ورئيس مجلس الإدارة، دانوب العقارية",
+    quote: "\u201cKnown as Dubai's \u20181% Man\u2019 for pioneering the 1% monthly payment plan.\u201d",
+    quoteAr: "\u201cمعروف بلقب \u2018راجل الـ1%\u2019 في دبي، صاحب خطة الدفع الشهرية الشهيرة.\u201d",
+    source: "Gulf News",
+  },
+];
 
 export default function DevelopersPage() {
   const data = usePlatformData();
@@ -43,10 +91,9 @@ export default function DevelopersPage() {
   return (
     <main>
       <Header />
-      <PageIntro
+      <FounderQuoteCarousel
         eyebrow={arabic ? "دليل المطورين" : "DEVELOPER DIRECTORY"}
-        title={arabic ? "كل مطور مرتبط، ظاهر." : "Every linked developer, visible."}
-        intro={arabic ? "كل مطور مذكور في دليل المشاريع بيظهر هنا. درجات السجل بتظهر بس لما تتراجع؛ الملفات غير المُقيّمة بتفضل ظاهرة بدل ما تفقد مشاريعها." : "Every developer named in the project catalogue now appears here. Track-record scores are shown only when reviewed; unscored profiles remain visible instead of losing their projects."}
+        quotes={FOUNDER_QUOTES}
         action={<strong className="page-count">{profiles.length} {arabic ? "مطوّر" : "DEVELOPERS"}</strong>}
       />
       <section className="page-body">

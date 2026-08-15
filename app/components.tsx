@@ -171,6 +171,41 @@ export function PageIntro({ eyebrow, title, intro, action }: { eyebrow: string; 
   );
 }
 
+export type FounderQuote = {
+  name: string;
+  nameAr: string;
+  developer: string;
+  developerAr: string;
+  quote: string;
+  quoteAr: string;
+  source: string;
+};
+
+export function FounderQuoteCarousel({ eyebrow, quotes, action }: { eyebrow: string; quotes: FounderQuote[]; action?: React.ReactNode }) {
+  const { arabic } = useLanguage();
+  const [index, setIndex] = useState(0);
+  useEffect(() => {
+    const timer = setInterval(() => setIndex((current) => (current + 1) % quotes.length), 5000);
+    return () => clearInterval(timer);
+  }, [quotes.length]);
+  const next = () => setIndex((current) => (current + 1) % quotes.length);
+  const current = quotes[index];
+  return (
+    <section className="page-intro founder-carousel">
+      <button className="founder-carousel-body" onClick={next} aria-label={arabic ? "التالي" : "Next"}>
+        <p><i />{eyebrow}</p>
+        <div className="founder-carousel-avatar"><b>{(arabic ? current.nameAr : current.name).slice(0, 2)}</b></div>
+        <blockquote>{arabic ? current.quoteAr : current.quote}</blockquote>
+        <cite><strong>{arabic ? current.nameAr : current.name}</strong><span>{arabic ? current.developerAr : current.developer}</span></cite>
+        <div className="founder-carousel-dots">
+          {quotes.map((item, dotIndex) => <i key={item.name} className={dotIndex === index ? "active" : ""} onClick={(event) => { event.stopPropagation(); setIndex(dotIndex); }} />)}
+        </div>
+      </button>
+      {action}
+    </section>
+  );
+}
+
 export function SearchBox({ value, onChange, placeholder }: { value: string; onChange: (value: string) => void; placeholder: string }) {
   return <label className="platform-search"><span>⌕</span><input value={value} onChange={(event) => onChange(event.target.value)} placeholder={placeholder} /></label>;
 }
@@ -243,7 +278,7 @@ export function useProjectLiveData() {
     ]).then(([live, verified]) => {
       const merged = { ...live } as ProjectLiveDataMap;
       Object.entries(verified as Record<string, { coordinates: { lat: number; lng: number } }>).forEach(([name, entry]) => {
-        merged[name] = {
+        const defaults: ProjectLiveData = {
           sourceProvider: "Google Maps",
           sourceUpdatedAt: "2026-07-26",
           sourceProjectId: `google-maps:${name}`,
@@ -264,6 +299,9 @@ export function useProjectLiveData() {
           constructionPhase: null,
           constructionProgress: null,
           stockAvailability: null,
+        };
+        merged[name] = {
+          ...defaults,
           ...(merged[name] || {}),
           coordinates: entry.coordinates,
         };
