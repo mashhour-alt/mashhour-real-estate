@@ -5,17 +5,13 @@ path = "app/map/page.tsx"
 with open(path, "r", encoding="utf-8") as f:
     content = f.read()
 
-anchor = """      .addTo(leafletMap);
-        });
-      });
-    });"""
+anchor = "const clusters = (L as typeof L"
 
 if anchor not in content:
-    print("ANCHOR NOT FOUND - ابعتلي السطور اللي قبل وبعد نهاية كود المترو")
+    print("ANCHOR NOT FOUND")
     sys.exit(1)
 
-addition = anchor + """
-
+addition = """
     const etihadRailLine = {
       id: "etihad-rail",
       name: "Etihad Rail",
@@ -110,7 +106,9 @@ addition = anchor + """
         return container;
       },
     });
-    leafletMap.addControl(new RailToggleControl());"""
+    leafletMap.addControl(new RailToggleControl());
+
+    """ + anchor
 
 content = content.replace(anchor, addition, 1)
 
