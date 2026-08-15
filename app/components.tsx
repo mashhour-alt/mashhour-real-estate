@@ -269,6 +269,30 @@ export function useUnitPricing() {
   return pricing;
 }
 
+export type DeveloperProfileField = { en: string; ar: string };
+export type DeveloperProfile = {
+  overview: DeveloperProfileField;
+  marketEntry: DeveloperProfileField;
+  trackRecord: DeveloperProfileField;
+  reputation: DeveloperProfileField;
+  resale: DeveloperProfileField;
+  partnerships: DeveloperProfileField;
+  certifications: DeveloperProfileField;
+  sources?: string[];
+};
+
+/** Editorial developer profiles (who they are, track record, reputation, resale, partnerships, certifications). Researched in batches — not every developer has one yet. */
+export function useDeveloperProfiles() {
+  const [profiles, setProfiles] = useState<Record<string, DeveloperProfile>>({});
+  useEffect(() => {
+    fetch("/data/developer-profiles.json")
+      .then((response) => response.json())
+      .then((data: { profiles?: Record<string, DeveloperProfile> }) => setProfiles(data.profiles || {}))
+      .catch(() => setProfiles({}));
+  }, []);
+  return profiles;
+}
+
 export function useProjectLiveData() {
   const [projects, setProjects] = useState<ProjectLiveDataMap>({});
   useEffect(() => {

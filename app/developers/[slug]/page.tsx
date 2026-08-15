@@ -7,6 +7,7 @@ import {
   ProjectVisual,
   SearchBox,
   usePlatformData,
+  useDeveloperProfiles,
   useProjectLiveData,
 } from "../../components";
 import { useLanguage } from "../../language-context";
@@ -17,6 +18,7 @@ import { PageSeo, compact } from "../../seo";
 export default function DeveloperProfilePage() {
   const data = usePlatformData();
   const liveData = useProjectLiveData();
+  const profiles = useDeveloperProfiles();
   const { arabic } = useLanguage();
   const [slug, setSlug] = useState("");
   const [projectQuery, setProjectQuery] = useState("");
@@ -65,10 +67,14 @@ export default function DeveloperProfilePage() {
   const prices = projects
     .map((p) => liveData[p["Project Name | اسم المشروع"]]?.startingPrice || p["Starting Price AED | السعر المبدئي"])
     .filter((v): v is number => typeof v === "number" && v > 0);
-  const avgPrice = prices.length ? Math.round(prices.reduce((s, v) => s + v, 0) / prices.length) : null;
+  const priceMin = prices.length ? Math.min(...prices) : null;
+  const priceMax = prices.length ? Math.max(...prices) : null;
   const logo = projects.map((p) => liveData[p["Project Name | اسم المشروع"]]?.developerLogo).find(Boolean) || null;
   const official = developerName ? developerUrl(developerName) : "";
   const isVerified = Boolean(developerRecord?.Tier && developerRecord.Tier !== "PROFILE UNDER REVIEW");
+  const profile = developerName
+    ? Object.entries(profiles).find(([name]) => name.trim().toLowerCase() === developerName.trim().toLowerCase())?.[1] || null
+    : null;
 
   const currentYear = new Date().getFullYear();
   const upcomingCount = projects.filter((p) => {
@@ -144,8 +150,48 @@ export default function DeveloperProfilePage() {
           <div><strong>{projects.length}</strong><span>{arabic ? "سجل مشروع مرتبط" : "linked project records"}</span></div>
           <div><strong>{upcomingCount}</strong><span>{arabic ? "مشروع بتسليم قادم" : "upcoming handovers"}</span></div>
           <div><strong>{areas.length}</strong><span>{arabic ? "منطقة نشط بها" : "areas present"}</span></div>
-          <div><strong>{avgPrice ? money(avgPrice) : (arabic ? "غير متوفر حالياً" : "Not currently available")}</strong><span>{arabic ? "متوسط سعر البداية" : "average starting price"}</span></div>
+          <div><strong>{priceMin ? `${money(priceMin)} – ${money(priceMax)}` : (arabic ? "غير متوفر حالياً" : "Not currently available")}</strong><span>{arabic ? "نطاق سعر البداية" : "starting price range"}</span></div>
         </div>
+
+        {profile ? (
+          <div className="developer-narrative">
+            <div className="developer-narrative-block">
+              <h3>{arabic ? "مين المطور" : "Who is the developer"}</h3>
+              <p>{arabic ? profile.overview.ar : profile.overview.en}</p>
+            </div>
+            <div className="developer-narrative-block">
+              <h3>{arabic ? "دخوله السوق" : "Market entry"}</h3>
+              <p>{arabic ? profile.marketEntry.ar : profile.marketEntry.en}</p>
+            </div>
+            <div className="developer-narrative-block">
+              <h3>{arabic ? "سابقة أعماله" : "Track record"}</h3>
+              <p>{arabic ? profile.trackRecord.ar : profile.trackRecord.en}</p>
+            </div>
+            <div className="developer-narrative-block">
+              <h3>{arabic ? "سمعته" : "Reputation"}</h3>
+              <p>{arabic ? profile.reputation.ar : profile.reputation.en}</p>
+            </div>
+            <div className="developer-narrative-block">
+              <h3>{arabic ? "أسعار إعادة البيع" : "Resale prices"}</h3>
+              <p>{arabic ? profile.resale.ar : profile.resale.en}</p>
+            </div>
+            <div className="developer-narrative-block">
+              <h3>{arabic ? "الشراكات" : "Partnerships"}</h3>
+              <p>{arabic ? profile.partnerships.ar : profile.partnerships.en}</p>
+            </div>
+            <div className="developer-narrative-block">
+              <h3>{arabic ? "الشهادات والتكريمات" : "Certifications & recognition"}</h3>
+              <p>{arabic ? profile.certifications.ar : profile.certifications.en}</p>
+            </div>
+            {profile.sources?.length ? (
+              <p className="developer-narrative-sources">{arabic ? "المصادر: " : "Sources: "}{profile.sources.join(" · ")}</p>
+            ) : null}
+          </div>
+        ) : (
+          <p className="input-hint" style={{ margin: "0 0 32px" }}>
+            {arabic ? "ملف تحريري كامل لهذا المطور قيد الإعداد وهيتضاف قريباً." : "A full editorial profile for this developer is being researched and will be added soon."}
+          </p>
+        )}
 
         {developerRecord["Overall /10"] != null ? (
           <div className="developer-scores developer-profile-scores">

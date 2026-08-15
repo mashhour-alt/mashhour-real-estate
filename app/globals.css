@@ -473,6 +473,15 @@ a { color: inherit; text-decoration: none; }
 .developer-profile-head h1 { font-size: clamp(28px, 4vw, 44px); letter-spacing: -.04em; margin: 0 0 10px; }
 .developer-profile-official { flex-shrink: 0; }
 .developer-profile-scores { margin: 0 0 32px; }
+
+.developer-narrative { display: grid; grid-template-columns: repeat(2,1fr); gap: 1px; background: var(--line); border: 1px solid var(--line); margin-bottom: 32px; }
+.developer-narrative-block { background: #fff; padding: 22px 24px; }
+.developer-narrative-block h3 { font-size: 10px; font-weight: 900; letter-spacing: .1em; text-transform: uppercase; color: var(--red); margin: 0 0 10px; }
+.developer-narrative-block p { margin: 0; font-size: 14px; line-height: 1.75; color: #333; }
+.developer-narrative-sources { grid-column: 1 / -1; background: var(--warm); padding: 12px 24px; margin: 0; font-size: 10px; color: #77716a; letter-spacing: .02em; }
+@media (max-width: 720px) {
+  .developer-narrative { grid-template-columns: 1fr; }
+}
 .developer-project-count { margin-inline-start: 10px; color: #999; font-size: 11px; font-weight: 700; }
 .developer-area-chips { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 20px; }
 .developer-area-chips a { padding: 8px 14px; border: 1px solid var(--line); font-size: 12px; text-decoration: none; color: inherit; border-radius: 3px; }
