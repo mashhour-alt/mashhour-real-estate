@@ -1,6 +1,6 @@
 {
  "note": "Per-unit-type starting prices taken directly from developer inventory sheets. Values are point-in-time and must be reconfirmed before reservation.",
- "updatedAt": "2026-08-14",
+ "updatedAt": "2026-08-15",
  "projects": {
   "Tilal Binghatti": {
    "developer": "Binghatti Developers",
@@ -1729,6 +1729,162 @@
      "type": "3 Bedroom",
      "startingPrice": 2249118,
      "avgPricePerSqFt": 1266
+    }
+   ]
+  },
+  "Seacliff by Imtiaz": {
+   "developer": "Imtiaz Developments",
+   "inventoryDate": "2026-08-10",
+   "source": "Official developer availability sheet",
+   "startingPrice": 2061420,
+   "unitTypes": [
+    {
+     "type": "1 Bedroom",
+     "startingPrice": 2061420,
+     "avgPricePerSqFt": 2783
+    },
+    {
+     "type": "2 Bedroom",
+     "startingPrice": 3247860,
+     "avgPricePerSqFt": 2377
+    },
+    {
+     "type": "3 Bedroom",
+     "startingPrice": 4571213,
+     "avgPricePerSqFt": 2844
+    },
+    {
+     "type": "4 Bedroom Duplex",
+     "startingPrice": 8106979,
+     "avgPricePerSqFt": 1847
+    }
+   ]
+  },
+  "ENRE RESIDENCE BY IMTIAZ": {
+   "developer": "Imtiaz Developments",
+   "inventoryDate": "2026-08-10",
+   "source": "Official developer availability sheet",
+   "startingPrice": 1730374,
+   "unitTypes": [
+    {
+     "type": "2 Bedroom",
+     "startingPrice": 1730374,
+     "avgPricePerSqFt": 1629
+    },
+    {
+     "type": "Retail",
+     "startingPrice": 4669610,
+     "avgPricePerSqFt": 3774
+    }
+   ]
+  },
+  "The Symphony": {
+   "developer": "Imtiaz Developments",
+   "inventoryDate": "2026-08-10",
+   "source": "Official developer availability sheet",
+   "startingPrice": 1882223,
+   "unitTypes": [
+    {
+     "type": "1 Bedroom",
+     "startingPrice": 1882223,
+     "avgPricePerSqFt": 2792
+    },
+    {
+     "type": "Office",
+     "startingPrice": 3400537,
+     "avgPricePerSqFt": 2797
+    },
+    {
+     "type": "2 Bedroom",
+     "startingPrice": 3439165,
+     "avgPricePerSqFt": 2589
+    },
+    {
+     "type": "Retail",
+     "startingPrice": 7273820,
+     "avgPricePerSqFt": 4627
+    },
+    {
+     "type": "4 Bedroom",
+     "startingPrice": 9561765,
+     "avgPricePerSqFt": 3726
+    }
+   ]
+  },
+  "Wynwood Horizon": {
+   "developer": "Imtiaz Developments",
+   "inventoryDate": "2026-08-10",
+   "source": "Official developer availability sheet",
+   "startingPrice": 1972722,
+   "unitTypes": [
+    {
+     "type": "1 Bedroom",
+     "startingPrice": 1972722,
+     "avgPricePerSqFt": 2085
+    },
+    {
+     "type": "2 Bedroom + Maid",
+     "startingPrice": 3312631,
+     "avgPricePerSqFt": 2370
+    },
+    {
+     "type": "2 Bedroom",
+     "startingPrice": 3318577,
+     "avgPricePerSqFt": 1856
+    },
+    {
+     "type": "Retail",
+     "startingPrice": 8144476,
+     "avgPricePerSqFt": 3641
+    }
+   ]
+  },
+  "Cove Boulevard": {
+   "developer": "Imtiaz Developments",
+   "inventoryDate": "2026-08-10",
+   "source": "Official developer availability sheet",
+   "startingPrice": 1886668,
+   "unitTypes": [
+    {
+     "type": "Office",
+     "startingPrice": 1886668,
+     "avgPricePerSqFt": 1530
+    }
+   ]
+  },
+  "Le Blanc Residence by Imtiaz": {
+   "developer": "Imtiaz Developments",
+   "inventoryDate": "2026-08-10",
+   "source": "Official developer availability sheet",
+   "startingPrice": 720000,
+   "unitTypes": [
+    {
+     "type": "Studio",
+     "startingPrice": 720000,
+     "avgPricePerSqFt": 1172
+    },
+    {
+     "type": "1 Bedroom",
+     "startingPrice": 1182000,
+     "avgPricePerSqFt": 1035
+    }
+   ]
+  },
+  "Cove Edition Residence Phase 2 By Imtiaz": {
+   "developer": "Imtiaz Developments",
+   "inventoryDate": "2026-08-10",
+   "source": "Official developer availability sheet",
+   "startingPrice": 1344526,
+   "unitTypes": [
+    {
+     "type": "1 Bedroom",
+     "startingPrice": 1344526,
+     "avgPricePerSqFt": 1808
+    },
+    {
+     "type": "2 Bedroom",
+     "startingPrice": 1881000,
+     "avgPricePerSqFt": 1481
     }
    ]
   }
