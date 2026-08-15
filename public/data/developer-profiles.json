@@ -1,191 +1,425 @@
 {
-  "updatedAt": "2026-08-15",
-  "profiles": {
-    "Emaar Properties": {
-      "overview": {
-        "en": "Emaar Properties is Dubai's largest publicly listed developer, founded by Mohamed Alabbar in 1997 and listed on the Dubai Financial Market in 2000. It is the master developer behind Burj Khalifa, Dubai Mall and Dubai Marina.",
-        "ar": "إعمار العقارية هي أكبر مطور مُدرج في بورصة دبي، أسسها محمد العبار سنة 1997 وأُدرجت في سوق دبي المالي سنة 2000. هي المطور الرئيسي وراء برج خليفة ودبي مول ومارينا دبي."
-      },
-      "marketEntry": {
-        "en": "Entered the market in 1997 as one of the first private developers in Dubai, backed by the government's decision to allow land ownership. Went public in 2000, becoming one of the region's earliest listed real estate companies.",
-        "ar": "دخلت السوق سنة 1997 كواحدة من أوائل المطورين الخاصين في دبي، بعد قرار الحكومة السماح بتملك الأراضي. طرحت للاكتتاب العام سنة 2000، وكانت من أوائل شركات العقارات المُدرجة في المنطقة."
-      },
-      "trackRecord": {
-        "en": "Delivered over 100,000 residential units in Dubai alone. Landmark projects include Burj Khalifa (world's tallest building), Dubai Mall, Dubai Marina, Downtown Dubai and Dubai Creek Harbour. Active internationally in Egypt, Saudi Arabia, Turkey, India and Pakistan.",
-        "ar": "سلّمت أكثر من 100,000 وحدة سكنية في دبي وحدها. من أهم مشاريعها برج خليفة (أطول مبنى في العالم)، دبي مول، مارينا دبي، داون تاون دبي، ودبي كريك هاربور. لها وجود دولي في مصر والسعودية وتركيا والهند وباكستان."
-      },
-      "reputation": {
-        "en": "Widely regarded as Dubai's most trusted large-scale developer, with a strong record of on-time delivery for its flagship communities. Alabbar has publicly acknowledged past pricing and cost mistakes during the 2008 downturn but the brand recovered strongly.",
-        "ar": "يُنظر لها على نطاق واسع كأكثر مطور كبير موثوق في دبي، بسجل قوي في تسليم مجتمعاتها الرئيسية في الميعاد. اعترف العبار علناً بأخطاء تسعير وتكاليف حصلت وقت أزمة 2008، لكن العلامة التجارية تعافت بقوة بعدها."
-      },
-      "resale": {
-        "en": "Emaar communities (Downtown Dubai, Dubai Marina, Dubai Hills Estate) consistently rank among the strongest resale and rental performers in Dubai due to brand premium, scarcity of comparable master-planned supply and sustained end-user demand.",
-        "ar": "مجتمعات إعمار (داون تاون دبي، مارينا دبي، دبي هيلز استيت) من أقوى المناطق في إعادة البيع والإيجار في دبي، بسبب قوة العلامة التجارية وندرة البدائل المماثلة والطلب المستمر من المستخدم النهائي."
-      },
-      "partnerships": {
-        "en": "Partnerships with Giorgio Armani (Armani Hotel & Residences), Address Hotels, and joint ventures with government entities in Egypt (Marassi, Mivida), Turkey and Saudi Arabia.",
-        "ar": "شراكات مع جورجيو أرماني (فندق ورزيدنس أرماني)، فنادق Address، ومشاريع مشتركة مع جهات حكومية في مصر (مراسي، ميفيدا)، وتركيا والسعودية."
-      },
-      "certifications": {
-        "en": "Alabbar has received multiple industry recognitions including honorary doctorate from Seattle University (2007) and is regularly listed among the Middle East's most influential business leaders.",
-        "ar": "حصل العبار على تكريمات عديدة منها دكتوراه فخرية من جامعة سياتل (2007)، ويُدرج بانتظام ضمن أكثر رجال الأعمال تأثيراً في الشرق الأوسط."
-      },
-      "sources": ["en.wikipedia.org/wiki/Mohamed_Alabbar", "arabianbusiness.com", "thenationalnews.com"]
-    },
-    "Damac Properties": {
-      "overview": {
-        "en": "DAMAC Properties is a Dubai luxury developer founded by Hussain Sajwani in 2002. Known for extravagant marketing and branded residences in partnership with global luxury names.",
-        "ar": "داماك العقارية مطور فخم في دبي أسسه حسين سجواني سنة 2002. معروفة بتسويقها الجريء والوحدات السكنية المرتبطة بعلامات عالمية فاخرة."
-      },
-      "marketEntry": {
-        "en": "Sajwani started in catering (serving the U.S. military and Bechtel) before pivoting to real estate in 2002, right after Dubai allowed foreign property ownership. His first project, Marina Terrace, sold out within six months.",
-        "ar": "بدأ سجواني في مجال التموين (بيقدّم خدمات للجيش الأمريكي وشركة بكتل) قبل ما يتحول للعقارات سنة 2002، فور ما سمحت دبي بتملك الأجانب. أول مشروع له، مارينا تراس، اتباع بالكامل خلال ستة شهور."
-      },
-      "trackRecord": {
-        "en": "Delivered over 25,000 homes with a development portfolio exceeding 40,000 units. Listed on the London Stock Exchange in 2014, later the Arab world's fourth-biggest public company by 2017. Flagship projects: Akoya Oxygen, DAMAC Hills, DAMAC Lagoons.",
-        "ar": "سلّمت أكثر من 25,000 وحدة سكنية بمحفظة تطوير تتجاوز 40,000 وحدة. أُدرجت في بورصة لندن سنة 2014، وبقت رابع أكبر شركة عامة في العالم العربي بحلول 2017. من أبرز مشاريعها أكويا أوكسجين، داماك هيلز، وداماك لاجونز."
-      },
-      "reputation": {
-        "en": "Known for bold, high-visibility marketing (free Lamborghini offers) and luxury co-branding. Some historical projects faced handover delays common to the sector during the 2008-2011 downturn; the brand has since scaled significantly.",
-        "ar": "معروفة بتسويقها الجريء واللافت (عروض لامبورجيني مجانية) والشراكات الفاخرة. بعض المشاريع القديمة واجهت تأخيرات في التسليم كانت شائعة في القطاع وقت تراجع 2008-2011، لكن العلامة التجارية توسعت بشكل كبير بعدها."
-      },
-      "resale": {
-        "en": "DAMAC's branded residences (de GRISOGONO, Cavalli, Versace) and DAMAC Hills/Lagoons communities command a resale premium tied to brand association, though yields vary widely by project and handover stage.",
-        "ar": "الوحدات المرتبطة بعلامات داماك (دي جريسوجونو، كافالي، فيرساتشي) ومجتمعات داماك هيلز/لاجونز بتاخد علاوة سعرية في إعادة البيع مرتبطة بقوة العلامة، لكن العوائد بتختلف بشكل كبير حسب المشروع ومرحلة التسليم."
-      },
-      "partnerships": {
-        "en": "Co-branding deals with Versace, Cavalli, de GRISOGONO, Bugatti and a 2013 joint venture with the Trump Organization for two Trump-branded golf courses in Dubai.",
-        "ar": "شراكات علامة تجارية مع فيرساتشي، كافالي، دي جريسوجونو، وبوجاتي، ومشروع مشترك سنة 2013 مع مجموعة ترامب لإنشاء ملعبي جولف بعلامة ترامب في دبي."
-      },
-      "certifications": {
-        "en": "Sajwani was named Real Estate Legend 2018 (Arabian Business Real Estate Awards) and Property CEO of the Year 2017 (CEO Middle East Awards).",
-        "ar": "حصل سجواني على لقب أسطورة العقارات 2018 (جوائز Arabian Business العقارية) وأفضل رئيس تنفيذي عقاري لسنة 2017 (جوائز CEO Middle East)."
-      },
-      "sources": ["en.wikipedia.org/wiki/Hussain_Sajwani", "forbes.com/profile/hussain-sajwani", "arabianbusiness.com"]
-    },
-    "Azizi Developments": {
-      "overview": {
-        "en": "Azizi Developments is a Dubai developer led by CEO Farhad Azizi, under the Azizi Group founded by his father Mirwais Azizi. Focused on fast-paced delivery across emerging Dubai communities.",
-        "ar": "عزيزي للتطوير العقاري مطور في دبي بيقوده الرئيس التنفيذي فرهاد عزيزي، تحت مجموعة عزيزي اللي أسسها والده ميرويس عزيزي. بتركز على التسليم السريع في مناطق دبي الناشئة."
-      },
-      "marketEntry": {
-        "en": "The Azizi Group diversified into UAE real estate after earlier ventures in banking, oil & gas across Europe and the Middle East. Farhad Azizi took over leadership after working across all departments of the family business.",
-        "ar": "توسعت مجموعة عزيزي في عقارات الإمارات بعد مشاريع سابقة في البنوك والنفط والغاز في أوروبا والشرق الأوسط. تولى فرهاد عزيزي القيادة بعد ما اشتغل في كل أقسام شركة العائلة."
-      },
-      "trackRecord": {
-        "en": "Delivered over 30,000 homes to date, with a portfolio worth several billion dollars. Currently developing Azizi Venice, which includes the world's second-tallest skyscraper and an opera house. Strong presence in Al Furjan, Meydan, Dubai Healthcare City and Dubai Islands.",
-        "ar": "سلّمت أكثر من 30,000 وحدة سكنية لحد الآن، بمحفظة بمليارات الدولارات. بتطوّر حالياً مشروع عزيزي فينيسيا اللي بيضم ثاني أطول ناطحة سحاب في العالم ودار أوبرا. لها حضور قوي في الفرجان، ميدان، دبي هيلث كير سيتي، وجزر دبي."
-      },
-      "reputation": {
-        "en": "Known for aggressive expansion and high sales volume, with daily sales historically ranging AED 20-25 million during strong market periods. Customer-centricity and vertical integration (manufacturing to delivery) are core to its positioning.",
-        "ar": "معروفة بتوسعها القوي وحجم مبيعاتها العالي، وصلت مبيعاتها اليومية تاريخياً بين 20-25 مليون درهم في فترات السوق القوية. التركيز على العميل والتكامل الرأسي (من التصنيع للتسليم) أساسيين في موقعها."
-      },
-      "resale": {
-        "en": "Azizi's Al Furjan and Meydan projects have seen steady resale activity given handover volume and location, though pricing sits in the mid-market to upper-mid tier rather than ultra-luxury.",
-        "ar": "مشاريع عزيزي في الفرجان وميدان شهدت نشاط إعادة بيع ثابت بسبب حجم التسليمات والموقع، لكن التسعير في الفئة المتوسطة لفوق المتوسطة مش الفخامة القصوى."
-      },
-      "partnerships": {
-        "en": "Vertically integrated model with in-house manufacturing; partnership with National Engineering Bureau on the Azizi Venice project.",
-        "ar": "نموذج متكامل رأسياً بتصنيع داخلي؛ شراكة مع المكتب الهندسي الوطني في مشروع عزيزي فينيسيا."
-      },
-      "certifications": {
-        "en": "Active philanthropic record including the 1 Billion Meals Endowment initiative during Ramadan, funding hospitals, orphanages and education scholarships across the UAE and Afghanistan.",
-        "ar": "سجل خيري نشط بيشمل مبادرة وقف مليار وجبة في رمضان، وتمويل مستشفيات ودور أيتام ومنح تعليمية في الإمارات وأفغانستان."
-      },
-      "sources": ["focus.hidubai.com", "cbnme.com", "utulsa.edu"]
-    },
-    "Binghatti Developers": {
-      "overview": {
-        "en": "Binghatti Developers is a Dubai-based developer led by Chairman & Head of Architecture Muhammad BinGhatti, a third-generation entrepreneur known for bold, instantly recognizable architectural branding.",
-        "ar": "بن غاطي للتطوير العقاري مطور مقره دبي بيقوده رئيس مجلس الإدارة ورئيس القسم المعماري محمد بن غاطي، رائد أعمال من الجيل الثالث معروف بتصميمه المعماري الجريء والمميز."
-      },
-      "marketEntry": {
-        "en": "Binghatti Holding is a family business; Muhammad BinGhatti took over in 2014 and formally established Binghatti Developers as its real estate arm, growing it from a handful of projects to a major Dubai brand within a decade.",
-        "ar": "بن غاطي القابضة شركة عائلية؛ تولى محمد بن غاطي القيادة سنة 2014 وأسس رسمياً بن غاطي للتطوير العقاري كذراعها العقاري، وكبّرها من مشاريع قليلة لعلامة تجارية كبيرة في دبي خلال عشر سنين."
-      },
-      "trackRecord": {
-        "en": "Grew from roughly 30 projects in 2018 to over 50 across the UAE, with a portfolio valued at approximately AED 40 billion. Landmark projects include Burj Binghatti Jacob & Co. Residences, Mercedes-Benz Places by Binghatti, and Bugatti Residences by Binghatti.",
-        "ar": "كبّرت من حوالي 30 مشروع سنة 2018 لأكتر من 50 مشروع في الإمارات، بمحفظة بقيمة حوالي 40 مليار درهم. من أبرز مشاريعها برج بن غاطي جاكوب آند كو، مرسيدس-بنز بلايسز باي بن غاطي، وبوجاتي رزيدنسز باي بن غاطي."
-      },
-      "reputation": {
-        "en": "Recognized for a distinct 'brand DNA' — buildings are instantly identifiable, similar to automotive or fashion brand identity. The company explicitly compares its ambition to becoming 'the Apple of real estate.'",
-        "ar": "معروفة بهويتها التصميمية المميزة — مبانيها ممكن تتعرف عليها فوراً، شبه هوية العلامات التجارية للسيارات أو الموضة. الشركة بتقارن طموحها صراحة بإنها تبقى 'أبل صناعة العقارات'."
-      },
-      "resale": {
-        "en": "Binghatti's Business Bay, JVC and Downtown Dubai projects benefit from strong rental yields and connectivity, though resale pricing carries a design-brand premium that varies by project maturity.",
-        "ar": "مشاريع بن غاطي في بيزنس باي وJVC وداون تاون دبي بتستفيد من عوائد إيجار قوية واتصال جيد، لكن سعر إعادة البيع بياخد علاوة تصميم بتختلف حسب نضج المشروع."
-      },
-      "partnerships": {
-        "en": "First real estate developer globally to partner with automotive and horological luxury brands directly on branded residences: Bugatti, Mercedes-Benz, and Jacob & Co.",
-        "ar": "أول مطور عقاري عالمياً بيتشارك مباشرة مع علامات فاخرة للسيارات والساعات في وحدات سكنية بعلامتها: بوجاتي، مرسيدس-بنز، وجاكوب آند كو."
-      },
-      "certifications": {
-        "en": "Muhammad BinGhatti has been listed on Forbes' Top 100 Most Impactful Real Estate Leaders in the Middle East and received recognition in the Khaleej Times Emerging Leaders Awards.",
-        "ar": "أُدرج محمد بن غاطي ضمن قائمة فوربس لأكثر 100 قائد عقاري تأثيراً في الشرق الأوسط، وحصل على تكريم في جوائز خليج تايمز للقادة الصاعدين."
-      },
-      "sources": ["digitalmag.theceomagazine.com", "mena.entrepreneur.com", "binghatti.com/en/about-us"]
-    },
-    "Danube Properties": {
-      "overview": {
-        "en": "Danube Properties is the real estate arm of Danube Group, founded and chaired by Rizwan Sajan. Positioned around affordable luxury and flexible payment plans.",
-        "ar": "دانوب العقارية هي الذراع العقاري لمجموعة دانوب، أسسها ويرأسها رضوان سجان. متمركزة حول مفهوم الفخامة بأسعار معقولة وخطط دفع مرنة."
-      },
-      "marketEntry": {
-        "en": "Sajan founded Danube Group in 1993 as a small building materials trading firm in Dubai. He entered real estate development in 2014, over two decades after building the group's core trading and home-décor businesses.",
-        "ar": "أسس سجان مجموعة دانوب سنة 1993 كشركة صغيرة لتجارة مواد البناء في دبي. دخل مجال التطوير العقاري سنة 2014، بعد أكثر من عشرين سنة من بناء أعمال المجموعة الأساسية في التجارة والديكور المنزلي."
-      },
-      "trackRecord": {
-        "en": "Grown into one of Dubai's leading mid-market developers since 2014. Delivered projects such as Pearlz in Al Furjan six months ahead of schedule. Operates across the UAE, India, China, Canada, Qatar, Saudi Arabia, Bahrain and Oman through the wider Danube Group.",
-        "ar": "كبرت لتبقى من أهم المطورين في الفئة المتوسطة في دبي من سنة 2014. سلّمت مشاريع زي بيرلز في الفرجان قبل الموعد بستة شهور. تعمل في الإمارات والهند والصين وكندا وقطر والسعودية والبحرين وعُمان من خلال مجموعة دانوب الأوسع."
-      },
-      "reputation": {
-        "en": "Known as Dubai's '1% Man' for pioneering the 1% monthly payment plan, which reshaped affordability expectations across the mid-market segment. Strong reputation for on-time or early handovers.",
-        "ar": "معروف بلقب 'راجل الـ1%' في دبي، لأنه أول من ابتكر خطة الدفع الشهري بنسبة 1%، اللي غيّرت توقعات القدرة على التملك في الفئة المتوسطة. سمعة قوية في التسليم بالموعد أو قبله."
-      },
-      "resale": {
-        "en": "Danube's Al Furjan and Business Bay-area projects show healthy resale activity driven by furnished-unit delivery and amenity-rich positioning, appealing to both end-users and investors seeking rental yield.",
-        "ar": "مشاريع دانوب في الفرجان ومنطقة بيزنس باي بتشهد نشاط إعادة بيع صحي مدفوع بتسليم الوحدات مفروشة والمرافق الغنية، وده بيجذب المستخدم النهائي والمستثمر الباحث عن عائد إيجاري."
-      },
-      "partnerships": {
-        "en": "Interior and lifestyle collaborations with Aston Martin, Fashion TV, and Tonino Lamborghini Casa across its residential portfolio.",
-        "ar": "تعاونات في التصميم الداخلي وأسلوب الحياة مع أستون مارتن، Fashion TV، وتونينو لامبورغيني كاسا عبر محفظتها السكنية."
-      },
-      "certifications": {
-        "en": "Danube Properties offers a 10-year Golden Visa pathway for qualifying buyers, subject to UAE government investment criteria.",
-        "ar": "دانوب العقارية بتقدّم مسار للحصول على الإقامة الذهبية لمدة 10 سنين للمشترين المؤهلين، حسب معايير الاستثمار الحكومية في الإمارات."
-      },
-      "sources": ["danubeproperties.com/about-us/leadership-team/rizwan-sajan", "wikitia.com/wiki/Rizwan_Sajan", "gulfnews.com"]
-    },
-    "Nakheel": {
-      "overview": {
-        "en": "Nakheel is Dubai's government-owned master developer, founded in 2000 as the real estate arm of Dubai World and now operating under Dubai Holding Real Estate. Creator of Palm Jumeirah and master planner of JVC and Al Furjan.",
-        "ar": "نخيل هي المطور الرئيسي المملوك لحكومة دبي، تأسست سنة 2000 كذراع عقاري لدبي وورلد، وبتعمل حالياً تحت دبي القابضة العقارية. صانعة نخلة جميرا والمخطط الرئيسي لـ JVC والفرجان."
-      },
-      "marketEntry": {
-        "en": "Established in 2000 with the mandate to solve Dubai's beachfront scarcity by creating new coastline. Palm Jumeirah, launched in 2001, was the flagship result — adding 78km of beachfront to Dubai.",
-        "ar": "تأسست سنة 2000 بمهمة حل مشكلة ندرة الواجهة البحرية في دبي عن طريق خلق ساحل جديد. نخلة جميرا، اللي أُطلقت سنة 2001، كانت النتيجة الرئيسية — أضافت 78 كم من الواجهة البحرية لدبي."
-      },
-      "trackRecord": {
-        "en": "Delivered over 30,000 residential units. Landmark projects: Palm Jumeirah, The World, Palm Jebel Ali, Deira Islands/Dubai Islands, Jumeirah Islands, JVC and Al Furjan. Recorded AED 12.6 billion in sales in 2025 at an average AED 6.26 million per unit.",
-        "ar": "سلّمت أكثر من 30,000 وحدة سكنية. من أبرز مشاريعها نخلة جميرا، ذا وورلد، نخلة جبل علي، جزر ديرة/جزر دبي، جزر جميرا، JVC والفرجان. سجّلت مبيعات بقيمة 12.6 مليار درهم سنة 2025 بمتوسط 6.26 مليون درهم للوحدة."
-      },
-      "reputation": {
-        "en": "Underwent a major debt restructuring (AED 59 billion) in 2011 following the 2008-2010 crisis, transferring full ownership to the Government of Dubai. Since then it has rebuilt into one of the emirate's most trusted master developers with consistent large-scale delivery.",
-        "ar": "مرّت بإعادة هيكلة ديون كبيرة (59 مليار درهم) سنة 2011 بعد أزمة 2008-2010، وانتقلت ملكيتها بالكامل لحكومة دبي. من ساعتها بنت نفسها من جديد كواحدة من أكثر المطورين الرئيسيين ثقة في الإمارة بتسليم مستمر وواسع النطاق."
-      },
-      "resale": {
-        "en": "Portfolio-wide rental yields range from 4.1% on Palm Jumeirah to 8.1% in Al Furjan, with a community-weighted average of 6.7% — around 0.8 points above Dubai's broader market average.",
-        "ar": "عوائد الإيجار على مستوى المحفظة بتتراوح من 4.1% في نخلة جميرا لـ8.1% في الفرجان، بمتوسط مرجّح حسب المجتمع 6.7% — أعلى بحوالي 0.8 نقطة من متوسط سوق دبي الأوسع."
-      },
-      "partnerships": {
-        "en": "Contracted major international construction partners including Shapoorji Pallonji Mideast (Palm Gateway, AED 1.5bn contract), and works alongside Dubai government entities on infrastructure integration.",
-        "ar": "تعاقدت مع شركاء إنشاء دوليين كبار زي شابورجي بالونجي ميدل إيست (بوابة النخلة، عقد بقيمة 1.5 مليار درهم)، وبتشتغل مع جهات حكومية في دبي على تكامل البنية التحتية."
-      },
-      "certifications": {
-        "en": "Palm Jumeirah is internationally recognized as one of the largest man-made island developments in the world and a widely cited case study in coastal civil engineering.",
-        "ar": "نخلة جميرا معترف بيها عالمياً كواحدة من أكبر مشاريع الجزر الصناعية في العالم، ودراسة حالة مُشار ليها بكثرة في هندسة السواحل المدنية."
-      },
-      "sources": ["en.wikipedia.org/wiki/Nakheel_Properties", "houseandhedges.com/blog/nakheel-developer-guide-2026", "nakheel.com"]
-    }
+ "updatedAt": "2026-08-15",
+ "profiles": {
+  "Emaar Properties": {
+   "overview": {
+    "en": "Emaar Properties is Dubai's largest publicly listed developer, founded by Mohamed Alabbar in 1997 and listed on the Dubai Financial Market in 2000. It is the master developer behind Burj Khalifa, Dubai Mall and Dubai Marina.",
+    "ar": "إعمار العقارية هي أكبر مطور مُدرج في بورصة دبي، أسسها محمد العبار سنة 1997 وأُدرجت في سوق دبي المالي سنة 2000. هي المطور الرئيسي وراء برج خليفة ودبي مول ومارينا دبي."
+   },
+   "marketEntry": {
+    "en": "Entered the market in 1997 as one of the first private developers in Dubai, backed by the government's decision to allow land ownership. Went public in 2000, becoming one of the region's earliest listed real estate companies.",
+    "ar": "دخلت السوق سنة 1997 كواحدة من أوائل المطورين الخاصين في دبي، بعد قرار الحكومة السماح بتملك الأراضي. طرحت للاكتتاب العام سنة 2000، وكانت من أوائل شركات العقارات المُدرجة في المنطقة."
+   },
+   "trackRecord": {
+    "en": "Delivered over 100,000 residential units in Dubai alone. Landmark projects include Burj Khalifa (world's tallest building), Dubai Mall, Dubai Marina, Downtown Dubai and Dubai Creek Harbour. Active internationally in Egypt, Saudi Arabia, Turkey, India and Pakistan.",
+    "ar": "سلّمت أكثر من 100,000 وحدة سكنية في دبي وحدها. من أهم مشاريعها برج خليفة (أطول مبنى في العالم)، دبي مول، مارينا دبي، داون تاون دبي، ودبي كريك هاربور. لها وجود دولي في مصر والسعودية وتركيا والهند وباكستان."
+   },
+   "reputation": {
+    "en": "Widely regarded as Dubai's most trusted large-scale developer, with a strong record of on-time delivery for its flagship communities. Alabbar has publicly acknowledged past pricing and cost mistakes during the 2008 downturn but the brand recovered strongly.",
+    "ar": "يُنظر لها على نطاق واسع كأكثر مطور كبير موثوق في دبي، بسجل قوي في تسليم مجتمعاتها الرئيسية في الميعاد. اعترف العبار علناً بأخطاء تسعير وتكاليف حصلت وقت أزمة 2008، لكن العلامة التجارية تعافت بقوة بعدها."
+   },
+   "resale": {
+    "en": "Emaar communities (Downtown Dubai, Dubai Marina, Dubai Hills Estate) consistently rank among the strongest resale and rental performers in Dubai due to brand premium, scarcity of comparable master-planned supply and sustained end-user demand.",
+    "ar": "مجتمعات إعمار (داون تاون دبي، مارينا دبي، دبي هيلز استيت) من أقوى المناطق في إعادة البيع والإيجار في دبي، بسبب قوة العلامة التجارية وندرة البدائل المماثلة والطلب المستمر من المستخدم النهائي."
+   },
+   "partnerships": {
+    "en": "Partnerships with Giorgio Armani (Armani Hotel & Residences), Address Hotels, and joint ventures with government entities in Egypt (Marassi, Mivida), Turkey and Saudi Arabia.",
+    "ar": "شراكات مع جورجيو أرماني (فندق ورزيدنس أرماني)، فنادق Address، ومشاريع مشتركة مع جهات حكومية في مصر (مراسي، ميفيدا)، وتركيا والسعودية."
+   },
+   "certifications": {
+    "en": "Alabbar has received multiple industry recognitions including honorary doctorate from Seattle University (2007) and is regularly listed among the Middle East's most influential business leaders.",
+    "ar": "حصل العبار على تكريمات عديدة منها دكتوراه فخرية من جامعة سياتل (2007)، ويُدرج بانتظام ضمن أكثر رجال الأعمال تأثيراً في الشرق الأوسط."
+   },
+   "sources": [
+    "en.wikipedia.org/wiki/Mohamed_Alabbar",
+    "arabianbusiness.com",
+    "thenationalnews.com"
+   ]
+  },
+  "Damac Properties": {
+   "overview": {
+    "en": "DAMAC Properties is a Dubai luxury developer founded by Hussain Sajwani in 2002. Known for extravagant marketing and branded residences in partnership with global luxury names.",
+    "ar": "داماك العقارية مطور فخم في دبي أسسه حسين سجواني سنة 2002. معروفة بتسويقها الجريء والوحدات السكنية المرتبطة بعلامات عالمية فاخرة."
+   },
+   "marketEntry": {
+    "en": "Sajwani started in catering (serving the U.S. military and Bechtel) before pivoting to real estate in 2002, right after Dubai allowed foreign property ownership. His first project, Marina Terrace, sold out within six months.",
+    "ar": "بدأ سجواني في مجال التموين (بيقدّم خدمات للجيش الأمريكي وشركة بكتل) قبل ما يتحول للعقارات سنة 2002، فور ما سمحت دبي بتملك الأجانب. أول مشروع له، مارينا تراس، اتباع بالكامل خلال ستة شهور."
+   },
+   "trackRecord": {
+    "en": "Delivered over 25,000 homes with a development portfolio exceeding 40,000 units. Listed on the London Stock Exchange in 2014, later the Arab world's fourth-biggest public company by 2017. Flagship projects: Akoya Oxygen, DAMAC Hills, DAMAC Lagoons.",
+    "ar": "سلّمت أكثر من 25,000 وحدة سكنية بمحفظة تطوير تتجاوز 40,000 وحدة. أُدرجت في بورصة لندن سنة 2014، وبقت رابع أكبر شركة عامة في العالم العربي بحلول 2017. من أبرز مشاريعها أكويا أوكسجين، داماك هيلز، وداماك لاجونز."
+   },
+   "reputation": {
+    "en": "Known for bold, high-visibility marketing (free Lamborghini offers) and luxury co-branding. Some historical projects faced handover delays common to the sector during the 2008-2011 downturn; the brand has since scaled significantly.",
+    "ar": "معروفة بتسويقها الجريء واللافت (عروض لامبورجيني مجانية) والشراكات الفاخرة. بعض المشاريع القديمة واجهت تأخيرات في التسليم كانت شائعة في القطاع وقت تراجع 2008-2011، لكن العلامة التجارية توسعت بشكل كبير بعدها."
+   },
+   "resale": {
+    "en": "DAMAC's branded residences (de GRISOGONO, Cavalli, Versace) and DAMAC Hills/Lagoons communities command a resale premium tied to brand association, though yields vary widely by project and handover stage.",
+    "ar": "الوحدات المرتبطة بعلامات داماك (دي جريسوجونو، كافالي، فيرساتشي) ومجتمعات داماك هيلز/لاجونز بتاخد علاوة سعرية في إعادة البيع مرتبطة بقوة العلامة، لكن العوائد بتختلف بشكل كبير حسب المشروع ومرحلة التسليم."
+   },
+   "partnerships": {
+    "en": "Co-branding deals with Versace, Cavalli, de GRISOGONO, Bugatti and a 2013 joint venture with the Trump Organization for two Trump-branded golf courses in Dubai.",
+    "ar": "شراكات علامة تجارية مع فيرساتشي، كافالي، دي جريسوجونو، وبوجاتي، ومشروع مشترك سنة 2013 مع مجموعة ترامب لإنشاء ملعبي جولف بعلامة ترامب في دبي."
+   },
+   "certifications": {
+    "en": "Sajwani was named Real Estate Legend 2018 (Arabian Business Real Estate Awards) and Property CEO of the Year 2017 (CEO Middle East Awards).",
+    "ar": "حصل سجواني على لقب أسطورة العقارات 2018 (جوائز Arabian Business العقارية) وأفضل رئيس تنفيذي عقاري لسنة 2017 (جوائز CEO Middle East)."
+   },
+   "sources": [
+    "en.wikipedia.org/wiki/Hussain_Sajwani",
+    "forbes.com/profile/hussain-sajwani",
+    "arabianbusiness.com"
+   ]
+  },
+  "Azizi Developments": {
+   "overview": {
+    "en": "Azizi Developments is a Dubai developer led by CEO Farhad Azizi, under the Azizi Group founded by his father Mirwais Azizi. Focused on fast-paced delivery across emerging Dubai communities.",
+    "ar": "عزيزي للتطوير العقاري مطور في دبي بيقوده الرئيس التنفيذي فرهاد عزيزي، تحت مجموعة عزيزي اللي أسسها والده ميرويس عزيزي. بتركز على التسليم السريع في مناطق دبي الناشئة."
+   },
+   "marketEntry": {
+    "en": "The Azizi Group diversified into UAE real estate after earlier ventures in banking, oil & gas across Europe and the Middle East. Farhad Azizi took over leadership after working across all departments of the family business.",
+    "ar": "توسعت مجموعة عزيزي في عقارات الإمارات بعد مشاريع سابقة في البنوك والنفط والغاز في أوروبا والشرق الأوسط. تولى فرهاد عزيزي القيادة بعد ما اشتغل في كل أقسام شركة العائلة."
+   },
+   "trackRecord": {
+    "en": "Delivered over 30,000 homes to date, with a portfolio worth several billion dollars. Currently developing Azizi Venice, which includes the world's second-tallest skyscraper and an opera house. Strong presence in Al Furjan, Meydan, Dubai Healthcare City and Dubai Islands.",
+    "ar": "سلّمت أكثر من 30,000 وحدة سكنية لحد الآن، بمحفظة بمليارات الدولارات. بتطوّر حالياً مشروع عزيزي فينيسيا اللي بيضم ثاني أطول ناطحة سحاب في العالم ودار أوبرا. لها حضور قوي في الفرجان، ميدان، دبي هيلث كير سيتي، وجزر دبي."
+   },
+   "reputation": {
+    "en": "Known for aggressive expansion and high sales volume, with daily sales historically ranging AED 20-25 million during strong market periods. Customer-centricity and vertical integration (manufacturing to delivery) are core to its positioning.",
+    "ar": "معروفة بتوسعها القوي وحجم مبيعاتها العالي، وصلت مبيعاتها اليومية تاريخياً بين 20-25 مليون درهم في فترات السوق القوية. التركيز على العميل والتكامل الرأسي (من التصنيع للتسليم) أساسيين في موقعها."
+   },
+   "resale": {
+    "en": "Azizi's Al Furjan and Meydan projects have seen steady resale activity given handover volume and location, though pricing sits in the mid-market to upper-mid tier rather than ultra-luxury.",
+    "ar": "مشاريع عزيزي في الفرجان وميدان شهدت نشاط إعادة بيع ثابت بسبب حجم التسليمات والموقع، لكن التسعير في الفئة المتوسطة لفوق المتوسطة مش الفخامة القصوى."
+   },
+   "partnerships": {
+    "en": "Vertically integrated model with in-house manufacturing; partnership with National Engineering Bureau on the Azizi Venice project.",
+    "ar": "نموذج متكامل رأسياً بتصنيع داخلي؛ شراكة مع المكتب الهندسي الوطني في مشروع عزيزي فينيسيا."
+   },
+   "certifications": {
+    "en": "Active philanthropic record including the 1 Billion Meals Endowment initiative during Ramadan, funding hospitals, orphanages and education scholarships across the UAE and Afghanistan.",
+    "ar": "سجل خيري نشط بيشمل مبادرة وقف مليار وجبة في رمضان، وتمويل مستشفيات ودور أيتام ومنح تعليمية في الإمارات وأفغانستان."
+   },
+   "sources": [
+    "focus.hidubai.com",
+    "cbnme.com",
+    "utulsa.edu"
+   ]
+  },
+  "Binghatti Developers": {
+   "overview": {
+    "en": "Binghatti Developers is a Dubai-based developer led by Chairman & Head of Architecture Muhammad BinGhatti, a third-generation entrepreneur known for bold, instantly recognizable architectural branding.",
+    "ar": "بن غاطي للتطوير العقاري مطور مقره دبي بيقوده رئيس مجلس الإدارة ورئيس القسم المعماري محمد بن غاطي، رائد أعمال من الجيل الثالث معروف بتصميمه المعماري الجريء والمميز."
+   },
+   "marketEntry": {
+    "en": "Binghatti Holding is a family business; Muhammad BinGhatti took over in 2014 and formally established Binghatti Developers as its real estate arm, growing it from a handful of projects to a major Dubai brand within a decade.",
+    "ar": "بن غاطي القابضة شركة عائلية؛ تولى محمد بن غاطي القيادة سنة 2014 وأسس رسمياً بن غاطي للتطوير العقاري كذراعها العقاري، وكبّرها من مشاريع قليلة لعلامة تجارية كبيرة في دبي خلال عشر سنين."
+   },
+   "trackRecord": {
+    "en": "Grew from roughly 30 projects in 2018 to over 50 across the UAE, with a portfolio valued at approximately AED 40 billion. Landmark projects include Burj Binghatti Jacob & Co. Residences, Mercedes-Benz Places by Binghatti, and Bugatti Residences by Binghatti.",
+    "ar": "كبّرت من حوالي 30 مشروع سنة 2018 لأكتر من 50 مشروع في الإمارات، بمحفظة بقيمة حوالي 40 مليار درهم. من أبرز مشاريعها برج بن غاطي جاكوب آند كو، مرسيدس-بنز بلايسز باي بن غاطي، وبوجاتي رزيدنسز باي بن غاطي."
+   },
+   "reputation": {
+    "en": "Recognized for a distinct 'brand DNA' — buildings are instantly identifiable, similar to automotive or fashion brand identity. The company explicitly compares its ambition to becoming 'the Apple of real estate.'",
+    "ar": "معروفة بهويتها التصميمية المميزة — مبانيها ممكن تتعرف عليها فوراً، شبه هوية العلامات التجارية للسيارات أو الموضة. الشركة بتقارن طموحها صراحة بإنها تبقى 'أبل صناعة العقارات'."
+   },
+   "resale": {
+    "en": "Binghatti's Business Bay, JVC and Downtown Dubai projects benefit from strong rental yields and connectivity, though resale pricing carries a design-brand premium that varies by project maturity.",
+    "ar": "مشاريع بن غاطي في بيزنس باي وJVC وداون تاون دبي بتستفيد من عوائد إيجار قوية واتصال جيد، لكن سعر إعادة البيع بياخد علاوة تصميم بتختلف حسب نضج المشروع."
+   },
+   "partnerships": {
+    "en": "First real estate developer globally to partner with automotive and horological luxury brands directly on branded residences: Bugatti, Mercedes-Benz, and Jacob & Co.",
+    "ar": "أول مطور عقاري عالمياً بيتشارك مباشرة مع علامات فاخرة للسيارات والساعات في وحدات سكنية بعلامتها: بوجاتي، مرسيدس-بنز، وجاكوب آند كو."
+   },
+   "certifications": {
+    "en": "Muhammad BinGhatti has been listed on Forbes' Top 100 Most Impactful Real Estate Leaders in the Middle East and received recognition in the Khaleej Times Emerging Leaders Awards.",
+    "ar": "أُدرج محمد بن غاطي ضمن قائمة فوربس لأكثر 100 قائد عقاري تأثيراً في الشرق الأوسط، وحصل على تكريم في جوائز خليج تايمز للقادة الصاعدين."
+   },
+   "sources": [
+    "digitalmag.theceomagazine.com",
+    "mena.entrepreneur.com",
+    "binghatti.com/en/about-us"
+   ]
+  },
+  "Danube Properties": {
+   "overview": {
+    "en": "Danube Properties is the real estate arm of Danube Group, founded and chaired by Rizwan Sajan. Positioned around affordable luxury and flexible payment plans.",
+    "ar": "دانوب العقارية هي الذراع العقاري لمجموعة دانوب، أسسها ويرأسها رضوان سجان. متمركزة حول مفهوم الفخامة بأسعار معقولة وخطط دفع مرنة."
+   },
+   "marketEntry": {
+    "en": "Sajan founded Danube Group in 1993 as a small building materials trading firm in Dubai. He entered real estate development in 2014, over two decades after building the group's core trading and home-décor businesses.",
+    "ar": "أسس سجان مجموعة دانوب سنة 1993 كشركة صغيرة لتجارة مواد البناء في دبي. دخل مجال التطوير العقاري سنة 2014، بعد أكثر من عشرين سنة من بناء أعمال المجموعة الأساسية في التجارة والديكور المنزلي."
+   },
+   "trackRecord": {
+    "en": "Grown into one of Dubai's leading mid-market developers since 2014. Delivered projects such as Pearlz in Al Furjan six months ahead of schedule. Operates across the UAE, India, China, Canada, Qatar, Saudi Arabia, Bahrain and Oman through the wider Danube Group.",
+    "ar": "كبرت لتبقى من أهم المطورين في الفئة المتوسطة في دبي من سنة 2014. سلّمت مشاريع زي بيرلز في الفرجان قبل الموعد بستة شهور. تعمل في الإمارات والهند والصين وكندا وقطر والسعودية والبحرين وعُمان من خلال مجموعة دانوب الأوسع."
+   },
+   "reputation": {
+    "en": "Known as Dubai's '1% Man' for pioneering the 1% monthly payment plan, which reshaped affordability expectations across the mid-market segment. Strong reputation for on-time or early handovers.",
+    "ar": "معروف بلقب 'راجل الـ1%' في دبي، لأنه أول من ابتكر خطة الدفع الشهري بنسبة 1%، اللي غيّرت توقعات القدرة على التملك في الفئة المتوسطة. سمعة قوية في التسليم بالموعد أو قبله."
+   },
+   "resale": {
+    "en": "Danube's Al Furjan and Business Bay-area projects show healthy resale activity driven by furnished-unit delivery and amenity-rich positioning, appealing to both end-users and investors seeking rental yield.",
+    "ar": "مشاريع دانوب في الفرجان ومنطقة بيزنس باي بتشهد نشاط إعادة بيع صحي مدفوع بتسليم الوحدات مفروشة والمرافق الغنية، وده بيجذب المستخدم النهائي والمستثمر الباحث عن عائد إيجاري."
+   },
+   "partnerships": {
+    "en": "Interior and lifestyle collaborations with Aston Martin, Fashion TV, and Tonino Lamborghini Casa across its residential portfolio.",
+    "ar": "تعاونات في التصميم الداخلي وأسلوب الحياة مع أستون مارتن، Fashion TV، وتونينو لامبورغيني كاسا عبر محفظتها السكنية."
+   },
+   "certifications": {
+    "en": "Danube Properties offers a 10-year Golden Visa pathway for qualifying buyers, subject to UAE government investment criteria.",
+    "ar": "دانوب العقارية بتقدّم مسار للحصول على الإقامة الذهبية لمدة 10 سنين للمشترين المؤهلين، حسب معايير الاستثمار الحكومية في الإمارات."
+   },
+   "sources": [
+    "danubeproperties.com/about-us/leadership-team/rizwan-sajan",
+    "wikitia.com/wiki/Rizwan_Sajan",
+    "gulfnews.com"
+   ]
+  },
+  "Nakheel": {
+   "overview": {
+    "en": "Nakheel is Dubai's government-owned master developer, founded in 2000 as the real estate arm of Dubai World and now operating under Dubai Holding Real Estate. Creator of Palm Jumeirah and master planner of JVC and Al Furjan.",
+    "ar": "نخيل هي المطور الرئيسي المملوك لحكومة دبي، تأسست سنة 2000 كذراع عقاري لدبي وورلد، وبتعمل حالياً تحت دبي القابضة العقارية. صانعة نخلة جميرا والمخطط الرئيسي لـ JVC والفرجان."
+   },
+   "marketEntry": {
+    "en": "Established in 2000 with the mandate to solve Dubai's beachfront scarcity by creating new coastline. Palm Jumeirah, launched in 2001, was the flagship result — adding 78km of beachfront to Dubai.",
+    "ar": "تأسست سنة 2000 بمهمة حل مشكلة ندرة الواجهة البحرية في دبي عن طريق خلق ساحل جديد. نخلة جميرا، اللي أُطلقت سنة 2001، كانت النتيجة الرئيسية — أضافت 78 كم من الواجهة البحرية لدبي."
+   },
+   "trackRecord": {
+    "en": "Delivered over 30,000 residential units. Landmark projects: Palm Jumeirah, The World, Palm Jebel Ali, Deira Islands/Dubai Islands, Jumeirah Islands, JVC and Al Furjan. Recorded AED 12.6 billion in sales in 2025 at an average AED 6.26 million per unit.",
+    "ar": "سلّمت أكثر من 30,000 وحدة سكنية. من أبرز مشاريعها نخلة جميرا، ذا وورلد، نخلة جبل علي، جزر ديرة/جزر دبي، جزر جميرا، JVC والفرجان. سجّلت مبيعات بقيمة 12.6 مليار درهم سنة 2025 بمتوسط 6.26 مليون درهم للوحدة."
+   },
+   "reputation": {
+    "en": "Underwent a major debt restructuring (AED 59 billion) in 2011 following the 2008-2010 crisis, transferring full ownership to the Government of Dubai. Since then it has rebuilt into one of the emirate's most trusted master developers with consistent large-scale delivery.",
+    "ar": "مرّت بإعادة هيكلة ديون كبيرة (59 مليار درهم) سنة 2011 بعد أزمة 2008-2010، وانتقلت ملكيتها بالكامل لحكومة دبي. من ساعتها بنت نفسها من جديد كواحدة من أكثر المطورين الرئيسيين ثقة في الإمارة بتسليم مستمر وواسع النطاق."
+   },
+   "resale": {
+    "en": "Portfolio-wide rental yields range from 4.1% on Palm Jumeirah to 8.1% in Al Furjan, with a community-weighted average of 6.7% — around 0.8 points above Dubai's broader market average.",
+    "ar": "عوائد الإيجار على مستوى المحفظة بتتراوح من 4.1% في نخلة جميرا لـ8.1% في الفرجان، بمتوسط مرجّح حسب المجتمع 6.7% — أعلى بحوالي 0.8 نقطة من متوسط سوق دبي الأوسع."
+   },
+   "partnerships": {
+    "en": "Contracted major international construction partners including Shapoorji Pallonji Mideast (Palm Gateway, AED 1.5bn contract), and works alongside Dubai government entities on infrastructure integration.",
+    "ar": "تعاقدت مع شركاء إنشاء دوليين كبار زي شابورجي بالونجي ميدل إيست (بوابة النخلة، عقد بقيمة 1.5 مليار درهم)، وبتشتغل مع جهات حكومية في دبي على تكامل البنية التحتية."
+   },
+   "certifications": {
+    "en": "Palm Jumeirah is internationally recognized as one of the largest man-made island developments in the world and a widely cited case study in coastal civil engineering.",
+    "ar": "نخلة جميرا معترف بيها عالمياً كواحدة من أكبر مشاريع الجزر الصناعية في العالم، ودراسة حالة مُشار ليها بكثرة في هندسة السواحل المدنية."
+   },
+   "sources": [
+    "en.wikipedia.org/wiki/Nakheel_Properties",
+    "houseandhedges.com/blog/nakheel-developer-guide-2026",
+    "nakheel.com"
+   ]
+  },
+  "Ellington": {
+   "overview": {
+    "en": "Ellington Properties is a Dubai 'boutique' developer founded in 2014, known for design-led residential projects with strong emphasis on shared amenities and architectural detail.",
+    "ar": "إلينجتون العقارية مطور 'بوتيك' في دبي تأسس سنة 2014، معروف بمشاريعه السكنية اللي بتركز على التصميم والمساحات المشتركة والتفاصيل المعمارية."
+   },
+   "marketEntry": {
+    "en": "Founded in 2014 by Robert D. Booth (former Emaar executive), Joseph Thomas and Nitin Bhatnagar, drawing on over 75 years of combined regional and international property experience.",
+    "ar": "تأسست سنة 2014 على يد روبرت بوث (اللي اشتغل قبل كده في إعمار)، جوزيف توماس، ونيتين باتناجار، بخبرة مشتركة أكتر من 75 سنة في العقارات إقليمياً ودولياً."
+   },
+   "trackRecord": {
+    "en": "Registered with Dubai Land Department as Developer No. 1117. Reports a 96% occupancy rate on delivered projects. Portfolio spans JVC, MBR City, Palm Jumeirah, Dubai Islands and Business Bay. Won multiple Arabian Property Awards including Best Residential Development.",
+    "ar": "مسجلة في دائرة الأراضي والأملاك في دبي كمطور رقم 1117. بتسجّل نسبة إشغال 96% في المشاريع المُسلَّمة. محفظتها بتغطي JVC وMBR City ونخلة جميرا وجزر دبي وبيزنس باي. فازت بجوائز Arabian Property Awards منها أفضل مشروع سكني."
+   },
+   "reputation": {
+    "en": "Known for design quality and boutique positioning rather than volume. Supports the Ellington Art Foundation since 2015, backing young artistic talent as part of its brand identity.",
+    "ar": "معروفة بجودة التصميم وموقعها كـ'بوتيك' مش بالحجم. بتدعم مؤسسة إلينجتون للفنون من سنة 2015، دعم للمواهب الفنية الشابة كجزء من هويتها."
+   },
+   "resale": {
+    "en": "Design-led JVC and MBR City projects report a quicker return of capital than the market average according to company sales materials, with rental demand supported by the 96% occupancy rate on delivered stock.",
+    "ar": "مشاريعها في JVC وMBR City بترجع رأس المال أسرع من متوسط السوق حسب مواد المبيعات بتاعتها، بدعم من نسبة إشغال 96% على المخزون المُسلَّم."
+   },
+   "partnerships": {
+    "en": "Among the earliest Dubai developers to explore real estate tokenization, and accepts multiple payment methods including cryptocurrency for select projects.",
+    "ar": "من أوائل مطوري دبي اللي جربوا تحويل العقار لأصول رقمية (tokenization)، وبتقبل طرق دفع متعددة منها العملات الرقمية لمشاريع مختارة."
+   },
+   "certifications": {
+    "en": "Arabian Property Awards 2020: Best Residential Development and Best Bathroom Design (Wilton Park Residences), plus a Residential Interior award for Eaton Place.",
+    "ar": "جوائز Arabian Property Awards 2020: أفضل مشروع سكني وأفضل تصميم حمام (Wilton Park Residences)، وجائزة تصميم داخلي سكني لمشروع Eaton Place."
+   },
+   "sources": [
+    "ellingtonproperties.ae/en/about-us",
+    "propsearch.ae/dubai-property-developers/ellington-properties-development",
+    "in.ae/developers/ellington-properties"
+   ]
+  },
+  "Meraas Holding": {
+   "overview": {
+    "en": "Meraas is a Dubai-based, design-led master developer founded in 2007, now part of Dubai Holding Real Estate following its 2023-2024 consolidation. Known for placemaking over plot-selling.",
+    "ar": "ميراس مطور رئيسي في دبي بيركز على التصميم، تأسس سنة 2007، وبقى دلوقتي جزء من دبي القابضة العقارية بعد الدمج سنة 2023-2024. معروفة ببناء 'أماكن' مش مجرد بيع قطع أرض."
+   },
+   "marketEntry": {
+    "en": "Founded in 2007 under the chairmanship of Sheikh Ahmed bin Saeed Al Maktoum, entering Dubai's market with a philosophy centered on urban lifestyle districts rather than large-scale towers.",
+    "ar": "تأسست سنة 2007 برئاسة الشيخ أحمد بن سعيد آل مكتوم، ودخلت السوق بفلسفة تركز على أحياء أسلوب الحياة الحضري مش الأبراج الكبيرة."
+   },
+   "trackRecord": {
+    "en": "Delivered over 80 million sq ft of built space and 3,500+ residential units, including City Walk, La Mer, Bluewaters Island (home to Ain Dubai, the world's largest observation wheel), Port de La Mer and Madinat Jumeirah Living.",
+    "ar": "سلّمت أكتر من 80 مليون قدم مربع من المساحات المبنية و3,500+ وحدة سكنية، بما فيهم سيتي ووك، لا مير، جزيرة بلوواترز (اللي فيها عين دبي، أكبر عجلة مشاهدة في العالم)، بورت دو لا مير، ومدينة جميرا ليفينج."
+   },
+   "reputation": {
+    "en": "Regarded as Dubai's premier design-led urban developer — the only major player focused on walkable, low-rise, retail-integrated neighborhoods rather than skyline towers. Government-linked status via Dubai Holding adds investor confidence.",
+    "ar": "بتُعتبر أهم مطور حضري يركز على التصميم في دبي — اللاعب الوحيد الكبير اللي بيركز على أحياء قابلة للمشي، منخفضة الارتفاع، ومتكاملة مع التجزئة بدل الأبراج. ارتباطها الحكومي عن طريق دبي القابضة بيزود ثقة المستثمر."
+   },
+   "resale": {
+    "en": "Pricing sits firmly in the premium tier (roughly AED 2,500-4,000+/sqft). Yields are modest since the value proposition is scarcity and walkable urbanity rather than rental returns; secondary market stock in boutique districts occasionally prices below the newest developer phase.",
+    "ar": "التسعير في الفئة الفاخرة بثبات (حوالي 2,500-4,000+ درهم للقدم المربع). العوائد متواضعة لأن قيمة المشروع أساسها الندرة والحياة الحضرية القابلة للمشي مش عائد الإيجار؛ السوق الثانوي في الأحياء البوتيك أحياناً بيتسعّر أقل من أحدث مرحلة للمطور."
+   },
+   "partnerships": {
+    "en": "2023-2024 consolidation into Dubai Holding alongside Nakheel, giving Meraas access to a broader land bank, hospitality assets and financial backing under one umbrella.",
+    "ar": "دمج 2023-2024 في دبي القابضة جنب نخيل، وده وفّر لميراس وصول لبنك أراضي أوسع وأصول ضيافة ودعم مالي تحت مظلة واحدة."
+   },
+   "certifications": {
+    "en": "Bluewaters Island's Ain Dubai holds the record as the world's tallest and largest observation wheel at 250 meters, an internationally recognized engineering landmark.",
+    "ar": "عين دبي في جزيرة بلوواترز بتحمل الرقم القياسي كأطول وأكبر عجلة مشاهدة في العالم بارتفاع 250 متر، معلم هندسي معترف بيه عالمياً."
+   },
+   "sources": [
+    "realestateclubdubai.com/developers/meraas",
+    "dubai-build.com/developers/meraas",
+    "opr.ae/developers/meraas"
+   ]
+  },
+  "Sobha Realty": {
+   "overview": {
+    "en": "Sobha Realty is a Dubai luxury developer founded by PNC Menon, extending India's Sobha Limited into the UAE in 2003-2011. Recognized as a Harvard Business School case study for backward integration.",
+    "ar": "سوبها العقارية مطور فخم في دبي أسسه بي إن سي مينون، امتداد لشركة سوبها الهندية للإمارات بين 2003-2011. معترف بيها كدراسة حالة في هارفارد بيزنس سكول بسبب التكامل العكسي في التصنيع."
+   },
+   "marketEntry": {
+    "en": "Menon began in 1976 with an interior decoration firm in Oman, founded Sobha Developers in Bangalore in 1995, then expanded to Dubai in 2003, formally establishing PNC Investments/Sobha Realty by 2011.",
+    "ar": "بدأ مينون سنة 1976 بشركة ديكور داخلي في عُمان، أسس سوبها ديفيلوبرز في بنجالور سنة 1995، وبعدين توسع لدبي سنة 2003، وأسس رسمياً سوبها العقارية بحلول 2011."
+   },
+   "trackRecord": {
+    "en": "Delivered over 130 million sq ft globally. Flagship UAE projects: Sobha Hartland ($4bn, MBR City) and District One ($8bn joint venture with Meydan Group, 1,500 ultra-luxury villas). 2025 sales rose 33% to $8.2 billion.",
+    "ar": "سلّمت أكتر من 130 مليون قدم مربع عالمياً. أبرز مشاريعها في الإمارات: سوبها هارتلاند (4 مليار دولار، MBR City) وديستريكت وان (مشروع مشترك بقيمة 8 مليار دولار مع مجموعة ميدان، 1,500 فيلا فاخرة). مبيعات 2025 زادت 33% لتوصل 8.2 مليار دولار."
+   },
+   "reputation": {
+    "en": "Built its reputation on backward integration — controlling manufacturing (glass, aluminum, furniture) in-house to guarantee quality and on-time delivery, a model studied by Harvard Business School.",
+    "ar": "بنت سمعتها على التكامل العكسي — بتتحكم في التصنيع (زجاج، ألومنيوم، أثاث) داخلياً عشان تضمن الجودة والتسليم في الميعاد، نموذج درسته هارفارد بيزنس سكول."
+   },
+   "resale": {
+    "en": "Sobha One achieved the Green Mark Platinum Super Low Energy certification (first outside Singapore) and a GRESB score of 97 (4-Star), positioning its communities for premium resale appeal tied to sustainability credentials alongside brand strength.",
+    "ar": "حصل مشروع سوبها ون على شهادة Green Mark Platinum للطاقة المنخفضة جداً (أول مرة خارج سنغافورة) ودرجة 97 في تقييم GRESB (4 نجوم)، وده بيدعم جاذبية إعادة البيع لمجتمعاتها المرتبطة بمعايير الاستدامة وقوة العلامة."
+   },
+   "partnerships": {
+    "en": "$8 billion joint venture with Meydan Group on District One. Menon serves on the Board of Governors of the Rashid Centre for People of Determination and partners with the Al Jalila Foundation.",
+    "ar": "مشروع مشترك بقيمة 8 مليار دولار مع مجموعة ميدان في ديستريكت وان. مينون عضو في مجلس أمناء مركز راشد لأصحاب الهمم وشريك في مؤسسة الجليلة."
+   },
+   "certifications": {
+    "en": "Menon received the Golden Peacock Lifetime Achievement Award, the NDTV Property Awards Lifetime Achievement Award, and India's Pravasi Bharatiya Samman Puraskar (2009). He has pledged 50% of his wealth to charity as part of the Giving Pledge.",
+    "ar": "حصل مينون على جائزة Golden Peacock للإنجاز مدى الحياة، وجائزة NDTV العقارية للإنجاز مدى الحياة، وجائزة Pravasi Bharatiya Samman الهندية (2009). تعهد بالتبرع بـ50% من ثروته للأعمال الخيرية ضمن مبادرة Giving Pledge."
+   },
+   "sources": [
+    "sobharealty.com/about/our-legacy",
+    "en.wikipedia.org/wiki/Sobha_LLC",
+    "gulfbusiness.com"
+   ]
+  },
+  "Samana Developers": {
+   "overview": {
+    "en": "Samana Developers is a Dubai developer led by CEO Imran Farooq, best known for pioneering private pools in mid-market residential apartments — a signature feature across its portfolio.",
+    "ar": "سامانا للتطوير العقاري مطور في دبي بيقوده الرئيس التنفيذي عمران فاروق، معروف بابتكار فكرة المسابح الخاصة في الشقق السكنية متوسطة السعر — سمة مميزة في محفظتها."
+   },
+   "marketEntry": {
+    "en": "Sources place its founding between 2014-2018 as part of the wider Samana Group conglomerate (investment, logistics, facility management). Its first project, Samana Greens in Arjan, launched in September 2018.",
+    "ar": "المصادر بتحدد تأسيسها بين 2014-2018 كجزء من مجموعة سامانا الأوسع (استثمار، لوجستيات، إدارة مرافق). أول مشروع لها، سامانا جرينز في عرجان، أُطلق في سبتمبر 2018."
+   },
+   "trackRecord": {
+    "en": "Samana Hills (2019) was Dubai's first residential project with private pools in every unit, delivered with title deeds to owners. Scaled from 12 pools initially to 873+ pools across its portfolio by year-end of that launch cycle. Now expanding internationally with Samana Ocean Views by Elie Saab in the Maldives ($600 million).",
+    "ar": "سامانا هيلز (2019) كان أول مشروع سكني في دبي بمسابح خاصة في كل وحدة، اتسلّم بسندات ملكية للمُلّاك. كبرت من 12 مسبح في البداية لـ873+ مسبح عبر محفظتها بنهاية دورة الإطلاق. دلوقتي بتتوسع دولياً بمشروع سامانا أوشن فيوز باي إيلي صعب في المالديف (600 مليون دولار)."
+   },
+   "reputation": {
+    "en": "Won Innovation in Design and Excellence in Affordable Luxury awards for its private-pool concept. Some buyer reviews note handover delays on certain projects and interior finishes not always matching brochure renderings — worth flagging to clients alongside the design strengths.",
+    "ar": "فازت بجوائز الابتكار في التصميم والتميز في الفخامة بأسعار معقولة عن فكرة المسبح الخاص. بعض مراجعات المشترين بتذكر تأخيرات تسليم في مشاريع معينة وتشطيبات داخلية مش دايماً مطابقة لصور البروشور — يستاهل التنويه للعملاء جنب مميزات التصميم."
+   },
+   "resale": {
+    "en": "Positioned in the mid-market/affordable-luxury segment, primarily studios and one-bedrooms in Arjan and JVC. Marketing materials cite yields around 8% with a 1% monthly payment plan, appealing to yield-focused investors rather than ultra-luxury buyers.",
+    "ar": "متمركزة في الفئة المتوسطة/الفخامة بأسعار معقولة، غالباً استوديوهات وشقق غرفة واحدة في عرجان وJVC. المواد التسويقية بتذكر عوائد حوالي 8% مع خطة دفع شهرية 1%، بتجذب المستثمر الباحث عن العائد مش مشتري الفخامة القصوى."
+   },
+   "partnerships": {
+    "en": "Global expansion partnership with fashion house Elie Saab on interiors for its first branded hospitality-residential project in the Maldives.",
+    "ar": "شراكة توسع عالمية مع دار الأزياء إيلي صعب على التصميم الداخلي لأول مشروع سكني-فندقي بعلامة تجارية في المالديف."
+   },
+   "certifications": {
+    "en": "Multiple industry awards for its private-pool innovation, though it does not carry the long institutional track record of the UAE's largest master developers.",
+    "ar": "جوائز صناعية متعددة عن ابتكار المسبح الخاص، لكن مفيش سجل مؤسسي طويل زي أكبر المطورين الرئيسيين في الإمارات."
+   },
+   "sources": [
+    "zawya.com",
+    "mena.entrepreneur.com/leadership/samana-developers-founder-imran-farooq",
+    "kotook.ae/developer/samana"
+   ]
+  },
+  "Aldar Properties PJSC": {
+   "overview": {
+    "en": "Aldar Properties is Abu Dhabi's largest publicly listed developer, founded in 2004, and the primary delivery vehicle for the emirate's master-planned urban development.",
+    "ar": "الدار العقارية أكبر مطور مُدرج في أبوظبي، تأسست سنة 2004، وهي الذراع الرئيسية لتنفيذ التطوير الحضري المخطط للإمارة."
+   },
+   "marketEntry": {
+    "en": "Incorporated on January 12, 2004, with an IPO in 2005 on the Abu Dhabi Securities Exchange (ADX: ALDAR). Early growth centered on Al Raha Beach, Al Raha Gardens and the Abu Dhabi Central Market.",
+    "ar": "تأسست في 12 يناير 2004، وطُرحت للاكتتاب العام سنة 2005 في سوق أبوظبي للأوراق المالية (ADX: ALDAR). نموها المبكر تركز على الراحة بيتش، الراحة جاردنز، والسوق المركزي أبوظبي."
+   },
+   "trackRecord": {
+    "en": "Master developer of Yas Island (Ferrari World, Yas Marina Circuit/F1 Grand Prix, Yas Mall), Saadiyat Island (Louvre Abu Dhabi Residences) and Al Raha Beach. 2013 merger with Sorouh Real Estate created an entity with no meaningful local competitor. Recorded AED 40.6 billion in sales and AED 8.8 billion net profit in 2025.",
+    "ar": "المطور الرئيسي لجزيرة ياس (فيراري وورلد، حلبة مرسى ياس/سباق الفورمولا 1، ياس مول)، جزيرة السعديات (رزيدنس اللوفر أبوظبي)، والراحة بيتش. اندماج 2013 مع صروح العقارية خلق كيان من غير منافس محلي حقيقي. سجّلت مبيعات 40.6 مليار درهم وصافي ربح 8.8 مليار درهم سنة 2025."
+   },
+   "reputation": {
+    "en": "Widely cited as the benchmark for handover reliability in the UAE — timelines are consistently met, with snagging standards above the UAE market average and structured post-handover support via Aldar Estates.",
+    "ar": "بيُذكر على نطاق واسع كمعيار موثوقية التسليم في الإمارات — بتلتزم بالمواعيد باستمرار، بمعايير فحص عيوب أعلى من متوسط السوق الإماراتي، ودعم منظم بعد التسليم عن طريق الدار إستيتس."
+   },
+   "resale": {
+    "en": "Communities like Yas Acres, West Yas, Water's Edge and Ansam show active, liquid resale markets. Entry points range from AED 805,000 (Gardenia Bay apartments) to AED 8.3 million+ for branded villa communities like Yas Riva.",
+    "ar": "مجتمعات زي ياس أكرز، ويست ياس، ووترز إيدج، وأنسام بتشهد أسواق إعادة بيع نشطة وسائلة. نقاط الدخول من 805,000 درهم (شقق جاردينيا باي) لـ8.3 مليون درهم+ لمجتمعات فلل بعلامة تجارية زي ياس ريفا."
+   },
+   "partnerships": {
+    "en": "Branded residence collaborations with Waldorf Astoria and Nobu on Yas Island, and the Louvre Abu Dhabi on Saadiyat Island. 2018 strategic alliance with Dubai's Emaar. International expansion via SODIC (Egypt) and London Square (UK).",
+    "ar": "تعاونات وحدات بعلامة تجارية مع والدورف أستوريا ونوبو في جزيرة ياس، واللوفر أبوظبي في جزيرة السعديات. تحالف استراتيجي سنة 2018 مع إعمار الدبيّة. توسع دولي عن طريق سوديك (مصر) ولندن سكوير (بريطانيا)."
+   },
+   "certifications": {
+    "en": "Majority-held by Abu Dhabi sovereign-linked investors Mubadala and Alpha Dhabi, giving it investment-grade, government-backed status. Aldar's circular headquarters building is an internationally recognized architectural landmark.",
+    "ar": "غالبية ملكيتها لمستثمرين مرتبطين بأبوظبي السيادية زي مبادلة وألفا ظبي، وده بيديها تصنيف استثماري مدعوم حكومياً. مبنى مقرها الدائري معلم معماري معترف بيه عالمياً."
+   },
+   "sources": [
+    "abu-dhabi.realestate/blog/aldar-properties-abu-dhabi",
+    "districtuae.com/developers/aldar-properties",
+    "pestel-analysis.com/blogs/brief-history/aldar"
+   ]
+  },
+  "Aldar Properties": {
+   "overview": {
+    "en": "Aldar Properties is Abu Dhabi's largest publicly listed developer, founded in 2004, and the primary delivery vehicle for the emirate's master-planned urban development.",
+    "ar": "الدار العقارية أكبر مطور مُدرج في أبوظبي، تأسست سنة 2004، وهي الذراع الرئيسية لتنفيذ التطوير الحضري المخطط للإمارة."
+   },
+   "marketEntry": {
+    "en": "Incorporated on January 12, 2004, with an IPO in 2005 on the Abu Dhabi Securities Exchange (ADX: ALDAR). Early growth centered on Al Raha Beach, Al Raha Gardens and the Abu Dhabi Central Market.",
+    "ar": "تأسست في 12 يناير 2004، وطُرحت للاكتتاب العام سنة 2005 في سوق أبوظبي للأوراق المالية (ADX: ALDAR). نموها المبكر تركز على الراحة بيتش، الراحة جاردنز، والسوق المركزي أبوظبي."
+   },
+   "trackRecord": {
+    "en": "Master developer of Yas Island (Ferrari World, Yas Marina Circuit/F1 Grand Prix, Yas Mall), Saadiyat Island (Louvre Abu Dhabi Residences) and Al Raha Beach. 2013 merger with Sorouh Real Estate created an entity with no meaningful local competitor. Recorded AED 40.6 billion in sales and AED 8.8 billion net profit in 2025.",
+    "ar": "المطور الرئيسي لجزيرة ياس (فيراري وورلد، حلبة مرسى ياس/سباق الفورمولا 1، ياس مول)، جزيرة السعديات (رزيدنس اللوفر أبوظبي)، والراحة بيتش. اندماج 2013 مع صروح العقارية خلق كيان من غير منافس محلي حقيقي. سجّلت مبيعات 40.6 مليار درهم وصافي ربح 8.8 مليار درهم سنة 2025."
+   },
+   "reputation": {
+    "en": "Widely cited as the benchmark for handover reliability in the UAE — timelines are consistently met, with snagging standards above the UAE market average and structured post-handover support via Aldar Estates.",
+    "ar": "بيُذكر على نطاق واسع كمعيار موثوقية التسليم في الإمارات — بتلتزم بالمواعيد باستمرار، بمعايير فحص عيوب أعلى من متوسط السوق الإماراتي، ودعم منظم بعد التسليم عن طريق الدار إستيتس."
+   },
+   "resale": {
+    "en": "Communities like Yas Acres, West Yas, Water's Edge and Ansam show active, liquid resale markets. Entry points range from AED 805,000 (Gardenia Bay apartments) to AED 8.3 million+ for branded villa communities like Yas Riva.",
+    "ar": "مجتمعات زي ياس أكرز، ويست ياس، ووترز إيدج، وأنسام بتشهد أسواق إعادة بيع نشطة وسائلة. نقاط الدخول من 805,000 درهم (شقق جاردينيا باي) لـ8.3 مليون درهم+ لمجتمعات فلل بعلامة تجارية زي ياس ريفا."
+   },
+   "partnerships": {
+    "en": "Branded residence collaborations with Waldorf Astoria and Nobu on Yas Island, and the Louvre Abu Dhabi on Saadiyat Island. 2018 strategic alliance with Dubai's Emaar. International expansion via SODIC (Egypt) and London Square (UK).",
+    "ar": "تعاونات وحدات بعلامة تجارية مع والدورف أستوريا ونوبو في جزيرة ياس، واللوفر أبوظبي في جزيرة السعديات. تحالف استراتيجي سنة 2018 مع إعمار الدبيّة. توسع دولي عن طريق سوديك (مصر) ولندن سكوير (بريطانيا)."
+   },
+   "certifications": {
+    "en": "Majority-held by Abu Dhabi sovereign-linked investors Mubadala and Alpha Dhabi, giving it investment-grade, government-backed status. Aldar's circular headquarters building is an internationally recognized architectural landmark.",
+    "ar": "غالبية ملكيتها لمستثمرين مرتبطين بأبوظبي السيادية زي مبادلة وألفا ظبي، وده بيديها تصنيف استثماري مدعوم حكومياً. مبنى مقرها الدائري معلم معماري معترف بيه عالمياً."
+   },
+   "sources": [
+    "abu-dhabi.realestate/blog/aldar-properties-abu-dhabi",
+    "districtuae.com/developers/aldar-properties",
+    "pestel-analysis.com/blogs/brief-history/aldar"
+   ]
   }
+ }
 }
