@@ -1,1 +1,1301 @@
-{"note":"Per-unit-type starting prices taken directly from developer inventory sheets. Values are point-in-time and must be reconfirmed before reservation.","updatedAt":"2026-08-11","projects":{"Tilal Binghatti":{"developer":"Binghatti Developers","inventoryDate":"2026-08-11","source":"Official developer inventory sheet","completionDate":"2029-06-30","startingPrice":3948000,"unitTypes":[{"type":"4 Bedroom Villa","startingPrice":3948000,"avgPricePerSqFt":1519},{"type":"5 Bedroom Premium Villa","startingPrice":4794000,"avgPricePerSqFt":1758},{"type":"5 Bedroom Premium Plus Villa","startingPrice":5198200,"avgPricePerSqFt":1884},{"type":"5 Bedroom Grand Villa","startingPrice":5875000,"avgPricePerSqFt":2160},{"type":"6 Bedroom Mansion","startingPrice":6486000,"avgPricePerSqFt":1602},{"type":"6 Bedroom Grand Mansion","startingPrice":15040000,"avgPricePerSqFt":2260}]},"Burj Binghatti Jacob & Co":{"developer":"Binghatti Developers","inventoryDate":"2026-08-11","source":"Official developer inventory sheet","completionDate":"2027-06-30","startingPrice":8400000,"unitTypes":[{"type":"Emerald Villa","startingPrice":8400000,"avgPricePerSqFt":2665},{"type":"Ruby Villa","startingPrice":13200000,"avgPricePerSqFt":4854},{"type":"Diamond Villa","startingPrice":16000000,"avgPricePerSqFt":4233}]},"Bugatti Residences By Binghatti":{"developer":"Binghatti Developers","inventoryDate":"2026-08-11","source":"Official developer inventory sheet","completionDate":"2027-08-30","startingPrice":19400000,"unitTypes":[{"type":"Riviera - Cannes","startingPrice":19400000,"avgPricePerSqFt":7767},{"type":"Riviera - Saint Tropez","startingPrice":29400000,"avgPricePerSqFt":9074},{"type":"Five Bedrooms","startingPrice":69000000,"avgPricePerSqFt":8846},{"type":"Riviera - Monaco","startingPrice":100000000,"avgPricePerSqFt":14949},{"type":"Sky Mansion Penthouse","startingPrice":165000000,"avgPricePerSqFt":16807}]},"Mercedes Benz AMG Vision":{"developer":"Binghatti Developers","inventoryDate":"2026-08-11","source":"Official developer inventory sheet","completionDate":"2027-02-28","startingPrice":10299999,"unitTypes":[{"type":"2 Bedroom Type 1","startingPrice":10299999,"avgPricePerSqFt":6858},{"type":"3 Bedroom Type 1","startingPrice":19999999,"avgPricePerSqFt":8250},{"type":"3 Bedroom Type 2","startingPrice":25399999,"avgPricePerSqFt":7869},{"type":"4 Bedroom","startingPrice":35799999,"avgPricePerSqFt":9775}]},"Binghatti Amberhall":{"developer":"Binghatti Developers","inventoryDate":"2026-08-11","source":"Official developer inventory sheet","completionDate":"2026-12-31","startingPrice":1099799,"unitTypes":[{"type":"1 Bedroom","startingPrice":1099799,"avgPricePerSqFt":1538},{"type":"2 Bedroom Royal Suite","startingPrice":2424938,"avgPricePerSqFt":1505}]},"Binghatti Aquarise":{"developer":"Binghatti Developers","inventoryDate":"2026-08-11","source":"Official developer inventory sheet","completionDate":"2027-10-30","startingPrice":1081939,"unitTypes":[{"type":"Studio","startingPrice":1081939,"avgPricePerSqFt":2554},{"type":"1 Bedroom","startingPrice":1880000,"avgPricePerSqFt":2386},{"type":"2 Bedroom","startingPrice":2735399,"avgPricePerSqFt":2379},{"type":"2 Bedroom Royal Suite","startingPrice":3759999,"avgPricePerSqFt":1396},{"type":"4 Bedroom","startingPrice":6579999,"avgPricePerSqFt":2759}]},"Binghatti Cullinan":{"developer":"Binghatti Developers","inventoryDate":"2026-08-11","source":"Official developer inventory sheet","completionDate":"2027-09-30","startingPrice":1315999,"unitTypes":[{"type":"Unit","startingPrice":1315999,"avgPricePerSqFt":1841}]},"Binghatti Elite":{"developer":"Binghatti Developers","inventoryDate":"2026-08-11","source":"Official developer inventory sheet","completionDate":"2026-09-30","startingPrice":818749,"unitTypes":[{"type":"Studio","startingPrice":818749,"avgPricePerSqFt":2191},{"type":"1 Bedroom","startingPrice":1124999,"avgPricePerSqFt":1652}]},"Binghatti Etherea":{"developer":"Binghatti Developers","inventoryDate":"2026-08-11","source":"Official developer inventory sheet","completionDate":"2027-12-31","startingPrice":739779,"unitTypes":[{"type":"Studio","startingPrice":739779,"avgPricePerSqFt":1809},{"type":"1 Bedroom","startingPrice":1127999,"avgPricePerSqFt":1955},{"type":"2 Bedroom","startingPrice":1597999,"avgPricePerSqFt":1877}]},"Binghatti Flare 02":{"developer":"Binghatti Developers","inventoryDate":"2026-08-11","source":"Official developer inventory sheet","completionDate":"2027-08-31","startingPrice":1227639,"unitTypes":[{"type":"1 Bedroom","startingPrice":1227639,"avgPricePerSqFt":1463}]},"Binghatti Grove":{"developer":"Binghatti Developers","inventoryDate":"2026-08-11","source":"Official developer inventory sheet","completionDate":"2026-08-31","startingPrice":1561999,"unitTypes":[{"type":"1 Bedroom Royal Suite","startingPrice":1561999,"avgPricePerSqFt":1886}]},"Binghatti HillCrest":{"developer":"Binghatti Developers","inventoryDate":"2026-08-11","source":"Official developer inventory sheet","completionDate":"2026-12-31","startingPrice":766099,"unitTypes":[{"type":"Studio","startingPrice":766099,"avgPricePerSqFt":1115},{"type":"1 Bedroom","startingPrice":1224819,"avgPricePerSqFt":1677},{"type":"2 Bedroom","startingPrice":2002199,"avgPricePerSqFt":1784}]},"One By Binghatti":{"developer":"Binghatti Developers","inventoryDate":"2026-08-11","source":"Official developer inventory sheet","completionDate":"2027-03-15","startingPrice":1411799,"unitTypes":[{"type":"Premium Studio","startingPrice":1411799,"avgPricePerSqFt":3099},{"type":"1 Bedroom","startingPrice":2008499,"avgPricePerSqFt":1978},{"type":"2 Bedroom Suite","startingPrice":3509999,"avgPricePerSqFt":2290},{"type":"3 Bedroom Suite","startingPrice":7583332,"avgPricePerSqFt":1825}]},"Binghatti Luxuria":{"developer":"Binghatti Developers","inventoryDate":"2026-08-11","source":"Official developer inventory sheet","completionDate":"2027-09-30","startingPrice":720039,"unitTypes":[{"type":"Studio","startingPrice":720039,"avgPricePerSqFt":2159},{"type":"1 Bedroom","startingPrice":1174059,"avgPricePerSqFt":1786},{"type":"2 Bedroom","startingPrice":1693879,"avgPricePerSqFt":1790},{"type":"2 Bedroom Royal Suite","startingPrice":1832999,"avgPricePerSqFt":1349}]},"Binghatti Moonlight":{"developer":"Binghatti Developers","inventoryDate":"2026-08-11","source":"Official developer inventory sheet","completionDate":"2027-03-31","startingPrice":1989979,"unitTypes":[{"type":"2 Bedroom","startingPrice":1989979,"avgPricePerSqFt":1954}]},"Binghatti Maybach":{"developer":"Binghatti Developers","inventoryDate":"2026-08-11","source":"Official developer inventory sheet","completionDate":"2027-12-31","startingPrice":1269000,"unitTypes":[{"type":"Studio","startingPrice":1269000,"avgPricePerSqFt":3328},{"type":"1 Bedroom","startingPrice":2164820,"avgPricePerSqFt":3476},{"type":"2 Bedroom","startingPrice":3008000,"avgPricePerSqFt":3008},{"type":"3 Bedroom","startingPrice":4653000,"avgPricePerSqFt":3337}]},"Maybach Ultimate Luxury":{"developer":"Binghatti Developers","inventoryDate":"2026-08-11","source":"Official developer inventory sheet","completionDate":"2028-04-30","startingPrice":1269000,"unitTypes":[{"type":"Studio","startingPrice":1269000,"avgPricePerSqFt":3428},{"type":"1 Bedroom","startingPrice":2162000,"avgPricePerSqFt":3555},{"type":"2 Bedroom","startingPrice":3008000,"avgPricePerSqFt":3131},{"type":"3 Bedroom","startingPrice":4653000,"avgPricePerSqFt":3467}]},"Binghatti Vision Iconic":{"developer":"Binghatti Developers","inventoryDate":"2026-08-11","source":"Official developer inventory sheet","completionDate":"2028-12-15","startingPrice":2444000,"unitTypes":[{"type":"1 Bedroom","startingPrice":2444000,"avgPricePerSqFt":3435},{"type":"2 Bedroom","startingPrice":3666000,"avgPricePerSqFt":3655},{"type":"2 Bedroom Royal Suite","startingPrice":4604120,"avgPricePerSqFt":2244},{"type":"3 Bedroom","startingPrice":5875000,"avgPricePerSqFt":4915},{"type":"3 Bedroom Royal Suite","startingPrice":6815000,"avgPricePerSqFt":2699},{"type":"4 Bedroom","startingPrice":11773500,"avgPricePerSqFt":5340},{"type":"5 Bedroom","startingPrice":17923920,"avgPricePerSqFt":5968}]},"Binghatti Skyblade":{"developer":"Binghatti Developers","inventoryDate":"2026-08-11","source":"Official developer inventory sheet","completionDate":"2027-12-28","startingPrice":1659099,"unitTypes":[{"type":"Studio","startingPrice":1659099,"avgPricePerSqFt":4303},{"type":"Premium Studio","startingPrice":1790699,"avgPricePerSqFt":3366},{"type":"1 Bedroom","startingPrice":3087899,"avgPricePerSqFt":4035},{"type":"3 Bedroom Burj Royal Wing","startingPrice":12591299,"avgPricePerSqFt":5747}]},"Binghatti Skyhall":{"developer":"Binghatti Developers","inventoryDate":"2026-08-11","source":"Official developer inventory sheet","completionDate":"2027-02-28","startingPrice":1135520,"unitTypes":[{"type":"Studio","startingPrice":1135520,"avgPricePerSqFt":2800},{"type":"1 Bedroom","startingPrice":1978042,"avgPricePerSqFt":2247}]},"Binghatti Skyterraces":{"developer":"Binghatti Developers","inventoryDate":"2026-08-11","source":"Official developer inventory sheet","completionDate":"2028-04-30","startingPrice":1095973,"unitTypes":[{"type":"Unit","startingPrice":1095973,"avgPricePerSqFt":1712}]},"Binghatti Skyflame 1":{"developer":"Binghatti Developers","inventoryDate":"2026-08-11","source":"Official developer inventory sheet","completionDate":"2027-12-31","startingPrice":1033999,"unitTypes":[{"type":"1 Bedroom","startingPrice":1033999,"avgPricePerSqFt":1495},{"type":"2 Bedroom","startingPrice":1555699,"avgPricePerSqFt":1358},{"type":"2 Bedroom Royal Suite","startingPrice":2208999,"avgPricePerSqFt":1054}]},"Binghatti Skyflame 2":{"developer":"Binghatti Developers","inventoryDate":"2026-08-11","source":"Official developer inventory sheet","completionDate":"2027-12-31","startingPrice":1033999,"unitTypes":[{"type":"1 Bedroom","startingPrice":1033999,"avgPricePerSqFt":1530},{"type":"2 Bedroom","startingPrice":1597999,"avgPricePerSqFt":1323},{"type":"2 Bedroom Royal Suite","startingPrice":2265400,"avgPricePerSqFt":1045}]},"Binghatti Skyrise":{"developer":"Binghatti Developers","inventoryDate":"2026-08-11","source":"Official developer inventory sheet","completionDate":"2027-11-27","startingPrice":1985099,"unitTypes":[{"type":"1 Bedroom","startingPrice":1985099,"avgPricePerSqFt":2395}]},"Binghatti Starlight":{"developer":"Binghatti Developers","inventoryDate":"2026-08-11","source":"Official developer inventory sheet","completionDate":"2026-09-15","startingPrice":1895322,"unitTypes":[{"type":"2 Bedroom","startingPrice":1895322,"avgPricePerSqFt":1482}]},"Binghatti Twilight":{"developer":"Binghatti Developers","inventoryDate":"2026-08-11","source":"Official developer inventory sheet","completionDate":"2026-12-31","startingPrice":1879999,"unitTypes":[{"type":"2 Bedroom","startingPrice":1879999,"avgPricePerSqFt":1750}]},"Binghatti Wraith":{"developer":"Binghatti Developers","inventoryDate":"2026-08-11","source":"Official developer inventory sheet","completionDate":"2027-12-30","startingPrice":1221999,"unitTypes":[{"type":"1 Bedroom","startingPrice":1221999,"avgPricePerSqFt":1794},{"type":"2 Bedroom","startingPrice":1973999,"avgPricePerSqFt":1757},{"type":"3 Bedroom Royal Suite","startingPrice":3618998,"avgPricePerSqFt":1405}]}}}
+{
+ "note": "Per-unit-type starting prices taken directly from developer inventory sheets. Values are point-in-time and must be reconfirmed before reservation.",
+ "updatedAt": "2026-08-11",
+ "projects": {
+  "Tilal Binghatti": {
+   "developer": "Binghatti Developers",
+   "inventoryDate": "2026-08-11",
+   "source": "Official developer inventory sheet",
+   "completionDate": "2029-06-30",
+   "startingPrice": 3948000,
+   "unitTypes": [
+    {
+     "type": "4 Bedroom Villa",
+     "startingPrice": 3948000,
+     "avgPricePerSqFt": 1519
+    },
+    {
+     "type": "5 Bedroom Premium Villa",
+     "startingPrice": 4794000,
+     "avgPricePerSqFt": 1758
+    },
+    {
+     "type": "5 Bedroom Premium Plus Villa",
+     "startingPrice": 5198200,
+     "avgPricePerSqFt": 1884
+    },
+    {
+     "type": "5 Bedroom Grand Villa",
+     "startingPrice": 5875000,
+     "avgPricePerSqFt": 2160
+    },
+    {
+     "type": "6 Bedroom Mansion",
+     "startingPrice": 6486000,
+     "avgPricePerSqFt": 1602
+    },
+    {
+     "type": "6 Bedroom Grand Mansion",
+     "startingPrice": 15040000,
+     "avgPricePerSqFt": 2260
+    }
+   ]
+  },
+  "Burj Binghatti Jacob & Co": {
+   "developer": "Binghatti Developers",
+   "inventoryDate": "2026-08-11",
+   "source": "Official developer inventory sheet",
+   "completionDate": "2027-06-30",
+   "startingPrice": 8400000,
+   "unitTypes": [
+    {
+     "type": "Emerald Villa",
+     "startingPrice": 8400000,
+     "avgPricePerSqFt": 2665
+    },
+    {
+     "type": "Ruby Villa",
+     "startingPrice": 13200000,
+     "avgPricePerSqFt": 4854
+    },
+    {
+     "type": "Diamond Villa",
+     "startingPrice": 16000000,
+     "avgPricePerSqFt": 4233
+    }
+   ]
+  },
+  "Bugatti Residences By Binghatti": {
+   "developer": "Binghatti Developers",
+   "inventoryDate": "2026-08-11",
+   "source": "Official developer inventory sheet",
+   "completionDate": "2027-08-30",
+   "startingPrice": 19400000,
+   "unitTypes": [
+    {
+     "type": "Riviera - Cannes",
+     "startingPrice": 19400000,
+     "avgPricePerSqFt": 7767
+    },
+    {
+     "type": "Riviera - Saint Tropez",
+     "startingPrice": 29400000,
+     "avgPricePerSqFt": 9074
+    },
+    {
+     "type": "Five Bedrooms",
+     "startingPrice": 69000000,
+     "avgPricePerSqFt": 8846
+    },
+    {
+     "type": "Riviera - Monaco",
+     "startingPrice": 100000000,
+     "avgPricePerSqFt": 14949
+    },
+    {
+     "type": "Sky Mansion Penthouse",
+     "startingPrice": 165000000,
+     "avgPricePerSqFt": 16807
+    }
+   ]
+  },
+  "Mercedes Benz AMG Vision": {
+   "developer": "Binghatti Developers",
+   "inventoryDate": "2026-08-11",
+   "source": "Official developer inventory sheet",
+   "completionDate": "2027-02-28",
+   "startingPrice": 10299999,
+   "unitTypes": [
+    {
+     "type": "2 Bedroom Type 1",
+     "startingPrice": 10299999,
+     "avgPricePerSqFt": 6858
+    },
+    {
+     "type": "3 Bedroom Type 1",
+     "startingPrice": 19999999,
+     "avgPricePerSqFt": 8250
+    },
+    {
+     "type": "3 Bedroom Type 2",
+     "startingPrice": 25399999,
+     "avgPricePerSqFt": 7869
+    },
+    {
+     "type": "4 Bedroom",
+     "startingPrice": 35799999,
+     "avgPricePerSqFt": 9775
+    }
+   ]
+  },
+  "Binghatti Amberhall": {
+   "developer": "Binghatti Developers",
+   "inventoryDate": "2026-08-11",
+   "source": "Official developer inventory sheet",
+   "completionDate": "2026-12-31",
+   "startingPrice": 1099799,
+   "unitTypes": [
+    {
+     "type": "1 Bedroom",
+     "startingPrice": 1099799,
+     "avgPricePerSqFt": 1538
+    },
+    {
+     "type": "2 Bedroom Royal Suite",
+     "startingPrice": 2424938,
+     "avgPricePerSqFt": 1505
+    }
+   ]
+  },
+  "Binghatti Aquarise": {
+   "developer": "Binghatti Developers",
+   "inventoryDate": "2026-08-11",
+   "source": "Official developer inventory sheet",
+   "completionDate": "2027-10-30",
+   "startingPrice": 1081939,
+   "unitTypes": [
+    {
+     "type": "Studio",
+     "startingPrice": 1081939,
+     "avgPricePerSqFt": 2554
+    },
+    {
+     "type": "1 Bedroom",
+     "startingPrice": 1880000,
+     "avgPricePerSqFt": 2386
+    },
+    {
+     "type": "2 Bedroom",
+     "startingPrice": 2735399,
+     "avgPricePerSqFt": 2379
+    },
+    {
+     "type": "2 Bedroom Royal Suite",
+     "startingPrice": 3759999,
+     "avgPricePerSqFt": 1396
+    },
+    {
+     "type": "4 Bedroom",
+     "startingPrice": 6579999,
+     "avgPricePerSqFt": 2759
+    }
+   ]
+  },
+  "Binghatti Cullinan": {
+   "developer": "Binghatti Developers",
+   "inventoryDate": "2026-08-11",
+   "source": "Official developer inventory sheet",
+   "completionDate": "2027-09-30",
+   "startingPrice": 1315999,
+   "unitTypes": [
+    {
+     "type": "Unit",
+     "startingPrice": 1315999,
+     "avgPricePerSqFt": 1841
+    }
+   ]
+  },
+  "Binghatti Elite": {
+   "developer": "Binghatti Developers",
+   "inventoryDate": "2026-08-11",
+   "source": "Official developer inventory sheet",
+   "completionDate": "2026-09-30",
+   "startingPrice": 818749,
+   "unitTypes": [
+    {
+     "type": "Studio",
+     "startingPrice": 818749,
+     "avgPricePerSqFt": 2191
+    },
+    {
+     "type": "1 Bedroom",
+     "startingPrice": 1124999,
+     "avgPricePerSqFt": 1652
+    }
+   ]
+  },
+  "Binghatti Etherea": {
+   "developer": "Binghatti Developers",
+   "inventoryDate": "2026-08-11",
+   "source": "Official developer inventory sheet",
+   "completionDate": "2027-12-31",
+   "startingPrice": 739779,
+   "unitTypes": [
+    {
+     "type": "Studio",
+     "startingPrice": 739779,
+     "avgPricePerSqFt": 1809
+    },
+    {
+     "type": "1 Bedroom",
+     "startingPrice": 1127999,
+     "avgPricePerSqFt": 1955
+    },
+    {
+     "type": "2 Bedroom",
+     "startingPrice": 1597999,
+     "avgPricePerSqFt": 1877
+    }
+   ]
+  },
+  "Binghatti Flare 02": {
+   "developer": "Binghatti Developers",
+   "inventoryDate": "2026-08-11",
+   "source": "Official developer inventory sheet",
+   "completionDate": "2027-08-31",
+   "startingPrice": 1227639,
+   "unitTypes": [
+    {
+     "type": "1 Bedroom",
+     "startingPrice": 1227639,
+     "avgPricePerSqFt": 1463
+    }
+   ]
+  },
+  "Binghatti Grove": {
+   "developer": "Binghatti Developers",
+   "inventoryDate": "2026-08-11",
+   "source": "Official developer inventory sheet",
+   "completionDate": "2026-08-31",
+   "startingPrice": 1561999,
+   "unitTypes": [
+    {
+     "type": "1 Bedroom Royal Suite",
+     "startingPrice": 1561999,
+     "avgPricePerSqFt": 1886
+    }
+   ]
+  },
+  "Binghatti HillCrest": {
+   "developer": "Binghatti Developers",
+   "inventoryDate": "2026-08-11",
+   "source": "Official developer inventory sheet",
+   "completionDate": "2026-12-31",
+   "startingPrice": 766099,
+   "unitTypes": [
+    {
+     "type": "Studio",
+     "startingPrice": 766099,
+     "avgPricePerSqFt": 1115
+    },
+    {
+     "type": "1 Bedroom",
+     "startingPrice": 1224819,
+     "avgPricePerSqFt": 1677
+    },
+    {
+     "type": "2 Bedroom",
+     "startingPrice": 2002199,
+     "avgPricePerSqFt": 1784
+    }
+   ]
+  },
+  "One By Binghatti": {
+   "developer": "Binghatti Developers",
+   "inventoryDate": "2026-08-11",
+   "source": "Official developer inventory sheet",
+   "completionDate": "2027-03-15",
+   "startingPrice": 1411799,
+   "unitTypes": [
+    {
+     "type": "Premium Studio",
+     "startingPrice": 1411799,
+     "avgPricePerSqFt": 3099
+    },
+    {
+     "type": "1 Bedroom",
+     "startingPrice": 2008499,
+     "avgPricePerSqFt": 1978
+    },
+    {
+     "type": "2 Bedroom Suite",
+     "startingPrice": 3509999,
+     "avgPricePerSqFt": 2290
+    },
+    {
+     "type": "3 Bedroom Suite",
+     "startingPrice": 7583332,
+     "avgPricePerSqFt": 1825
+    }
+   ]
+  },
+  "Binghatti Luxuria": {
+   "developer": "Binghatti Developers",
+   "inventoryDate": "2026-08-11",
+   "source": "Official developer inventory sheet",
+   "completionDate": "2027-09-30",
+   "startingPrice": 720039,
+   "unitTypes": [
+    {
+     "type": "Studio",
+     "startingPrice": 720039,
+     "avgPricePerSqFt": 2159
+    },
+    {
+     "type": "1 Bedroom",
+     "startingPrice": 1174059,
+     "avgPricePerSqFt": 1786
+    },
+    {
+     "type": "2 Bedroom",
+     "startingPrice": 1693879,
+     "avgPricePerSqFt": 1790
+    },
+    {
+     "type": "2 Bedroom Royal Suite",
+     "startingPrice": 1832999,
+     "avgPricePerSqFt": 1349
+    }
+   ]
+  },
+  "Binghatti Moonlight": {
+   "developer": "Binghatti Developers",
+   "inventoryDate": "2026-08-11",
+   "source": "Official developer inventory sheet",
+   "completionDate": "2027-03-31",
+   "startingPrice": 1989979,
+   "unitTypes": [
+    {
+     "type": "2 Bedroom",
+     "startingPrice": 1989979,
+     "avgPricePerSqFt": 1954
+    }
+   ]
+  },
+  "Binghatti Maybach": {
+   "developer": "Binghatti Developers",
+   "inventoryDate": "2026-08-11",
+   "source": "Official developer inventory sheet",
+   "completionDate": "2027-12-31",
+   "startingPrice": 1269000,
+   "unitTypes": [
+    {
+     "type": "Studio",
+     "startingPrice": 1269000,
+     "avgPricePerSqFt": 3328
+    },
+    {
+     "type": "1 Bedroom",
+     "startingPrice": 2164820,
+     "avgPricePerSqFt": 3476
+    },
+    {
+     "type": "2 Bedroom",
+     "startingPrice": 3008000,
+     "avgPricePerSqFt": 3008
+    },
+    {
+     "type": "3 Bedroom",
+     "startingPrice": 4653000,
+     "avgPricePerSqFt": 3337
+    }
+   ]
+  },
+  "Maybach Ultimate Luxury": {
+   "developer": "Binghatti Developers",
+   "inventoryDate": "2026-08-11",
+   "source": "Official developer inventory sheet",
+   "completionDate": "2028-04-30",
+   "startingPrice": 1269000,
+   "unitTypes": [
+    {
+     "type": "Studio",
+     "startingPrice": 1269000,
+     "avgPricePerSqFt": 3428
+    },
+    {
+     "type": "1 Bedroom",
+     "startingPrice": 2162000,
+     "avgPricePerSqFt": 3555
+    },
+    {
+     "type": "2 Bedroom",
+     "startingPrice": 3008000,
+     "avgPricePerSqFt": 3131
+    },
+    {
+     "type": "3 Bedroom",
+     "startingPrice": 4653000,
+     "avgPricePerSqFt": 3467
+    }
+   ]
+  },
+  "Binghatti Vision Iconic": {
+   "developer": "Binghatti Developers",
+   "inventoryDate": "2026-08-11",
+   "source": "Official developer inventory sheet",
+   "completionDate": "2028-12-15",
+   "startingPrice": 2444000,
+   "unitTypes": [
+    {
+     "type": "1 Bedroom",
+     "startingPrice": 2444000,
+     "avgPricePerSqFt": 3435
+    },
+    {
+     "type": "2 Bedroom",
+     "startingPrice": 3666000,
+     "avgPricePerSqFt": 3655
+    },
+    {
+     "type": "2 Bedroom Royal Suite",
+     "startingPrice": 4604120,
+     "avgPricePerSqFt": 2244
+    },
+    {
+     "type": "3 Bedroom",
+     "startingPrice": 5875000,
+     "avgPricePerSqFt": 4915
+    },
+    {
+     "type": "3 Bedroom Royal Suite",
+     "startingPrice": 6815000,
+     "avgPricePerSqFt": 2699
+    },
+    {
+     "type": "4 Bedroom",
+     "startingPrice": 11773500,
+     "avgPricePerSqFt": 5340
+    },
+    {
+     "type": "5 Bedroom",
+     "startingPrice": 17923920,
+     "avgPricePerSqFt": 5968
+    }
+   ]
+  },
+  "Binghatti Skyblade": {
+   "developer": "Binghatti Developers",
+   "inventoryDate": "2026-08-11",
+   "source": "Official developer inventory sheet",
+   "completionDate": "2027-12-28",
+   "startingPrice": 1659099,
+   "unitTypes": [
+    {
+     "type": "Studio",
+     "startingPrice": 1659099,
+     "avgPricePerSqFt": 4303
+    },
+    {
+     "type": "Premium Studio",
+     "startingPrice": 1790699,
+     "avgPricePerSqFt": 3366
+    },
+    {
+     "type": "1 Bedroom",
+     "startingPrice": 3087899,
+     "avgPricePerSqFt": 4035
+    },
+    {
+     "type": "3 Bedroom Burj Royal Wing",
+     "startingPrice": 12591299,
+     "avgPricePerSqFt": 5747
+    }
+   ]
+  },
+  "Binghatti Skyhall": {
+   "developer": "Binghatti Developers",
+   "inventoryDate": "2026-08-11",
+   "source": "Official developer inventory sheet",
+   "completionDate": "2027-02-28",
+   "startingPrice": 1135520,
+   "unitTypes": [
+    {
+     "type": "Studio",
+     "startingPrice": 1135520,
+     "avgPricePerSqFt": 2800
+    },
+    {
+     "type": "1 Bedroom",
+     "startingPrice": 1978042,
+     "avgPricePerSqFt": 2247
+    }
+   ]
+  },
+  "Binghatti Skyterraces": {
+   "developer": "Binghatti Developers",
+   "inventoryDate": "2026-08-11",
+   "source": "Official developer inventory sheet",
+   "completionDate": "2028-04-30",
+   "startingPrice": 1095973,
+   "unitTypes": [
+    {
+     "type": "Unit",
+     "startingPrice": 1095973,
+     "avgPricePerSqFt": 1712
+    }
+   ]
+  },
+  "Binghatti Skyflame 1": {
+   "developer": "Binghatti Developers",
+   "inventoryDate": "2026-08-11",
+   "source": "Official developer inventory sheet",
+   "completionDate": "2027-12-31",
+   "startingPrice": 1033999,
+   "unitTypes": [
+    {
+     "type": "1 Bedroom",
+     "startingPrice": 1033999,
+     "avgPricePerSqFt": 1495
+    },
+    {
+     "type": "2 Bedroom",
+     "startingPrice": 1555699,
+     "avgPricePerSqFt": 1358
+    },
+    {
+     "type": "2 Bedroom Royal Suite",
+     "startingPrice": 2208999,
+     "avgPricePerSqFt": 1054
+    }
+   ]
+  },
+  "Binghatti Skyflame 2": {
+   "developer": "Binghatti Developers",
+   "inventoryDate": "2026-08-11",
+   "source": "Official developer inventory sheet",
+   "completionDate": "2027-12-31",
+   "startingPrice": 1033999,
+   "unitTypes": [
+    {
+     "type": "1 Bedroom",
+     "startingPrice": 1033999,
+     "avgPricePerSqFt": 1530
+    },
+    {
+     "type": "2 Bedroom",
+     "startingPrice": 1597999,
+     "avgPricePerSqFt": 1323
+    },
+    {
+     "type": "2 Bedroom Royal Suite",
+     "startingPrice": 2265400,
+     "avgPricePerSqFt": 1045
+    }
+   ]
+  },
+  "Binghatti Skyrise": {
+   "developer": "Binghatti Developers",
+   "inventoryDate": "2026-08-11",
+   "source": "Official developer inventory sheet",
+   "completionDate": "2027-11-27",
+   "startingPrice": 1985099,
+   "unitTypes": [
+    {
+     "type": "1 Bedroom",
+     "startingPrice": 1985099,
+     "avgPricePerSqFt": 2395
+    }
+   ]
+  },
+  "Binghatti Starlight": {
+   "developer": "Binghatti Developers",
+   "inventoryDate": "2026-08-11",
+   "source": "Official developer inventory sheet",
+   "completionDate": "2026-09-15",
+   "startingPrice": 1895322,
+   "unitTypes": [
+    {
+     "type": "2 Bedroom",
+     "startingPrice": 1895322,
+     "avgPricePerSqFt": 1482
+    }
+   ]
+  },
+  "Binghatti Twilight": {
+   "developer": "Binghatti Developers",
+   "inventoryDate": "2026-08-11",
+   "source": "Official developer inventory sheet",
+   "completionDate": "2026-12-31",
+   "startingPrice": 1879999,
+   "unitTypes": [
+    {
+     "type": "2 Bedroom",
+     "startingPrice": 1879999,
+     "avgPricePerSqFt": 1750
+    }
+   ]
+  },
+  "Binghatti Wraith": {
+   "developer": "Binghatti Developers",
+   "inventoryDate": "2026-08-11",
+   "source": "Official developer inventory sheet",
+   "completionDate": "2027-12-30",
+   "startingPrice": 1221999,
+   "unitTypes": [
+    {
+     "type": "1 Bedroom",
+     "startingPrice": 1221999,
+     "avgPricePerSqFt": 1794
+    },
+    {
+     "type": "2 Bedroom",
+     "startingPrice": 1973999,
+     "avgPricePerSqFt": 1757
+    },
+    {
+     "type": "3 Bedroom Royal Suite",
+     "startingPrice": 3618998,
+     "avgPricePerSqFt": 1405
+    }
+   ]
+  },
+  "Azizi Wares": {
+   "developer": "Azizi Developments",
+   "inventoryDate": "2026-08-10",
+   "source": "Official developer availability sheet",
+   "startingPrice": 605000,
+   "unitTypes": [
+    {
+     "type": "Studio",
+     "startingPrice": 605000,
+     "avgPricePerSqFt": 1830
+    },
+    {
+     "type": "1 Bedroom",
+     "startingPrice": 980000,
+     "avgPricePerSqFt": 1606
+    },
+    {
+     "type": "2 Bedroom",
+     "startingPrice": 1580000,
+     "avgPricePerSqFt": 1549
+    }
+   ]
+  },
+  "Azizi Lina": {
+   "developer": "Azizi Developments",
+   "inventoryDate": "2026-08-10",
+   "source": "Official developer availability sheet",
+   "startingPrice": 627000,
+   "unitTypes": [
+    {
+     "type": "Studio",
+     "startingPrice": 627000,
+     "avgPricePerSqFt": 1394
+    },
+    {
+     "type": "1 Bedroom",
+     "startingPrice": 1067000,
+     "avgPricePerSqFt": 1452
+    },
+    {
+     "type": "2 Bedroom",
+     "startingPrice": 1593000,
+     "avgPricePerSqFt": 1268
+    },
+    {
+     "type": "3 Bedroom",
+     "startingPrice": 2208000,
+     "avgPricePerSqFt": 1256
+    }
+   ]
+  },
+  "Azizi Arian": {
+   "developer": "Azizi Developments",
+   "inventoryDate": "2026-08-10",
+   "source": "Official developer availability sheet",
+   "startingPrice": 974000,
+   "unitTypes": [
+    {
+     "type": "Studio",
+     "startingPrice": 974000,
+     "avgPricePerSqFt": 1639
+    },
+    {
+     "type": "1 Bedroom",
+     "startingPrice": 1414000,
+     "avgPricePerSqFt": 1765
+    },
+    {
+     "type": "2 Bedroom",
+     "startingPrice": 1948000,
+     "avgPricePerSqFt": 1512
+    },
+    {
+     "type": "3 Bedroom",
+     "startingPrice": 2370000,
+     "avgPricePerSqFt": 1360
+    }
+   ]
+  },
+  "Azizi Noura": {
+   "developer": "Azizi Developments",
+   "inventoryDate": "2026-08-10",
+   "source": "Official developer availability sheet",
+   "startingPrice": 1006000,
+   "unitTypes": [
+    {
+     "type": "1 Bedroom",
+     "startingPrice": 1006000,
+     "avgPricePerSqFt": 1498
+    },
+    {
+     "type": "2 Bedroom",
+     "startingPrice": 1562000,
+     "avgPricePerSqFt": 1370
+    }
+   ]
+  },
+  "Azizi Abraham": {
+   "developer": "Azizi Developments",
+   "inventoryDate": "2026-08-10",
+   "source": "Official developer availability sheet",
+   "startingPrice": 1067000,
+   "unitTypes": [
+    {
+     "type": "1 Bedroom",
+     "startingPrice": 1067000,
+     "avgPricePerSqFt": 1589
+    }
+   ]
+  },
+  "Azizi Rose": {
+   "developer": "Azizi Developments",
+   "inventoryDate": "2026-08-10",
+   "source": "Official developer availability sheet",
+   "startingPrice": 1160000,
+   "unitTypes": [
+    {
+     "type": "1 Bedroom",
+     "startingPrice": 1160000,
+     "avgPricePerSqFt": 1537
+    }
+   ]
+  },
+  "Azizi Gabriel": {
+   "developer": "Azizi Developments",
+   "inventoryDate": "2026-08-10",
+   "source": "Official developer availability sheet",
+   "startingPrice": 1588000,
+   "unitTypes": [
+    {
+     "type": "2 Bedroom",
+     "startingPrice": 1588000,
+     "avgPricePerSqFt": 1451
+    }
+   ]
+  },
+  "Azizi Milan 9": {
+   "developer": "Azizi Developments",
+   "inventoryDate": "2026-08-10",
+   "source": "Official developer availability sheet",
+   "startingPrice": 738000,
+   "unitTypes": [
+    {
+     "type": "Studio",
+     "startingPrice": 738000,
+     "avgPricePerSqFt": 2341
+    }
+   ]
+  },
+  "Azizi Milan 18": {
+   "developer": "Azizi Developments",
+   "inventoryDate": "2026-08-10",
+   "source": "Official developer availability sheet",
+   "startingPrice": 738000,
+   "unitTypes": [
+    {
+     "type": "Studio",
+     "startingPrice": 738000,
+     "avgPricePerSqFt": 2289
+    }
+   ]
+  },
+  "Azizi Venice 12": {
+   "developer": "Azizi Developments",
+   "inventoryDate": "2026-08-10",
+   "source": "Official developer availability sheet",
+   "startingPrice": 785000,
+   "unitTypes": [
+    {
+     "type": "Studio",
+     "startingPrice": 785000,
+     "avgPricePerSqFt": 2175
+    },
+    {
+     "type": "1 Bedroom",
+     "startingPrice": 1230000,
+     "avgPricePerSqFt": 1677
+    }
+   ]
+  },
+  "Azizi Venice 13": {
+   "developer": "Azizi Developments",
+   "inventoryDate": "2026-08-10",
+   "source": "Official developer availability sheet",
+   "startingPrice": 1230000,
+   "unitTypes": [
+    {
+     "type": "1 Bedroom",
+     "startingPrice": 1230000,
+     "avgPricePerSqFt": 1707
+    }
+   ]
+  },
+  "Azizi Venice 10": {
+   "developer": "Azizi Developments",
+   "inventoryDate": "2026-08-10",
+   "source": "Official developer availability sheet",
+   "startingPrice": 1230000,
+   "unitTypes": [
+    {
+     "type": "1 Bedroom",
+     "startingPrice": 1230000,
+     "avgPricePerSqFt": 1766
+    }
+   ]
+  },
+  "Azizi Venice 11": {
+   "developer": "Azizi Developments",
+   "inventoryDate": "2026-08-10",
+   "source": "Official developer availability sheet",
+   "startingPrice": 1230000,
+   "unitTypes": [
+    {
+     "type": "1 Bedroom",
+     "startingPrice": 1230000,
+     "avgPricePerSqFt": 1677
+    }
+   ]
+  },
+  "Azizi Wasl": {
+   "developer": "Azizi Developments",
+   "inventoryDate": "2026-08-10",
+   "source": "Official developer availability sheet",
+   "startingPrice": 1748000,
+   "unitTypes": [
+    {
+     "type": "1 Bedroom",
+     "startingPrice": 1748000,
+     "avgPricePerSqFt": 3056
+    },
+    {
+     "type": "2 Bedroom",
+     "startingPrice": 2761000,
+     "avgPricePerSqFt": 3034
+    },
+    {
+     "type": "3 Bedroom",
+     "startingPrice": 3767000,
+     "avgPricePerSqFt": 3209
+    },
+    {
+     "type": "PENTHOUSE-4 BR",
+     "startingPrice": 6875000,
+     "avgPricePerSqFt": 2962
+    },
+    {
+     "type": "PENTHOUSE-3 BR",
+     "startingPrice": 7956000,
+     "avgPricePerSqFt": 3165
+    }
+   ]
+  },
+  "Azizi Riviera 55": {
+   "developer": "Azizi Developments",
+   "inventoryDate": "2026-08-10",
+   "source": "Official developer availability sheet",
+   "startingPrice": 3590000,
+   "unitTypes": [
+    {
+     "type": "SHOP",
+     "startingPrice": 3590000,
+     "avgPricePerSqFt": 6413
+    }
+   ]
+  },
+  "Azizi Riviera 58": {
+   "developer": "Azizi Developments",
+   "inventoryDate": "2026-08-10",
+   "source": "Official developer availability sheet",
+   "startingPrice": 3655000,
+   "unitTypes": [
+    {
+     "type": "SHOP",
+     "startingPrice": 3655000,
+     "avgPricePerSqFt": 6424
+    }
+   ]
+  },
+  "Azizi Riviera 64": {
+   "developer": "Azizi Developments",
+   "inventoryDate": "2026-08-10",
+   "source": "Official developer availability sheet",
+   "startingPrice": 3760000,
+   "unitTypes": [
+    {
+     "type": "SHOP",
+     "startingPrice": 3760000,
+     "avgPricePerSqFt": 6402
+    }
+   ]
+  },
+  "Azizi Riviera 68": {
+   "developer": "Azizi Developments",
+   "inventoryDate": "2026-08-10",
+   "source": "Official developer availability sheet",
+   "startingPrice": 4024000,
+   "unitTypes": [
+    {
+     "type": "SHOP",
+     "startingPrice": 4024000,
+     "avgPricePerSqFt": 5422
+    }
+   ]
+  },
+  "Azizi Riviera 66": {
+   "developer": "Azizi Developments",
+   "inventoryDate": "2026-08-10",
+   "source": "Official developer availability sheet",
+   "startingPrice": 4028000,
+   "unitTypes": [
+    {
+     "type": "SHOP",
+     "startingPrice": 4028000,
+     "avgPricePerSqFt": 6399
+    }
+   ]
+  },
+  "Azizi Riviera 56": {
+   "developer": "Azizi Developments",
+   "inventoryDate": "2026-08-10",
+   "source": "Official developer availability sheet",
+   "startingPrice": 5365000,
+   "unitTypes": [
+    {
+     "type": "SHOP",
+     "startingPrice": 5365000,
+     "avgPricePerSqFt": 6418
+    }
+   ]
+  },
+  "Azizi Riviera 65": {
+   "developer": "Azizi Developments",
+   "inventoryDate": "2026-08-10",
+   "source": "Official developer availability sheet",
+   "startingPrice": 5365000,
+   "unitTypes": [
+    {
+     "type": "SHOP",
+     "startingPrice": 5365000,
+     "avgPricePerSqFt": 5774
+    }
+   ]
+  },
+  "Azizi Riviera 60": {
+   "developer": "Azizi Developments",
+   "inventoryDate": "2026-08-10",
+   "source": "Official developer availability sheet",
+   "startingPrice": 5890000,
+   "unitTypes": [
+    {
+     "type": "SHOP",
+     "startingPrice": 5890000,
+     "avgPricePerSqFt": 6691
+    }
+   ]
+  },
+  "Azizi Riviera 50": {
+   "developer": "Azizi Developments",
+   "inventoryDate": "2026-08-10",
+   "source": "Official developer availability sheet",
+   "startingPrice": 8011000,
+   "unitTypes": [
+    {
+     "type": "SHOP",
+     "startingPrice": 8011000,
+     "avgPricePerSqFt": 6940
+    }
+   ]
+  },
+  "Azizi Riviera 49": {
+   "developer": "Azizi Developments",
+   "inventoryDate": "2026-08-10",
+   "source": "Official developer availability sheet",
+   "startingPrice": 8300000,
+   "unitTypes": [
+    {
+     "type": "SHOP",
+     "startingPrice": 8300000,
+     "avgPricePerSqFt": 7211
+    }
+   ]
+  },
+  "Azizi Riviera Reve": {
+   "developer": "Azizi Developments",
+   "inventoryDate": "2026-08-10",
+   "source": "Official developer availability sheet",
+   "startingPrice": 9530000,
+   "unitTypes": [
+    {
+     "type": "SHOP",
+     "startingPrice": 9530000,
+     "avgPricePerSqFt": 6406
+    }
+   ]
+  },
+  "Azizi Riviera Azure": {
+   "developer": "Azizi Developments",
+   "inventoryDate": "2026-08-10",
+   "source": "Official developer availability sheet",
+   "startingPrice": 10291000,
+   "unitTypes": [
+    {
+     "type": "SHOP",
+     "startingPrice": 10291000,
+     "avgPricePerSqFt": 7964
+    }
+   ]
+  },
+  "Azizi Riviera Beachfront": {
+   "developer": "Azizi Developments",
+   "inventoryDate": "2026-08-10",
+   "source": "Official developer availability sheet",
+   "startingPrice": 16394000,
+   "unitTypes": [
+    {
+     "type": "SHOP",
+     "startingPrice": 16394000,
+     "avgPricePerSqFt": 7081
+    }
+   ]
+  },
+  "Azizi Mirage 1": {
+   "developer": "Azizi Developments",
+   "inventoryDate": "2026-08-10",
+   "source": "Official developer availability sheet",
+   "startingPrice": 910000,
+   "unitTypes": [
+    {
+     "type": "1 Bedroom",
+     "startingPrice": 910000,
+     "avgPricePerSqFt": 1538
+    }
+   ]
+  },
+  "BEACH OASIS 2": {
+   "developer": "Azizi Developments",
+   "inventoryDate": "2026-08-10",
+   "source": "Official developer availability sheet",
+   "startingPrice": 1144000,
+   "unitTypes": [
+    {
+     "type": "1 Bedroom",
+     "startingPrice": 1144000,
+     "avgPricePerSqFt": 1773
+    },
+    {
+     "type": "2 Bedroom",
+     "startingPrice": 1680000,
+     "avgPricePerSqFt": 1694
+    }
+   ]
+  },
+  "Azizi Raffi": {
+   "developer": "Azizi Developments",
+   "inventoryDate": "2026-08-10",
+   "source": "Official developer availability sheet",
+   "startingPrice": 824000,
+   "unitTypes": [
+    {
+     "type": "Studio",
+     "startingPrice": 824000,
+     "avgPricePerSqFt": 1539
+    },
+    {
+     "type": "1 Bedroom",
+     "startingPrice": 1079000,
+     "avgPricePerSqFt": 1665
+    },
+    {
+     "type": "2 Bedroom",
+     "startingPrice": 2024000,
+     "avgPricePerSqFt": 1728
+    },
+    {
+     "type": "3 Bedroom",
+     "startingPrice": 2514000,
+     "avgPricePerSqFt": 1649
+    }
+   ]
+  },
+  "Azizi Sikander": {
+   "developer": "Azizi Developments",
+   "inventoryDate": "2026-08-10",
+   "source": "Official developer availability sheet",
+   "startingPrice": 1054000,
+   "unitTypes": [
+    {
+     "type": "1 Bedroom",
+     "startingPrice": 1054000,
+     "avgPricePerSqFt": 1551
+    },
+    {
+     "type": "2 Bedroom",
+     "startingPrice": 1657000,
+     "avgPricePerSqFt": 1504
+    }
+   ]
+  },
+  "Azizi Jewel": {
+   "developer": "Azizi Developments",
+   "inventoryDate": "2026-08-10",
+   "source": "Official developer availability sheet",
+   "startingPrice": 1308000,
+   "unitTypes": [
+    {
+     "type": "1 Bedroom",
+     "startingPrice": 1308000,
+     "avgPricePerSqFt": 1618
+    }
+   ]
+  },
+  "Azizi Amir": {
+   "developer": "Azizi Developments",
+   "inventoryDate": "2026-08-10",
+   "source": "Official developer availability sheet",
+   "startingPrice": 2034000,
+   "unitTypes": [
+    {
+     "type": "2 Bedroom",
+     "startingPrice": 2034000,
+     "avgPricePerSqFt": 1568
+    },
+    {
+     "type": "3 BEDROOM + MAID",
+     "startingPrice": 2565000,
+     "avgPricePerSqFt": 1462
+    },
+    {
+     "type": "MAID",
+     "startingPrice": 2665000,
+     "avgPricePerSqFt": 1445
+    }
+   ]
+  },
+  "Jadaf Beach Oasis": {
+   "developer": "Azizi Developments",
+   "inventoryDate": "2026-08-10",
+   "source": "Official developer availability sheet",
+   "startingPrice": 750000,
+   "unitTypes": [
+    {
+     "type": "Studio",
+     "startingPrice": 750000,
+     "avgPricePerSqFt": 2336
+    }
+   ]
+  },
+  "Azizi David": {
+   "developer": "Azizi Developments",
+   "inventoryDate": "2026-08-10",
+   "source": "Official developer availability sheet",
+   "startingPrice": 826000,
+   "unitTypes": [
+    {
+     "type": "Studio",
+     "startingPrice": 826000,
+     "avgPricePerSqFt": 2495
+    },
+    {
+     "type": "1 Bedroom",
+     "startingPrice": 1402000,
+     "avgPricePerSqFt": 2083
+    },
+    {
+     "type": "2 Bedroom",
+     "startingPrice": 2126000,
+     "avgPricePerSqFt": 1557
+    }
+   ]
+  },
+  "Azizi Leily": {
+   "developer": "Azizi Developments",
+   "inventoryDate": "2026-08-10",
+   "source": "Official developer availability sheet",
+   "startingPrice": 829000,
+   "unitTypes": [
+    {
+     "type": "Studio",
+     "startingPrice": 829000,
+     "avgPricePerSqFt": 2600
+    },
+    {
+     "type": "1 Bedroom",
+     "startingPrice": 1403000,
+     "avgPricePerSqFt": 2214
+    },
+    {
+     "type": "2 Bedroom",
+     "startingPrice": 1806000,
+     "avgPricePerSqFt": 2041
+    }
+   ]
+  },
+  "Creek Views 4": {
+   "developer": "Azizi Developments",
+   "inventoryDate": "2026-08-10",
+   "source": "Official developer availability sheet",
+   "startingPrice": 1125000,
+   "unitTypes": [
+    {
+     "type": "1 Bedroom",
+     "startingPrice": 1125000,
+     "avgPricePerSqFt": 2212
+    },
+    {
+     "type": "PENTHOUSE-3 BR",
+     "startingPrice": 6425000,
+     "avgPricePerSqFt": 2738
+    }
+   ]
+  },
+  "Azizi Venice": {
+   "developer": "Azizi Developments",
+   "inventoryDate": "2026-08-10",
+   "source": "Official developer availability sheet",
+   "startingPrice": 755000,
+   "unitTypes": [
+    {
+     "type": "Studio",
+     "startingPrice": 755000,
+     "avgPricePerSqFt": 2271
+    },
+    {
+     "type": "1 Bedroom",
+     "startingPrice": 1230000,
+     "avgPricePerSqFt": 1707
+    }
+   ]
+  },
+  "Burj Azizi Tower": {
+   "developer": "Azizi Developments",
+   "inventoryDate": "2026-08-10",
+   "source": "Official developer availability sheet",
+   "startingPrice": 5030000,
+   "unitTypes": [
+    {
+     "type": "1 Bedroom",
+     "startingPrice": 5030000,
+     "avgPricePerSqFt": 6468
+    },
+    {
+     "type": "1 BEDROOM+STUDY",
+     "startingPrice": 5273000,
+     "avgPricePerSqFt": 6149
+    },
+    {
+     "type": "2 Bedroom",
+     "startingPrice": 9344000,
+     "avgPricePerSqFt": 7197
+    },
+    {
+     "type": "3 Bedroom",
+     "startingPrice": 14619000,
+     "avgPricePerSqFt": 7184
+    }
+   ]
+  }
+ }
+}
