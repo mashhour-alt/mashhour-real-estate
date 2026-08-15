@@ -2063,6 +2063,41 @@
     "mira-international.com/developers/taraf-development",
     "dubaihousing-ae.com/developers/taraf-holding"
    ]
+  },
+  "Dugasta": {
+   "overview": {
+    "en": "Dugasta Properties is a Dubai developer founded by Chairman Tauseef Khan, focused on affordable-to-mid-tier housing in International City and Dubai Industrial City.",
+    "ar": "دوجاستا للعقارات مطور في دبي أسسه الرئيس توسيف خان، بيركز على السكن المعقول التكلفة لمتوسط الفئة في إنترناشيونال سيتي ودبي إندستريال سيتي."
+   },
+   "marketEntry": {
+    "en": "Sources vary on founding date (1991 per the company's own materials, 1997 per third-party data, October 2016 for its formal Dubai Land Department registration as Developer No. 1157) — founder Tauseef Khan is described as having 30+ years of real estate market experience.",
+    "ar": "المصادر مختلفة على تاريخ التأسيس (1991 حسب مواد الشركة نفسها، 1997 حسب بيانات طرف ثالث، أكتوبر 2016 لتسجيلها الرسمي في دائرة الأراضي والأملاك بدبي كمطور رقم 1157) — المؤسس توسيف خان بيوصف بخبرة 30+ سنة في سوق العقار."
+   },
+   "trackRecord": {
+    "en": "13 projects registered including Al Haseen Residences (phases 2-6), Moonsa Residences, Terra Tower, Astra Residences, Platinum Residences, 7 Seasons and Paradise View 2 — concentrated in International City and Dubai Industrial City. Prices range from approximately AED 400,000 (resale) to AED 1.3 million (Terra Tower, larger units).",
+    "ar": "13 مشروع مسجل منهم الحسين رزيدنسز (مراحل 2-6)، مونسا رزيدنسز، تيرا تاور، أسترا رزيدنسز، بلاتينيوم رزيدنسز، 7 سيزونز، وبارادايس فيو 2 — متركزة في إنترناشيونال سيتي ودبي إندستريال سيتي. الأسعار بتتراوح من حوالي 400,000 درهم (إعادة بيع) لـ1.3 مليون درهم (تيرا تاور، وحدات أكبر)."
+   },
+   "reputation": {
+    "en": "Positions itself around customer-centric, value-for-money projects rather than luxury or scale. Offers investment guarantees on some projects (8% annual guaranteed rental return for 5 years, service charge waiver, buy-back option) — a specific buyer-protection structure worth verifying in contract terms for any given project.",
+    "ar": "بتتموضع حول مشاريع تركز على العميل بقيمة مقابل السعر بدل الفخامة أو الحجم. بتقدّم ضمانات استثمار على بعض المشاريع (عائد إيجار مضمون سنوي 8% لـ5 سنين، إعفاء من رسوم الخدمة، خيار إعادة شراء) — هيكل حماية مشتري محدد يستاهل التحقق منه في شروط العقد لأي مشروع بعينه."
+   },
+   "resale": {
+    "en": "Concentrated in International City, a well-established affordable-housing district with a mature resale market; entry-level pricing (from ~AED 400,000) appeals to first-time investors and yield-focused buyers rather than luxury segment demand.",
+    "ar": "متركزة في إنترناشيونال سيتي، حي إسكان معقول التكلفة راسخ بسوق إعادة بيع ناضج؛ التسعير الدخولي (من ~400,000 درهم) بيجذب المستثمر لأول مرة والمشتري الباحث عن العائد مش طلب قطاع الفخامة."
+   },
+   "partnerships": {
+    "en": "No named brand or institutional partnership identified in public sources; the company's differentiator is direct investor incentives (guaranteed returns, buy-back options) rather than co-branding.",
+    "ar": "مفيش شراكة علامة تجارية أو مؤسسية مسمّاة ظاهرة في المصادر العامة؛ ميزة الشركة التفريقية حوافز مستثمر مباشرة (عوائد مضمونة، خيارات إعادة شراء) مش شراكة علامة."
+   },
+   "certifications": {
+    "en": "No independent design/ESG award identified in public sources; its 30+ year founder-experience claim and DLD registration (2016) are its primary credibility markers.",
+    "ar": "مفيش جائزة تصميم/استدامة مستقلة ظاهرة في المصادر العامة؛ ادعاء خبرة المؤسس 30+ سنة وتسجيلها في دائرة الأراضي والأملاك (2016) هما علامات مصداقيتها الأساسية."
+   },
+   "sources": [
+    "dugasta.com/about",
+    "propsearch.ae/dubai-property-developers/dugasta-properties",
+    "primocapital.ae/developer/dugasta-properties"
+   ]
   }
  }
 }
