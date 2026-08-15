@@ -1,0 +1,567 @@
+{
+  "Al Warsan": {
+    "lat": 25.14877104318303,
+    "lng": 55.39911469985667,
+    "projectCount": 33
+  },
+  "Dubai Land Residence Complex": {
+    "lat": 25.092731187026118,
+    "lng": 55.37932804564435,
+    "projectCount": 90
+  },
+  "Jumeirah Village Circle": {
+    "lat": 25.05807754990104,
+    "lng": 55.20913075314887,
+    "projectCount": 235
+  },
+  "Dubai Science Park": {
+    "lat": 25.07400363664867,
+    "lng": 55.24717525687867,
+    "projectCount": 15
+  },
+  "Al Sufouh": {
+    "lat": 25.11233415811333,
+    "lng": 55.18101099442,
+    "projectCount": 3
+  },
+  "Motor City": {
+    "lat": 25.0469309994605,
+    "lng": 55.2352447236975,
+    "projectCount": 20
+  },
+  "Business Bay": {
+    "lat": 25.18432137456592,
+    "lng": 55.27300498301222,
+    "projectCount": 81
+  },
+  "Al Satwa": {
+    "lat": 25.223949277189497,
+    "lng": 55.27648943635925,
+    "projectCount": 40
+  },
+  "Dubai Islands": {
+    "lat": 25.298519957679062,
+    "lng": 55.306409963857355,
+    "projectCount": 150
+  },
+  "Downtown Dubai": {
+    "lat": 25.1647334924832,
+    "lng": 55.24121760676079,
+    "projectCount": 25
+  },
+  "Bukadra": {
+    "lat": 25.176279182378007,
+    "lng": 55.32540745612333,
+    "projectCount": 30
+  },
+  "Dubai Hills Estate": {
+    "lat": 25.11469648120868,
+    "lng": 55.25527114624131,
+    "projectCount": 53
+  },
+  "Arjan": {
+    "lat": 25.062832662347148,
+    "lng": 55.238590171524294,
+    "projectCount": 49
+  },
+  "Jebel Ali": {
+    "lat": 25.024899136064167,
+    "lng": 55.11273773944001,
+    "projectCount": 36
+  },
+  "Dubai Marina": {
+    "lat": 25.082661831998266,
+    "lng": 55.143136269319136,
+    "projectCount": 23
+  },
+  "Dubai Creek Harbour (The Lagoons)": {
+    "lat": 25.202306501108612,
+    "lng": 55.35052009882389,
+    "projectCount": 36
+  },
+  "Dubai Harbour": {
+    "lat": 25.09666118308875,
+    "lng": 55.14221439795437,
+    "projectCount": 16
+  },
+  "Zabeel": {
+    "lat": 25.22015252076333,
+    "lng": 55.287339381643335,
+    "projectCount": 3
+  },
+  "The Oasis by Emaar": {
+    "lat": 24.997851946313634,
+    "lng": 55.21676735044635,
+    "projectCount": 11
+  },
+  "Al Jaddaf": {
+    "lat": 25.21409214155516,
+    "lng": 55.33405688114871,
+    "projectCount": 31
+  },
+  "Dubai South (Dubai World Central)": {
+    "lat": 24.899814746444456,
+    "lng": 55.17617409473245,
+    "projectCount": 139
+  },
+  "International City": {
+    "lat": 25.16470165633125,
+    "lng": 55.404938112148756,
+    "projectCount": 16
+  },
+  "Al Barari": {
+    "lat": 25.09933037958,
+    "lng": 55.316385284584,
+    "projectCount": 10
+  },
+  "Al Furjan": {
+    "lat": 25.029240326646452,
+    "lng": 55.14130432445829,
+    "projectCount": 76
+  },
+  "Dubai Industrial City": {
+    "lat": 24.870197399488262,
+    "lng": 55.05581430038825,
+    "projectCount": 23
+  },
+  "Umm Suqeim": {
+    "lat": 25.13729329091385,
+    "lng": 55.195617737911526,
+    "projectCount": 13
+  },
+  "Al Barsha": {
+    "lat": 25.1036140369175,
+    "lng": 55.1899517727125,
+    "projectCount": 4
+  },
+  "Expo City": {
+    "lat": 24.962387535775793,
+    "lng": 55.15852042051579,
+    "projectCount": 19
+  },
+  "The Valley": {
+    "lat": 25.010311996283033,
+    "lng": 55.44825463407848,
+    "projectCount": 33
+  },
+  "Tilal Al Ghaf": {
+    "lat": 25.024866686495,
+    "lng": 55.22627163399401,
+    "projectCount": 10
+  },
+  "Liwan": {
+    "lat": 25.10609886172182,
+    "lng": 55.369403245423634,
+    "projectCount": 11
+  },
+  "Dubai Land": {
+    "lat": 25.06407101229872,
+    "lng": 55.32394862531269,
+    "projectCount": 86
+  },
+  "Dubai Production City (IMPZ)": {
+    "lat": 25.034372151874337,
+    "lng": 55.19355844643734,
+    "projectCount": 30
+  },
+  "Jumeirah Village Triangle": {
+    "lat": 25.041379055155385,
+    "lng": 55.18500554093365,
+    "projectCount": 52
+  },
+  "Dubai Silicon Oasis": {
+    "lat": 25.119321434248825,
+    "lng": 55.383048170552954,
+    "projectCount": 17
+  },
+  "Jumeirah Islands": {
+    "lat": 25.065471684871536,
+    "lng": 55.14608872238077,
+    "projectCount": 13
+  },
+  "Town Square": {
+    "lat": 25.004991257473336,
+    "lng": 55.28916223849888,
+    "projectCount": 36
+  },
+  "Ras Al Khor": {
+    "lat": 25.183023984016668,
+    "lng": 55.33636638265667,
+    "projectCount": 3
+  },
+  "Dubai Sports City": {
+    "lat": 25.040318414865776,
+    "lng": 55.214238582360395,
+    "projectCount": 26
+  },
+  "The World Islands": {
+    "lat": 25.219504865465836,
+    "lng": 55.17589265397,
+    "projectCount": 12
+  },
+  "Dubai Investment Park (DIP)": {
+    "lat": 24.97646553409463,
+    "lng": 55.220227275301944,
+    "projectCount": 41
+  },
+  "Living Legends": {
+    "lat": 25.08747370563857,
+    "lng": 55.30050716385143,
+    "projectCount": 7
+  },
+  "Majan": {
+    "lat": 25.093772874007083,
+    "lng": 55.317622040138794,
+    "projectCount": 41
+  },
+  "Mohammed Bin Rashid City": {
+    "lat": 25.147287962841983,
+    "lng": 55.319560615736165,
+    "projectCount": 76
+  },
+  "Maritime City": {
+    "lat": 25.270706852067942,
+    "lng": 55.2669712588397,
+    "projectCount": 34
+  },
+  "Arabian Ranches 3": {
+    "lat": 25.06795264409,
+    "lng": 55.328149327272655,
+    "projectCount": 15
+  },
+  "Barsha Heights (Tecom)": {
+    "lat": 25.098120023256666,
+    "lng": 55.174924157186666,
+    "projectCount": 3
+  },
+  "City of Arabia": {
+    "lat": 25.08872542994167,
+    "lng": 55.32740556759166,
+    "projectCount": 12
+  },
+  "Dubai Studio City": {
+    "lat": 25.035093944005332,
+    "lng": 55.23975906945332,
+    "projectCount": 15
+  },
+  "Palm Jumeirah": {
+    "lat": 25.117931133145447,
+    "lng": 55.13566870215303,
+    "projectCount": 33
+  },
+  "Dubai Design District": {
+    "lat": 25.1900155915,
+    "lng": 55.30162968130001,
+    "projectCount": 5
+  },
+  "Mirdif": {
+    "lat": 25.21963348487,
+    "lng": 55.43954045767,
+    "projectCount": 1
+  },
+  "Jumeirah Golf Estates": {
+    "lat": 25.033534066616365,
+    "lng": 55.19935219412819,
+    "projectCount": 11
+  },
+  "Wasl Gate": {
+    "lat": 25.023990498996195,
+    "lng": 55.10770769072857,
+    "projectCount": 21
+  },
+  "Mina Rashid": {
+    "lat": 25.266029037283754,
+    "lng": 55.28212254855752,
+    "projectCount": 24
+  },
+  "Damac Hills": {
+    "lat": 25.024201311639548,
+    "lng": 55.2522871774941,
+    "projectCount": 22
+  },
+  "Bur Dubai": {
+    "lat": 25.23376397709,
+    "lng": 55.29357778267,
+    "projectCount": 2
+  },
+  "Sheikh Zayed Road": {
+    "lat": 25.20696281015625,
+    "lng": 55.27128018152751,
+    "projectCount": 8
+  },
+  "Meydan": {
+    "lat": 25.167124457943796,
+    "lng": 55.309237848942274,
+    "projectCount": 87
+  },
+  "World Trade Center": {
+    "lat": 25.2256011,
+    "lng": 55.2877419,
+    "projectCount": 1
+  },
+  "Downtown Jebel Ali": {
+    "lat": 24.971151466245555,
+    "lng": 55.088392874726665,
+    "projectCount": 9
+  },
+  "Palm Jebel Ali": {
+    "lat": 25.015718067959376,
+    "lng": 55.0008876078575,
+    "projectCount": 32
+  },
+  "Culture Village": {
+    "lat": 25.227777424154997,
+    "lng": 55.337290441840004,
+    "projectCount": 4
+  },
+  "DAMAC Islands": {
+    "lat": 25.042427516349044,
+    "lng": 55.30371335059239,
+    "projectCount": 21
+  },
+  "Falcon City of Wonders": {
+    "lat": 25.095563081174998,
+    "lng": 55.33735197026,
+    "projectCount": 4
+  },
+  "Nad Al Sheba": {
+    "lat": 25.14322734041215,
+    "lng": 55.31243089256356,
+    "projectCount": 28
+  },
+  "Bluewaters": {
+    "lat": 25.07392410328,
+    "lng": 55.12430735262,
+    "projectCount": 1
+  },
+  "Jumeirah": {
+    "lat": 25.183432346613184,
+    "lng": 55.21751580905729,
+    "projectCount": 22
+  },
+  "Damac Hills 2": {
+    "lat": 24.986718042566363,
+    "lng": 55.385902667685905,
+    "projectCount": 22
+  },
+  "Al Wasl": {
+    "lat": 25.18793165749909,
+    "lng": 55.25014919435546,
+    "projectCount": 11
+  },
+  "City Walk": {
+    "lat": 25.20563746804685,
+    "lng": 55.25950456653263,
+    "projectCount": 19
+  },
+  "Dubai Media City": {
+    "lat": 25.094490591235,
+    "lng": 55.15317377228,
+    "projectCount": 2
+  },
+  "Damac Lagoons": {
+    "lat": 25.01348600320362,
+    "lng": 55.23316081970389,
+    "projectCount": 36
+  },
+  "Cherrywoods": {
+    "lat": 25.02093557202,
+    "lng": 55.28594210365,
+    "projectCount": 1
+  },
+  "Al Safa": {
+    "lat": 25.182997552845,
+    "lng": 55.2450748674225,
+    "projectCount": 4
+  },
+  "Jumeirah Lake Towers": {
+    "lat": 25.068913724808183,
+    "lng": 55.143661019188634,
+    "projectCount": 22
+  },
+  "DIFC": {
+    "lat": 25.211824361261996,
+    "lng": 55.286584903974,
+    "projectCount": 5
+  },
+  "The Heights Country Club & Wellness": {
+    "lat": 24.971557769015998,
+    "lng": 55.2543039925,
+    "projectCount": 5
+  },
+  "Jumeirah Beach Residence": {
+    "lat": 25.081079724966667,
+    "lng": 55.134726147269994,
+    "projectCount": 3
+  },
+  "Umm Al Daman": {
+    "lat": 25.057604441549998,
+    "lng": 55.4481337159,
+    "projectCount": 2
+  },
+  "Academic City": {
+    "lat": 25.113657919999998,
+    "lng": 55.40868759,
+    "projectCount": 3
+  },
+  "Jumeirah Park": {
+    "lat": 25.04682016384,
+    "lng": 55.158526733935005,
+    "projectCount": 4
+  },
+  "Dubai Internet City": {
+    "lat": 25.099192293275,
+    "lng": 55.166293821115,
+    "projectCount": 4
+  },
+  "Deira": {
+    "lat": 25.3058229,
+    "lng": 55.3447672,
+    "projectCount": 1
+  },
+  "Villanova": {
+    "lat": 25.073823178836253,
+    "lng": 55.350994604724995,
+    "projectCount": 8
+  },
+  "Nadd Al Hammar": {
+    "lat": 25.1932392278,
+    "lng": 55.389552708500005,
+    "projectCount": 2
+  },
+  "Mudon": {
+    "lat": 25.016087856379,
+    "lng": 55.264161220092,
+    "projectCount": 10
+  },
+  "Wadi Al Safa 4": {
+    "lat": 25.080827,
+    "lng": 55.322994,
+    "projectCount": 1
+  },
+  "Paradise Hills": {
+    "lat": 25.016255,
+    "lng": 55.230415,
+    "projectCount": 1
+  },
+  "Rukan": {
+    "lat": 25.042017290399997,
+    "lng": 55.28708273755,
+    "projectCount": 2
+  },
+  "Wadi Al Safa 2": {
+    "lat": 24.109488732004998,
+    "lng": 54.561187951815,
+    "projectCount": 2
+  },
+  "Sobha Sanctuary": {
+    "lat": 24.99557702755,
+    "lng": 55.4276041179,
+    "projectCount": 4
+  },
+  "Dubai": {
+    "lat": 25.11958068192,
+    "lng": 55.26677426615,
+    "projectCount": 1
+  },
+  "Al Hudayriat Island": {
+    "lat": 24.422700000000003,
+    "lng": 54.344699999999996,
+    "projectCount": 17
+  },
+  "Al Reem Island": {
+    "lat": 24.495199999999986,
+    "lng": 54.407799999999966,
+    "projectCount": 37
+  },
+  "Al Maryah Island": {
+    "lat": 24.501,
+    "lng": 54.387,
+    "projectCount": 1
+  },
+  "Al Ghadeer": {
+    "lat": 24.182,
+    "lng": 54.938,
+    "projectCount": 2
+  },
+  "Ghantoot": {
+    "lat": 24.8665,
+    "lng": 54.8888,
+    "projectCount": 5
+  },
+  "Masdar City": {
+    "lat": 24.4307,
+    "lng": 54.61749999999998,
+    "projectCount": 17
+  },
+  "Yas Island": {
+    "lat": 24.488600000000012,
+    "lng": 54.60899999999997,
+    "projectCount": 38
+  },
+  "Saadiyat Island": {
+    "lat": 24.540600000000012,
+    "lng": 54.434700000000014,
+    "projectCount": 34
+  },
+  "Al Raha Beach": {
+    "lat": 24.442800000000002,
+    "lng": 54.6057,
+    "projectCount": 11
+  },
+  "Al Bahya": {
+    "lat": 24.56,
+    "lng": 54.677,
+    "projectCount": 3
+  },
+  "Al Jurf": {
+    "lat": 24.906,
+    "lng": 54.7653,
+    "projectCount": 5
+  },
+  "Muroor Area": {
+    "lat": 24.451,
+    "lng": 54.394,
+    "projectCount": 1
+  },
+  "Ramhan Island": {
+    "lat": 24.551999999999996,
+    "lng": 54.594,
+    "projectCount": 8
+  },
+  "Fahid Island": {
+    "lat": 24.502,
+    "lng": 54.556000000000004,
+    "projectCount": 3
+  },
+  "Zayed City": {
+    "lat": 24.353000000000005,
+    "lng": 54.6315,
+    "projectCount": 10
+  },
+  "Khalifa City": {
+    "lat": 24.425,
+    "lng": 54.58,
+    "projectCount": 1
+  },
+  "Rabdan": {
+    "lat": 24.4145,
+    "lng": 54.499,
+    "projectCount": 1
+  },
+  "Al Shamkha": {
+    "lat": 24.392400000000006,
+    "lng": 54.7079,
+    "projectCount": 13
+  },
+  "Al Samha": {
+    "lat": 24.638,
+    "lng": 54.713,
+    "projectCount": 1
+  },
+  "Al Salam Street": {
+    "lat": 24.439,
+    "lng": 54.41,
+    "projectCount": 2
+  }
+}
