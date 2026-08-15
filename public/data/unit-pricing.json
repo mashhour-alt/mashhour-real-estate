@@ -1,6 +1,6 @@
 {
  "note": "Per-unit-type starting prices taken directly from developer inventory sheets. Values are point-in-time and must be reconfirmed before reservation.",
- "updatedAt": "2026-08-11",
+ "updatedAt": "2026-08-14",
  "projects": {
   "Tilal Binghatti": {
    "developer": "Binghatti Developers",
@@ -1294,6 +1294,305 @@
      "type": "3 Bedroom",
      "startingPrice": 14619000,
      "avgPricePerSqFt": 7184
+    }
+   ]
+  },
+  "Sky Gate Tower": {
+   "developer": "Tiger Properties",
+   "inventoryDate": "2026-08-14",
+   "source": "Official developer availability sheet",
+   "startingPrice": 885844,
+   "unitTypes": [
+    {
+     "type": "Studio",
+     "startingPrice": 885844,
+     "avgPricePerSqFt": 2533
+    },
+    {
+     "type": "1 Bedroom",
+     "startingPrice": 1618850,
+     "avgPricePerSqFt": 2102
+    },
+    {
+     "type": "2 Bedroom",
+     "startingPrice": 2286441,
+     "avgPricePerSqFt": 1978
+    },
+    {
+     "type": "3 Bedroom Duplex",
+     "startingPrice": 4114698,
+     "avgPricePerSqFt": 1855
+    },
+    {
+     "type": "4 Bedroom Duplex",
+     "startingPrice": 4847451,
+     "avgPricePerSqFt": 1808
+    }
+   ]
+  },
+  "Auresta Tower": {
+   "developer": "Tiger Properties",
+   "inventoryDate": "2026-08-14",
+   "source": "Official developer availability sheet",
+   "startingPrice": 824632,
+   "unitTypes": [
+    {
+     "type": "Studio",
+     "startingPrice": 824632,
+     "avgPricePerSqFt": 2493
+    },
+    {
+     "type": "1 Bedroom",
+     "startingPrice": 1427247,
+     "avgPricePerSqFt": 2207
+    },
+    {
+     "type": "2 Bedroom",
+     "startingPrice": 2231663,
+     "avgPricePerSqFt": 1959
+    },
+    {
+     "type": "3 Bedroom Duplex",
+     "startingPrice": 4136728,
+     "avgPricePerSqFt": 2005
+    }
+   ]
+  },
+  "Ananda Residences": {
+   "developer": "Tiger Properties",
+   "inventoryDate": "2026-08-14",
+   "source": "Official developer availability sheet",
+   "startingPrice": 876596,
+   "unitTypes": [
+    {
+     "type": "Studio",
+     "startingPrice": 876596,
+     "avgPricePerSqFt": 2409
+    },
+    {
+     "type": "1 Bedroom",
+     "startingPrice": 1432623,
+     "avgPricePerSqFt": 2066
+    },
+    {
+     "type": "2 Bedroom",
+     "startingPrice": 2064513,
+     "avgPricePerSqFt": 1943
+    },
+    {
+     "type": "3 Bedroom Duplex",
+     "startingPrice": 3983940,
+     "avgPricePerSqFt": 2000
+    }
+   ]
+  },
+  "Tiger Sky Tower": {
+   "developer": "Tiger Properties",
+   "inventoryDate": "2026-08-14",
+   "source": "Official developer availability sheet",
+   "startingPrice": 3169607,
+   "unitTypes": [
+    {
+     "type": "1 Bedroom",
+     "startingPrice": 3169607,
+     "avgPricePerSqFt": 3928
+    },
+    {
+     "type": "2 Bedroom",
+     "startingPrice": 4465171,
+     "avgPricePerSqFt": 3346
+    },
+    {
+     "type": "3 Bedroom",
+     "startingPrice": 5952323,
+     "avgPricePerSqFt": 3357
+    },
+    {
+     "type": "4 Bedroom",
+     "startingPrice": 10260380,
+     "avgPricePerSqFt": 3755
+    },
+    {
+     "type": "Penthouse",
+     "startingPrice": 66141900,
+     "avgPricePerSqFt": 5513
+    }
+   ]
+  },
+  "Jade Tower": {
+   "developer": "Tiger Properties",
+   "inventoryDate": "2026-08-14",
+   "source": "Official developer availability sheet",
+   "startingPrice": 1226709,
+   "unitTypes": [
+    {
+     "type": "1 Bedroom",
+     "startingPrice": 1226709,
+     "avgPricePerSqFt": 1679
+    },
+    {
+     "type": "2 Bedroom",
+     "startingPrice": 1897913,
+     "avgPricePerSqFt": 1604
+    }
+   ]
+  },
+  "Red Square Tower": {
+   "developer": "Tiger Properties",
+   "inventoryDate": "2026-08-14",
+   "source": "Official developer availability sheet",
+   "startingPrice": 1368906,
+   "unitTypes": [
+    {
+     "type": "1 Bedroom",
+     "startingPrice": 1368906,
+     "avgPricePerSqFt": 2326
+    },
+    {
+     "type": "2 Bedroom",
+     "startingPrice": 1872168,
+     "avgPricePerSqFt": 2190
+    }
+   ]
+  },
+  "Volga Tower": {
+   "developer": "Tiger Properties",
+   "inventoryDate": "2026-08-14",
+   "source": "Official developer availability sheet",
+   "startingPrice": 2008976,
+   "unitTypes": [
+    {
+     "type": "1 Bedroom",
+     "startingPrice": 2008976,
+     "avgPricePerSqFt": 2655
+    },
+    {
+     "type": "2 Bedroom",
+     "startingPrice": 2947083,
+     "avgPricePerSqFt": 2480
+    },
+    {
+     "type": "3 Bedroom",
+     "startingPrice": 4123746,
+     "avgPricePerSqFt": 2316
+    },
+    {
+     "type": "4 Bedroom",
+     "startingPrice": 4781102,
+     "avgPricePerSqFt": 2231
+    }
+   ]
+  },
+  "LILIUM TOWER": {
+   "developer": "Tiger Properties",
+   "inventoryDate": "2026-08-14",
+   "source": "Official developer availability sheet",
+   "startingPrice": 1544582,
+   "unitTypes": [
+    {
+     "type": "1 Bedroom",
+     "startingPrice": 1544582,
+     "avgPricePerSqFt": 2278
+    },
+    {
+     "type": "2 Bedroom",
+     "startingPrice": 2346600,
+     "avgPricePerSqFt": 2155
+    }
+   ]
+  },
+  "ELBRUS TOWER": {
+   "developer": "Tiger Properties",
+   "inventoryDate": "2026-08-14",
+   "source": "Official developer availability sheet",
+   "startingPrice": 887679,
+   "unitTypes": [
+    {
+     "type": "Studio",
+     "startingPrice": 887679,
+     "avgPricePerSqFt": 2382
+    },
+    {
+     "type": "1 Bedroom",
+     "startingPrice": 1380432,
+     "avgPricePerSqFt": 2195
+    }
+   ]
+  },
+  "ALTAI TOWER": {
+   "developer": "Tiger Properties",
+   "inventoryDate": "2026-08-14",
+   "source": "Official developer availability sheet",
+   "startingPrice": 1304339,
+   "unitTypes": [
+    {
+     "type": "1 Bedroom",
+     "startingPrice": 1304339,
+     "avgPricePerSqFt": 2215
+    },
+    {
+     "type": "2 Bedroom",
+     "startingPrice": 2220843,
+     "avgPricePerSqFt": 2210
+    }
+   ]
+  },
+  "Neva Residences": {
+   "developer": "Tiger Properties",
+   "inventoryDate": "2026-08-14",
+   "source": "Official developer availability sheet",
+   "startingPrice": 1882147,
+   "unitTypes": [
+    {
+     "type": "1 Bedroom",
+     "startingPrice": 1882147,
+     "avgPricePerSqFt": 2168
+    }
+   ]
+  },
+  "Seslia Tower": {
+   "developer": "Tiger Properties",
+   "inventoryDate": "2026-08-14",
+   "source": "Official developer availability sheet",
+   "startingPrice": 943065,
+   "unitTypes": [
+    {
+     "type": "Studio",
+     "startingPrice": 943065,
+     "avgPricePerSqFt": 2375
+    },
+    {
+     "type": "1 Bedroom",
+     "startingPrice": 1677063,
+     "avgPricePerSqFt": 2395
+    },
+    {
+     "type": "2 Bedroom",
+     "startingPrice": 2238208,
+     "avgPricePerSqFt": 2280
+    }
+   ]
+  },
+  "Guzel Tower By Tiger Group": {
+   "developer": "Tiger Properties",
+   "inventoryDate": "2026-08-14",
+   "source": "Official developer availability sheet",
+   "startingPrice": 830727,
+   "unitTypes": [
+    {
+     "type": "Studio",
+     "startingPrice": 830727,
+     "avgPricePerSqFt": 2500
+    },
+    {
+     "type": "1 Bedroom",
+     "startingPrice": 1423170,
+     "avgPricePerSqFt": 2234
+    },
+    {
+     "type": "2 Bedroom",
+     "startingPrice": 2191450,
+     "avgPricePerSqFt": 2153
     }
    ]
   }
