@@ -235,6 +235,40 @@ export default function MapPage() {
       });
       map = leafletMap;
       mapInstance.current = leafletMap;
+
+        // Fullscreen control
+        const FullscreenControl = L.Control.extend({
+          options: { position: "topright" },
+          onAdd: function (map: any) {
+            const container = L.DomUtil.create("div", "leaflet-bar leaflet-control");
+            const button = L.DomUtil.create("a", "", container);
+            button.href = "#";
+            button.title = "ملء الشاشة";
+            button.innerHTML = "⛶";
+            button.style.fontSize = "18px";
+            button.style.display = "flex";
+            button.style.alignItems = "center";
+            button.style.justifyContent = "center";
+
+            L.DomEvent.on(button, "click", function (e: Event) {
+              L.DomEvent.stopPropagation(e);
+              L.DomEvent.preventDefault(e);
+              const mapContainer = map.getContainer();
+              if (!document.fullscreenElement) {
+                mapContainer.requestFullscreen?.();
+              } else {
+                document.exitFullscreen?.();
+              }
+            });
+
+            return container;
+          },
+        });
+        leafletMap.addControl(new FullscreenControl());
+
+        document.addEventListener("fullscreenchange", () => {
+          setTimeout(() => leafletMap.invalidateSize(), 100);
+        });
       markerRegistry.clear();
       tileLayer.current = L.tileLayer(tileUrlFor(arabic), {
         attribution: MAPTILER_ATTRIBUTION,
