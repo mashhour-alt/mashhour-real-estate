@@ -2028,6 +2028,41 @@
     "propertyfinder.ae/en/new-projects/dev/ays-property-development",
     "propsearch.ae/dubai-construction-companies/ays-property-development"
    ]
+  },
+  "Taraf Properties": {
+   "overview": {
+    "en": "Taraf is a boutique luxury developer launched January 2023 as the real estate division of Yas Holding, a UAE investment conglomerate led by Group CEO Low Ping.",
+    "ar": "طرف مطور فخامة بوتيك أُطلق يناير 2023 كذراع عقاري لمجموعة ياس القابضة، تكتل استثماري إماراتي بقيادة الرئيس التنفيذي للمجموعة لو بينج."
+   },
+   "marketEntry": {
+    "en": "Launched by Yas Holding in January 2023 under CEO Ahmad Shibel, entering the market with conglomerate financial backing and a deliberately boutique, design-led rather than volume-driven positioning. Registered with Dubai Land Department as Developer No. 1549.",
+    "ar": "أطلقتها ياس القابضة في يناير 2023 برئاسة الرئيس التنفيذي أحمد شبل، دخلت السوق بدعم مالي من تكتل وتموضع متعمد بوتيك يعتمد على التصميم بدل الحجم. مسجلة في دائرة الأراضي والأملاك بدبي كمطور رقم 1549."
+   },
+   "trackRecord": {
+    "en": "Concentrated in limited, high-value collections in Palm Jumeirah, JVC and Jumeirah Golf Estates (Dubai), plus Abu Dhabi's Saadiyat Island and W Residences (Marriott partnership). Flagship project Karl Lagerfeld Villas (Meydan) — construction awarded to Hassan Allam Construction. First completions scheduled from 2026.",
+    "ar": "متركزة في مجموعات محدودة عالية القيمة في نخلة جميرا وJVC وجميرا جولف إستيتس (دبي)، بالإضافة لجزيرة السعديات بأبوظبي وW رزيدنسز (شراكة ماريوت). مشروعها الرائد كارل لاجرفيلد فيلاز (ميدان) — الإنشاء اتمنح لحسن علام للمقاولات. أول تسليمات مجدولة من 2026."
+   },
+   "reputation": {
+    "en": "As a young developer (launched 2023) with first completions only from 2026, its market credibility rests primarily on Yas Holding's conglomerate backing and branded-collaboration strategy rather than an established independent delivery record — buyers should review escrow and construction progress per project.",
+    "ar": "كمطور حديث (اتأسس 2023) بأول تسليمات بس من 2026، مصداقيتها في السوق بتعتمد أساساً على دعم تكتل ياس القابضة واستراتيجية التعاون بعلامة تجارية مش سجل تسليم مستقل راسخ — المشتري لازم يراجع الضمان وتقدم الإنشاء لكل مشروع."
+   },
+   "resale": {
+    "en": "Strategic locations poised for appreciation (Palm Jumeirah, Jumeirah, Dubai Water Canal) combined with limited inventory and branded design are positioned by the company to support strong ROI and long-term capital growth, though as an untested new brand this remains a thesis rather than proven history.",
+    "ar": "مواقع استراتيجية مهيأة للارتفاع (نخلة جميرا، جميرا، قناة دبي المائية) مع مخزون محدود وتصميم بعلامة تجارية متموضعة من الشركة لدعم عائد استثمار قوي ونمو رأسمالي طويل المدى، لكن كعلامة جديدة غير مُختبرة ده لسه أطروحة مش تاريخ مثبت."
+   },
+   "partnerships": {
+    "en": "Branded collaborations with Karl Lagerfeld (Meydan villas) and Marriott International (W Residences, Abu Dhabi — the brand's first W-branded residences in the emirate).",
+    "ar": "تعاونات بعلامة تجارية مع كارل لاجرفيلد (فيلات ميدان) وماريوت إنترناشيونال (W رزيدنسز، أبوظبي — أول وحدات بعلامة W للماركة في الإمارة)."
+   },
+   "certifications": {
+    "en": "No independent design/ESG award identified in public sources given its recent launch; its credibility markers are the Yas Holding conglomerate backing and named luxury-brand partnerships.",
+    "ar": "مفيش جائزة تصميم/استدامة مستقلة ظاهرة في المصادر العامة بالنظر لإطلاقها الحديث؛ علامات مصداقيتها دعم تكتل ياس القابضة وشراكات العلامات الفاخرة المسمّاة."
+   },
+   "sources": [
+    "yasholding.ae/en/news/yas-holding-launches-taraf-uae-s-new-exclusive-property-developer",
+    "mira-international.com/developers/taraf-development",
+    "dubaihousing-ae.com/developers/taraf-holding"
+   ]
   }
  }
 }
