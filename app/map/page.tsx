@@ -227,48 +227,175 @@ export default function MapPage() {
       await import("leaflet.markercluster");
       if (cancelled || !mapElement.current) return;
       const L = leafletModule.default;
+      /*
+       * DUBAI-FIRST VIEWPORT
+       */
+      const dubaiMapBounds = L.latLngBounds(
+        [24.84, 54.98],
+        [25.34, 55.58],
+      );
+
       const leafletMap = L.map(mapElement.current, {
-        center: [24.9, 54.9],
-        zoom: 9,
-        minZoom: 7,
+        center: [25.115, 55.235],
+        zoom: 11,
+        minZoom: 9.5,
         maxZoom: 18,
+        maxBounds: dubaiMapBounds,
+        maxBoundsViscosity: 1.0,
+        zoomSnap: 0.5,
+        zoomDelta: 0.5,
       });
       map = leafletMap;
       mapInstance.current = leafletMap;
 
-        // Fullscreen control
+        /*
+         * MAP FULLSCREEN
+         *
+         * Uses a CSS fullscreen mode rather than relying exclusively
+         * on the browser Fullscreen API, which makes it much more
+         * reliable on iPhone / Safari.
+         */
         const FullscreenControl = L.Control.extend({
-          options: { position: "topright" },
-          onAdd: function (map: any) {
-            const container = L.DomUtil.create("div", "leaflet-bar leaflet-control");
-            const button = L.DomUtil.create("a", "", container);
-            button.href = "#";
-            button.title = "ملء الشاشة";
-            button.innerHTML = "⛶";
-            button.style.fontSize = "18px";
-            button.style.display = "flex";
-            button.style.alignItems = "center";
-            button.style.justifyContent = "center";
+          options: {
+            position: "topleft",
+          },
 
-            L.DomEvent.on(button, "click", function (e: Event) {
-              L.DomEvent.stopPropagation(e);
-              L.DomEvent.preventDefault(e);
-              const mapContainer = map.getContainer();
-              if (!document.fullscreenElement) {
-                mapContainer.requestFullscreen?.();
-              } else {
-                document.exitFullscreen?.();
-              }
-            });
+          onAdd: function (map: any) {
+            const container = L.DomUtil.create(
+              "div",
+              "leaflet-control mashhour-fullscreen-control",
+            );
+
+            const button = L.DomUtil.create(
+              "button",
+              "mashhour-fullscreen-button",
+              container,
+            ) as HTMLButtonElement;
+
+            button.type = "button";
+
+            const updateButton = (active: boolean) => {
+              button.setAttribute(
+                "aria-pressed",
+                String(active),
+              );
+
+              button.setAttribute(
+                "aria-label",
+                active
+                  ? arabic
+                    ? "الخروج من ملء الشاشة"
+                    : "Exit fullscreen"
+                  : arabic
+                    ? "ملء الخريطة بالشاشة"
+                    : "Fullscreen map",
+              );
+
+              button.title = active
+                ? arabic
+                  ? "الخروج من ملء الشاشة"
+                  : "Exit fullscreen"
+                : arabic
+                  ? "ملء الشاشة"
+                  : "Fullscreen";
+
+              button.innerHTML = active
+                ? `
+                    <span class="fullscreen-icon is-exit">
+                      <i></i><i></i><i></i><i></i>
+                    </span>
+                  `
+                : `
+                    <span class="fullscreen-icon">
+                      <i></i><i></i><i></i><i></i>
+                    </span>
+                  `;
+            };
+
+            updateButton(false);
+
+            L.DomEvent.on(
+              button,
+              "click",
+              function (event: Event) {
+                L.DomEvent.stopPropagation(event);
+                L.DomEvent.preventDefault(event);
+
+                const mapContainer = map.getContainer();
+
+                const nextActive =
+                  !mapContainer.classList.contains(
+                    "is-map-fullscreen",
+                  );
+
+                mapContainer.classList.toggle(
+                  "is-map-fullscreen",
+                  nextActive,
+                );
+
+                document.body.classList.toggle(
+                  "map-fullscreen-open",
+                  nextActive,
+                );
+
+                updateButton(nextActive);
+
+                window.setTimeout(
+                  () => map.invalidateSize(),
+                  80,
+                );
+              },
+            );
+
+            L.DomEvent.disableClickPropagation(container);
+            L.DomEvent.disableScrollPropagation(container);
 
             return container;
           },
         });
-        leafletMap.addControl(new FullscreenControl());
 
-        document.addEventListener("fullscreenchange", () => {
-          setTimeout(() => leafletMap.invalidateSize(), 100);
-        });
+        leafletMap.addControl(
+          new FullscreenControl(),
+        );
+
+        const exitMapFullscreen = () => {
+          const mapContainer =
+            leafletMap.getContainer();
+
+          if (
+            !mapContainer.classList.contains(
+              "is-map-fullscreen",
+            )
+          ) {
+            return;
+          }
+
+          mapContainer.classList.remove(
+            "is-map-fullscreen",
+          );
+
+          document.body.classList.remove(
+            "map-fullscreen-open",
+          );
+
+          window.setTimeout(
+            () => leafletMap.invalidateSize(),
+            80,
+          );
+        };
+
+        const handleFullscreenEscape = (
+          event: KeyboardEvent,
+        ) => {
+          if (event.key === "Escape") {
+            exitMapFullscreen();
+          }
+        };
+
+        document.addEventListener(
+          "keydown",
+          handleFullscreenEscape,
+        );
       markerRegistry.clear();
       tileLayer.current = L.tileLayer(tileUrlFor(arabic), {
         attribution: MAPTILER_ATTRIBUTION,
@@ -353,6 +480,7 @@ export default function MapPage() {
 
     const etihadPane = leafletMap.createPane("etihadRailPane");
     etihadPane.style.zIndex = "445";
+    etihadPane.style.display = "none";
     const etihadRenderer = L.svg({ pane: "etihadRailPane", padding: 0.5 });
 
     etihadRailLine.routes.forEach((points) => {
@@ -392,96 +520,559 @@ export default function MapPage() {
     
     const areaCentroids: Record<string, { lat: number; lng: number; projectCount: number }> =
       await fetch("/data/area-centroids.json").then((r) => r.json());
-    const areaBenchmarksData: { areas: { area: string; rentPerSqFt: number }[] } =
-      await fetch("/data/area-market-benchmarks.json").then((r) => r.json());
 
+    const areaBenchmarksData: {
+      areas: {
+        area: string;
+        rentPerSqFt: number;
+        cluster?: string;
+        assetMix?: string;
+        marketStage?: string;
+        appreciationBase?: number;
+        confidence?: string | number;
+      }[];
+    } = await fetch("/data/area-market-benchmarks.json").then((r) => r.json());
+
+    /*
+     * MARKET INTELLIGENCE LAYER
+     *
+     * Important:
+     * rentPerSqFt is currently the benchmark available in the dataset.
+     * The UI therefore describes it as a market benchmark rather than
+     * pretending it is a verified sale-price metric.
+     */
     const pricePane = leafletMap.createPane("priceHeatPane");
     pricePane.style.zIndex = "440";
     pricePane.style.display = "none";
-    const priceRenderer = L.svg({ pane: "priceHeatPane", padding: 0.5 });
+    pricePane.style.pointerEvents = "none";
 
-    const priceValues = areaBenchmarksData.areas.map((a) => a.rentPerSqFt).filter(Boolean);
-    const minPrice = Math.min(...priceValues);
-    const maxPrice = Math.max(...priceValues);
+    const marketLabelPane = leafletMap.createPane("marketPriceLabelPane");
+    marketLabelPane.style.zIndex = "441";
+    marketLabelPane.style.display = "none";
+    marketLabelPane.style.pointerEvents = "none";
 
-    const priceColor = (value: number) => {
-      const ratio = maxPrice > minPrice ? (value - minPrice) / (maxPrice - minPrice) : 0.5;
-      const hue = 130 - ratio * 130;
-      return `hsl(${hue}, 75%, 45%)`;
+    const priceRenderer = L.svg({
+      pane: "priceHeatPane",
+      padding: 0.5,
+    });
+
+    const priceValues = areaBenchmarksData.areas
+      .map((area) => Number(area.rentPerSqFt))
+      .filter((value) => Number.isFinite(value) && value > 0)
+      .sort((a, b) => a - b);
+
+    const quantile = (values: number[], q: number) => {
+      if (!values.length) return 0;
+
+      const position = (values.length - 1) * q;
+      const base = Math.floor(position);
+      const rest = position - base;
+      const next = values[base + 1];
+
+      return next === undefined
+        ? values[base]
+        : values[base] + rest * (next - values[base]);
     };
+
+    const priceBreaks = [
+      -Infinity,
+      quantile(priceValues, 0.15),
+      quantile(priceValues, 0.30),
+      quantile(priceValues, 0.48),
+      quantile(priceValues, 0.66),
+      quantile(priceValues, 0.82),
+      quantile(priceValues, 0.94),
+      Infinity,
+    ];
+
+    const marketColors = [
+      "#d8c8aa",
+      "#c7ae82",
+      "#aa8b5d",
+      "#7f8274",
+      "#607f79",
+      "#376a63",
+      "#174e49",
+    ];
+
+    const marketStrokes = [
+      "#b5a079",
+      "#a58a61",
+      "#866b46",
+      "#62695f",
+      "#46665f",
+      "#28554f",
+      "#103d39",
+    ];
+
+    const getPriceBucket = (value: number) => {
+      for (let index = 1; index < priceBreaks.length; index += 1) {
+        if (value <= priceBreaks[index]) {
+          return Math.min(index - 1, marketColors.length - 1);
+        }
+      }
+
+      return marketColors.length - 1;
+    };
+
+    const formatMarketNumber = (value: number) =>
+      new Intl.NumberFormat("en-AE", {
+        maximumFractionDigits: 0,
+      }).format(value);
+
+    const marketBubbleRadius = (projectCount: number) =>
+      Math.min(22, 11 + Math.sqrt(Math.max(projectCount, 1)) * 0.9);
 
     areaBenchmarksData.areas.forEach((benchmark) => {
       const centroid = areaCentroids[benchmark.area];
-      if (!centroid || !benchmark.rentPerSqFt) return;
-      const radius = 8 + Math.min(centroid.projectCount, 40) * 0.6;
+      const value = Number(benchmark.rentPerSqFt);
 
-      L.circleMarker([centroid.lat, centroid.lng], {
-        pane: "priceHeatPane",
-        renderer: priceRenderer,
-        radius,
-        color: "#ffffff",
-        weight: 1.5,
-        fillColor: priceColor(benchmark.rentPerSqFt),
-        fillOpacity: 0.75,
-        interactive: true,
-        className: "price-area-bubble",
-      })
-        .bindTooltip(
-          `<strong>${escapeHtml(benchmark.area)}</strong><span>${benchmark.rentPerSqFt} AED/sqft &middot; ${centroid.projectCount} projects</span>`,
-          { direction: "top", className: "metro-stop-tooltip", opacity: 1 }
-        )
-        .addTo(leafletMap);
+      if (
+        !centroid ||
+        !Number.isFinite(value) ||
+        value <= 0
+      ) {
+        return;
+      }
+
+      const bucket = getPriceBucket(value);
+
+      const bubble = L.circleMarker(
+        [centroid.lat, centroid.lng],
+        {
+          pane: "priceHeatPane",
+          renderer: priceRenderer,
+          radius: marketBubbleRadius(centroid.projectCount),
+          color: marketStrokes[bucket],
+          weight: 1.4,
+          opacity: 0.9,
+          fillColor: marketColors[bucket],
+          fillOpacity: 0.77,
+          interactive: true,
+          className: "market-price-bubble",
+        },
+      );
+
+      bubble.bindTooltip(
+        `
+          <div class="market-map-card">
+            <div class="market-map-card__eyebrow">
+              ${arabic ? "مؤشر السوق" : "MARKET BENCHMARK"}
+            </div>
+
+            <div class="market-map-card__head">
+              <strong>${escapeHtml(benchmark.area)}</strong>
+              <span>${escapeHtml(benchmark.marketStage || (arabic ? "السوق" : "Market"))}</span>
+            </div>
+
+            <div class="market-map-card__price">
+              <small>${arabic ? "متوسط المؤشر" : "AREA BENCHMARK"}</small>
+              <div>
+                <b>${formatMarketNumber(value)}</b>
+                <span>AED / SQ FT</span>
+              </div>
+            </div>
+
+            <div class="market-map-card__stats">
+              <div>
+                <small>${arabic ? "المشاريع" : "PROJECTS"}</small>
+                <strong>${formatMarketNumber(centroid.projectCount)}</strong>
+              </div>
+
+              ${
+                benchmark.appreciationBase !== undefined
+                  ? `
+                    <div>
+                      <small>${arabic ? "النمو المتوقع" : "APPRECIATION"}</small>
+                      <strong>${Number(benchmark.appreciationBase) > 0 ? "+" : ""}${Number(benchmark.appreciationBase).toFixed(1)}%</strong>
+                    </div>
+                  `
+                  : ""
+              }
+            </div>
+
+            ${
+              benchmark.assetMix || benchmark.cluster
+                ? `
+                  <div class="market-map-card__tags">
+                    ${benchmark.assetMix ? `<span>${escapeHtml(benchmark.assetMix)}</span>` : ""}
+                    ${benchmark.cluster ? `<span>${escapeHtml(benchmark.cluster)}</span>` : ""}
+                  </div>
+                `
+                : ""
+            }
+          </div>
+        `,
+        {
+          direction: "top",
+          offset: [0, -10],
+          className: "market-price-tooltip",
+          opacity: 1,
+        },
+      );
+
+      bubble.addTo(leafletMap);
+
+      const label = L.marker(
+        [centroid.lat, centroid.lng],
+        {
+          pane: "marketPriceLabelPane",
+          interactive: false,
+          icon: L.divIcon({
+            className: "market-price-label-shell",
+            iconSize: [92, 26],
+            iconAnchor: [46, 13],
+            html: `
+              <span class="market-price-label">
+                <b>${formatMarketNumber(value)}</b>
+                <small>AED</small>
+              </span>
+            `,
+          }),
+        },
+      );
+
+      label.addTo(leafletMap);
     });
 
-    const RailToggleControl = L.Control.extend({
-      options: { position: "topright" },
+    /*
+     * PREMIUM MAP LAYER CONTROL
+     */
+    const LayerToggleControl = L.Control.extend({
+      options: {
+        position: "topright",
+      },
+
       onAdd: function () {
-        const container = L.DomUtil.create("div", "leaflet-bar leaflet-control rail-toggle-control");
-        container.style.background = "#fff";
-        container.style.padding = "4px";
-        container.style.display = "flex";
-        container.style.flexDirection = "column";
-        container.style.gap = "4px";
+        const container = L.DomUtil.create(
+          "div",
+          "leaflet-control mashhour-map-layers",
+        );
 
-        const makeToggle = (label, paneName) => {
-          const btn = L.DomUtil.create("a", "rail-toggle-btn", container);
-          btn.href = "#";
-          btn.innerText = label;
-          btn.style.padding = "4px 8px";
-          btn.style.fontSize = "12px";
-          btn.style.textAlign = "center";
-          btn.style.background = "#00594c";
-          btn.style.color = "#fff";
-          btn.style.borderRadius = "4px";
-          btn.style.width = "auto";
-          btn.style.height = "auto";
-          btn.style.lineHeight = "1.4";
+        const mobileTrigger = L.DomUtil.create(
+          "button",
+          "mashhour-layers-mobile-trigger",
+          container,
+        ) as HTMLButtonElement;
 
-          L.DomEvent.on(btn, "click", function (e) {
-            L.DomEvent.stopPropagation(e);
-            L.DomEvent.preventDefault(e);
-            const pane = leafletMap.getPane(paneName);
-            if (!pane) return;
-            const isHidden = pane.style.display === "none";
-            pane.style.display = isHidden ? "" : "none";
-            btn.style.opacity = isHidden ? "1" : "0.4";
-          });
+        mobileTrigger.type = "button";
+        mobileTrigger.setAttribute("aria-expanded", "false");
+
+        const updateMobileTrigger = (open: boolean) => {
+          mobileTrigger.setAttribute(
+            "aria-expanded",
+            String(open),
+          );
+
+          mobileTrigger.innerHTML = `
+            <span class="mashhour-layers-mobile-trigger__icon">
+              ${
+                open
+                  ? "<i></i><i></i>"
+                  : "<i></i><i></i><i></i>"
+              }
+            </span>
+
+            <span>
+              ${
+                open
+                  ? arabic
+                    ? "إغلاق"
+                    : "Close"
+                  : arabic
+                    ? "الطبقات"
+                    : "Layers"
+              }
+            </span>
+          `;
         };
 
-        makeToggle("Metro", "metroNetworkPane");
-        makeToggle("Prices", "priceHeatPane");
-        makeToggle("Etihad Rail", "etihadRailPane");
+        updateMobileTrigger(false);
+
+        L.DomEvent.on(
+          mobileTrigger,
+          "click",
+          function (event: Event) {
+            L.DomEvent.stopPropagation(event);
+            L.DomEvent.preventDefault(event);
+
+            const open =
+              !container.classList.contains(
+                "is-mobile-open",
+              );
+
+            container.classList.toggle(
+              "is-mobile-open",
+              open,
+            );
+
+            updateMobileTrigger(open);
+          },
+        );
+
+        const title = L.DomUtil.create(
+          "div",
+          "mashhour-map-layers__title",
+          container,
+        );
+
+        title.innerHTML = `
+          <small>${arabic ? "طبقات الخريطة" : "MAP LAYERS"}</small>
+          <strong>${arabic ? "استكشف المنطقة" : "Explore the area"}</strong>
+        `;
+
+        const makeToggle = (
+          label: string,
+          sublabel: string,
+          paneNames: string[],
+          iconClass: string,
+          activeInitially = true,
+        ) => {
+          const button = L.DomUtil.create(
+            "button",
+            `mashhour-map-toggle ${activeInitially ? "is-active" : ""}`,
+            container,
+          ) as HTMLButtonElement;
+
+          button.type = "button";
+          button.setAttribute(
+            "aria-pressed",
+            activeInitially ? "true" : "false",
+          );
+
+          button.innerHTML = `
+            <span class="mashhour-map-toggle__icon ${iconClass}">
+              <i></i>
+            </span>
+
+            <span class="mashhour-map-toggle__copy">
+              <strong>${label}</strong>
+              <small>${sublabel}</small>
+            </span>
+
+            <span class="mashhour-map-toggle__switch">
+              <i></i>
+            </span>
+          `;
+
+          L.DomEvent.on(button, "click", function (event) {
+            L.DomEvent.stopPropagation(event);
+            L.DomEvent.preventDefault(event);
+
+            const currentlyActive =
+              button.getAttribute("aria-pressed") === "true";
+
+            const nextActive = !currentlyActive;
+
+            button.setAttribute(
+              "aria-pressed",
+              String(nextActive),
+            );
+
+            button.classList.toggle(
+              "is-active",
+              nextActive,
+            );
+
+            paneNames.forEach((paneName) => {
+              const pane = leafletMap.getPane(paneName);
+
+              if (pane) {
+                pane.style.display = nextActive ? "" : "none";
+              }
+            });
+
+            if (paneNames.includes("priceHeatPane")) {
+              const legend = leafletMap
+                .getContainer()
+                .querySelector<HTMLElement>(".market-price-legend");
+
+              if (legend) {
+                legend.style.display = nextActive ? "" : "none";
+              }
+            }
+          });
+
+          return button;
+        };
+
+        makeToggle(
+          arabic ? "المشاريع" : "Projects",
+          arabic
+            ? `${mappedProjects.length.toLocaleString()} مشروع على الخريطة`
+            : `${mappedProjects.length.toLocaleString()} mapped projects`,
+          ["markerPane"],
+          "is-projects",
+          true,
+        );
+
+        makeToggle(
+          arabic ? "مترو دبي" : "Dubai Metro",
+          arabic ? "الحالي والمستقبلي" : "Operating + future",
+          ["metroNetworkPane"],
+          "is-metro",
+          true,
+        );
+
+        /*
+         * Market Prices intentionally disabled.
+         *
+         * Existing benchmark data is rentPerSqFt, not sale price per sq ft.
+         * Re-enable only after verified sale-price data is available.
+         */
+
+
+        makeToggle(
+          arabic ? "قطار الاتحاد" : "Etihad Rail",
+          arabic ? "شبكة السكك الحديدية" : "Rail network",
+          ["etihadRailPane"],
+          "is-rail",
+          true,
+        );
+
+        L.DomEvent.disableClickPropagation(container);
+        L.DomEvent.disableScrollPropagation(container);
 
         return container;
       },
     });
-    leafletMap.addControl(new RailToggleControl());
 
-    const clusters = (L as typeof L & { markerClusterGroup: (options?: object) => L.LayerGroup }).markerClusterGroup({
-        showCoverageOnHover: false,
-        maxClusterRadius: 52,
-        spiderfyOnMaxZoom: true,
-      });
+    leafletMap.addControl(new LayerToggleControl());
+
+    /*
+     * PRICE LEGEND
+     */
+    const MarketLegendControl = L.Control.extend({
+      options: {
+        position: "bottomright",
+      },
+
+      onAdd: function () {
+        const legend = L.DomUtil.create(
+          "div",
+          "leaflet-control market-price-legend",
+        );
+
+        legend.style.display = "none";
+
+        const finiteBreak = (value: number) =>
+          Number.isFinite(value)
+            ? formatMarketNumber(Math.round(value))
+            : "";
+
+        const ranges = marketColors.map((color, index) => {
+          const low = priceBreaks[index];
+          const high = priceBreaks[index + 1];
+
+          let text = "";
+
+          if (!Number.isFinite(low)) {
+            text = `${arabic ? "حتى" : "Up to"} ${finiteBreak(high)}`;
+          } else if (!Number.isFinite(high)) {
+            text = `${finiteBreak(low)}+`;
+          } else {
+            text = `${finiteBreak(low)} – ${finiteBreak(high)}`;
+          }
+
+          return `
+            <div class="market-price-legend__row">
+              <i style="--market-color:${color}"></i>
+              <span>${text}</span>
+            </div>
+          `;
+        }).join("");
+
+        legend.innerHTML = `
+          <div class="market-price-legend__head">
+            <div>
+              <small>${arabic ? "مؤشر السوق" : "MARKET INTELLIGENCE"}</small>
+              <strong>${arabic ? "متوسط المنطقة / قدم²" : "Area benchmark / sq ft"}</strong>
+            </div>
+            <b>AED</b>
+          </div>
+
+          <div class="market-price-legend__scale">
+            ${marketColors.map((color) => `<i style="background:${color}"></i>`).join("")}
+          </div>
+
+          <div class="market-price-legend__ranges">
+            ${ranges}
+          </div>
+
+          <p>
+            ${
+              arabic
+                ? "النطاقات نسبية حسب بيانات المناطق المتاحة."
+                : "Relative tiers based on available area market data."
+            }
+          </p>
+        `;
+
+        L.DomEvent.disableClickPropagation(legend);
+        L.DomEvent.disableScrollPropagation(legend);
+
+        return legend;
+      },
+    });
+
+    leafletMap.addControl(new MarketLegendControl());
+
+    const updateMarketZoom = () => {
+      const zoom = leafletMap.getZoom();
+      const labelPane = leafletMap.getPane("marketPriceLabelPane");
+
+      if (!labelPane || pricePane.style.display === "none") {
+        return;
+      }
+
+      labelPane.style.display = zoom >= 11 ? "" : "none";
+    };
+
+    leafletMap.on("zoomend", updateMarketZoom);
+
+    const clusters = (L as typeof L & {
+      markerClusterGroup: (options?: object) => L.LayerGroup;
+    }).markerClusterGroup({
+      showCoverageOnHover: false,
+      maxClusterRadius: 38,
+      spiderfyOnMaxZoom: true,
+      removeOutsideVisibleBounds: true,
+      animate: true,
+      animateAddingMarkers: false,
+      disableClusteringAtZoom: 15,
+
+      iconCreateFunction: (cluster: {
+        getChildCount: () => number;
+      }) => {
+        const count = cluster.getChildCount();
+
+        const sizeClass =
+          count >= 500
+            ? "is-xl"
+            : count >= 150
+              ? "is-lg"
+              : count >= 50
+                ? "is-md"
+                : "is-sm";
+
+        const compactCount =
+          count >= 1000
+            ? `${(count / 1000).toFixed(count >= 10000 ? 0 : 1)}k`
+            : String(count);
+
+        return L.divIcon({
+          className: "mashhour-cluster-shell",
+          html: `
+            <div class="mashhour-cluster ${sizeClass}">
+              <span>${compactCount}</span>
+              <i></i>
+            </div>
+          `,
+          iconSize: [46, 46],
+          iconAnchor: [23, 23],
+        });
+      },
+    });
       mappedProjects.forEach(({ project, live }) => {
         if (!live.coordinates) return;
         const name = project["Project Name | اسم المشروع"];

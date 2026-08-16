@@ -1,0 +1,20 @@
+{
+  "valid": true,
+  "validatedAt": "2026-08-16",
+  "routeFile": "/data/etihad-rail-dubai.json",
+  "boundaryFile": "/data/dubai-emirate-boundary.geojson",
+  "boundarySource": "UAE FGIC - Emirate Boundary layer 23",
+  "checks": {
+    "segments": 8,
+    "routePoints": 39,
+    "densifiedSamples": 100,
+    "maxEdgeKm": 1.2093,
+    "maxAllowedEdgeKm": 1.25,
+    "outsideSamples": 0,
+    "gapErrors": 0,
+    "stationErrors": 0
+  },
+  "outsideSamples": [],
+  "gapErrors": [],
+  "stationErrors": []
+}

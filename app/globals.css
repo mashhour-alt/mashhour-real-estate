@@ -13,7 +13,1388 @@
 }
 
 * { box-sizing: border-box; }
-html { scroll-behavior: smooth; }
+
+/* ============================================================
+   MASHHOUR MAP UI
+   ============================================================ */
+
+.mashhour-map-layers {
+  width: 224px;
+  padding: 9px;
+  margin: 12px 12px 0 0 !important;
+  border: 1px solid rgba(24, 40, 36, .12);
+  border-radius: 18px;
+  background: rgba(250, 248, 243, .95);
+  box-shadow:
+    0 18px 48px rgba(20, 35, 31, .14),
+    0 3px 10px rgba(20, 35, 31, .07);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  overflow: hidden;
+}
+
+.mashhour-map-layers__title {
+  padding: 5px 7px 10px;
+}
+
+.mashhour-map-layers__title small {
+  display: block;
+  margin-bottom: 2px;
+  color: #9a8058;
+  font-size: 8px;
+  font-weight: 900;
+  letter-spacing: .16em;
+}
+
+.mashhour-map-layers__title strong {
+  color: #183c37;
+  font-size: 13px;
+  letter-spacing: -.01em;
+}
+
+.mashhour-map-toggle {
+  width: 100%;
+  min-height: 52px;
+  display: grid;
+  grid-template-columns: 34px 1fr 30px;
+  align-items: center;
+  gap: 9px;
+  margin: 0;
+  padding: 6px 7px;
+  border: 0;
+  border-top: 1px solid rgba(25, 48, 42, .07);
+  background: transparent;
+  color: #233d38;
+  text-align: left;
+  cursor: pointer;
+  transition:
+    background .18s ease,
+    opacity .18s ease;
+}
+
+.mashhour-map-toggle:hover {
+  background: rgba(43, 83, 74, .055);
+}
+
+.mashhour-map-toggle:not(.is-active) {
+  opacity: .5;
+}
+
+.mashhour-map-toggle__icon {
+  width: 32px;
+  height: 32px;
+  position: relative;
+  display: grid;
+  place-items: center;
+  border-radius: 10px;
+  background: #f0ede5;
+}
+
+.mashhour-map-toggle__icon i {
+  display: block;
+}
+
+.mashhour-map-toggle__icon.is-projects i {
+  width: 17px;
+  height: 20px;
+
+  position: relative;
+
+  border-radius:
+    9px
+    9px
+    9px
+    2px;
+
+  background: #193f39;
+
+  transform: rotate(45deg);
+
+  box-shadow:
+    0 3px 8px rgba(23, 63, 57, .18);
+}
+
+.mashhour-map-toggle__icon.is-projects i::before {
+  content: "";
+
+  width: 6px;
+  height: 6px;
+
+  position: absolute;
+
+  top: 5px;
+  left: 5px;
+
+  border-radius: 50%;
+
+  background: #f7f3ea;
+}
+
+.mashhour-map-toggle__icon.is-projects i::after {
+  content: "";
+
+  width: 5px;
+  height: 5px;
+
+  position: absolute;
+
+  right: -2px;
+  bottom: -2px;
+
+  border-radius: 50%;
+
+  background: #b08d5c;
+
+  border:
+    1px solid
+    rgba(255, 255, 255, .85);
+}
+
+.mashhour-map-toggle__icon.is-metro i {
+  width: 18px;
+  height: 6px;
+  border-top: 3px solid #e31b23;
+  border-bottom: 3px solid #00a651;
+  transform: rotate(-12deg);
+}
+
+.mashhour-map-toggle__icon.is-market i {
+  width: 19px;
+  height: 19px;
+  border-radius: 50%;
+  background:
+    radial-gradient(
+      circle at 35% 30%,
+      #d8c8aa,
+      #aa8b5d 45%,
+      #376a63 75%,
+      #174e49
+    );
+  box-shadow: 0 2px 7px rgba(23, 78, 73, .24);
+}
+
+.mashhour-map-toggle__icon.is-rail i {
+  width: 19px;
+  height: 3px;
+  border-radius: 99px;
+  background: #00594c;
+  box-shadow:
+    0 -6px 0 -1px #00594c,
+    0 6px 0 -1px #00594c;
+}
+
+.mashhour-map-toggle__copy {
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.mashhour-map-toggle__copy strong {
+  overflow: hidden;
+  color: #233f39;
+  font-size: 10px;
+  font-weight: 900;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.mashhour-map-toggle__copy small {
+  overflow: hidden;
+  color: #89918e;
+  font-size: 7.5px;
+  font-weight: 700;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.mashhour-map-toggle__switch {
+  width: 29px;
+  height: 17px;
+  position: relative;
+  border-radius: 999px;
+  background: #d8d8d2;
+  transition: background .18s ease;
+}
+
+.mashhour-map-toggle__switch i {
+  width: 11px;
+  height: 11px;
+  position: absolute;
+  top: 3px;
+  left: 3px;
+  border-radius: 50%;
+  background: #fff;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, .2);
+  transition: transform .18s ease;
+}
+
+.mashhour-map-toggle.is-active .mashhour-map-toggle__switch {
+  background: #285c54;
+}
+
+.mashhour-map-toggle.is-active .mashhour-map-toggle__switch i {
+  transform: translateX(12px);
+}
+
+
+/* Market bubbles */
+
+.market-price-bubble {
+  filter: drop-shadow(0 3px 6px rgba(25, 50, 44, .15));
+  transition:
+    filter .16s ease,
+    fill-opacity .16s ease;
+}
+
+.market-price-bubble:hover {
+  filter: drop-shadow(0 7px 13px rgba(25, 50, 44, .25));
+  fill-opacity: .94;
+}
+
+
+/* Price labels */
+
+.market-price-label-shell {
+  background: transparent !important;
+  border: 0 !important;
+}
+
+.market-price-label {
+  height: 25px;
+  display: inline-flex;
+  align-items: baseline;
+  justify-content: center;
+  gap: 3px;
+  padding: 5px 8px;
+  border: 1px solid rgba(30, 62, 55, .11);
+  border-radius: 999px;
+  background: rgba(250, 248, 242, .92);
+  color: #254b44;
+  box-shadow: 0 4px 12px rgba(22, 43, 38, .11);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  white-space: nowrap;
+}
+
+.market-price-label b {
+  font-size: 9px;
+  line-height: 1;
+}
+
+.market-price-label small {
+  color: #9a8058;
+  font-size: 6px;
+  font-weight: 900;
+  letter-spacing: .04em;
+}
+
+
+/* Market tooltip reset */
+
+.leaflet-tooltip.market-price-tooltip {
+  padding: 0;
+  border: 0;
+  border-radius: 18px;
+  background: transparent;
+  box-shadow: none;
+}
+
+.leaflet-tooltip.market-price-tooltip::before {
+  display: none;
+}
+
+
+/* Market information card */
+
+.market-map-card {
+  width: 280px;
+  position: relative;
+  padding: 17px;
+  overflow: hidden;
+  border: 1px solid rgba(28, 54, 48, .11);
+  border-radius: 18px;
+  background:
+    linear-gradient(
+      145deg,
+      rgba(255, 255, 255, .98),
+      rgba(247, 244, 236, .98)
+    );
+  color: #173b35;
+  box-shadow:
+    0 18px 45px rgba(21, 42, 37, .18),
+    0 4px 12px rgba(21, 42, 37, .08);
+}
+
+.market-map-card::before {
+  content: "";
+  width: 72px;
+  height: 3px;
+  position: absolute;
+  top: 0;
+  left: 18px;
+  background:
+    linear-gradient(
+      90deg,
+      #a98b5c 0 22%,
+      transparent 22% 30%,
+      #557b73 30% 53%,
+      transparent 53% 61%,
+      #a98b5c 61% 79%,
+      transparent 79% 87%,
+      #557b73 87%
+    );
+}
+
+.market-map-card__eyebrow {
+  margin-bottom: 5px;
+  color: #9b8158;
+  font-size: 7.5px;
+  font-weight: 900;
+  letter-spacing: .13em;
+}
+
+.market-map-card__head {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 10px;
+  margin-bottom: 14px;
+}
+
+.market-map-card__head strong {
+  max-width: 185px;
+  font-size: 16px;
+  line-height: 1.2;
+}
+
+.market-map-card__head > span {
+  padding: 4px 7px;
+  border-radius: 999px;
+  background: rgba(62, 103, 94, .08);
+  color: #5f766f;
+  font-size: 7px;
+  font-weight: 800;
+  white-space: nowrap;
+}
+
+.market-map-card__price {
+  padding: 12px 0;
+  border-top: 1px solid rgba(27, 52, 46, .08);
+  border-bottom: 1px solid rgba(27, 52, 46, .08);
+}
+
+.market-map-card__price > small,
+.market-map-card__stats small {
+  display: block;
+  color: #929995;
+  font-size: 7px;
+  font-weight: 900;
+  letter-spacing: .08em;
+}
+
+.market-map-card__price > div {
+  display: flex;
+  align-items: baseline;
+  gap: 6px;
+  margin-top: 3px;
+}
+
+.market-map-card__price b {
+  color: #193f38;
+  font-size: 25px;
+  letter-spacing: -.05em;
+}
+
+.market-map-card__price span {
+  color: #a08458;
+  font-size: 8px;
+  font-weight: 900;
+}
+
+.market-map-card__stats {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+  padding-top: 12px;
+}
+
+.market-map-card__stats div {
+  display: grid;
+  gap: 3px;
+}
+
+.market-map-card__stats strong {
+  color: #38544e;
+  font-size: 11px;
+}
+
+.market-map-card__tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+  margin-top: 11px;
+}
+
+.market-map-card__tags span {
+  padding: 4px 6px;
+  border-radius: 5px;
+  background: rgba(164, 135, 87, .08);
+  color: #7a674a;
+  font-size: 7px;
+  font-weight: 800;
+}
+
+
+/* Market legend */
+
+.market-price-legend {
+  width: 210px;
+  margin: 0 13px 13px 0 !important;
+  padding: 13px;
+  border: 1px solid rgba(26, 52, 46, .12);
+  border-radius: 17px;
+  background: rgba(250, 248, 243, .95);
+  box-shadow:
+    0 14px 38px rgba(20, 39, 35, .14),
+    0 3px 8px rgba(20, 39, 35, .06);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+}
+
+.market-price-legend__head {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  margin-bottom: 9px;
+}
+
+.market-price-legend__head small {
+  display: block;
+  margin-bottom: 2px;
+  color: #9c8157;
+  font-size: 7px;
+  font-weight: 900;
+  letter-spacing: .1em;
+}
+
+.market-price-legend__head strong {
+  display: block;
+  color: #1e453e;
+  font-size: 10px;
+}
+
+.market-price-legend__head > b {
+  color: #7a8581;
+  font-size: 7px;
+  letter-spacing: .1em;
+}
+
+.market-price-legend__scale {
+  height: 6px;
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  margin-bottom: 10px;
+  overflow: hidden;
+  border-radius: 999px;
+}
+
+.market-price-legend__scale i {
+  display: block;
+}
+
+.market-price-legend__ranges {
+  display: grid;
+  gap: 5px;
+}
+
+.market-price-legend__row {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+}
+
+.market-price-legend__row i {
+  width: 7px;
+  height: 7px;
+  flex: 0 0 auto;
+  border-radius: 50%;
+  background: var(--market-color);
+  box-shadow:
+    0 0 0 2px
+    color-mix(in srgb, var(--market-color) 18%, transparent);
+}
+
+.market-price-legend__row span {
+  color: #707a76;
+  font-size: 8px;
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+}
+
+.market-price-legend p {
+  margin: 9px 0 0;
+  padding-top: 8px;
+  border-top: 1px solid rgba(26, 52, 46, .08);
+  color: #969c99;
+  font-size: 7px;
+  line-height: 1.45;
+}
+
+
+/* RTL */
+
+[dir="rtl"] .mashhour-map-toggle {
+  text-align: right;
+}
+
+[dir="rtl"] .mashhour-map-toggle__switch i {
+  left: auto;
+  right: 3px;
+}
+
+[dir="rtl"] .mashhour-map-toggle.is-active .mashhour-map-toggle__switch i {
+  transform: translateX(-12px);
+}
+
+[dir="rtl"] .market-map-card::before {
+  left: auto;
+  right: 18px;
+}
+
+
+/* Mobile map UI */
+
+/* Mobile layers trigger is hidden on desktop */
+.mashhour-layers-mobile-trigger {
+  display: none;
+}
+
+@media (max-width: 700px) {
+  .mashhour-map-layers {
+    width: auto;
+    min-width: 0;
+    padding: 0;
+
+    margin:
+      8px
+      8px
+      0
+      0 !important;
+
+    overflow: visible;
+
+    border: 0;
+    border-radius: 14px;
+
+    background: transparent;
+
+    box-shadow: none;
+
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+  }
+
+  .mashhour-layers-mobile-trigger {
+    min-width: 92px;
+    height: 42px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+
+    padding: 0 12px;
+
+    border:
+      1px solid
+      rgba(25, 52, 46, .14);
+
+    border-radius: 13px;
+
+    background:
+      rgba(250, 248, 243, .96);
+
+    color: #193f39;
+
+    box-shadow:
+      0 8px 22px
+      rgba(18, 39, 34, .14);
+
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+
+    font-family:
+      "Tajawal",
+      Arial,
+      sans-serif;
+
+    font-size: 10px;
+    font-weight: 900;
+
+    cursor: pointer;
+  }
+
+  .mashhour-layers-mobile-trigger__icon {
+    width: 18px;
+    height: 16px;
+
+    position: relative;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 3px;
+  }
+
+  .mashhour-layers-mobile-trigger__icon i {
+    height: 2px;
+
+    display: block;
+
+    border-radius: 99px;
+
+    background: currentColor;
+  }
+
+  .mashhour-layers-mobile-trigger__icon i:nth-child(1) {
+    width: 18px;
+  }
+
+  .mashhour-layers-mobile-trigger__icon i:nth-child(2) {
+    width: 13px;
+  }
+
+  .mashhour-layers-mobile-trigger__icon i:nth-child(3) {
+    width: 8px;
+  }
+
+  .mashhour-map-layers.is-mobile-open
+  .mashhour-layers-mobile-trigger__icon {
+    display: block;
+  }
+
+  .mashhour-map-layers.is-mobile-open
+  .mashhour-layers-mobile-trigger__icon i {
+    width: 17px;
+
+    position: absolute;
+
+    top: 7px;
+    left: 0;
+  }
+
+  .mashhour-map-layers.is-mobile-open
+  .mashhour-layers-mobile-trigger__icon i:nth-child(1) {
+    transform: rotate(45deg);
+  }
+
+  .mashhour-map-layers.is-mobile-open
+  .mashhour-layers-mobile-trigger__icon i:nth-child(2) {
+    transform: rotate(-45deg);
+  }
+
+  .mashhour-map-layers:not(.is-mobile-open)
+  .mashhour-map-layers__title,
+  .mashhour-map-layers:not(.is-mobile-open)
+  .mashhour-map-toggle {
+    display: none;
+  }
+
+  .mashhour-map-layers.is-mobile-open {
+    width:
+      min(
+        236px,
+        calc(100vw - 28px)
+      );
+
+    padding: 8px;
+
+    border:
+      1px solid
+      rgba(24, 48, 42, .13);
+
+    border-radius: 17px;
+
+    background:
+      rgba(250, 248, 243, .97);
+
+    box-shadow:
+      0 18px 44px
+      rgba(16, 39, 34, .20),
+      0 3px 9px
+      rgba(16, 39, 34, .07);
+
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+  }
+
+  .mashhour-map-layers.is-mobile-open
+  .mashhour-layers-mobile-trigger {
+    width: 100%;
+
+    justify-content: flex-start;
+
+    margin-bottom: 6px;
+
+    border-color:
+      rgba(25, 63, 56, .08);
+
+    background:
+      rgba(32, 75, 67, .07);
+
+    box-shadow: none;
+  }
+
+  .mashhour-map-layers.is-mobile-open
+  .mashhour-map-layers__title {
+    display: block;
+
+    padding:
+      5px
+      8px
+      8px;
+  }
+
+  .mashhour-map-layers.is-mobile-open
+  .mashhour-map-layers__title small {
+    font-size: 7px;
+  }
+
+  .mashhour-map-layers.is-mobile-open
+  .mashhour-map-layers__title strong {
+    font-size: 12px;
+  }
+
+  .mashhour-map-layers.is-mobile-open
+  .mashhour-map-toggle {
+    min-height: 47px;
+
+    display: grid;
+
+    grid-template-columns:
+      30px
+      1fr
+      27px;
+
+    gap: 8px;
+
+    padding:
+      6px
+      7px;
+  }
+
+  .mashhour-map-layers.is-mobile-open
+  .mashhour-map-toggle__icon {
+    width: 29px;
+    height: 29px;
+
+    border-radius: 8px;
+  }
+
+  .mashhour-map-layers.is-mobile-open
+  .mashhour-map-toggle__copy strong {
+    font-size: 9.5px;
+  }
+
+  .mashhour-map-layers.is-mobile-open
+  .mashhour-map-toggle__copy small {
+    font-size: 7px;
+  }
+
+  [dir="rtl"]
+  .mashhour-map-layers.is-mobile-open
+  .mashhour-layers-mobile-trigger {
+    justify-content: flex-start;
+  }
+}
+
+/* ============================================================
+   MAP FULLSCREEN CONTROL
+   ============================================================ */
+
+.mashhour-fullscreen-control {
+  margin:
+    12px
+    0
+    0
+    12px !important;
+
+  border: 0 !important;
+
+  background:
+    transparent !important;
+
+  box-shadow:
+    none !important;
+}
+
+.mashhour-fullscreen-button {
+  width: 44px;
+  height: 44px;
+
+  display: grid;
+  place-items: center;
+
+  padding: 0;
+
+  border:
+    1px solid
+    rgba(25, 52, 46, .14);
+
+  border-radius: 13px;
+
+  background:
+    rgba(250, 248, 243, .96);
+
+  color: #193f39;
+
+  box-shadow:
+    0 8px 22px
+    rgba(18, 39, 34, .13);
+
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+
+  cursor: pointer;
+
+  transition:
+    transform .18s ease,
+    background .18s ease,
+    box-shadow .18s ease;
+}
+
+.mashhour-fullscreen-button:hover {
+  transform: translateY(-1px);
+
+  background: #ffffff;
+
+  box-shadow:
+    0 11px 28px
+    rgba(18, 39, 34, .17);
+}
+
+.fullscreen-icon {
+  width: 19px;
+  height: 19px;
+
+  position: relative;
+
+  display: block;
+}
+
+.fullscreen-icon i {
+  width: 7px;
+  height: 7px;
+
+  position: absolute;
+
+  border-color: currentColor;
+  border-style: solid;
+}
+
+.fullscreen-icon i:nth-child(1) {
+  top: 0;
+  left: 0;
+
+  border-width:
+    2px
+    0
+    0
+    2px;
+}
+
+.fullscreen-icon i:nth-child(2) {
+  top: 0;
+  right: 0;
+
+  border-width:
+    2px
+    2px
+    0
+    0;
+}
+
+.fullscreen-icon i:nth-child(3) {
+  bottom: 0;
+  left: 0;
+
+  border-width:
+    0
+    0
+    2px
+    2px;
+}
+
+.fullscreen-icon i:nth-child(4) {
+  right: 0;
+  bottom: 0;
+
+  border-width:
+    0
+    2px
+    2px
+    0;
+}
+
+
+/*
+ * Exit icon corners point inward.
+ */
+.fullscreen-icon.is-exit i:nth-child(1) {
+  top: 4px;
+  left: 4px;
+}
+
+.fullscreen-icon.is-exit i:nth-child(2) {
+  top: 4px;
+  right: 4px;
+}
+
+.fullscreen-icon.is-exit i:nth-child(3) {
+  bottom: 4px;
+  left: 4px;
+}
+
+.fullscreen-icon.is-exit i:nth-child(4) {
+  right: 4px;
+  bottom: 4px;
+}
+
+
+/* ============================================================
+   FULLSCREEN MAP STATE
+   ============================================================ */
+
+body.map-fullscreen-open {
+  overflow: hidden !important;
+}
+
+.leaflet-project-map.is-map-fullscreen {
+  width: 100vw !important;
+  width: 100dvw !important;
+
+  height: 100vh !important;
+  height: 100dvh !important;
+
+  position: fixed !important;
+
+  inset: 0 !important;
+
+  z-index: 99999 !important;
+
+  margin: 0 !important;
+
+  border: 0 !important;
+
+  border-radius: 0 !important;
+
+  background: #e8e5dc;
+}
+
+
+/*
+ * Respect iPhone safe areas in fullscreen.
+ */
+.leaflet-project-map.is-map-fullscreen
+.leaflet-top {
+  top:
+    env(
+      safe-area-inset-top,
+      0px
+    );
+}
+
+.leaflet-project-map.is-map-fullscreen
+.leaflet-bottom {
+  bottom:
+    env(
+      safe-area-inset-bottom,
+      0px
+    );
+}
+
+
+/* Fullscreen button becomes dark while active */
+
+.leaflet-project-map.is-map-fullscreen
+.mashhour-fullscreen-button {
+  background: #173f39;
+
+  border-color: #173f39;
+
+  color: #ffffff;
+
+  box-shadow:
+    0 8px 25px
+    rgba(10, 35, 30, .25);
+}
+
+
+@media (max-width: 700px) {
+  /*
+   * MOBILE MAP CONTROL GEOMETRY
+   *
+   * Fullscreen:
+   *   left side, below iPhone safe-area.
+   *
+   * Layers:
+   *   right side, below safe-area.
+   *
+   * This keeps both controls on the same visual row without overlap.
+   */
+
+  .mashhour-fullscreen-control {
+    margin:
+      8px
+      0
+      0
+      8px !important;
+  }
+
+  .mashhour-fullscreen-button {
+    width: 42px;
+    height: 42px;
+
+    border-radius: 12px;
+  }
+
+
+  /*
+   * ----------------------------------------------------------
+   * FULLSCREEN MOBILE POSITIONING
+   * ----------------------------------------------------------
+   */
+
+  .leaflet-project-map.is-map-fullscreen
+  .leaflet-top.leaflet-left {
+    top:
+      calc(
+        env(safe-area-inset-top, 0px)
+        + 8px
+      );
+
+    left:
+      calc(
+        env(safe-area-inset-left, 0px)
+        + 8px
+      );
+  }
+
+  .leaflet-project-map.is-map-fullscreen
+  .leaflet-top.leaflet-right {
+    top:
+      calc(
+        env(safe-area-inset-top, 0px)
+        + 8px
+      );
+
+    right:
+      calc(
+        env(safe-area-inset-right, 0px)
+        + 8px
+      );
+  }
+
+
+  /*
+   * Leaflet normally adds margins to controls.
+   * In fullscreen we already position their parent corners,
+   * so remove duplicated spacing.
+   */
+
+  .leaflet-project-map.is-map-fullscreen
+  .mashhour-fullscreen-control {
+    margin:
+      0 !important;
+  }
+
+  .leaflet-project-map.is-map-fullscreen
+  .mashhour-map-layers {
+    margin:
+      0 !important;
+  }
+
+
+  /*
+   * ----------------------------------------------------------
+   * CLOSED LAYERS BUTTON
+   * ----------------------------------------------------------
+   */
+
+  .leaflet-project-map.is-map-fullscreen
+  .mashhour-map-layers:not(.is-mobile-open) {
+    width: auto;
+
+    max-width:
+      calc(
+        100vw
+        - env(safe-area-inset-left, 0px)
+        - env(safe-area-inset-right, 0px)
+        - 78px
+      );
+  }
+
+  .leaflet-project-map.is-map-fullscreen
+  .mashhour-layers-mobile-trigger {
+    min-height: 42px;
+
+    box-sizing: border-box;
+  }
+
+
+  /*
+   * ----------------------------------------------------------
+   * OPEN LAYERS PANEL
+   * ----------------------------------------------------------
+   *
+   * The control itself remains anchored in the top-right corner,
+   * therefore the panel expands down and left into free map space.
+   */
+
+  .leaflet-project-map.is-map-fullscreen
+  .mashhour-map-layers.is-mobile-open {
+    width:
+      min(
+        246px,
+        calc(
+          100vw
+          - env(safe-area-inset-left, 0px)
+          - env(safe-area-inset-right, 0px)
+          - 24px
+        )
+      );
+
+    max-height:
+      calc(
+        100dvh
+        - env(safe-area-inset-top, 0px)
+        - env(safe-area-inset-bottom, 0px)
+        - 28px
+      );
+
+    overflow-y: auto;
+
+    overscroll-behavior: contain;
+  }
+
+
+  /*
+   * Keep an intentional gap between the fullscreen button
+   * on the left and an unusually wide opened panel.
+   */
+  .leaflet-project-map.is-map-fullscreen
+  .leaflet-top.leaflet-right {
+    max-width:
+      calc(
+        100vw
+        - env(safe-area-inset-left, 0px)
+        - env(safe-area-inset-right, 0px)
+        - 70px
+      );
+  }
+
+
+  /*
+   * Make the opened panel behave like a floating sheet.
+   * It expands vertically downward rather than covering the
+   * fullscreen control.
+   */
+  .leaflet-project-map.is-map-fullscreen
+  .mashhour-map-layers.is-mobile-open
+  .mashhour-layers-mobile-trigger {
+    position: sticky;
+
+    top: 0;
+
+    z-index: 2;
+  }
+
+
+  /*
+   * Attribution needs breathing room around the iPhone
+   * home indicator while fullscreen.
+   */
+  .leaflet-project-map.is-map-fullscreen
+  .leaflet-control-attribution {
+    margin-bottom:
+      calc(
+        env(safe-area-inset-bottom, 0px)
+        + 3px
+      ) !important;
+
+    margin-right:
+      calc(
+        env(safe-area-inset-right, 0px)
+        + 3px
+      ) !important;
+  }
+}
+
+
+/* ============================================================
+   MASHHOUR PREMIUM PROJECT CLUSTERS
+   ============================================================ */
+
+.mashhour-cluster-shell {
+  background: transparent !important;
+  border: 0 !important;
+}
+
+.mashhour-cluster {
+  width: 46px;
+  height: 46px;
+
+  position: relative;
+
+  display: grid;
+  place-items: center;
+
+  border-radius: 50%;
+
+  background:
+    radial-gradient(
+      circle at 34% 28%,
+      rgba(255, 255, 255, .23),
+      transparent 34%
+    ),
+    linear-gradient(
+      145deg,
+      #173f39,
+      #0e2e2a
+    );
+
+  border:
+    1px solid
+    rgba(255, 255, 255, .72);
+
+  box-shadow:
+    0 7px 18px rgba(17, 46, 41, .24),
+    0 2px 6px rgba(17, 46, 41, .15),
+    0 0 0 4px rgba(23, 78, 73, .10);
+
+  color: #fff;
+
+  transform-origin: center;
+
+  transition:
+    transform .18s ease,
+    box-shadow .18s ease;
+}
+
+.mashhour-cluster:hover {
+  transform: scale(1.07);
+
+  box-shadow:
+    0 10px 25px rgba(17, 46, 41, .28),
+    0 3px 8px rgba(17, 46, 41, .17),
+    0 0 0 5px rgba(23, 78, 73, .12);
+}
+
+.mashhour-cluster span {
+  position: relative;
+  z-index: 2;
+
+  font-family:
+    "Tajawal",
+    Arial,
+    sans-serif;
+
+  font-size: 11px;
+  font-weight: 900;
+
+  line-height: 1;
+
+  letter-spacing: -.025em;
+}
+
+.mashhour-cluster i {
+  width: 7px;
+  height: 7px;
+
+  position: absolute;
+
+  right: 3px;
+  bottom: 4px;
+
+  border: 1px solid rgba(255, 255, 255, .8);
+  border-radius: 50%;
+
+  background: #b39362;
+
+  box-shadow:
+    0 1px 3px rgba(0, 0, 0, .18);
+}
+
+.mashhour-cluster.is-sm {
+  width: 38px;
+  height: 38px;
+}
+
+.mashhour-cluster.is-sm span {
+  font-size: 10px;
+}
+
+.mashhour-cluster.is-md {
+  width: 42px;
+  height: 42px;
+}
+
+.mashhour-cluster.is-lg {
+  width: 46px;
+  height: 46px;
+}
+
+.mashhour-cluster.is-xl {
+  width: 50px;
+  height: 50px;
+
+  background:
+    radial-gradient(
+      circle at 34% 28%,
+      rgba(255, 255, 255, .22),
+      transparent 34%
+    ),
+    linear-gradient(
+      145deg,
+      #204f48,
+      #102f2b
+    );
+}
+
+.mashhour-cluster.is-xl span {
+  font-size: 11px;
+}
+
+
+/*
+ * Hide the plugin's default red/blue cluster artwork.
+ */
+.marker-cluster-small,
+.marker-cluster-medium,
+.marker-cluster-large {
+  background: transparent !important;
+}
+
+.marker-cluster-small div,
+.marker-cluster-medium div,
+.marker-cluster-large div {
+  background: transparent !important;
+}
+
+
+/* Mobile cluster refinement */
+
+@media (max-width: 700px) {
+  .mashhour-cluster {
+    transform: scale(.9);
+  }
+
+  .mashhour-cluster:hover {
+    transform: scale(.96);
+  }
+}
+
 body { margin: 0; background: var(--paper); color: var(--ink); font-family: Arial, Helvetica, sans-serif; }
 /* Arabic mode: swap to a proper Arabic typeface. Georgia/serif accents also have no
    Arabic glyphs, so drop them in RTL. Aref Ruqaa (traditional Ruqaa calligraphy)

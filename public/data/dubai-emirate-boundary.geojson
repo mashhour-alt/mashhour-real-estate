@@ -1,0 +1,64 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Dubai validation envelope",
+        "temporary": true,
+        "render": false
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              54.86,
+              24.78
+            ],
+            [
+              55.08,
+              24.78
+            ],
+            [
+              55.35,
+              24.84
+            ],
+            [
+              55.58,
+              24.94
+            ],
+            [
+              55.72,
+              25.1
+            ],
+            [
+              55.66,
+              25.34
+            ],
+            [
+              55.48,
+              25.43
+            ],
+            [
+              55.2,
+              25.4
+            ],
+            [
+              54.98,
+              25.25
+            ],
+            [
+              54.86,
+              25.05
+            ],
+            [
+              54.86,
+              24.78
+            ]
+          ]
+        ]
+      }
+    }
+  ]
+}
