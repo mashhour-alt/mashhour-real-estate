@@ -64,6 +64,53 @@ export default function ComparePage() {
   const amenityCounts = projects.map((project) => liveData[projectName(project)]?.amenities?.length || enrichment[projectName(project)]?.amenities?.length || 0);
   const bestAmenities = amenityCounts.length ? Math.max(...amenityCounts) : 0;
 
+  const pricePerSqFtValues = projects
+    .map((project) => ({
+      project,
+      value: (() => {
+        const price = priceFor(project);
+        const units = liveData[projectName(project)]?.unitOptions || [];
+        const areas = units
+          .map((unit) => unit.areaFrom)
+          .filter((value): value is number => typeof value === "number" && value > 0);
+
+        if (typeof price !== "number" || price <= 0 || !areas.length) return null;
+        return Math.round(price / Math.min(...areas));
+      })(),
+    }))
+    .filter(
+      (item): item is { project: Project; value: number } =>
+        typeof item.value === "number",
+    );
+
+  const bestPricePerSqFt = pricePerSqFtValues.length
+    ? Math.min(...pricePerSqFtValues.map((item) => item.value))
+    : null;
+
+  const cheapestProject = projects.find(
+    (project) => bestPrice != null && priceFor(project) === bestPrice,
+  );
+
+  const earliestProject = projects.find(
+    (project) =>
+      Number.isFinite(bestHandover) &&
+      numericHandover(project["Handover | التسليم"]) === bestHandover,
+  );
+
+  const bestAmenityProject =
+    bestAmenities > 0
+      ? projects.find(
+          (_, index) => amenityCounts[index] === bestAmenities,
+        )
+      : undefined;
+
+  const bestSqFtProject =
+    bestPricePerSqFt != null
+      ? pricePerSqFtValues.find(
+          (item) => item.value === bestPricePerSqFt,
+        )?.project
+      : undefined;
+
   const addProject = (name: string) => {
     add(name);
     setQuery("");
@@ -98,12 +145,43 @@ export default function ComparePage() {
   return (
     <main>
       <Header />
-      <PageIntro
-        eyebrow={arabic ? "مساحة اتخاذ القرار" : "DECISION WORKSPACE"}
-        title={arabic ? "قارن المشاريع. اختار بثقة." : "Compare projects. Choose with confidence."}
-        intro={arabic ? "حط لحد أربع مشاريع دبي جنب بعض. أقوى قيمة متاحة في كل صف بتتحدد تلقائي." : "Put up to four Dubai projects side by side. The strongest available value in each decision-critical row is highlighted automatically."}
-        action={<strong className="page-count">{projects.length} / {MAX_PROJECTS} {arabic ? "مختار" : "SELECTED"}</strong>}
-      />
+      <section className="compare-premium-hero">
+        <div className="compare-premium-hero-overlay" />
+
+        <div className="compare-premium-hero-copy">
+          <span>{arabic ? "أداة مقارنة العقارات" : "PROPERTY COMPARISON TOOL"}</span>
+
+          <h1>
+            {arabic ? "قارن استثمارك بذكاء" : "Compare your investment smarter"}
+          </h1>
+
+          <p>
+            {arabic
+              ? "قارن السعر، سعر القدم، خطة الدفع، موعد التسليم، الموقع والمرافق في مكان واحد."
+              : "Compare price, price per sq ft, payment plan, handover, location and amenities in one place."}
+          </p>
+
+          <div className="compare-premium-trust">
+            <i>✓</i>
+            <div>
+              <strong>
+                {arabic ? "مقارنة مبنية على البيانات المتاحة" : "Data-backed comparison"}
+              </strong>
+              <small>
+                {arabic
+                  ? "القيم الأفضل تتحدد تلقائيًا بدون تقديرات غير موثقة."
+                  : "Best-value markers are calculated automatically without unverified estimates."}
+              </small>
+            </div>
+          </div>
+        </div>
+
+        <div className="compare-premium-count">
+          <strong>{projects.length}</strong>
+          <span>/ {MAX_PROJECTS}</span>
+          <small>{arabic ? "مشاريع مختارة" : "projects selected"}</small>
+        </div>
+      </section>
 
       <section className="compare-workspace">
         <div className="compare-toolbar">
@@ -129,6 +207,51 @@ export default function ComparePage() {
               {!choices.length && <p>{arabic ? "لا توجد مشاريع مطابقة." : "No matching projects found."}</p>}
             </div>
           </div>
+        ) : null}
+
+        {projects.length >= 2 ? (
+          <section className="compare-quick-strip">
+            <div>
+              <i>◉</i>
+              <span>{arabic ? "أقل سعر ابتدائي" : "LOWEST ENTRY PRICE"}</span>
+              <strong>{cheapestProject ? projectName(cheapestProject) : "—"}</strong>
+              <b>{bestPrice != null ? money(bestPrice) : notAvailable}</b>
+            </div>
+
+            <div>
+              <i>◇</i>
+              <span>{arabic ? "أفضل سعر / قدم²" : "BEST AED / SQ FT"}</span>
+              <strong>{bestSqFtProject ? projectName(bestSqFtProject) : "—"}</strong>
+              <b>
+                {bestPricePerSqFt != null
+                  ? `AED ${bestPricePerSqFt.toLocaleString()}`
+                  : notAvailable}
+              </b>
+            </div>
+
+            <div>
+              <i>▣</i>
+              <span>{arabic ? "أقرب موعد تسليم" : "EARLIEST HANDOVER"}</span>
+              <strong>{earliestProject ? projectName(earliestProject) : "—"}</strong>
+              <b>
+                {earliestProject?.["Handover | التسليم"] ||
+                  (arabic ? "قيد التحقق" : "Under verification")}
+              </b>
+            </div>
+
+            <div>
+              <i>✦</i>
+              <span>{arabic ? "أكتر مرافق موثقة" : "MOST AMENITIES"}</span>
+              <strong>{bestAmenityProject ? projectName(bestAmenityProject) : "—"}</strong>
+              <b>
+                {bestAmenities
+                  ? arabic
+                    ? `${bestAmenities} مرفق`
+                    : `${bestAmenities} amenities`
+                  : notAvailable}
+              </b>
+            </div>
+          </section>
         ) : null}
 
         {!projects.length ? (
@@ -229,6 +352,137 @@ export default function ComparePage() {
             </div>
           </div>
         )}
+        {projects.length >= 2 ? (
+          <section className="compare-verdict">
+            <div className="compare-verdict-heading">
+              <span>{arabic ? "ملخص القرار" : "DECISION SUMMARY"}</span>
+              <h2>{arabic ? "أبرز نقاط المقارنة" : "Comparison highlights"}</h2>
+              <p>
+                {arabic
+                  ? "النتائج التالية مبنية فقط على البيانات المتاحة حاليًا، وليست توصية مالية."
+                  : "These highlights use currently available data only and are not financial advice."}
+              </p>
+            </div>
+
+            <div className="compare-verdict-grid">
+              <article className="compare-verdict-card">
+                <div className="compare-verdict-icon">◉</div>
+
+                <span>
+                  {arabic ? "الأفضل لأقل سعر دخول" : "LOWEST ENTRY PRICE"}
+                </span>
+
+                <h3>
+                  {cheapestProject
+                    ? projectName(cheapestProject)
+                    : arabic
+                      ? "غير متاح"
+                      : "Not available"}
+                </h3>
+
+                <b>{bestPrice != null ? money(bestPrice) : notAvailable}</b>
+
+                <ul>
+                  <li>
+                    {arabic
+                      ? "أقل سعر مبدئي منشور بين المشاريع المختارة."
+                      : "Lowest published starting price in this comparison."}
+                  </li>
+                  <li>
+                    {arabic
+                      ? "مناسب كبداية لفحص متطلبات السيولة."
+                      : "Useful as a starting point for liquidity planning."}
+                  </li>
+                </ul>
+
+                {cheapestProject ? (
+                  <a
+                    href={`/projects/detail?name=${encodeURIComponent(
+                      projectName(cheapestProject),
+                    )}`}
+                  >
+                    {arabic ? "عرض المشروع" : "View project"} <b>→</b>
+                  </a>
+                ) : null}
+              </article>
+
+              <article className="compare-verdict-card">
+                <div className="compare-verdict-icon gold">◇</div>
+
+                <span>
+                  {arabic ? "الأفضل في سعر القدم" : "BEST PRICE PER SQ FT"}
+                </span>
+
+                <h3>
+                  {bestSqFtProject
+                    ? projectName(bestSqFtProject)
+                    : arabic
+                      ? "البيانات غير مكتملة"
+                      : "Insufficient data"}
+                </h3>
+
+                <b>
+                  {bestPricePerSqFt != null
+                    ? `AED ${bestPricePerSqFt.toLocaleString()} / ft²`
+                    : notAvailable}
+                </b>
+
+                <ul>
+                  <li>
+                    {arabic
+                      ? "يستخدم السعر وأصغر مساحة وحدة منشورة لنفس المشروع."
+                      : "Uses price and the smallest published unit area for the same project."}
+                  </li>
+                  <li>
+                    {arabic
+                      ? "لا يتم احتساب القيمة إذا كانت بيانات المساحة ناقصة."
+                      : "No value is calculated when unit-area data is incomplete."}
+                  </li>
+                </ul>
+
+                {bestSqFtProject ? (
+                  <a
+                    href={`/projects/detail?name=${encodeURIComponent(
+                      projectName(bestSqFtProject),
+                    )}`}
+                  >
+                    {arabic ? "عرض المشروع" : "View project"} <b>→</b>
+                  </a>
+                ) : null}
+              </article>
+
+              <article className="compare-advisor-card">
+                <span>{arabic ? "تحتاج مساعدة في القرار؟" : "NEED HELP DECIDING?"}</span>
+
+                <h3>
+                  {arabic
+                    ? "راجع المقارنة مع مستشار عقاري"
+                    : "Review the comparison with an advisor"}
+                </h3>
+
+                <p>
+                  {arabic
+                    ? "الأرقام وحدها مش كل الصورة. راجع الموقع، المطور، خطة الدفع وهدفك الاستثماري قبل الحجز."
+                    : "Numbers are only part of the picture. Review location, developer, payment plan and your investment goal before reserving."}
+                </p>
+
+                <a
+                  className="compare-whatsapp"
+                  href="https://wa.me/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  {arabic ? "تواصل عبر واتساب" : "Contact via WhatsApp"}
+                </a>
+
+                <a className="compare-consultation" href="/#contact">
+                  {arabic ? "طلب استشارة مجانية" : "Request free consultation"}
+                </a>
+              </article>
+            </div>
+          </section>
+        ) : null}
+
         <p className="compare-footnote">{arabic ? "علامات أفضل قيمة بتستخدم البيانات الموثّقة المتاحة حالياً. الأسعار والتوفر ممكن يتغيروا وينصح بالتأكد منهم قبل الحجز." : "Best-value markers use the verified data currently available. Pricing and availability can change and should be reconfirmed before reservation."}</p>
       </section>
       <Footer />
