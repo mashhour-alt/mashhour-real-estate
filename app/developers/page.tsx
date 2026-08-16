@@ -61,6 +61,7 @@ export default function DevelopersPage() {
   const sponsorship = useSponsorship();
   const [query, setQuery] = useState("");
   const [tier, setTier] = useState("");
+  const [areaFilter, setAreaFilter] = useState("");
   const [sort, setSort] = useState("projects");
   const directory = useMemo(() => {
     const scored = new Map((data?.developers || []).map((developer) => [developer.Developer.trim().toLowerCase(), developer]));
@@ -80,60 +81,555 @@ export default function DevelopersPage() {
     const prices = projects.map((project) => liveData[project["Project Name | اسم المشروع"]]?.startingPrice || project["Starting Price AED | السعر المبدئي"]).filter((value): value is number => typeof value === "number");
     const logo = projects.map((project) => liveData[project["Project Name | اسم المشروع"]]?.developerLogo).find(Boolean) || null;
     return { developer, projects, areas, priceFrom: prices.length ? Math.min(...prices) : null, logo };
-  }).filter(({ developer }) => developer.Developer.toLowerCase().includes(query.toLowerCase()) && (!tier || developer.Tier === tier)).sort((a, b) => {
+  }).filter(({ developer, areas }) =>
+    developer.Developer.toLowerCase().includes(query.toLowerCase()) &&
+    (!tier || developer.Tier === tier) &&
+    (!areaFilter || areas.includes(areaFilter))
+  ).sort((a, b) => {
     if (sort === "score") return (b.developer["Overall /10"] || 0) - (a.developer["Overall /10"] || 0);
     if (sort === "name") return a.developer.Developer.localeCompare(b.developer.Developer);
     return b.projects.length - a.projects.length;
-  }), [data, directory, liveData, query, tier, sort]);
-  const tiers = useMemo(() => Array.from(new Set(directory.map((item) => item.Tier).filter((item): item is string => Boolean(item)))).sort(), [directory]);
-  const totalProjects = profiles.reduce((sum, item) => sum + item.projects.length, 0);
+  }), [data, directory, liveData, query, tier, areaFilter, sort]);
+  const tiers = useMemo(
+    () =>
+      Array.from(
+        new Set(
+          directory
+            .map((item) => item.Tier)
+            .filter((item): item is string => Boolean(item)),
+        ),
+      ).sort(),
+    [directory],
+  );
+
+  const areaOptions = useMemo(
+    () =>
+      Array.from(
+        new Set(
+          (data?.projects || [])
+            .map((project) =>
+              areaFrom(project["Location / Community | المنطقة"]),
+            )
+            .filter((item): item is string => Boolean(item)),
+        ),
+      ).sort(),
+    [data],
+  );
+
+  const totalProjects = profiles.reduce(
+    (sum, item) => sum + item.projects.length,
+    0,
+  );
+
+  const totalAreas = new Set(profiles.flatMap((item) => item.areas)).size;
+
+  const scoredProfiles = profiles.filter(
+    (item) => item.developer["Overall /10"] != null,
+  ).length;
+
+  const officialSites = profiles.filter((item) =>
+    developerUrl(item.developer.Developer),
+  ).length;
+
+  const featuredProfiles = [...profiles]
+    .sort((a, b) => b.projects.length - a.projects.length)
+    .slice(0, 5);
 
   return (
     <main>
       <Header />
-      <FounderQuoteCarousel
-        eyebrow={arabic ? "دليل المطورين" : "DEVELOPER DIRECTORY"}
-        quotes={FOUNDER_QUOTES}
-        action={<strong className="page-count">{profiles.length} {arabic ? "مطوّر" : "DEVELOPERS"}</strong>}
-      />
-      <section className="page-body">
-        <div className="developer-summary">
-          <div><strong>{profiles.length}</strong><span>{arabic ? "مطوّر مطابق" : "matching developers"}</span></div>
-          <div><strong>{totalProjects.toLocaleString()}</strong><span>{arabic ? "مشروع مرتبط" : "linked projects"}</span></div>
-          <div><strong>{profiles.filter((item) => developerUrl(item.developer.Developer)).length}</strong><span>{arabic ? "موقع رسمي مطابق" : "official websites matched"}</span></div>
-        </div>
-        <div className="developer-filters">
-          <SearchBox value={query} onChange={setQuery} placeholder={arabic ? "ابحث عن مطور" : "Search a developer"} />
-          <select aria-label="Developer tier" value={tier} onChange={(event) => setTier(event.target.value)}><option value="">{arabic ? "كل الفئات" : "All tiers"}</option>{tiers.map((item) => <option key={item}>{item}</option>)}</select>
-          <select aria-label="Sort developers" value={sort} onChange={(event) => setSort(event.target.value)}><option value="projects">{arabic ? "الأكثر مشاريع" : "Most projects"}</option><option value="score">{arabic ? "الأعلى تقييماً" : "Highest score"}</option><option value="name">{arabic ? "الاسم أ–ي" : "Name A–Z"}</option></select>
-        </div>
-        <div className="developer-cards">
-          {profiles.map(({ developer, projects, areas, priceFrom, logo }, index) => (
-            <article key={developer.Developer}>
-              <a className="developer-card-head" href={`/developers/${slugify(developer.Developer)}`}>
-                <span>{String(index + 1).padStart(2, "0")}</span>
-                <div className="developer-logo">{logo ? <img src={logo} alt={`${developer.Developer} logo`} /> : <b>{developer.Developer.slice(0, 2).toUpperCase()}</b>}</div>
-                <strong>{developer["Overall /10"]?.toFixed(1) || "—"}<small>/10</small></strong>
-              </a>
-              <a className="developer-card-copy" href={`/developers/${slugify(developer.Developer)}`}><p>{developer.Tier === "PROFILE UNDER REVIEW" ? (arabic ? "الملف قيد المراجعة" : "PROFILE UNDER REVIEW") : developer.Tier}</p><h2>{developer.Developer}</h2><span>{areas.slice(0, 3).join(" · ") || (arabic ? "محفظة دبي" : "Dubai portfolio")}</span></a>
-              {sponsorship.featuredDevelopers.includes(developer.Developer) ? <SponsoredLabel variant="developer" /> : null}
-              <dl>
-                <div><dt>{arabic ? "المشاريع" : "PROJECTS"}</dt><dd>{projects.length}</dd></div>
-                <div><dt>{arabic ? "المناطق" : "AREAS"}</dt><dd>{areas.length}</dd></div>
-                <div><dt>{arabic ? "من" : "FROM"}</dt><dd>{money(priceFrom)}</dd></div>
-              </dl>
-              <div className="developer-scores">
-                {([["Delivery", "التسليم", developer["Delivery /10"]], ["Quality", "الجودة", developer["Quality /10"]], ["Safety", "السلامة", developer["Safety /10"]]] as const).map(([label, labelAr, value]) => <div key={label}><span>{arabic ? labelAr : label}</span><i><b style={{ width: `${(value || 0) * 10}%` }} /></i><strong>{value?.toFixed(1) || "—"}</strong></div>)}
+      <section className="developers-premium-shell">
+
+        <section className="developers-premium-hero">
+          <div className="developers-hero-copy">
+            <span className="developers-eyebrow">
+              {arabic ? "دليل مطوري دبي" : "DUBAI DEVELOPER DIRECTORY"}
+            </span>
+
+            <h1>
+              {arabic ? (
+                <>
+                  مطورون
+                  <br />
+                  يصنعون دبي
+                </>
+              ) : (
+                <>
+                  Developers
+                  <br />
+                  shaping Dubai
+                </>
+              )}
+            </h1>
+
+            <p>
+              {arabic
+                ? "اكتشف مطوري دبي ومشاريعهم ومناطق نشاطهم وبياناتهم السوقية في دليل واحد."
+                : "Explore Dubai developers, their projects, active communities and market data in one directory."}
+            </p>
+
+            <div className="developers-hero-stats">
+              <div>
+                <strong>{directory.length}+</strong>
+                <span>{arabic ? "مطور" : "Developers"}</span>
               </div>
-              <div className="developer-card-actions">
-                <a className="primary" href={`/developers/${slugify(developer.Developer)}`}>{arabic ? "عرض الملف" : "View profile"} <b>→</b></a>
-                <a href={`/projects?developer=${encodeURIComponent(developer.Developer)}`}>{arabic ? `${projects.length} مشروع` : `${projects.length} projects`}</a>
+
+              <div>
+                <strong>{(data?.projects || []).length.toLocaleString()}+</strong>
+                <span>{arabic ? "مشروع" : "Projects"}</span>
               </div>
-            </article>
-          ))}
-        </div>
-        {!profiles.length && <div className="project-filter-empty"><span>0</span><h2>{arabic ? "لم يتم العثور على مطور." : "No developer found."}</h2><p>{arabic ? "جرّب اسماً مختلفاً أو فئة أخرى." : "Try a different name or tier."}</p><button onClick={() => { setQuery(""); setTier(""); }}>{arabic ? "إعادة ضبط الفلاتر" : "Reset filters"}</button></div>}
+
+              <div>
+                <strong>{areaOptions.length}+</strong>
+                <span>{arabic ? "منطقة" : "Areas"}</span>
+              </div>
+            </div>
+          </div>
+
+          <div className="developers-search-panel">
+            <div className="developers-search-panel-head">
+              <span>01</span>
+              <div>
+                <strong>{arabic ? "ابحث في السوق" : "Explore the market"}</strong>
+                <small>
+                  {arabic
+                    ? "فلترة مباشرة لقاعدة بيانات المطورين"
+                    : "Filter the developer database instantly"}
+                </small>
+              </div>
+            </div>
+
+            <label className="developers-filter-field">
+              <span>{arabic ? "اسم المطور" : "Developer"}</span>
+              <SearchBox
+                value={query}
+                onChange={setQuery}
+                placeholder={arabic ? "مثال: إعمار، داماك..." : "Emaar, DAMAC..."}
+              />
+            </label>
+
+            <div className="developers-filter-pair">
+              <label className="developers-filter-field">
+                <span>{arabic ? "المنطقة" : "Area"}</span>
+                <select
+                  value={areaFilter}
+                  onChange={(event) => setAreaFilter(event.target.value)}
+                >
+                  <option value="">
+                    {arabic ? "كل المناطق" : "All areas"}
+                  </option>
+
+                  {areaOptions.map((item) => (
+                    <option key={item} value={item}>
+                      {item}
+                    </option>
+                  ))}
+                </select>
+              </label>
+
+              <label className="developers-filter-field">
+                <span>{arabic ? "الفئة" : "Tier"}</span>
+                <select
+                  value={tier}
+                  onChange={(event) => setTier(event.target.value)}
+                >
+                  <option value="">
+                    {arabic ? "كل الفئات" : "All tiers"}
+                  </option>
+
+                  {tiers.map((item) => (
+                    <option key={item}>{item}</option>
+                  ))}
+                </select>
+              </label>
+            </div>
+
+            <label className="developers-filter-field">
+              <span>{arabic ? "الترتيب" : "Sort by"}</span>
+              <select
+                value={sort}
+                onChange={(event) => setSort(event.target.value)}
+              >
+                <option value="projects">
+                  {arabic ? "الأكثر مشاريع" : "Most projects"}
+                </option>
+
+                <option value="score">
+                  {arabic ? "الأعلى تقييماً" : "Highest score"}
+                </option>
+
+                <option value="name">
+                  {arabic ? "الاسم أ–ي" : "Name A–Z"}
+                </option>
+              </select>
+            </label>
+
+            <button
+              type="button"
+              className="developers-reset-button"
+              onClick={() => {
+                setQuery("");
+                setTier("");
+                setAreaFilter("");
+                setSort("projects");
+              }}
+            >
+              {arabic ? "إعادة ضبط البحث" : "Reset search"}
+            </button>
+          </div>
+        </section>
+
+        <section className="developers-featured-section">
+          <div className="developers-section-heading">
+            <div>
+              <span>✦</span>
+              <div>
+                <small>{arabic ? "مختارات السوق" : "MARKET LEADERS"}</small>
+                <h2>{arabic ? "مطورون مميزون" : "Featured developers"}</h2>
+              </div>
+            </div>
+
+            <p>
+              {arabic
+                ? "أكبر المحافظ من حيث عدد المشاريع داخل قاعدة بياناتنا."
+                : "Leading portfolios ranked by available project count."}
+            </p>
+          </div>
+
+          <div className="developers-featured-grid">
+            {featuredProfiles.map(
+              ({ developer, projects, areas, priceFrom, logo }, index) => (
+                <a
+                  key={developer.Developer}
+                  className="developer-featured-card"
+                  href={`/developers/${slugify(developer.Developer)}`}
+                >
+                  <div className="developer-featured-visual">
+                    <span className="developer-featured-rank">
+                      {String(index + 1).padStart(2, "0")}
+                    </span>
+
+                    <div className="developer-featured-logo">
+                      {logo ? (
+                        <img
+                          src={logo}
+                          alt={`${developer.Developer} logo`}
+                        />
+                      ) : (
+                        <b>
+                          {developer.Developer.slice(0, 2).toUpperCase()}
+                        </b>
+                      )}
+                    </div>
+                  </div>
+
+                  <div className="developer-featured-copy">
+                    <p>
+                      {developer.Tier === "PROFILE UNDER REVIEW"
+                        ? arabic
+                          ? "الملف قيد المراجعة"
+                          : "PROFILE UNDER REVIEW"
+                        : developer.Tier}
+                    </p>
+
+                    <h3>{developer.Developer}</h3>
+
+                    <span>
+                      {areas.slice(0, 2).join(" · ") ||
+                        (arabic ? "محفظة دبي" : "Dubai portfolio")}
+                    </span>
+                  </div>
+
+                  <div className="developer-featured-meta">
+                    <div>
+                      <strong>{projects.length}</strong>
+                      <span>{arabic ? "مشروع" : "Projects"}</span>
+                    </div>
+
+                    <div>
+                      <strong>{areas.length}</strong>
+                      <span>{arabic ? "منطقة" : "Areas"}</span>
+                    </div>
+
+                    <div>
+                      <strong>{money(priceFrom)}</strong>
+                      <span>{arabic ? "يبدأ من" : "From"}</span>
+                    </div>
+                  </div>
+
+                  <div className="developer-featured-action">
+                    {arabic ? "عرض ملف المطور" : "View developer"}
+                    <b>→</b>
+                  </div>
+                </a>
+              ),
+            )}
+          </div>
+        </section>
+
+        <section className="developers-directory-section">
+          <div className="developers-directory-heading">
+            <div>
+              <small>{arabic ? "الدليل الكامل" : "FULL DIRECTORY"}</small>
+              <h2>{arabic ? "جميع المطورين" : "All developers"}</h2>
+            </div>
+
+            <strong>
+              {profiles.length} {arabic ? "نتيجة" : "results"}
+            </strong>
+          </div>
+
+          <div className="developers-directory-toolbar">
+            <SearchBox
+              value={query}
+              onChange={setQuery}
+              placeholder={arabic ? "ابحث عن مطور" : "Search developer"}
+            />
+
+            <select
+              value={areaFilter}
+              onChange={(event) => setAreaFilter(event.target.value)}
+            >
+              <option value="">
+                {arabic ? "كل المناطق" : "All areas"}
+              </option>
+
+              {areaOptions.map((item) => (
+                <option key={item} value={item}>
+                  {item}
+                </option>
+              ))}
+            </select>
+
+            <select
+              value={sort}
+              onChange={(event) => setSort(event.target.value)}
+            >
+              <option value="projects">
+                {arabic ? "الأكثر مشاريع" : "Most projects"}
+              </option>
+
+              <option value="score">
+                {arabic ? "الأعلى تقييماً" : "Highest score"}
+              </option>
+
+              <option value="name">
+                {arabic ? "الاسم أ–ي" : "Name A–Z"}
+              </option>
+            </select>
+          </div>
+
+          <div className="developer-cards developers-premium-grid">
+            {profiles.map(
+              ({ developer, projects, areas, priceFrom, logo }, index) => (
+                <article key={developer.Developer}>
+                  <a
+                    className="developer-card-head"
+                    href={`/developers/${slugify(developer.Developer)}`}
+                  >
+                    <span>{String(index + 1).padStart(2, "0")}</span>
+
+                    <div className="developer-logo">
+                      {logo ? (
+                        <img
+                          src={logo}
+                          alt={`${developer.Developer} logo`}
+                        />
+                      ) : (
+                        <b>
+                          {developer.Developer.slice(0, 2).toUpperCase()}
+                        </b>
+                      )}
+                    </div>
+
+                    <strong>
+                      {developer["Overall /10"]?.toFixed(1) || "—"}
+                      <small>/10</small>
+                    </strong>
+                  </a>
+
+                  <a
+                    className="developer-card-copy"
+                    href={`/developers/${slugify(developer.Developer)}`}
+                  >
+                    <p>
+                      {developer.Tier === "PROFILE UNDER REVIEW"
+                        ? arabic
+                          ? "الملف قيد المراجعة"
+                          : "PROFILE UNDER REVIEW"
+                        : developer.Tier}
+                    </p>
+
+                    <h2>{developer.Developer}</h2>
+
+                    <span>
+                      {areas.slice(0, 3).join(" · ") ||
+                        (arabic ? "محفظة دبي" : "Dubai portfolio")}
+                    </span>
+                  </a>
+
+                  {sponsorship.featuredDevelopers.includes(
+                    developer.Developer,
+                  ) ? (
+                    <SponsoredLabel variant="developer" />
+                  ) : null}
+
+                  <dl>
+                    <div>
+                      <dt>{arabic ? "المشاريع" : "PROJECTS"}</dt>
+                      <dd>{projects.length}</dd>
+                    </div>
+
+                    <div>
+                      <dt>{arabic ? "المناطق" : "AREAS"}</dt>
+                      <dd>{areas.length}</dd>
+                    </div>
+
+                    <div>
+                      <dt>{arabic ? "من" : "FROM"}</dt>
+                      <dd>{money(priceFrom)}</dd>
+                    </div>
+                  </dl>
+
+                  <div className="developer-scores">
+                    {(
+                      [
+                        [
+                          "Delivery",
+                          "التسليم",
+                          developer["Delivery /10"],
+                        ],
+                        [
+                          "Quality",
+                          "الجودة",
+                          developer["Quality /10"],
+                        ],
+                        [
+                          "Safety",
+                          "السلامة",
+                          developer["Safety /10"],
+                        ],
+                      ] as const
+                    ).map(([label, labelAr, value]) => (
+                      <div key={label}>
+                        <span>{arabic ? labelAr : label}</span>
+
+                        <i>
+                          <b
+                            style={{
+                              width: `${(value || 0) * 10}%`,
+                            }}
+                          />
+                        </i>
+
+                        <strong>{value?.toFixed(1) || "—"}</strong>
+                      </div>
+                    ))}
+                  </div>
+
+                  <div className="developer-card-actions">
+                    <a
+                      className="primary"
+                      href={`/developers/${slugify(
+                        developer.Developer,
+                      )}`}
+                    >
+                      {arabic ? "عرض الملف" : "View profile"}
+                      <b>→</b>
+                    </a>
+
+                    <a
+                      href={`/projects?developer=${encodeURIComponent(
+                        developer.Developer,
+                      )}`}
+                    >
+                      {arabic
+                        ? `${projects.length} مشروع`
+                        : `${projects.length} projects`}
+                    </a>
+                  </div>
+                </article>
+              ),
+            )}
+          </div>
+
+          {!profiles.length && (
+            <div className="project-filter-empty">
+              <span>0</span>
+
+              <h2>
+                {arabic
+                  ? "لم يتم العثور على مطور."
+                  : "No developer found."}
+              </h2>
+
+              <p>
+                {arabic
+                  ? "جرّب تغيير الاسم أو المنطقة أو الفئة."
+                  : "Try another name, area or tier."}
+              </p>
+
+              <button
+                onClick={() => {
+                  setQuery("");
+                  setTier("");
+                  setAreaFilter("");
+                  setSort("projects");
+                }}
+              >
+                {arabic ? "إعادة ضبط الفلاتر" : "Reset filters"}
+              </button>
+            </div>
+          )}
+        </section>
+
+        <section className="developers-market-band">
+          <div className="developers-market-title">
+            <span>{arabic ? "نظرة على قاعدة البيانات" : "MARKET SNAPSHOT"}</span>
+
+            <h2>
+              {arabic
+                ? "سوق كبير تقوده أسماء قوية"
+                : "A market led by strong names"}
+            </h2>
+          </div>
+
+          <div className="developers-market-stats">
+            <div>
+              <i>◉</i>
+              <strong>{directory.length}+</strong>
+              <span>{arabic ? "مطور" : "Developers"}</span>
+            </div>
+
+            <div>
+              <i>▦</i>
+              <strong>
+                {(data?.projects || []).length.toLocaleString()}+
+              </strong>
+              <span>{arabic ? "مشروع" : "Projects"}</span>
+            </div>
+
+            <div>
+              <i>⌖</i>
+              <strong>{areaOptions.length}+</strong>
+              <span>{arabic ? "منطقة" : "Areas"}</span>
+            </div>
+
+            <div>
+              <i>★</i>
+              <strong>{scoredProfiles}</strong>
+              <span>{arabic ? "ملف مُقيّم" : "Scored profiles"}</span>
+            </div>
+
+            <div>
+              <i>↗</i>
+              <strong>{officialSites}</strong>
+              <span>{arabic ? "موقع رسمي" : "Official sites"}</span>
+            </div>
+          </div>
+        </section>
       </section>
+
       <DataNotice />
       <Footer />
     </main>
