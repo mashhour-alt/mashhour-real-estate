@@ -33,7 +33,7 @@ export default function ProjectsPage() {
   const [maxPrice, setMaxPrice] = useState("");
   const [sourceStatus, setSourceStatus] = useState("");
   const [sort, setSort] = useState("recommended");
-  const [advancedOpen, setAdvancedOpen] = useState(false);
+  const [advancedOpen, setAdvancedOpen] = useState(true);
   const [visible, setVisible] = useState(24);
   const projectCoverage = useCallback((project: NonNullable<typeof data>["projects"][number]) => {
     const name = project["Project Name | اسم المشروع"];
@@ -125,14 +125,74 @@ export default function ProjectsPage() {
 
   return (
     <main><Header />
-      <PageIntro
-        eyebrow={arabic ? "قاعدة بيانات المشاريع" : "PROJECT DATABASE"}
-        title={arabic ? "مشاريع دبي. سجل يتحدث باستمرار." : "Dubai projects. One evolving record."}
-        intro={arabic ? "الدليل بيجمع الشيت الأساسي مع سجلات دائرة الأراضي والأملاك (DLD) ومصادر المطورين. أي بيانات ناقصة بتفضل ظاهرة للمراجعة بدل ما يختفي المشروع كله." : "The catalogue combines the working sheet with DLD project records and developer sources. Missing fields remain visible for review instead of making the whole project disappear."}
-        action={<strong className="page-count">{projects.length.toLocaleString()} {arabic ? "نتيجة" : "RESULTS"}</strong>}
-      />
+      <section className="projects-premium-hero">
+        <div className="projects-premium-overlay" />
+
+        <div className="projects-premium-copy">
+          <span className="projects-premium-eyebrow">
+            {arabic ? "مجموعة مختارة بعناية" : "CURATED DUBAI PROJECTS"}
+          </span>
+
+          <h1>
+            {arabic
+              ? "اكتشف أفضل المشاريع في دبي"
+              : "Discover Dubai's leading projects"}
+          </h1>
+
+          <p>
+            {arabic
+              ? "تصفح المشاريع المتاحة للبيع مع الأسعار، المناطق، المطورين، خطط الدفع ومواعيد التسليم في مكان واحد."
+              : "Explore available projects with pricing, communities, developers, payment plans and handover dates in one place."}
+          </p>
+
+          <div className="projects-premium-stats">
+            <div>
+              <i>▦</i>
+              <strong>{totalCount.toLocaleString()}+</strong>
+              <span>{arabic ? "مشروع مفهرس" : "Indexed projects"}</span>
+            </div>
+
+            <div>
+              <i>⌖</i>
+              <strong>{areas.length}+</strong>
+              <span>{arabic ? "منطقة في دبي" : "Dubai areas"}</span>
+            </div>
+
+            <div>
+              <i>◉</i>
+              <strong>{developers.length}+</strong>
+              <span>{arabic ? "مطور" : "Developers"}</span>
+            </div>
+
+            <div>
+              <i>✓</i>
+              <strong>{coverage.complete.toLocaleString()}</strong>
+              <span>{arabic ? "حزمة بيانات كاملة" : "Complete packs"}</span>
+            </div>
+          </div>
+        </div>
+
+        <div className="projects-premium-sidecard">
+          <span>01</span>
+
+          <strong>
+            {arabic ? "بيانات تتحدث باستمرار" : "Continuously updated data"}
+          </strong>
+
+          <p>
+            {arabic
+              ? "المشاريع بتتراجع مقابل مصادر المطورين وسجلات DLD والبيانات المتاحة."
+              : "Projects are reviewed against developer sources, DLD records and available market data."}
+          </p>
+
+          <div>
+            <b>{projects.length.toLocaleString()}</b>
+            <small>{arabic ? "نتيجة متاحة الآن" : "results available now"}</small>
+          </div>
+        </div>
+      </section>
       <section className="page-body">
-        <div className="audit-progress">
+        <div className="audit-progress projects-technical-audit">
           <div className="audit-heading"><span>{arabic ? "تدقيق مطابقة دائرة الأراضي" : "DLD RECONCILIATION AUDIT"}</span><strong>{totalCount.toLocaleString()} {arabic ? "سجل مشروع فريد مفهرس حالياً" : "unique project records currently indexed"}</strong></div>
           <div className="audit-stats">
             <div><strong>{dldLinkedCount.toLocaleString()}</strong><span>{arabic ? "سجل يحمل رابط مصدر رسمي من DLD" : "records carrying an official DLD source link"}</span></div>
@@ -144,7 +204,7 @@ export default function ProjectsPage() {
           <div className="coverage-bar"><i style={{ width: totalCount ? `${(dldLinkedCount / totalCount) * 100}%` : "0%" }} /></div>
           <p>{arabic ? "بس السجلات اللي بتحمل مصدر DLD الرسمي بتتحسب كمرتبطة بـ DLD. التسليم ونسبة الإنجاز وحالة الضمان بتفضل واضحة كـ'قيد الانتظار' لما المصدر ميقدمش قيمة مؤكدة." : "Only records carrying the official DLD open-data source are counted as DLD-linked. Handover, progress and escrow remain visibly pending whenever the source record does not provide a confirmed value."}</p>
         </div>
-        <div className="data-coverage-panel">
+        <div className="data-coverage-panel projects-technical-audit">
           <div className="audit-heading"><span>{arabic ? "اكتمال حزمة المشروع" : "PROJECT PACK COMPLETENESS"}</span><strong>{coverage.complete.toLocaleString()} {arabic ? "مشروع بيحمل الآن كل الحقول الستة الأساسية" : "projects now carry all six core sales fields"}</strong></div>
           <div className="coverage-stat-grid">
             <div><strong>{coverage.source.toLocaleString()}</strong><span>{arabic ? "سجلات مطابقة لمصدر" : "source-matched records"}</span></div>
@@ -156,7 +216,26 @@ export default function ProjectsPage() {
           </div>
           <p>{arabic ? "الحزمة الكاملة بتحتوي على سعر، تسليم، أنواع وحدات، هيكل دفع، صور حقيقية للمشروع وبروشور. البيانات الناقصة بتفضل موضّحة كـ'قيد الانتظار' وماتتملّش تلقائياً أبداً." : "A complete pack has a price, handover, unit types, payment structure, real project media and a brochure. Missing information stays marked as pending and is never auto-filled."}</p>
         </div>
-        <div className="smart-filter-shell">
+        <div className="projects-premium-layout">
+
+          <aside className="projects-filter-sidebar">
+            <div className="projects-filter-heading">
+              <div>
+                <span>⌘</span>
+                <div>
+                  <small>{arabic ? "فلترة متقدمة" : "ADVANCED SEARCH"}</small>
+                  <h2>{arabic ? "تصفية النتائج" : "Filter results"}</h2>
+                </div>
+              </div>
+
+              {activeFilterCount > 0 ? (
+                <button onClick={resetFilters}>
+                  {arabic ? "إعادة الضبط" : "Reset"}
+                </button>
+              ) : null}
+            </div>
+
+            <div className="smart-filter-shell">
           <div className="smart-filter-primary">
             <SearchBox value={query} onChange={updateFilter(setQuery)} placeholder={arabic ? "ابحث بالمشروع أو المطور أو المنطقة" : "Search project, developer or area"} />
             <select aria-label="Area" value={area} onChange={(event) => updateFilter(setArea)(event.target.value)}><option value="">{arabic ? "كل المناطق" : "All areas"}</option>{areas.map((item) => <option key={item}>{item}</option>)}</select>
@@ -174,6 +253,25 @@ export default function ProjectsPage() {
             <div><select aria-label="Sort projects" value={sort} onChange={(event) => updateFilter(setSort)(event.target.value)}><option value="recommended">{arabic ? "الترتيب الموصى به" : "Recommended order"}</option><option value="price-low">{arabic ? "السعر: من الأقل" : "Price: low to high"}</option><option value="price-high">{arabic ? "السعر: من الأعلى" : "Price: high to low"}</option><option value="name">{arabic ? "اسم المشروع أ–ي" : "Project name A–Z"}</option></select>{activeFilterCount > 0 && <button onClick={resetFilters}>{arabic ? "مسح الكل ×" : "Clear all ×"}</button>}</div>
           </div>
         </div>
+          </aside>
+
+          <section className="projects-results-column">
+            <div className="projects-results-heading">
+              <div>
+                <small>{arabic ? "المشاريع المتاحة" : "AVAILABLE PROJECTS"}</small>
+                <h2>
+                  {arabic
+                    ? `${projects.length.toLocaleString()} مشروع مطابق`
+                    : `${projects.length.toLocaleString()} matching projects`}
+                </h2>
+              </div>
+
+              <div className="projects-view-tools">
+                <span>{arabic ? "عرض شبكي" : "Grid view"}</span>
+                <b>▦</b>
+              </div>
+            </div>
+
         {!projects.length && <div className="project-filter-empty"><span>0</span><h2>{arabic ? "لا توجد نتيجة مطابقة." : "No exact match."}</h2><p>{arabic ? "جرّب توسيع الميزانية أو تاريخ التسليم أو المنطقة." : "Try widening the budget, handover date or area."}</p><button onClick={resetFilters}>{arabic ? "إعادة ضبط الفلاتر" : "Reset filters"}</button></div>}
         <div className="project-grid platform-project-grid">
           {projects.slice(0, visible).map((project, index) => (
@@ -191,7 +289,45 @@ export default function ProjectsPage() {
             </a>
           ))}
         </div>
-        {visible < projects.length && <button className="load-more" onClick={() => setVisible((value) => value + 24)}>{arabic ? "تحميل المزيد ↓" : "Load more ↓"}</button>}
+        {visible < projects.length && (
+          <button
+            className="load-more"
+            onClick={() => setVisible((value) => value + 24)}
+          >
+            {arabic ? "تحميل المزيد ↓" : "Load more ↓"}
+          </button>
+        )}
+
+          </section>
+        </div>
+
+        <section className="projects-consultant-cta">
+          <div className="projects-consultant-art">
+            <span>MAHSHOUR</span>
+            <i>REAL ESTATE</i>
+          </div>
+
+          <div className="projects-consultant-copy">
+            <small>{arabic ? "محتاج مساعدة؟" : "NEED SOME HELP?"}</small>
+
+            <h2>
+              {arabic
+                ? "مش لاقي المشروع المناسب؟"
+                : "Can't find the right project?"}
+            </h2>
+
+            <p>
+              {arabic
+                ? "تواصل مع مستشار عقاري لمراجعة احتياجاتك والميزانية وخطة الدفع المناسبة."
+                : "Speak with an advisor to review your needs, budget and preferred payment structure."}
+            </p>
+
+            <a href="/#contact">
+              {arabic ? "تواصل مع مستشار" : "Talk to an advisor"} <b>→</b>
+            </a>
+          </div>
+        </section>
+
       </section>
       <DataNotice /><Footer /><ComparisonBar />
     </main>

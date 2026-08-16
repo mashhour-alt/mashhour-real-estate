@@ -4606,3 +4606,999 @@ footer p, footer > span { color: #777; font-size: 10px; letter-spacing: .08em; }
     padding: 22px;
   }
 }
+
+
+/* ===== PREMIUM PROJECTS DIRECTORY V1 ===== */
+
+.projects-premium-hero,
+.projects-premium-hero *,
+.projects-premium-layout,
+.projects-premium-layout *,
+.projects-consultant-cta,
+.projects-consultant-cta * {
+  box-sizing: border-box;
+}
+
+/* ----------------------------------------------------------
+   HERO
+---------------------------------------------------------- */
+
+.projects-premium-hero {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+
+  width: min(calc(100% - 32px), 1500px);
+  min-height: 440px;
+
+  margin: 20px auto 0;
+  padding: clamp(38px, 5vw, 76px);
+
+  display: flex;
+  align-items: center;
+
+  border-radius: 24px;
+
+  background:
+    linear-gradient(
+      90deg,
+      rgba(4, 20, 42, .97) 0%,
+      rgba(5, 27, 55, .90) 42%,
+      rgba(6, 27, 51, .45) 75%,
+      rgba(6, 27, 51, .20) 100%
+    ),
+    url("/assets/developers-downtown-hero.jpg")
+      center 48% / cover no-repeat;
+
+  color: white;
+}
+
+.projects-premium-overlay {
+  position: absolute;
+  z-index: -1;
+  inset: 0;
+
+  background:
+    radial-gradient(
+      circle at 78% 15%,
+      rgba(255,255,255,.11),
+      transparent 33%
+    );
+}
+
+.projects-premium-copy {
+  width: min(100%, 780px);
+}
+
+.projects-premium-eyebrow {
+  color: #d7a446;
+  font-size: 10px;
+  font-weight: 900;
+  letter-spacing: .14em;
+}
+
+.projects-premium-copy h1 {
+  margin: 17px 0 18px;
+
+  color: white;
+
+  font-size: clamp(45px, 5.7vw, 80px);
+  line-height: .98;
+  letter-spacing: -.055em;
+}
+
+.projects-premium-copy > p {
+  max-width: 650px;
+  margin: 0;
+
+  color: rgba(255,255,255,.82);
+
+  font-size: 14px;
+  line-height: 1.85;
+}
+
+.projects-premium-stats {
+  margin-top: 38px;
+
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0,1fr));
+
+  overflow: hidden;
+
+  border: 1px solid rgba(255,255,255,.15);
+  border-radius: 13px;
+
+  background: rgba(6,24,46,.34);
+  backdrop-filter: blur(12px);
+}
+
+.projects-premium-stats > div {
+  min-width: 0;
+  min-height: 92px;
+
+  padding: 16px;
+
+  display: grid;
+  grid-template-columns: 35px minmax(0,1fr);
+  grid-template-rows: auto auto;
+  align-content: center;
+
+  gap: 2px 10px;
+}
+
+.projects-premium-stats > div + div {
+  border-inline-start: 1px solid rgba(255,255,255,.12);
+}
+
+.projects-premium-stats i {
+  grid-row: 1 / 3;
+
+  width: 35px;
+  height: 35px;
+
+  display: grid;
+  place-items: center;
+
+  border-radius: 50%;
+
+  background: rgba(210,157,62,.12);
+  color: #d7a446;
+
+  font-style: normal;
+}
+
+.projects-premium-stats strong {
+  color: white;
+  font-size: 19px;
+}
+
+.projects-premium-stats span {
+  color: #b8c4d2;
+  font-size: 8px;
+}
+
+.projects-premium-sidecard {
+  position: absolute;
+  top: 35px;
+  inset-inline-end: 35px;
+
+  width: 235px;
+  padding: 20px;
+
+  border: 1px solid rgba(255,255,255,.17);
+  border-radius: 15px;
+
+  background: rgba(4,20,40,.40);
+
+  backdrop-filter: blur(13px);
+}
+
+.projects-premium-sidecard > span {
+  width: 30px;
+  height: 30px;
+
+  margin-bottom: 16px;
+
+  display: grid;
+  place-items: center;
+
+  border-radius: 50%;
+
+  background: #d09a3b;
+  color: white;
+
+  font-size: 8px;
+  font-weight: 900;
+}
+
+.projects-premium-sidecard > strong {
+  display: block;
+
+  color: white;
+  font-size: 13px;
+}
+
+.projects-premium-sidecard > p {
+  margin: 7px 0 18px;
+
+  color: #bcc8d7;
+
+  font-size: 8px;
+  line-height: 1.65;
+}
+
+.projects-premium-sidecard > div {
+  padding-top: 14px;
+  border-top: 1px solid rgba(255,255,255,.13);
+}
+
+.projects-premium-sidecard b {
+  display: block;
+  color: white;
+  font-size: 23px;
+}
+
+.projects-premium-sidecard small {
+  color: #b3c0d0;
+  font-size: 7px;
+}
+
+/* ----------------------------------------------------------
+   HIDE TECHNICAL AUDITS FROM CUSTOMER-FACING PAGE
+---------------------------------------------------------- */
+
+.projects-technical-audit {
+  display: none !important;
+}
+
+/* ----------------------------------------------------------
+   MAIN PAGE
+---------------------------------------------------------- */
+
+main:has(.projects-premium-hero) > .page-body {
+  width: min(calc(100% - 32px), 1500px);
+  max-width: 1500px;
+  margin: 0 auto;
+  padding: 24px 0 90px;
+}
+
+.projects-premium-layout {
+  display: grid;
+  grid-template-columns: 300px minmax(0,1fr);
+
+  align-items: start;
+
+  gap: 22px;
+}
+
+/* ----------------------------------------------------------
+   FILTER SIDEBAR
+---------------------------------------------------------- */
+
+.projects-filter-sidebar {
+  position: sticky;
+  top: 20px;
+
+  min-width: 0;
+
+  padding: 18px;
+
+  border: 1px solid #e1dfda;
+  border-radius: 16px;
+
+  background: white;
+}
+
+.projects-filter-heading {
+  margin-bottom: 17px;
+  padding-bottom: 15px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  gap: 12px;
+
+  border-bottom: 1px solid #eceae5;
+}
+
+.projects-filter-heading > div {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.projects-filter-heading > div > span {
+  width: 32px;
+  height: 32px;
+
+  display: grid;
+  place-items: center;
+
+  border-radius: 8px;
+
+  background: #b91f27;
+  color: white;
+}
+
+.projects-filter-heading small {
+  display: block;
+
+  color: #c48f32;
+
+  font-size: 7px;
+  font-weight: 900;
+  letter-spacing: .08em;
+}
+
+.projects-filter-heading h2 {
+  margin: 2px 0 0;
+
+  color: #102442;
+  font-size: 16px;
+}
+
+.projects-filter-heading > button {
+  border: 0;
+  background: transparent;
+
+  color: #b4252c;
+
+  font-size: 8px;
+  font-weight: 900;
+
+  cursor: pointer;
+}
+
+.projects-filter-sidebar .smart-filter-shell {
+  padding: 0 !important;
+
+  border: 0 !important;
+
+  background: transparent !important;
+}
+
+.projects-filter-sidebar .smart-filter-primary {
+  display: grid !important;
+  grid-template-columns: minmax(0,1fr) !important;
+
+  gap: 9px !important;
+}
+
+.projects-filter-sidebar .smart-filter-primary .search-box,
+.projects-filter-sidebar .smart-filter-primary select,
+.projects-filter-sidebar .advanced-toggle {
+  width: 100% !important;
+  min-width: 0 !important;
+}
+
+.projects-filter-sidebar .smart-filter-primary select,
+.projects-filter-sidebar .advanced-toggle {
+  min-height: 46px;
+
+  border: 1px solid #deddda !important;
+  border-radius: 9px !important;
+
+  background: #fbfaf8 !important;
+}
+
+.projects-filter-sidebar .advanced-toggle {
+  color: #102442 !important;
+}
+
+.projects-filter-sidebar .smart-filter-advanced {
+  margin-top: 14px !important;
+  padding: 14px 0 0 !important;
+
+  display: grid !important;
+  grid-template-columns: minmax(0,1fr) !important;
+
+  gap: 13px !important;
+
+  border-top: 1px solid #eceae5;
+}
+
+.projects-filter-sidebar .smart-filter-advanced label {
+  min-width: 0;
+}
+
+.projects-filter-sidebar .smart-filter-advanced label > span {
+  display: block;
+  margin-bottom: 6px;
+
+  color: #242b36;
+
+  font-size: 8px;
+  font-weight: 900;
+}
+
+.projects-filter-sidebar .smart-filter-advanced select {
+  width: 100%;
+  min-width: 0;
+  min-height: 44px;
+
+  border: 1px solid #deddda;
+  border-radius: 8px;
+
+  background: white;
+}
+
+.projects-filter-sidebar .smart-filter-footer {
+  margin-top: 15px !important;
+  padding: 14px 0 0 !important;
+
+  display: flex !important;
+  align-items: stretch !important;
+  flex-direction: column !important;
+
+  gap: 10px !important;
+
+  border-top: 1px solid #eceae5;
+}
+
+.projects-filter-sidebar .smart-filter-footer > strong {
+  padding: 11px;
+
+  border-radius: 8px;
+
+  background: #f4f2ed;
+
+  color: #102442;
+
+  text-align: center;
+  font-size: 9px;
+}
+
+.projects-filter-sidebar .smart-filter-footer > strong span {
+  color: #b7222a;
+  font-size: 16px;
+}
+
+.projects-filter-sidebar .smart-filter-footer > div {
+  display: grid !important;
+  grid-template-columns: 1fr !important;
+
+  gap: 7px !important;
+}
+
+.projects-filter-sidebar .smart-filter-footer select,
+.projects-filter-sidebar .smart-filter-footer button {
+  width: 100%;
+  min-height: 42px;
+}
+
+/* ----------------------------------------------------------
+   RESULTS COLUMN
+---------------------------------------------------------- */
+
+.projects-results-column {
+  min-width: 0;
+}
+
+.projects-results-heading {
+  min-height: 66px;
+  margin-bottom: 14px;
+
+  padding: 0 5px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  gap: 20px;
+}
+
+.projects-results-heading small {
+  display: block;
+
+  margin-bottom: 4px;
+
+  color: #c28c2d;
+
+  font-size: 7px;
+  font-weight: 900;
+  letter-spacing: .10em;
+}
+
+.projects-results-heading h2 {
+  margin: 0;
+
+  color: #102442;
+
+  font-size: 24px;
+}
+
+.projects-view-tools {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+
+  color: #7c8086;
+
+  font-size: 8px;
+}
+
+.projects-view-tools b {
+  width: 35px;
+  height: 35px;
+
+  display: grid;
+  place-items: center;
+
+  border-radius: 8px;
+
+  background: #102442;
+  color: white;
+}
+
+/* ----------------------------------------------------------
+   PROJECT GRID
+---------------------------------------------------------- */
+
+.projects-results-column .platform-project-grid {
+  display: grid !important;
+
+  grid-template-columns: repeat(3, minmax(0,1fr)) !important;
+
+  gap: 16px !important;
+}
+
+.projects-results-column .project-card {
+  min-width: 0;
+
+  overflow: hidden;
+
+  border: 1px solid #e0dfdb !important;
+  border-radius: 14px !important;
+
+  background: white !important;
+
+  box-shadow: none !important;
+
+  transition:
+    transform .18s ease,
+    box-shadow .18s ease;
+}
+
+.projects-results-column .project-card:hover {
+  transform: translateY(-4px);
+
+  box-shadow:
+    0 18px 40px rgba(16,36,66,.09) !important;
+}
+
+.projects-results-column .card-art {
+  height: 225px !important;
+  min-height: 225px !important;
+
+  overflow: hidden;
+
+  background: #eef0f1;
+}
+
+.projects-results-column .card-art img {
+  width: 100% !important;
+  height: 100% !important;
+
+  object-fit: cover !important;
+}
+
+.projects-results-column .card-index {
+  top: 12px !important;
+  inset-inline-start: 12px !important;
+
+  min-width: 31px;
+  height: 31px;
+
+  display: grid;
+  place-items: center;
+
+  border-radius: 50% !important;
+
+  background: rgba(9,28,50,.84) !important;
+  color: white !important;
+
+  font-size: 8px !important;
+}
+
+.projects-results-column .verification-chip {
+  top: 12px !important;
+  inset-inline-end: 12px !important;
+
+  padding: 6px 9px !important;
+
+  border: 0 !important;
+  border-radius: 6px !important;
+
+  background: #bf242b !important;
+  color: white !important;
+
+  font-size: 6px !important;
+  font-weight: 900 !important;
+}
+
+.projects-results-column .verification-chip.verified {
+  background: #173d32 !important;
+}
+
+.projects-results-column .verification-chip.reference-matched {
+  background: #193c65 !important;
+}
+
+.projects-results-column .developer-badge {
+  left: 14px !important;
+  right: auto !important;
+  bottom: 12px !important;
+
+  max-width: 68%;
+
+  padding: 8px 11px !important;
+
+  overflow: hidden;
+
+  border: 1px solid rgba(255,255,255,.65);
+  border-radius: 7px !important;
+
+  background: rgba(255,255,255,.94) !important;
+
+  color: #17213a !important;
+
+  font-size: 8px !important;
+
+  text-overflow: ellipsis;
+  white-space: nowrap;
+
+  box-shadow: 0 5px 18px rgba(0,0,0,.12);
+}
+
+.projects-results-column .card-body {
+  padding: 17px !important;
+}
+
+.projects-results-column .card-body > p {
+  margin: 0 0 6px !important;
+
+  color: #7d828a !important;
+
+  font-size: 8px !important;
+}
+
+.projects-results-column .card-body h3 {
+  min-height: 42px;
+
+  margin: 0 0 10px !important;
+
+  color: #102442 !important;
+
+  font-size: 18px !important;
+  line-height: 1.2 !important;
+}
+
+.projects-results-column .developer-name {
+  padding-bottom: 11px;
+
+  border-bottom: 1px solid #eceae6;
+}
+
+.projects-results-column .developer-name small {
+  color: #aa7b28 !important;
+}
+
+.projects-results-column .developer-name strong {
+  color: #303640 !important;
+}
+
+.projects-results-column .card-body dl {
+  margin: 13px 0 !important;
+
+  display: grid !important;
+  grid-template-columns: repeat(2,minmax(0,1fr)) !important;
+
+  gap: 8px !important;
+}
+
+.projects-results-column .card-body dl > div {
+  min-width: 0;
+
+  padding: 9px !important;
+
+  border-radius: 8px;
+
+  background: #f7f6f3;
+}
+
+.projects-results-column .card-body dt {
+  color: #888c91 !important;
+
+  font-size: 7px !important;
+}
+
+.projects-results-column .card-body dd {
+  margin: 3px 0 0 !important;
+
+  color: #161e2d !important;
+
+  font-size: 12px !important;
+  font-weight: 900 !important;
+
+  overflow-wrap: anywhere;
+}
+
+.projects-results-column .pack-status {
+  margin-top: 10px !important;
+
+  padding: 9px !important;
+
+  border-radius: 8px;
+
+  background: #f3f2ef;
+}
+
+.projects-results-column .pack-status.complete {
+  background: #edf4ed;
+}
+
+.projects-results-column .card-link {
+  margin-top: 12px !important;
+
+  min-height: 39px;
+
+  padding: 0 11px !important;
+
+  display: flex !important;
+  align-items: center;
+  justify-content: space-between;
+
+  border-radius: 7px;
+
+  background: #102442;
+
+  color: white !important;
+
+  font-size: 8px !important;
+  font-weight: 900 !important;
+}
+
+/* ----------------------------------------------------------
+   LOAD MORE
+---------------------------------------------------------- */
+
+.projects-results-column .load-more {
+  width: min(100%, 360px);
+
+  min-height: 48px;
+
+  margin: 26px auto 0;
+
+  display: block;
+
+  border: 1px solid #d8d5ce !important;
+  border-radius: 8px !important;
+
+  background: white !important;
+  color: #102442 !important;
+
+  font-weight: 900;
+}
+
+/* ----------------------------------------------------------
+   CONSULTANT CTA
+---------------------------------------------------------- */
+
+.projects-consultant-cta {
+  min-height: 210px;
+
+  margin-top: 30px;
+
+  display: grid;
+  grid-template-columns: .75fr 1.25fr;
+
+  overflow: hidden;
+
+  border: 1px solid #dfddd7;
+  border-radius: 18px;
+
+  background:
+    linear-gradient(115deg,#ebe8e0,#fbfaf7);
+}
+
+.projects-consultant-art {
+  position: relative;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+
+  overflow: hidden;
+
+  background:
+    radial-gradient(circle at 25% 25%,rgba(198,145,48,.20),transparent 32%),
+    #102442;
+
+  color: white;
+}
+
+.projects-consultant-art::after {
+  content: "";
+
+  position: absolute;
+
+  width: 240px;
+  height: 240px;
+
+  border: 1px solid rgba(255,255,255,.09);
+  border-radius: 50%;
+}
+
+.projects-consultant-art span {
+  position: relative;
+  z-index: 1;
+
+  font-size: 21px;
+  font-weight: 900;
+  letter-spacing: .10em;
+}
+
+.projects-consultant-art i {
+  position: relative;
+  z-index: 1;
+
+  margin-top: 4px;
+
+  color: #d4a247;
+
+  font-size: 8px;
+  font-style: normal;
+  letter-spacing: .20em;
+}
+
+.projects-consultant-copy {
+  padding: clamp(27px,4vw,50px);
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.projects-consultant-copy small {
+  color: #c18a2b;
+
+  font-size: 8px;
+  font-weight: 900;
+}
+
+.projects-consultant-copy h2 {
+  margin: 7px 0;
+
+  color: #102442;
+
+  font-size: clamp(24px,3vw,35px);
+}
+
+.projects-consultant-copy p {
+  max-width: 650px;
+
+  margin: 0;
+
+  color: #737880;
+
+  font-size: 10px;
+  line-height: 1.7;
+}
+
+.projects-consultant-copy a {
+  min-height: 43px;
+
+  margin-top: 18px;
+  padding: 0 17px;
+
+  display: inline-flex;
+  align-items: center;
+
+  gap: 18px;
+
+  border-radius: 7px;
+
+  background: #c69132;
+  color: white;
+
+  text-decoration: none;
+
+  font-size: 9px;
+  font-weight: 900;
+}
+
+/* ----------------------------------------------------------
+   TABLET
+---------------------------------------------------------- */
+
+@media (max-width: 1180px) {
+
+  .projects-premium-sidecard {
+    display: none;
+  }
+
+  .projects-premium-copy {
+    width: min(100%, 760px);
+  }
+
+  .projects-premium-layout {
+    grid-template-columns: 260px minmax(0,1fr);
+  }
+
+  .projects-results-column .platform-project-grid {
+    grid-template-columns: repeat(2,minmax(0,1fr)) !important;
+  }
+}
+
+/* ----------------------------------------------------------
+   MOBILE
+---------------------------------------------------------- */
+
+@media (max-width: 760px) {
+
+  .projects-premium-hero {
+    width: calc(100% - 20px);
+    min-height: 530px;
+
+    margin-top: 10px;
+    padding: 25px 18px;
+
+    align-items: flex-end;
+
+    border-radius: 18px;
+
+    background:
+      linear-gradient(
+        180deg,
+        rgba(4,20,42,.25) 0%,
+        rgba(4,20,42,.74) 54%,
+        rgba(4,20,42,.98) 100%
+      ),
+      url("/assets/developers-downtown-hero.jpg")
+        58% center / cover no-repeat;
+  }
+
+  .projects-premium-copy h1 {
+    font-size: 43px;
+  }
+
+  .projects-premium-copy > p {
+    font-size: 11px;
+  }
+
+  .projects-premium-stats {
+    grid-template-columns: repeat(2,minmax(0,1fr));
+  }
+
+  .projects-premium-stats > div:nth-child(3) {
+    border-inline-start: 0;
+    border-top: 1px solid rgba(255,255,255,.12);
+  }
+
+  .projects-premium-stats > div:nth-child(4) {
+    border-top: 1px solid rgba(255,255,255,.12);
+  }
+
+  main:has(.projects-premium-hero) > .page-body {
+    width: calc(100% - 20px);
+    padding-top: 12px;
+  }
+
+  .projects-premium-layout {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .projects-filter-sidebar {
+    position: static;
+
+    width: 100%;
+  }
+
+  .projects-results-column {
+    width: 100%;
+  }
+
+  .projects-results-heading h2 {
+    font-size: 20px;
+  }
+
+  .projects-results-column .platform-project-grid {
+    grid-template-columns: minmax(0,1fr) !important;
+  }
+
+  .projects-results-column .card-art {
+    height: 235px !important;
+  }
+
+  .projects-consultant-cta {
+    grid-template-columns: minmax(0,1fr);
+  }
+
+  .projects-consultant-art {
+    min-height: 150px;
+  }
+}
