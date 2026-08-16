@@ -1005,7 +1005,6 @@ export default function MapPage() {
         aviationNoisePane.style.display = "none";
         aviationNoisePane.style.pointerEvents = "none";
 
-        if (import.meta.env.DEV) {
   const aviationNoiseLayer = L.tileLayer(
             "https://noise-map.com/tiles/1576396593/{z}/{x}/{y}.png",
             {
@@ -1018,7 +1017,6 @@ export default function MapPage() {
                 'Flight noise: <a href="https://noise-map.com/" target="_blank" rel="noopener noreferrer">Noise-Map</a> · CC BY-NC-SA 4.0 · Non-commercial test only',
             },
           ).addTo(leafletMap);
-        }
 
         /*
          * ============================================================
