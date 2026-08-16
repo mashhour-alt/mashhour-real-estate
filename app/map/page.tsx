@@ -463,61 +463,116 @@ export default function MapPage() {
       });
 
       
-    const etihadRailLine = {
-      id: "etihad-rail",
-      name: "Etihad Rail",
-      nameAr: "قطار الاتحاد",
-      color: "#00594c",
-      status: "operating",
-      routes: [[
-        { name: "Mohamed bin Zayed City (Abu Dhabi)", point: [24.325, 54.635] },
-        { name: "Jumeirah Golf Estates (Dubai)", point: [25.0088, 55.1817] },
-        { name: "Al Dhaid (Sharjah)", point: [25.288, 55.880] },
-        { name: "University City (Sharjah)", point: [25.300, 55.490] },
-        { name: "Al Hilal City (Fujairah)", point: [25.150, 56.340] },
-      ]],
-    };
+    /*
+     * ETIHAD RAIL — PRECISE OSM GEOMETRY
+     *
+     * Uses actual railway ways from OpenStreetMap relation 13415451.
+     * No straight-line station-to-station approximation.
+     */
+    const etihadRailDubai: {
+      relationId: number;
+      geometrySource: string;
+      geometryLicense: string;
+      segments: [number, number][][];
+      station: {
+        name: string;
+        nameAr: string;
+        point: [number, number];
+        status: string;
+      };
+    } = await fetch("/data/etihad-rail-dubai.json").then((response) => {
+      if (!response.ok) {
+        throw new Error(
+          `Etihad Rail geometry failed to load: ${response.status}`,
+        );
+      }
 
-    const etihadPane = leafletMap.createPane("etihadRailPane");
-    etihadPane.style.zIndex = "445";
-    etihadPane.style.display = "none";
-    const etihadRenderer = L.svg({ pane: "etihadRailPane", padding: 0.5 });
-
-    etihadRailLine.routes.forEach((points) => {
-      const linePoints = points.map((p) => p.point);
-      L.polyline(linePoints, {
-        pane: "etihadRailPane",
-        renderer: etihadRenderer,
-        color: etihadRailLine.color,
-        weight: 5,
-        opacity: 0.9,
-        dashArray: "10 6",
-        lineCap: "round",
-        lineJoin: "round",
-        className: "etihad-rail-line",
-      }).addTo(leafletMap);
-
-      points.forEach((stop) => {
-        L.circleMarker(stop.point, {
-          pane: "etihadRailPane",
-          renderer: etihadRenderer,
-          radius: 5,
-          color: etihadRailLine.color,
-          weight: 2,
-          fillColor: "#ffffff",
-          fillOpacity: 1,
-          interactive: true,
-          className: "etihad-rail-station",
-        })
-          .bindTooltip(
-            `<strong>${escapeHtml(stop.name)}</strong><span>ETIHAD RAIL &middot; قطار الاتحاد</span>`,
-            { direction: "top", className: "metro-stop-tooltip", opacity: 1 }
-          )
-          .addTo(leafletMap);
-      });
+      return response.json();
     });
 
-    
+    const etihadPane =
+      leafletMap.createPane("etihadRailPane");
+
+    etihadPane.style.zIndex = "445";
+    etihadPane.style.display = "none";
+    etihadPane.style.pointerEvents = "auto";
+
+    const etihadRenderer = L.svg({
+      pane: "etihadRailPane",
+      padding: 0.5,
+    });
+
+    etihadRailDubai.segments.forEach((segment) => {
+      /*
+       * Light casing underneath keeps the railway readable
+       * above the MapTiler road network.
+       */
+      L.polyline(segment, {
+        pane: "etihadRailPane",
+        renderer: etihadRenderer,
+        color: "#f7f3e9",
+        weight: 7,
+        opacity: 0.9,
+        lineCap: "round",
+        lineJoin: "round",
+        interactive: false,
+        className: "etihad-rail-casing",
+      }).addTo(leafletMap);
+
+      L.polyline(segment, {
+        pane: "etihadRailPane",
+        renderer: etihadRenderer,
+        color: "#15594f",
+        weight: 3.5,
+        opacity: 0.98,
+        lineCap: "round",
+        lineJoin: "round",
+        interactive: false,
+        className: "etihad-rail-line",
+      }).addTo(leafletMap);
+    });
+
+    L.circleMarker(
+      etihadRailDubai.station.point,
+      {
+        pane: "etihadRailPane",
+        renderer: etihadRenderer,
+        radius: 6,
+        color: "#9a8058",
+        weight: 2,
+        fillColor: "#faf7ef",
+        fillOpacity: 1,
+        interactive: true,
+        className: "etihad-rail-station",
+      },
+    )
+      .bindTooltip(
+        `
+          <div class="etihad-station-card">
+            <small>
+              ${arabic ? "محطة قطار الاتحاد" : "ETIHAD RAIL"}
+            </small>
+            <strong>
+              ${
+                arabic
+                  ? etihadRailDubai.station.nameAr
+                  : etihadRailDubai.station.name
+              }
+            </strong>
+            <span>
+              ${arabic ? "محطة ركاب مستقبلية" : "Future passenger station"}
+            </span>
+          </div>
+        `,
+        {
+          direction: "top",
+          offset: [0, -6],
+          className: "metro-stop-tooltip",
+          opacity: 1,
+        },
+      )
+      .addTo(leafletMap);
+
     const areaCentroids: Record<string, { lat: number; lng: number; projectCount: number }> =
       await fetch("/data/area-centroids.json").then((r) => r.json());
 
