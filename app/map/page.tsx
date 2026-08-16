@@ -998,6 +998,34 @@ export default function MapPage() {
          * ============================================================
          */
 
+        const aviationNoisePane =
+          leafletMap.createPane("aviationNoisePane");
+
+        aviationNoisePane.style.zIndex = "420";
+        aviationNoisePane.style.display = "none";
+        aviationNoisePane.style.pointerEvents = "none";
+
+        if (import.meta.env.DEV) {
+  const aviationNoiseLayer = L.tileLayer(
+            "https://noise-map.com/tiles/1576396593/{z}/{x}/{y}.png",
+            {
+              pane: "aviationNoisePane",
+              maxZoom: 15,
+              maxNativeZoom: 15,
+              minNativeZoom: 2,
+              opacity: 0.6,
+              attribution:
+                'Flight noise: <a href="https://noise-map.com/" target="_blank" rel="noopener noreferrer">Noise-Map</a> · CC BY-NC-SA 4.0 · Non-commercial test only',
+            },
+          ).addTo(leafletMap);
+        }
+
+        /*
+         * ============================================================
+         * DDA LAND PLOTS LAYER
+         * ============================================================
+         */
+
         const landPlotsPane =
           leafletMap.createPane("landPlotsPane");
 
@@ -1123,6 +1151,18 @@ export default function MapPage() {
         void loadVisibleLandPlots();
 
         makeToggle(
+            arabic
+              ? "ضوضاء الطيران"
+              : "Aviation Noise",
+            arabic
+              ? "مؤشر تقديري لضوضاء الطائرات"
+              : "Indicative aircraft noise",
+            ["aviationNoisePane"],
+            "is-noise",
+            true,
+          );
+
+                makeToggle(
           arabic
             ? "قطع الأراضي"
             : "Land Plots",
