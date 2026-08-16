@@ -160,9 +160,13 @@ export default function CalculatorsPage() {
     <main>
       <Header />
       <PageIntro
-        eyebrow={arabic ? "حاسبة الاستثمار" : "INVESTMENT CALCULATOR"}
-        title={arabic ? "ROI وROE وROA، وأكتر." : "ROI, ROE, ROA and more."}
-        intro={arabic ? "غيّر الخلايا الحمراء فقط، وستتحدث كل النتائج تلقائيًا." : "Change the red input fields and every result updates instantly."}
+        eyebrow={arabic ? "تحليل الاستثمار العقاري" : "PROPERTY INVESTMENT ANALYSIS"}
+        title={arabic ? "حاسبة الاستثمار العقاري" : "Property Investment Calculator"}
+        intro={
+          arabic
+            ? "أدخل بيانات العقار وشاهد العائد، التدفق النقدي، ROI وROE تتحدث فورًا."
+            : "Enter the property details and instantly see cash flow, ROI, ROE and total return."
+        }
       />
 
       <section className="investment-calculator">
@@ -172,6 +176,32 @@ export default function CalculatorsPage() {
             <h2>{arabic ? "بيانات الوحدة" : "Property inputs"}</h2>
           </div>
           <p>{arabic ? "استناداً إلى: real_estate_investment_calculator.xlsx" : "Based on: real_estate_investment_calculator.xlsx"}</p>
+        </div>
+
+        <div className="calculator-kpi-strip">
+          <div className="calculator-kpi primary">
+            <span>ROI</span>
+            <strong>{pct(result.roi)}</strong>
+            <small>{arabic ? "العائد الإيجاري" : "Rental return"}</small>
+          </div>
+
+          <div className="calculator-kpi">
+            <span>ROE</span>
+            <strong>{pct(result.roe)}</strong>
+            <small>{arabic ? "العائد على رأس المال" : "Return on equity"}</small>
+          </div>
+
+          <div className="calculator-kpi">
+            <span>{arabic ? "العائد الكلي" : "TOTAL RETURN"}</span>
+            <strong>{pct(result.totalReturn)}</strong>
+            <small>{arabic ? "إيجار + نمو رأسمالي" : "Rent + appreciation"}</small>
+          </div>
+
+          <div className="calculator-kpi">
+            <span>{arabic ? "صافي الإيجار" : "NET RENT"}</span>
+            <strong>{aed(result.netRent)}</strong>
+            <small>{arabic ? "سنويًا" : "Per year"}</small>
+          </div>
         </div>
 
         <div className="investment-top-grid">
@@ -340,6 +370,21 @@ export default function CalculatorsPage() {
           <CurrencyConverter arabic={arabic} />
         </div>
       </section>
+
+      <div className="calculator-mobile-summary">
+        <div>
+          <span>ROI</span>
+          <strong>{pct(result.roi)}</strong>
+        </div>
+        <div>
+          <span>ROE</span>
+          <strong>{pct(result.roe)}</strong>
+        </div>
+        <div>
+          <span>{arabic ? "العائد الكلي" : "TOTAL"}</span>
+          <strong>{pct(result.totalReturn)}</strong>
+        </div>
+      </div>
 
       <Footer />
     </main>
