@@ -229,19 +229,24 @@ export default function MapPage() {
       const L = leafletModule.default;
       /*
        * DUBAI-FIRST VIEWPORT
+       *
+       * Start focused on Dubai, but do not lock the user inside
+       * central Dubai. The wider bounds allow inspection of Dubai
+       * borders, Dubai South, Jebel Ali, Hatta, Sharjah/Ajman edges,
+       * and the Abu Dhabi approach.
        */
       const dubaiMapBounds = L.latLngBounds(
-        [24.84, 54.98],
-        [25.34, 55.58],
+        [24.55, 54.65],
+        [25.55, 56.25],
       );
 
       const leafletMap = L.map(mapElement.current, {
         center: [25.115, 55.235],
         zoom: 11,
-        minZoom: 9.5,
+        minZoom: 8.5,
         maxZoom: 18,
         maxBounds: dubaiMapBounds,
-        maxBoundsViscosity: 1.0,
+        maxBoundsViscosity: 0.25,
         zoomSnap: 0.5,
         zoomDelta: 0.5,
       });
@@ -976,6 +981,158 @@ export default function MapPage() {
          * Re-enable only after verified sale-price data is available.
          */
 
+
+
+        /*
+         * ============================================================
+         * AVIATION NOISE - LOCAL TEST ONLY
+         * ============================================================
+         *
+         * Uses current public Noise-Map raster tiles for local testing.
+         * Do NOT deploy commercially until licensing/permission is confirmed.
+         */
+
+        /*
+         * ============================================================
+         * DDA LAND PLOTS LAYER
+         * ============================================================
+         */
+
+        const landPlotsPane =
+          leafletMap.createPane("landPlotsPane");
+
+        landPlotsPane.style.zIndex = "435";
+        landPlotsPane.style.display = "none";
+        landPlotsPane.style.pointerEvents = "auto";
+
+        const landPlotsLayer = L.geoJSON(
+          {
+            type: "FeatureCollection",
+            features: [],
+          } as any,
+          {
+            pane: "landPlotsPane",
+
+            style: {
+              color: "#1e6f63",
+              weight: 1.15,
+              opacity: 0.9,
+              fillColor: "#ffffff",
+              fillOpacity: 0.02,
+            },
+
+            onEachFeature: (feature: any, layer: any) => {
+              const properties = feature?.properties || {};
+
+              const plotNumber =
+                properties.PLOT_NUMBER ??
+                properties.PLOT_NO ??
+                properties.ENTITY_NAME ??
+                properties.OBJECTID ??
+                "";
+
+              if (plotNumber) {
+                layer.bindTooltip(
+                  `${
+                    arabic
+                      ? "قطعة أرض"
+                      : "Land Plot"
+                  }: ${String(plotNumber)}`,
+                  {
+                    sticky: true,
+                    direction: "top",
+                    opacity: 0.95,
+                  },
+                );
+              }
+            },
+          } as any,
+        ).addTo(leafletMap);
+
+        let landPlotsRequestId = 0;
+
+        const loadVisibleLandPlots = async () => {
+          if (leafletMap.getZoom() < 12) {
+            landPlotsLayer.clearLayers();
+            return;
+          }
+
+          const bounds = leafletMap.getBounds();
+
+          const requestId = ++landPlotsRequestId;
+
+          const params = new URLSearchParams({
+            where: "1=1",
+
+            geometry: [
+              bounds.getWest(),
+              bounds.getSouth(),
+              bounds.getEast(),
+              bounds.getNorth(),
+            ].join(","),
+
+            geometryType: "esriGeometryEnvelope",
+            inSR: "4326",
+            spatialRel: "esriSpatialRelIntersects",
+
+            outFields:
+              "OBJECTID,PLOT_NUMBER,ENTITY_NAME",
+
+            returnGeometry: "true",
+            outSR: "4326",
+            f: "geojson",
+          });
+
+          const endpoint =
+            "https://gis.dda.gov.ae/server/rest/services/" +
+            "DDA/BASIC_LAND_BASE/MapServer/2/query?" +
+            params.toString();
+
+          try {
+            const response = await fetch(endpoint);
+
+            if (!response.ok) {
+              console.warn(
+                "Land plots GIS request failed:",
+                response.status,
+              );
+              return;
+            }
+
+            const geojson = await response.json();
+
+            if (requestId !== landPlotsRequestId) {
+              return;
+            }
+
+            landPlotsLayer.clearLayers();
+            landPlotsLayer.addData(geojson);
+          } catch (error) {
+            console.warn(
+              "Land plots GIS layer unavailable:",
+              error,
+            );
+          }
+        };
+
+        leafletMap.on(
+          "moveend zoomend",
+          loadVisibleLandPlots,
+        );
+
+        void loadVisibleLandPlots();
+
+        makeToggle(
+          arabic
+            ? "قطع الأراضي"
+            : "Land Plots",
+          arabic
+            ? "حدود قطع الأراضي من GIS"
+            : "GIS plot boundaries",
+          ["landPlotsPane"],
+          "is-plots",
+          true,
+        );
 
         makeToggle(
           arabic ? "قطار الاتحاد" : "Etihad Rail",
