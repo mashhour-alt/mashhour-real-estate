@@ -19,6 +19,32 @@ import { PageSeo, compact } from "../../seo";
 const humanize = (value: string | null | undefined) =>
   value ? value.replaceAll("_", " ").replace(/\b\w/g, (letter) => letter.toUpperCase()) : "Under review";
 
+const amenityIcon = (value: string) => {
+  const name = value.toLowerCase();
+
+  if (name.includes("pool") || name.includes("swim")) return "≋";
+  if (name.includes("gym") || name.includes("fitness")) return "H";
+  if (name.includes("kid") || name.includes("play")) return "✦";
+  if (name.includes("parking")) return "P";
+  if (name.includes("security") || name.includes("cctv")) return "◇";
+  if (name.includes("concierge") || name.includes("lobby")) return "●";
+  if (name.includes("beach") || name.includes("water")) return "≈";
+  if (name.includes("garden") || name.includes("park")) return "♧";
+  if (name.includes("bbq") || name.includes("barbecue")) return "♨";
+  if (name.includes("cinema")) return "▶";
+  if (name.includes("spa") || name.includes("sauna")) return "✧";
+  if (name.includes("restaurant") || name.includes("cafe")) return "◇";
+  if (name.includes("jog") || name.includes("track")) return "↗";
+  if (name.includes("cycle") || name.includes("bike")) return "○";
+  if (name.includes("mosque") || name.includes("prayer")) return "⌂";
+  if (name.includes("retail") || name.includes("shop")) return "□";
+  if (name.includes("school")) return "▤";
+  if (name.includes("clinic") || name.includes("medical")) return "+";
+  if (name.includes("tennis") || name.includes("court")) return "◎";
+
+  return "✦";
+};
+
 export default function ProjectDetailPage() {
   const data = usePlatformData();
   const aliases = useProjectAliases();
@@ -94,6 +120,28 @@ export default function ProjectDetailPage() {
   const detailedPlan = sourceDetail?.paymentPlans?.find((plan) => plan.phases?.length)?.phases;
   const pricing = unitPricing[project["Project Name | اسم المشروع"]];
 
+  const unitTypes = Array.from(
+    new Set(
+      [
+        ...(pricing?.unitTypes || []).map((unit) => unit.type),
+        ...(sourceDetail?.propertyTypes || []),
+        ...(live?.propertyTypes || []),
+      ].filter(Boolean),
+    ),
+  );
+
+  const startingPrice =
+    pricing?.startingPrice ??
+    enrichment?.officialStartingPrice ??
+    live?.startingPrice ??
+    project["Starting Price AED | السعر المبدئي"];
+
+  const handover =
+    sourceDetail?.deliveryDate ||
+    live?.deliveryDate ||
+    project["Handover | التسليم"] ||
+    "TBA";
+
   return (
     <main><Header />
       <PageSeo
@@ -117,26 +165,121 @@ export default function ProjectDetailPage() {
             : undefined,
         })}
       />
-      <section className="project-detail-hero">
-        <ProjectVisual project={project} live={live} className="detail-project-visual" />
-        <div className="detail-hero-copy"><p>{community}</p><h1>{displayName}</h1><a className="detail-developer-link" href={`/developers/${slugify(developer)}`}><strong>{developer}</strong></a></div>
-        <span className={enrichment?.verified ? "verification-chip large verified" : live ? "verification-chip large reference-matched" : "verification-chip large"}>
-          {enrichment?.verified ? "OFFICIAL RECORD VERIFIED ✓" : live ? "PROJECT SOURCE MATCHED ✓" : "SOURCE MATERIAL PENDING"}
-        </span>
+      <section className="lux-project-hero">
+        <ProjectVisual project={project} live={live} className="lux-project-cover" />
+
+        <div className="lux-project-cover-shade" />
+
+        <div className="lux-project-topline">
+          <a href="/projects">PROJECTS</a>
+          <span>—</span>
+          <strong>{community}</strong>
+        </div>
+
+        <div className="lux-project-title">
+          <span className="lux-project-kicker">DUBAI OFF-PLAN RESIDENCE</span>
+
+          <h1>{displayName}</h1>
+
+          <a
+            href={`/developers/${slugify(developer)}`}
+            className="lux-project-developer"
+          >
+            <small>BY</small>
+            <strong>{developer}</strong>
+          </a>
+
+          <p>⌖ {community}, Dubai</p>
+        </div>
+
+        <div className="lux-project-glass-card">
+          <div className="lux-glass-price">
+            <small>STARTING FROM</small>
+            <strong>{money(startingPrice)}</strong>
+            <span>AED</span>
+          </div>
+
+          <div className="lux-glass-row">
+            <span>
+              <small>HANDOVER</small>
+              <strong>{handover}</strong>
+            </span>
+            <i>▣</i>
+          </div>
+
+          <div className="lux-glass-row">
+            <span>
+              <small>UNIT TYPES</small>
+              <strong>
+                {unitTypes.slice(0, 3).join(" · ") ||
+                  enrichment?.unitTypes ||
+                  humanize(project["Unit Type | نوع الوحدة"])}
+              </strong>
+            </span>
+            <i>▦</i>
+          </div>
+
+          <div className="lux-glass-row">
+            <span>
+              <small>PROJECT STATUS</small>
+              <strong>{status}</strong>
+            </span>
+            <i>◇</i>
+          </div>
+
+          <a
+            href={`https://wa.me/971582239619?text=${encodeURIComponent(
+              `Hello Mahmoud, I am interested in ${displayName}. Please send me the verified project pack.`,
+            )}`}
+            target="_blank"
+            rel="noreferrer"
+            className="lux-hero-cta"
+          >
+            Request project details ↗
+          </a>
+        </div>
+
+        <div className="lux-project-verified">
+          {enrichment?.verified
+            ? "✓ OFFICIAL SOURCE VERIFIED"
+            : live
+              ? "✓ PROJECT SOURCE MATCHED"
+              : "PROJECT RECORD UNDER REVIEW"}
+        </div>
       </section>
-      <nav className="project-section-nav" aria-label="Project page sections">
-        <a href="#overview">Overview</a><a href="#payment">Payment</a><a href="#amenities">Amenities</a>
-        <a href="#gallery">Gallery</a><a href="#layouts">Layouts</a><a href="#location">Location</a>
+      <nav className="lux-project-nav" aria-label="Project page sections">
+        <a href="#overview">Overview</a>
+        <a href="#pricing">Residences</a>
+        <a href="#payment">Payment plan</a>
+        <a href="#amenities">Amenities</a>
+        <a href="#gallery">Gallery</a>
+        <a href="#layouts">Floor plans</a>
+        <a href="#location">Location</a>
       </nav>
 
-      <section className="detail-layout">
+      <section className="detail-layout lux-detail-layout">
         <article>
-          <div className="detail-metrics">
-            <div><small>STARTING PRICE</small><strong>{money(pricing?.startingPrice ?? enrichment?.officialStartingPrice ?? live?.startingPrice ?? project["Starting Price AED | السعر المبدئي"])}</strong></div>
-            <div><small>HANDOVER</small><strong>{sourceDetail?.deliveryDate || live?.deliveryDate || project["Handover | التسليم"] || "TBA"}</strong></div>
-            <div><small>UNIT TYPE</small><strong>{enrichment?.unitTypes || humanize(sourceDetail?.propertyTypes?.join(", ") || live?.propertyTypes?.join(", ") || project["Unit Type | نوع الوحدة"])}</strong></div>
-            <div><small>DATA STATUS</small><strong>{status}</strong></div>
-          </div>
+          <section className="lux-key-facts">
+            <div>
+              <small>STARTING PRICE</small>
+              <strong>{money(startingPrice)}</strong>
+            </div>
+
+            <div>
+              <small>HANDOVER</small>
+              <strong>{handover}</strong>
+            </div>
+
+            <div>
+              <small>COMMUNITY</small>
+              <strong>{community}</strong>
+            </div>
+
+            <div>
+              <small>DEVELOPER</small>
+              <strong>{developer}</strong>
+            </div>
+          </section>
 
           <div className="content-block" id="overview"><span>01</span><h2>Project overview</h2><p>{overview}</p>
             <div className="verified-meta">
@@ -150,8 +293,29 @@ export default function ProjectDetailPage() {
             </div>
           </div>
 
+          {unitTypes.length ? (
+            <section className="lux-residence-selector">
+              <div className="lux-section-heading">
+                <span>02</span>
+                <div>
+                  <small>RESIDENCES</small>
+                  <h2>Choose your residence</h2>
+                </div>
+              </div>
+
+              <div className="lux-unit-tabs">
+                {unitTypes.map((type, index) => (
+                  <div className={index === 0 ? "active" : ""} key={type}>
+                    <span>{String(index + 1).padStart(2, "0")}</span>
+                    <strong>{type}</strong>
+                  </div>
+                ))}
+              </div>
+            </section>
+          ) : null}
+
           {pricing ? (
-            <div className="content-block" id="pricing"><span>02</span><h2>Starting price by unit type</h2>
+            <div className="content-block lux-pricing" id="pricing"><span>02</span><h2>Starting price by unit type</h2>
               <div className="unit-price-table">
                 <div className="unit-price-head"><span>Unit type</span><span>Starting price</span><span>AED / sq ft</span></div>
                 {pricing.unitTypes.map((unit) => (
@@ -179,8 +343,30 @@ export default function ProjectDetailPage() {
             </>}
           </div><p className="source-note">Payment milestones are shown from the most detailed matched project record available and must be reconfirmed before reservation.</p></div>
 
-          <div className="content-block" id="amenities"><span>03</span><h2>Amenities</h2>
-            {amenities.length ? <div className="amenity-list">{amenities.map((item) => <span key={item}>{item}</span>)}</div> : <div className="gallery-placeholder"><strong>Amenities under review</strong><p>The project's public amenity list has not been matched yet.</p></div>}
+          <div className="content-block lux-amenities" id="amenities">
+            <div className="lux-section-heading">
+              <span>04</span>
+              <div>
+                <small>LIFESTYLE & WELLNESS</small>
+                <h2>Everything within reach</h2>
+              </div>
+            </div>
+
+            {amenities.length ? (
+              <div className="lux-amenity-grid">
+                {amenities.map((item) => (
+                  <div className="lux-amenity" key={item}>
+                    <i>{amenityIcon(item)}</i>
+                    <strong>{item}</strong>
+                  </div>
+                ))}
+              </div>
+            ) : (
+              <div className="gallery-placeholder">
+                <strong>Amenities under review</strong>
+                <p>The project's public amenity list has not been matched yet.</p>
+              </div>
+            )}
           </div>
 
           <div className="content-block" id="gallery"><span>04</span><h2>Full project gallery</h2>
@@ -192,12 +378,61 @@ export default function ProjectDetailPage() {
             {floorPlans.length ? <div className="floor-plan-grid">{floorPlans.map((layout, index) => <a href={layout.url} target="_blank" rel="noreferrer" key={`${layout.url}-${index}`}><img src={layout.url} alt={`${displayName} floor plan ${index + 1}`} loading="lazy" /><div><strong>{layout.layoutType}</strong><span>{layout.bedrooms === 0 ? "Studio" : layout.bedrooms != null ? `${layout.bedrooms} bedroom` : layout.propertyType}</span>{layout.area ? <small>{layout.area.toLocaleString()} sq ft</small> : null}</div></a>)}</div> : <div className="gallery-placeholder"><strong>Floor plans are being sourced</strong><p>Layouts appear here only when a project-level floor-plan file is available.</p></div>}
           </div>
 
-          <div className="content-block location-record" id="location"><span>06</span><h2>Exact location record</h2>
-            {coordinates ? <div className="coordinate-card"><div><small>LATITUDE</small><strong>{coordinates.lat.toFixed(6)}</strong></div><div><small>LONGITUDE</small><strong>{coordinates.lng.toFixed(6)}</strong></div><a href={`https://www.google.com/maps?q=${coordinates.lat},${coordinates.lng}`} target="_blank" rel="noreferrer">Open precise location ↗</a></div> : <div className="gallery-placeholder"><strong>Plot coordinates pending</strong><p>The project will not be pinned approximately at an area centre.</p></div>}
+          <div className="content-block lux-location" id="location">
+            <div className="lux-section-heading">
+              <span>07</span>
+              <div>
+                <small>LOCATION</small>
+                <h2>Connected to Dubai</h2>
+              </div>
+            </div>
+
+            {coordinates ? (
+              <div className="lux-location-grid">
+                <div className="lux-map">
+                  <iframe
+                    title={`${displayName} location`}
+                    src={`https://www.google.com/maps?q=${coordinates.lat},${coordinates.lng}&z=15&output=embed`}
+                    loading="lazy"
+                    referrerPolicy="no-referrer-when-downgrade"
+                  />
+                </div>
+
+                <div className="lux-location-info">
+                  <span>PROJECT LOCATION</span>
+                  <h3>{community}</h3>
+                  <p>Dubai, United Arab Emirates</p>
+
+                  <dl>
+                    <div>
+                      <dt>LATITUDE</dt>
+                      <dd>{coordinates.lat.toFixed(6)}</dd>
+                    </div>
+                    <div>
+                      <dt>LONGITUDE</dt>
+                      <dd>{coordinates.lng.toFixed(6)}</dd>
+                    </div>
+                  </dl>
+
+                  <a
+                    href={`https://www.google.com/maps?q=${coordinates.lat},${coordinates.lng}`}
+                    target="_blank"
+                    rel="noreferrer"
+                  >
+                    Open in Google Maps ↗
+                  </a>
+                </div>
+              </div>
+            ) : (
+              <div className="gallery-placeholder">
+                <strong>Plot coordinates pending</strong>
+                <p>The project will not be pinned approximately at an area centre.</p>
+              </div>
+            )}
           </div>
         </article>
 
-        <aside className="project-contact">
+        <aside className="project-contact lux-contact-card">
           {live?.developerLogo ? <img className="detail-developer-logo" src={live.developerLogo} alt={`${developer} logo`} /> : null}
           <p>MASHHOUR REAL ESTATE</p><h2>Request the verified project pack.</h2>
           <a href={`https://wa.me/971582239619?text=${encodeURIComponent(`Hello Mahmoud, I am interested in ${displayName}. Please send me the verified project pack.`)}`} target="_blank" rel="noreferrer">WhatsApp enquiry ↗</a>
