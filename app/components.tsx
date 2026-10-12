@@ -59,6 +59,7 @@ export function Header() {
           ))}
         </nav>
         <div className="header-actions">
+          <Link className="header-explore" href="/projects">{arabic ? "استكشف المشاريع" : language === "it" ? "Esplora progetti" : "Explore projects"}<b>↗</b></Link>
           <button className="language-button" onClick={toggleLanguage}>{arabic ? "EN" : "ع"}</button>
           <button className="menu-button" aria-label="Open menu" aria-expanded={open} aria-controls="site-menu" onClick={() => setOpen(true)}>
             <span /><span /><span />

@@ -266,6 +266,12 @@ export default function Home() {
             <button type="submit">{arabic ? "ابحث" : language === "it" ? "Cerca" : "Search"}<b>→</b></button>
           </form>
 
+          <div className="home-hero-proof" aria-label={arabic ? "ملخص المنصة" : "Platform summary"}>
+            <span><b>{data?.projects.length.toLocaleString() || "—"}</b>{arabic ? " مشروع" : language === "it" ? " progetti" : " projects"}</span>
+            <span><b>{data?.areas.length.toLocaleString() || "—"}</b>{arabic ? " منطقة" : language === "it" ? " zone" : " areas"}</span>
+            <span><b>{data?.developers.length.toLocaleString() || "—"}</b>{arabic ? " مطور" : language === "it" ? " sviluppatori" : " developers"}</span>
+          </div>
+
           <div className="premium-home-hero-actions">
             <a href="/projects" className="premium-home-button primary">
               {arabic ? "استكشف المشاريع" : "Explore projects"}
@@ -434,35 +440,6 @@ export default function Home() {
               </div>
             </a>
           ))}
-        </div>
-      </section>
-
-      {/* =====================================================
-          MARKET STATS
-      ===================================================== */}
-      <section className="premium-home-stats">
-        <div>
-          <i>▦</i>
-          <strong>{data?.projects.length.toLocaleString() || "—"}+</strong>
-          <span>{arabic ? "مشروع" : "Indexed projects"}</span>
-        </div>
-
-        <div>
-          <i>◇</i>
-          <strong>{data?.developers.length.toLocaleString() || "—"}+</strong>
-          <span>{arabic ? "مطور" : "Developers"}</span>
-        </div>
-
-        <div>
-          <i>⌖</i>
-          <strong>{data?.areas.length.toLocaleString() || "—"}+</strong>
-          <span>{arabic ? "منطقة" : "Dubai areas"}</span>
-        </div>
-
-        <div>
-          <i>✓</i>
-          <strong>360°</strong>
-          <span>{arabic ? "نظرة على القرار" : "Decision workspace"}</span>
         </div>
       </section>
 

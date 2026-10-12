@@ -124,7 +124,7 @@ export default function ProjectsPage() {
   }, [data, liveData, projectCoverage]);
 
   return (
-    <main><Header />
+    <main className="projects-page-v3"><Header />
       <section className="projects-premium-hero">
         <div className="projects-premium-overlay" />
 
@@ -216,7 +216,7 @@ export default function ProjectsPage() {
           </div>
           <p>{arabic ? "الحزمة الكاملة بتحتوي على سعر، تسليم، أنواع وحدات، هيكل دفع، صور حقيقية للمشروع وبروشور. البيانات الناقصة بتفضل موضّحة كـ'قيد الانتظار' وماتتملّش تلقائياً أبداً." : "A complete pack has a price, handover, unit types, payment structure, real project media and a brochure. Missing information stays marked as pending and is never auto-filled."}</p>
         </div>
-        <div className="projects-premium-layout">
+        <div className="projects-premium-layout catalogue-shell">
 
           <aside className="projects-filter-sidebar">
             <div className="projects-filter-heading">
