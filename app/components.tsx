@@ -51,8 +51,13 @@ export function Header() {
       <header className="platform-header">
         <Link className="platform-brand" href="/" aria-label={arabic ? "MAS MAP — الرئيسية" : language === "it" ? "MAS MAP — Pagina iniziale" : "MAS MAP home"}>
           <span className="logo-window"><img src="/assets/mas-map-logo.png" alt="" width={48} height={48} /></span>
-          <span>MAS MAP</span>
+          <span><b>MAS MAP</b><small>{arabic ? "ذكاء عقاري في دبي" : language === "it" ? "Intelligence immobiliare a Dubai" : "Dubai real estate intelligence"}</small></span>
         </Link>
+        <nav className="header-nav" aria-label={arabic ? "روابط سريعة" : "Quick links"}>
+          {links.slice(1, 5).map(([href, en, ar, it]) => (
+            <Link href={href} key={href} className={isActive(href) ? "active" : ""}>{arabic ? ar : language === "it" ? it : en}</Link>
+          ))}
+        </nav>
         <div className="header-actions">
           <button className="language-button" onClick={toggleLanguage}>{arabic ? "EN" : "ع"}</button>
           <button className="menu-button" aria-label="Open menu" aria-expanded={open} aria-controls="site-menu" onClick={() => setOpen(true)}>

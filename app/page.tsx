@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useMemo, useRef, useState } from "react";
+import { useRouter } from "next/navigation";
 import { ContactDock, DataNotice, Footer, Header, LeadSection, usePlatformData, useProjectLiveData } from "./components";
 import { useLanguage } from "./language-context";
 import { MAPTILER_ATTRIBUTION, tileUrlFor } from "./map-tiles";
@@ -198,6 +199,13 @@ function HomeMiniMap() {
 export default function Home() {
   const data = usePlatformData();
   const { arabic, language } = useLanguage();
+  const router = useRouter();
+  const [heroSearch, setHeroSearch] = useState("");
+  const searchProjects = (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    const search = heroSearch.trim();
+    router.push(search ? `/projects?query=${encodeURIComponent(search)}` : "/projects");
+  };
   return (
     <main className="premium-home">
       <Header />
@@ -244,6 +252,19 @@ export default function Home() {
               ? "مشاريع موثقة. مطورون معروفون. بيانات واضحة تساعدك تاخد قرارك بثقة."
               : "Verified projects. Trusted developers. Clear data tailored to help you invest with confidence."}
           </p>
+
+          <form className="hero-project-search" onSubmit={searchProjects}>
+            <label>
+              <span>⌕</span>
+              <input
+                value={heroSearch}
+                onChange={(event) => setHeroSearch(event.target.value)}
+                placeholder={arabic ? "ابحث باسم المشروع أو المطور أو المنطقة" : language === "it" ? "Cerca progetto, sviluppatore o zona" : "Search a project, developer or area"}
+                aria-label={arabic ? "ابحث في المشاريع" : "Search projects"}
+              />
+            </label>
+            <button type="submit">{arabic ? "ابحث" : language === "it" ? "Cerca" : "Search"}<b>→</b></button>
+          </form>
 
           <div className="premium-home-hero-actions">
             <a href="/projects" className="premium-home-button primary">
@@ -446,7 +467,7 @@ export default function Home() {
       </section>
 
       {/* =====================================================
-          WHY MASHHOUR
+          WHY MAS MAP
       ===================================================== */}
       <section className="premium-home-about">
         <div className="premium-home-about-visual">

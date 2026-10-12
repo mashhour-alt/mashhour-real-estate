@@ -25,7 +25,7 @@ export default function ProjectsPage() {
   const dldReport = useDldReconciliationReport();
   const sponsorship = useSponsorship();
   const { arabic } = useLanguage();
-  const [query, setQuery] = useState("");
+  const [query, setQuery] = useState(() => typeof window === "undefined" ? "" : new URLSearchParams(window.location.search).get("query") || "");
   const [area, setArea] = useState(() => typeof window === "undefined" ? "" : new URLSearchParams(window.location.search).get("area") || "");
   const [developer, setDeveloper] = useState(() => typeof window === "undefined" ? "" : new URLSearchParams(window.location.search).get("developer") || "");
   const [unitType, setUnitType] = useState("");
@@ -303,8 +303,8 @@ export default function ProjectsPage() {
 
         <section className="projects-consultant-cta">
           <div className="projects-consultant-art">
-            <span>MAHSHOUR</span>
-            <i>REAL ESTATE</i>
+            <span>MAS MAP</span>
+            <i>{arabic ? "ذكاء عقاري" : "REAL ESTATE INTELLIGENCE"}</i>
           </div>
 
           <div className="projects-consultant-copy">
