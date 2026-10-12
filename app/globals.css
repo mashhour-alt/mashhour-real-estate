@@ -9190,3 +9190,13 @@ html[dir="rtl"] .area-premium-actions a:last-child {
 }
 
 /* ===== PREMIUM AREAS + AREA GUIDE V2 END ===== */
+
+/* MAS MAP: show the complete supplied mark at every breakpoint. The white
+   backing preserves the official black logo on light and dark surfaces. */
+.platform-brand .logo-window { width: 48px; height: 48px; flex: 0 0 48px; background: #fff; border-radius: 3px; }
+.platform-brand .logo-window img { position: static; display: block; width: 100%; height: 100%; object-fit: contain; }
+.platform-brand > span:last-child { display: inline; white-space: nowrap; }
+@media (max-width: 600px) {
+  .platform-brand { gap: 9px; }
+  .platform-brand .logo-window { width: 40px; height: 40px; flex-basis: 40px; }
+}

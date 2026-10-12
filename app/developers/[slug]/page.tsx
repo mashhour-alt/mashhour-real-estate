@@ -272,8 +272,8 @@ export default function DeveloperProfilePage() {
             className="button primary"
             href={`https://wa.me/971582239619?text=${encodeURIComponent(
               arabic
-                ? `مرحباً محمود، أنا ممثل عن ${developerName} وحابب أراجع وأوثّق ملف الشركة على مشهور العقارية.`
-                : `Hi Mahmoud, I represent ${developerName} and would like to review and verify our developer profile on Mashhour Real Estate.`,
+                ? `مرحباً محمود، أنا ممثل عن ${developerName} وحابب أراجع وأوثّق ملف الشركة على MAS MAP.`
+                : `Hi Mahmoud, I represent ${developerName} and would like to review and verify our developer profile on MAS MAP.`,
             )}`}
             target="_blank"
             rel="noreferrer"

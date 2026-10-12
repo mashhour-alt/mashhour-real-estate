@@ -55,8 +55,8 @@ export default function PartnersPage() {
         title={arabic ? "ضع مشاريعك أمام مَن يقارن قبل الشراء." : "Put your projects in front of buyers who compare first."}
         intro={
           arabic
-            ? "مشهور العقارية منصة بيانات ومقارنة لمشاريع دبي على الخريطة. المستخدم بيوصل هنا وهو بيدوّر ويقارن — مش بيتصفّح إعلانات."
-            : "Mashhour Real Estate is a data and comparison platform for Dubai off-plan projects. Users arrive here researching and comparing — not browsing adverts."
+            ? "MAS MAP منصة بيانات ومقارنة لمشاريع دبي على الخريطة. المستخدم بيوصل هنا وهو بيدوّر ويقارن — مش بيتصفّح إعلانات."
+            : "MAS MAP is a data and comparison platform for Dubai off-plan projects. Users arrive here researching and comparing — not browsing adverts."
         }
       />
 
@@ -101,8 +101,8 @@ export default function PartnersPage() {
               className="button primary"
               href={whatsapp(
                 arabic
-                  ? "مرحباً محمود، أنا مهتم بشراكة تسويقية على منصة مشهور العقارية.\n\nالاسم:\nالشركة / المطور:\nالمسمى الوظيفي:\nالبريد الإلكتروني:\nنوع الشراكة المهتم بها:"
-                  : "Hi Mahmoud, I am interested in a partnership on Mashhour Real Estate.\n\nName:\nDeveloper / Company:\nJob title:\nWork email:\nPartnership interest:",
+                  ? "مرحباً محمود، أنا مهتم بشراكة تسويقية على منصة MAS MAP.\n\nالاسم:\nالشركة / المطور:\nالمسمى الوظيفي:\nالبريد الإلكتروني:\nنوع الشراكة المهتم بها:"
+                  : "Hi Mahmoud, I am interested in a partnership on MAS MAP.\n\nName:\nDeveloper / Company:\nJob title:\nWork email:\nPartnership interest:",
               )}
               target="_blank"
               rel="noreferrer"

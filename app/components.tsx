@@ -17,19 +17,19 @@ import type {
 } from "./data";
 
 const links = [
-  ["/", "Home", "الرئيسية"],
-  ["/map", "Map", "الخريطة"],
-  ["/projects", "Projects", "المشاريع"],
-  ["/compare", "Compare", "المقارنة"],
-  ["/areas", "Areas", "المناطق"],
-  ["/developers", "Developers", "المطورون"],
-  ["/articles", "Articles", "المقالات"],
-  ["/calculators", "Calculator", "الحاسبة"],
+  ["/", "Home", "الرئيسية", "Home"],
+  ["/map", "Map", "الخريطة", "Mappa"],
+  ["/projects", "Projects", "المشاريع", "Progetti"],
+  ["/compare", "Compare", "المقارنة", "Confronta"],
+  ["/areas", "Areas", "المناطق", "Zone"],
+  ["/developers", "Developers", "المطورون", "Sviluppatori"],
+  ["/articles", "Articles", "المقالات", "Articoli"],
+  ["/calculators", "Calculator", "الحاسبة", "Calcolatrice"],
 ];
 
 export function Header() {
   const [open, setOpen] = useState(false);
-  const { arabic, setLanguage, toggleLanguage } = useLanguage();
+  const { language, arabic, setLanguage, toggleLanguage } = useLanguage();
   const pathname = usePathname();
 
   useEffect(() => {
@@ -49,9 +49,9 @@ export function Header() {
   return (
     <>
       <header className="platform-header">
-        <Link className="platform-brand" href="/" aria-label="Mashhour Real Estate home">
-          <span className="logo-window"><img src="/assets/mashhour-black.png" alt="" /></span>
-          <span>REAL ESTATE</span>
+        <Link className="platform-brand" href="/" aria-label={arabic ? "MAS MAP — الرئيسية" : language === "it" ? "MAS MAP — Pagina iniziale" : "MAS MAP home"}>
+          <span className="logo-window"><img src="/assets/mas-map-logo.png" alt="" width={48} height={48} /></span>
+          <span>MAS MAP</span>
         </Link>
         <div className="header-actions">
           <button className="language-button" onClick={toggleLanguage}>{arabic ? "EN" : "ع"}</button>
@@ -64,22 +64,23 @@ export function Header() {
         <button className="menu-backdrop" aria-label="Close menu" tabIndex={open ? 0 : -1} onClick={() => setOpen(false)} />
         <aside id="site-menu" className="menu-drawer" role="dialog" aria-modal="true" aria-label="Main menu" dir={arabic ? "rtl" : "ltr"}>
           <div className="menu-drawer-head">
-            <span>{arabic ? "القائمة" : "Menu"}</span>
+            <span>MAS MAP · {arabic ? "القائمة" : "Menu"}</span>
             <button className="menu-close" aria-label="Close menu" onClick={() => setOpen(false)}>×</button>
           </div>
           <nav className="drawer-nav">
-            {links.map(([href, en, ar], index) => (
+            {links.map(([href, en, ar, it], index) => (
               <a className={isActive(href) ? "active" : ""} key={href} href={href} onClick={() => setOpen(false)}>
                 <small>{String(index).padStart(2, "0")}</small>
-                <strong>{arabic ? ar : en}</strong>
+                <strong>{arabic ? ar : language === "it" ? it : en}</strong>
               </a>
             ))}
           </nav>
           <div className="drawer-language">
             <span>{arabic ? "اللغة" : "Language"}</span>
             <div>
-              <button className={!arabic ? "active" : ""} onClick={() => setLanguage("en")}>EN</button>
+              <button className={language === "en" ? "active" : ""} onClick={() => setLanguage("en")}>EN</button>
               <button className={arabic ? "active" : ""} onClick={() => setLanguage("ar")}>AR</button>
+              <button className={language === "it" ? "active" : ""} onClick={() => setLanguage("it")}>IT</button>
             </div>
           </div>
         </aside>
@@ -89,20 +90,20 @@ export function Header() {
 }
 
 export function Footer() {
-  const { arabic } = useLanguage();
+  const { arabic, language } = useLanguage();
   return (
     <footer className="platform-footer">
-      <div><strong>MASHHOUR REAL ESTATE</strong><p>{arabic ? "استكشاف عقارات دبي على الخريطة، بشكل أوضح." : "Dubai off-plan intelligence, made clearer."}</p></div>
+      <div><strong>MAS MAP</strong><p>{arabic ? "استكشاف عقارات دبي على الخريطة، بشكل أوضح." : language === "it" ? "Esplora i progetti immobiliari di Dubai con maggiore chiarezza." : "Dubai off-plan intelligence, made clearer."}</p></div>
       <div className="footer-links">
-        <a href="/projects">{arabic ? "المشاريع" : "Projects"}</a>
-        <a href="/areas">{arabic ? "المناطق" : "Areas"}</a>
-        <a href="/developers">{arabic ? "المطورون" : "Developers"}</a>
-        <a href="/data-coverage">{arabic ? "تغطية البيانات" : "Data coverage"}</a>
-        <a href="/partners">{arabic ? "شراكات المطورين" : "Partnerships"}</a>
+        <a href="/projects">{arabic ? "المشاريع" : language === "it" ? "Progetti" : "Projects"}</a>
+        <a href="/areas">{arabic ? "المناطق" : language === "it" ? "Zone" : "Areas"}</a>
+        <a href="/developers">{arabic ? "المطورون" : language === "it" ? "Sviluppatori" : "Developers"}</a>
+        <a href="/data-coverage">{arabic ? "تغطية البيانات" : language === "it" ? "Copertura dei dati" : "Data coverage"}</a>
+        <a href="/partners">{arabic ? "شراكات المطورين" : language === "it" ? "Collaborazioni" : "Partnerships"}</a>
         <a href="https://wa.me/971582239619" target="_blank" rel="noreferrer">WhatsApp</a>
         <a href="mailto:mahmoudmashhournasr@gmail.com">{arabic ? "البريد الإلكتروني" : "Email"}</a>
       </div>
-      <span>{arabic ? "© 2026 مشهور العقارية" : "© 2026 Mashhour Real Estate"}</span>
+      <span>© 2026 MAS MAP</span>
     </footer>
   );
 }
@@ -114,7 +115,7 @@ export function ContactDock() {
       <nav className="contact-dock" aria-label="Direct contact">
         <a className="whatsapp" href="https://wa.me/971582239619?text=Hello%20Mahmoud%2C%20I%20am%20interested%20in%20Dubai%20off-plan%20property." target="_blank" rel="noreferrer">{arabic ? "واتساب" : "WhatsApp"}</a>
         <a href="tel:+971582239619">{arabic ? "اتصال" : "Call"}</a>
-        <a href="mailto:mahmoudmashhournasr@gmail.com?subject=Mashhour%20Real%20Estate%20enquiry">{arabic ? "إيميل" : "Email"}</a>
+        <a href="mailto:mahmoudmashhournasr@gmail.com?subject=MAS%20MAP%20enquiry">{arabic ? "إيميل" : "Email"}</a>
       </nav>
       <VoiceAssistant />
     </>
@@ -129,7 +130,7 @@ export function LeadSection() {
     event.preventDefault();
     const form = new FormData(event.currentTarget);
     const message = [
-      "New Mashhour Real Estate enquiry",
+      "New MAS MAP enquiry",
       `Name: ${String(form.get("name") || "").trim()}`,
       `Phone: ${String(form.get("phone") || "").trim()}`,
       `Interest: ${String(form.get("interest") || "").trim()}`,

@@ -197,7 +197,7 @@ function HomeMiniMap() {
 
 export default function Home() {
   const data = usePlatformData();
-  const { arabic } = useLanguage();
+  const { arabic, language } = useLanguage();
   return (
     <main className="premium-home">
       <Header />
@@ -462,8 +462,8 @@ export default function Home() {
         <div className="premium-home-about-copy">
           <small>
             {arabic
-              ? "لماذا مشهور للعقارات؟"
-              : "WHY CHOOSE MASHHOUR REAL ESTATE"}
+              ? "لماذا MAS MAP؟"
+              : language === "it" ? "PERCHÉ SCEGLIERE MAS MAP" : "WHY CHOOSE MAS MAP"}
           </small>
 
           <h2>

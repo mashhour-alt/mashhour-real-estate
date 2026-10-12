@@ -2,7 +2,7 @@
 
 import { createContext, useContext, useEffect, useState, type ReactNode } from "react";
 
-export type Language = "ar" | "en";
+export type Language = "ar" | "en" | "it";
 
 type LanguageContextValue = {
   language: Language;
@@ -20,7 +20,7 @@ export function LanguageProvider({ children }: { children: ReactNode }) {
   // Read saved preference once on first mount (client only).
   useEffect(() => {
     const stored = window.localStorage.getItem(STORAGE_KEY);
-    if (stored === "ar" || stored === "en") setLanguageState(stored);
+    if (stored === "ar" || stored === "en" || stored === "it") setLanguageState(stored);
   }, []);
 
   // Keep <html lang dir> in sync so RTL/LTR styling follows the chosen language everywhere.

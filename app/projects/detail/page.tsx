@@ -434,7 +434,7 @@ export default function ProjectDetailPage() {
 
         <aside className="project-contact lux-contact-card">
           {live?.developerLogo ? <img className="detail-developer-logo" src={live.developerLogo} alt={`${developer} logo`} /> : null}
-          <p>MASHHOUR REAL ESTATE</p><h2>Request the verified project pack.</h2>
+          <p>MAS MAP</p><h2>Request the verified project pack.</h2>
           <a href={`https://wa.me/971582239619?text=${encodeURIComponent(`Hello Mahmoud, I am interested in ${displayName}. Please send me the verified project pack.`)}`} target="_blank" rel="noreferrer">WhatsApp enquiry ↗</a>
           <a className="secondary-link" href="tel:+971582239619">Call Mahmoud →</a>
           <a className="secondary-link" href={`mailto:mahmoudmashhournasr@gmail.com?subject=${encodeURIComponent(displayName)}`}>Email enquiry ↗</a>

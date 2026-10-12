@@ -32,7 +32,16 @@ export function PageSeo({
   structuredData?: StructuredData | null;
 }) {
   useEffect(() => {
-    document.title = `${title} | Mashhour Real Estate`;
+    document.title = `${title} | MAS MAP`;
+    for (const [property, content] of [["og:title", document.title], ["og:site_name", "MAS MAP"], ...(description ? [["og:description", description]] : [])]) {
+      let tag = document.querySelector<HTMLMetaElement>(`meta[property="${property}"]`);
+      if (!tag) {
+        tag = document.createElement("meta");
+        tag.setAttribute("property", property);
+        document.head.appendChild(tag);
+      }
+      tag.content = content;
+    }
     if (description) setMeta("description", description);
   }, [title, description]);
 
