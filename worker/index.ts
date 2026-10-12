@@ -1,8 +1,9 @@
 /** Cloudflare Worker entry point for the vinext-starter template. */
 import { handleImageOptimization, DEFAULT_DEVICE_SIZES, DEFAULT_IMAGE_SIZES } from "vinext/server/image-optimization";
 import handler from "vinext/server/app-router-entry";
+import { handleAdmin, requireAdminPage, type AdminEnv } from "./admin";
 
-interface Env {
+interface Env extends AdminEnv {
   ASSETS: Fetcher;
   DB: D1Database;
   IMAGES: {
@@ -28,6 +29,14 @@ interface ExecutionContext {
 const worker = {
   async fetch(request: Request, env: Env, ctx: ExecutionContext): Promise<Response> {
     const url = new URL(request.url);
+
+    // /admin is never served as an anonymous client-side-only gate. Cloudflare
+    // Access JWT validation happens in the Worker before the app route runs.
+    if (url.pathname.startsWith("/api/admin/")) return handleAdmin(request, env, url);
+    if (url.pathname === "/admin" || url.pathname.startsWith("/admin/")) {
+      const denied = await requireAdminPage(request, env);
+      if (denied) return denied;
+    }
 
     if (url.pathname === "/_vinext/image") {
       const allowedWidths = [...DEFAULT_DEVICE_SIZES, ...DEFAULT_IMAGE_SIZES];
