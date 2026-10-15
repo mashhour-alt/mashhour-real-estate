@@ -2,6 +2,7 @@ type D1 = D1Database;
 
 export type AdminEnv = {
   DB?: D1;
+  ASSETS?: { fetch(request: Request): Promise<Response> };
   ADMIN_ACCESS_TEAM_DOMAIN?: string;
   ADMIN_ACCESS_AUD?: string;
   ADMIN_BOOTSTRAP_EMAIL?: string;
@@ -179,36 +180,56 @@ async function adminOperation(request: Request, env: AdminEnv, url: URL): Promis
   if (isResponse(admin)) return admin;
   const db = env.DB;
   if (url.pathname === "/api/admin/session" && request.method === "GET") return json({ user: { email: admin.email, name: admin.name, role: admin.role } });
+  if (url.pathname === "/api/admin/settings" && request.method === "GET") return json({
+    user: { name: admin.name, email: admin.email, role: admin.role, status: admin.status },
+    configuration: { authentication: "Cloudflare Access", jwtValidated: true, databaseAvailable: true, publicCatalogueConnected: false, developerAccountsEnabled: false },
+    capabilities: { projects: [...projectFields], developers: [...developerFields], unsupportedProjectFields: ["description", "availability"], unsupportedDeveloperFields: ["logo", "contact_email", "contact_phone", "profile_description"] },
+  });
   if (url.pathname === "/api/admin/overview" && request.method === "GET") {
     const [developers, projects, pending, recentlyUpdated, activity, review] = await db.batch([
       db.prepare("SELECT COUNT(*) AS count FROM developers"), db.prepare("SELECT COUNT(*) AS count FROM projects"), db.prepare("SELECT COUNT(*) AS count FROM project_change_requests WHERE status = 'pending_review'"),
       db.prepare("SELECT id, name, updated_at FROM projects ORDER BY updated_at DESC LIMIT 6"), db.prepare("SELECT action, entity_type, entity_id, created_at FROM admin_audit_logs ORDER BY created_at DESC LIMIT 8"),
       db.prepare("SELECT COUNT(*) AS count FROM projects WHERE last_verified_at IS NULL"),
     ]);
-    return json({ metrics: { developers: developers.results[0]?.count || 0, projects: projects.results[0]?.count || 0, pending: pending.results[0]?.count || 0, review: review.results[0]?.count || 0 }, recentlyUpdated: recentlyUpdated.results, activity: activity.results });
+    let areas: number | null = null;
+    try {
+      if (env.ASSETS) {
+        const response = await env.ASSETS.fetch(new Request(new URL("/data/project-catalog.json", request.url)));
+        if (response.ok) { const catalogue = await response.json() as { areas?: unknown[] }; if (Array.isArray(catalogue.areas)) areas = catalogue.areas.length; }
+      }
+    } catch { /* Unavailable source is reported as null, never a fabricated count. */ }
+    return json({ metrics: { developers: developers.results[0]?.count || 0, projects: projects.results[0]?.count || 0, pending: pending.results[0]?.count || 0, review: review.results[0]?.count || 0, areas }, recentlyUpdated: recentlyUpdated.results, activity: activity.results });
   }
-  if (url.pathname === "/api/admin/activity" && request.method === "GET") return json({ activity: (await db.prepare("SELECT * FROM admin_audit_logs ORDER BY created_at DESC LIMIT 100").all()).results });
+  if (url.pathname === "/api/admin/activity" && request.method === "GET") return json({ activity: (await db.prepare("SELECT l.*, u.email AS actor_email FROM admin_audit_logs l JOIN admin_users u ON u.id=l.actor_id ORDER BY l.created_at DESC LIMIT 500").all()).results, limit: 500 });
   const detail = url.pathname.match(/^\/api\/admin\/(projects|developers|change-requests)\/([a-zA-Z0-9_-]{8,80})$/);
   if (detail && request.method === "GET") {
     const table = detail[1] === "change-requests" ? "project_change_requests" : detail[1];
-    const record = await db.prepare(`SELECT * FROM ${table} WHERE id = ?`).bind(detail[2]).first();
+    const record = await db.prepare(detail[1] === "change-requests" ? "SELECT c.*, s.email AS submitter_email, r.email AS reviewer_email FROM project_change_requests c JOIN admin_users s ON s.id=c.submitted_by LEFT JOIN admin_users r ON r.id=c.reviewed_by WHERE c.id = ?" : `SELECT * FROM ${table} WHERE id = ?`).bind(detail[2]).first();
     if (!record) return fail("Record not found.",404);
     const associated = detail[1] === "developers" ? (await db.prepare("SELECT id,name,status FROM projects WHERE developer_id = ? ORDER BY name").bind(detail[2]).all()).results : [];
     return json({ record, projects: associated });
   }
   if (url.pathname === "/api/admin/developers" && request.method === "GET") {
     const query = (url.searchParams.get("q") || "").slice(0, 120);
-    const rows = await db.prepare("SELECT id, legacy_key, name, website, status, verified, revision, updated_at FROM developers WHERE name LIKE ? ORDER BY name LIMIT 100").bind(`%${query}%`).all();
-    return json({ developers: rows.results });
+    const status = url.searchParams.get("status") || "";
+    const offset = Math.max(0, Math.min(100000, Number(url.searchParams.get("offset")) || 0));
+    const rows = await db.prepare("SELECT id, legacy_key, name, website, status, verified, revision, updated_at FROM developers WHERE name LIKE ? AND (? = '' OR status = ?) ORDER BY name,id LIMIT 50 OFFSET ?").bind(`%${query}%`,status,status,offset).all();
+    const total = await db.prepare("SELECT COUNT(*) AS n FROM developers WHERE name LIKE ? AND (? = '' OR status = ?)").bind(`%${query}%`,status,status).first<{n:number}>();
+    return json({ developers: rows.results, total: total?.n || 0, offset, limit: 50 });
   }
   if (url.pathname === "/api/admin/projects" && request.method === "GET") {
     const query = (url.searchParams.get("q") || "").slice(0, 120);
-    const rows = await db.prepare("SELECT p.id, p.legacy_key, p.name, p.area, p.starting_price_aed, p.status, p.revision, p.updated_at, d.name AS developer FROM projects p LEFT JOIN developers d ON d.id = p.developer_id WHERE p.name LIKE ? OR d.name LIKE ? ORDER BY p.updated_at DESC LIMIT 100").bind(`%${query}%`, `%${query}%`).all();
-    return json({ projects: rows.results });
+    const status = url.searchParams.get("status") || "";
+    const offset = Math.max(0, Math.min(100000, Number(url.searchParams.get("offset")) || 0));
+    const filter = "FROM projects p LEFT JOIN developers d ON d.id=p.developer_id WHERE (p.name LIKE ? OR d.name LIKE ? OR p.area LIKE ?) AND (? = '' OR p.status = ?)";
+    const values = [`%${query}%`,`%${query}%`,`%${query}%`,status,status];
+    const rows = await db.prepare("SELECT p.id,p.legacy_key,p.name,p.area,p.starting_price_aed,p.status,p.revision,p.updated_at,d.name AS developer " + filter + " ORDER BY p.updated_at DESC,p.id LIMIT 50 OFFSET ?").bind(...values,offset).all();
+    const total = await db.prepare("SELECT COUNT(*) AS n " + filter).bind(...values).first<{n:number}>();
+    return json({ projects: rows.results, total: total?.n || 0, offset, limit: 50 });
   }
   if (url.pathname === "/api/admin/change-requests" && request.method === "GET") {
-    const rows = await db.prepare("SELECT id, entity_type, entity_id, status, submitted_at, reviewed_at, review_reason FROM project_change_requests ORDER BY submitted_at DESC LIMIT 100").all();
-    return json({ requests: rows.results });
+    const rows = await db.prepare("SELECT c.*,s.email AS submitter_email,r.email AS reviewer_email FROM project_change_requests c JOIN admin_users s ON s.id=c.submitted_by LEFT JOIN admin_users r ON r.id=c.reviewed_by ORDER BY c.submitted_at DESC LIMIT 500").all();
+    return json({ requests: rows.results, limit: 500 });
   }
   const input = await body(request);
   if (!input) return fail("Invalid JSON input.");
