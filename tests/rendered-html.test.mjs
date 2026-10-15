@@ -35,7 +35,10 @@ test("renders every public route successfully", async () => {
     const response = await render(worker, route);
     assert.equal(response.status, 200, `${route} returned ${response.status}`);
     assert.match(response.headers.get("content-type") ?? "", /^text\/html\b/i);
-    assert.match(await response.text(), developmentPreviewMeta);
+    const html = await response.text();
+    assert.match(html, /<title>[^<]*MAS MAP/i, `${route} is missing its brand title`);
+    assert.match(html, /<link[^>]+rel="stylesheet"/, `${route} is missing a stylesheet`);
+    assert.doesNotMatch(html, developmentPreviewMeta, `${route} leaked development preview metadata into production`);
   }
 });
 
