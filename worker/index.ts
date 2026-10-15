@@ -32,7 +32,7 @@ const worker = {
 
     // /admin is never served as an anonymous client-side-only gate. Cloudflare
     // Access JWT validation happens in the Worker before the app route runs.
-    if (url.pathname.startsWith("/api/admin/")) return handleAdmin(request, env, url);
+    if (url.pathname === "/api/admin" || url.pathname.startsWith("/api/admin/")) return handleAdmin(request, env, url);
     if (url.pathname === "/admin" || url.pathname.startsWith("/admin/")) {
       const denied = await requireAdminPage(request, env);
       if (denied) return denied;
